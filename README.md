@@ -3,7 +3,7 @@
 分散型レンディング市場において、担保を多数のアドレスに分散し、短時間に借り入れる攻撃の影響を抑えるためのプロジェクトです。未熟成担保に依存する借入を市場全体の共有枠で制限し、資金移動の追跡と再現可能なシミュレーションを組み合わせることを目指します。
 
 > **開発状況：設計段階**
-> 現在はアイデアと機能仕様のみを公開しています。コントラクト、追跡エンジン、シミュレータは未実装であり、安全性や性能は検証されていません。
+> 現在はアイデアと機能仕様のみを公開しています。貸借機能、追跡エンジン、シミュレータは未実装であり、安全性や性能は検証されていません。
 
 ## 設計の概要
 
@@ -35,3 +35,19 @@
 
 - [機能仕様書](docs/SPEC.md)：機能要件、信頼境界、受け入れ基準、導入条件
 - [ベースアイデア](docs/IDEA.md)：プロジェクトの着想と初期案。仕様書で見直した前提を含みます
+
+## 開発環境
+
+Rust 1.98.0（`rust-toolchain.toml`、rustfmt と Clippy を含む）と Foundry v1.8.6 を使用します。`rustup` と指定版の Foundry をインストールしたクリーンチェックアウトで、次を実行します。Foundry は初回ビルド時に Solidity 0.8.26 を取得します。
+
+```sh
+cargo fmt --all -- --check
+cargo clippy --workspace --all-targets --locked -- -D warnings
+cargo test --workspace --locked
+forge fmt --check
+forge build
+forge test
+python3 scripts/e2e-node.py
+```
+
+Solidity の EVM 対象は Cancun です。Ethereum、Arbitrum、Base、Optimism は対象候補であり、各チェーンの EVM 機能と市場統合の対応は未検証です。E2E スモークテストはローカル Anvil ノードの JSON-RPC 接続を確認します（Python 3 が必要です）。現在の Solidity テストと E2E はツールチェーンの動作確認であり、担保・貸借機能の安全性を検証するものではありません。
