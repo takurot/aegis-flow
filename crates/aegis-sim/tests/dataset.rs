@@ -79,3 +79,17 @@ fn rejects_invalid_metadata_and_out_of_range_event() {
     data["events"][0]["block"] = 12.into();
     assert!(matches!(check(manifest, data), Validation::Failed(_)));
 }
+
+#[test]
+fn rejects_event_after_retrieval_and_inconsistent_block_timestamps() {
+    let (mut manifest, data) = input();
+    manifest["retrieved_at"] = 99.into();
+    assert!(matches!(check(manifest, data), Validation::Failed(_)));
+
+    let (manifest, mut data) = input();
+    let mut event = data["events"][0].clone();
+    event["log_index"] = 1.into();
+    event["timestamp"] = 101.into();
+    data["events"].as_array_mut().unwrap().push(event);
+    assert!(matches!(check(manifest, data), Validation::Failed(_)));
+}

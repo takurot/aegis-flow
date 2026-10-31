@@ -52,3 +52,14 @@ fn documented_example_runs_successfully() {
     );
     assert!(String::from_utf8_lossy(&output.stdout).contains("READY"));
 }
+
+#[test]
+fn missing_input_reports_which_file_failed() {
+    let output = Command::new(env!("CARGO_BIN_EXE_aegis-sim"))
+        .arg("missing-manifest.json")
+        .arg("missing-data.json")
+        .output()
+        .unwrap();
+    assert_eq!(output.status.code(), Some(1));
+    assert!(String::from_utf8_lossy(&output.stderr).contains("missing-manifest.json"));
+}

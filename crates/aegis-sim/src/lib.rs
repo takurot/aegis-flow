@@ -109,6 +109,7 @@ fn validate(manifest_bytes: &[u8], data_bytes: &[u8]) -> Result<Validation, Stri
         if event.block < manifest.start_block
             || event.block > manifest.end_block
             || event.timestamp == 0
+            || event.timestamp > manifest.retrieved_at
             || !present(&event.market)
             || !present(&event.asset)
             || !matches!(
@@ -121,7 +122,11 @@ fn validate(manifest_bytes: &[u8], data_bytes: &[u8]) -> Result<Validation, Stri
         {
             return Err("invalid event".into());
         }
-        if previous.is_some_and(|(old_id, old_time)| id <= old_id || event.timestamp < old_time) {
+        if previous.is_some_and(|(old_id, old_time)| {
+            id <= old_id
+                || event.timestamp < old_time
+                || (id.0 == old_id.0 && event.timestamp != old_time)
+        }) {
             return Err("duplicate or out-of-order event".into());
         }
         previous = Some((id, event.timestamp));

@@ -9,7 +9,13 @@ fn main() -> ExitCode {
     }
     let (manifest, data) = match (fs::read(&args[1]), fs::read(&args[2])) {
         (Ok(manifest), Ok(data)) => (manifest, data),
-        _ => {
+        (Err(error), _) => {
+            eprintln!("aegis-sim: {}: {error}", args[1].to_string_lossy());
+            println!("FAILED: could not read input files");
+            return ExitCode::from(1);
+        }
+        (_, Err(error)) => {
+            eprintln!("aegis-sim: {}: {error}", args[2].to_string_lossy());
             println!("FAILED: could not read input files");
             return ExitCode::from(1);
         }
