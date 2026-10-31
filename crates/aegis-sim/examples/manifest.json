@@ -1,0 +1,10 @@
+{
+  "chain_id": 1,
+  "start_block": 10,
+  "end_block": 11,
+  "source": "synthetic example",
+  "retrieved_at": 120,
+  "label_source": "synthetic example",
+  "data_sha256": "95198f32b88bf5c87d39cfc9eb41a193999d06ea9c39259319cee9c2ce62db78",
+  "missing": []
+}

@@ -1,0 +1,6 @@
+{
+  "events": [{"block": 10, "transaction_index": 0, "log_index": 0, "timestamp": 100, "market": "example-pool", "asset": "example-usdt", "kind": "supply", "amount": "1000000"}],
+  "prices": [{"block": 10, "asset": "example-usdt", "usd_8": 100000000}],
+  "settings": [{"market": "example-pool", "asset": "example-usdt", "ltv_bps": 7500}],
+  "labels": [{"block": 10, "transaction_index": 0, "log_index": 0, "classification": "unknown", "evidence": "synthetic example"}]
+}
