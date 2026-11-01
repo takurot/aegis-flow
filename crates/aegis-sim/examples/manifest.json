@@ -5,6 +5,11 @@
   "source": "synthetic example",
   "retrieved_at": 120,
   "label_source": "synthetic example",
-  "data_sha256": "95198f32b88bf5c87d39cfc9eb41a193999d06ea9c39259319cee9c2ce62db78",
-  "missing": []
+  "data_sha256": "f01e132e42b7953e3a66960065e3b1cf2034c5a2d2346ef742c2c52204c15cb2",
+  "missing": [],
+  "schema_version": 2,
+  "checkpoint_source": "explicit synthetic empty positions",
+  "initial_state_sha256": "1e9630c043c31faa305fa65a85dcf253daef3b29d9ceabc2efcb47060d3d49cd",
+  "finalized_block": 11,
+  "intent_policy": null
 }

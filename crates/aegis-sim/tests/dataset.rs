@@ -20,10 +20,13 @@ fn check(mut manifest: Value, data: Value) -> Validation {
 }
 
 #[test]
-fn accepts_complete_deterministic_input() {
+fn holds_legacy_input_deterministically() {
     let (manifest, data) = input();
-    assert_eq!(check(manifest.clone(), data.clone()), Validation::Ready);
-    assert_eq!(check(manifest, data), Validation::Ready);
+    assert!(matches!(
+        check(manifest.clone(), data.clone()),
+        Validation::Hold(_)
+    ));
+    assert!(matches!(check(manifest, data), Validation::Hold(_)));
 }
 
 #[test]

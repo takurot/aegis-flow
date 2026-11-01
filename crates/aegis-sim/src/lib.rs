@@ -1,4 +1,5 @@
 //! Structural validation for simulation inputs. It does not establish source completeness.
+mod checkpoint;
 use serde::Deserialize;
 use sha2::{Digest, Sha256};
 use std::collections::{HashMap, HashSet};
@@ -14,6 +15,16 @@ pub enum Validation {
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Manifest {
+    #[serde(default)]
+    schema_version: Option<u32>,
+    #[serde(default)]
+    checkpoint_source: Option<String>,
+    #[serde(default)]
+    initial_state_sha256: Option<String>,
+    #[serde(default)]
+    finalized_block: Option<u64>,
+    #[serde(default)]
+    intent_policy: Option<checkpoint::IntentPolicy>,
     chain_id: u64,
     start_block: u64,
     end_block: u64,
@@ -27,6 +38,10 @@ struct Manifest {
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Dataset {
+    #[serde(default)]
+    initial_state: Option<serde_json::Value>,
+    #[serde(default)]
+    blocks: Vec<checkpoint::Block>,
     events: Vec<Event>,
     prices: Vec<Price>,
     settings: Vec<Setting>,
@@ -36,6 +51,14 @@ struct Dataset {
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Event {
+    #[serde(default)]
+    block_hash: Option<String>,
+    #[serde(default)]
+    user: Option<String>,
+    #[serde(default)]
+    intent_id: Option<String>,
+    #[serde(default)]
+    attempt_id: Option<String>,
     block: u64,
     transaction_index: u32,
     log_index: u32,
@@ -57,6 +80,8 @@ struct Price {
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Setting {
+    #[serde(default)]
+    decimals: Option<u8>,
     market: String,
     asset: String,
     ltv_bps: u16,
@@ -136,6 +161,7 @@ fn validate(manifest_bytes: &[u8], data_bytes: &[u8]) -> Result<Validation, Stri
     for setting in &data.settings {
         if !present(&setting.market)
             || !present(&setting.asset)
+            || setting.decimals.is_some_and(|n| n > 38)
             || setting.ltv_bps > 10_000
             || !settings.insert((&setting.market, &setting.asset))
         {
@@ -183,5 +209,5 @@ fn validate(manifest_bytes: &[u8], data_bytes: &[u8]) -> Result<Validation, Stri
             return Ok(Validation::Hold("missing setting, price, or label".into()));
         }
     }
-    Ok(Validation::Ready)
+    checkpoint::validate(&manifest, &data)
 }
