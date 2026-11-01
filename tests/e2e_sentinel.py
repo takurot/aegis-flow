@@ -14,6 +14,7 @@ from urllib.request import Request, urlopen
 
 from sentinel.collector import Collector
 from sentinel.rpc import Rpc
+from sentinel.trace import trace_snapshot
 
 
 class AnvilSentinelTests(unittest.TestCase):
@@ -93,7 +94,54 @@ class AnvilSentinelTests(unittest.TestCase):
                 return value
 
             token = receipt(send(artifact["bytecode"]["object"]))["contractAddress"]
-            receipt(send(data("mint(uint256)", 100), token))
+            mint_receipt = receipt(send(data("mint(uint256)", 100), token))
+            checkpoint = {
+                "chain_id": 31337,
+                "block_number": int(mint_receipt["blockNumber"], 16),
+                "block_hash": mint_receipt["blockHash"],
+                "source": "local Anvil fixture eth_call",
+                "balances": [
+                    {
+                        "address": owner.lower(),
+                        "asset": token.lower(),
+                        "kind": "wallet",
+                        "amount": str(
+                            int(
+                                rpc(
+                                    "eth_call",
+                                    [
+                                        {
+                                            "to": token,
+                                            "data": data(
+                                                "balanceOf(address)", int(owner, 16)
+                                            ),
+                                        },
+                                        mint_receipt["blockNumber"],
+                                    ],
+                                ),
+                                16,
+                            )
+                        ),
+                    }
+                    for owner in accounts[:3]
+                ],
+            }
+            seeds = [
+                {
+                    "claim_id": "fixture-claim",
+                    "address": accounts[0].lower(),
+                    "asset": token.lower(),
+                    "amount": "40",
+                    "source": "synthetic taint for E2E",
+                    "registered_by": "fixture",
+                    "start_block": checkpoint["block_number"],
+                    "end_block": checkpoint["block_number"],
+                }
+            ]
+            checkpoint_bytes, seed_bytes = (
+                json.dumps(checkpoint).encode(),
+                json.dumps(seeds).encode(),
+            )
             snapshot = rpc("evm_snapshot", [])
             first_tx = send(
                 data("transfer(address,uint256)", int(accounts[1], 16), 30), token
@@ -132,6 +180,34 @@ class AnvilSentinelTests(unittest.TestCase):
                 )
                 self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
                 self.assertEqual(json.loads(result.stdout)["events"], 2)
+                checkpoint_file, seed_file = (
+                    Path(directory) / "checkpoint.json",
+                    Path(directory) / "seeds.json",
+                )
+                checkpoint_file.write_bytes(checkpoint_bytes)
+                seed_file.write_bytes(seed_bytes)
+                traced = subprocess.run(
+                    [
+                        sys.executable,
+                        "-m",
+                        "sentinel.trace",
+                        "--database",
+                        str(database),
+                        "--checkpoint",
+                        str(checkpoint_file),
+                        "--seeds",
+                        str(seed_file),
+                    ],
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertEqual(traced.returncode, 0, traced.stdout + traced.stderr)
+                trace_before = json.loads(traced.stdout)
+                self.assertEqual(
+                    trace_before["graph"][0]["moved"][0]["quantity"],
+                    {"numerator": "12", "denominator": "1"},
+                )
                 self.assertTrue(rpc("evm_revert", [snapshot]))
                 replacement = receipt(
                     send(
@@ -149,6 +225,16 @@ class AnvilSentinelTests(unittest.TestCase):
                     )
                     self.assertNotIn(
                         old_event, {e["event_id"] for e in collector.events()}
+                    )
+                    trace_after = trace_snapshot(database, checkpoint_bytes, seed_bytes)
+                    self.assertEqual(trace_after["status"], "ready")
+                    self.assertEqual(
+                        trace_after["graph"][0]["moved"][0]["quantity"],
+                        {"numerator": "16", "denominator": "1"},
+                    )
+                    self.assertNotEqual(
+                        trace_before["basis"]["events_sha256"],
+                        trace_after["basis"]["events_sha256"],
                     )
                     rpc("evm_setAutomine", [False])
                     pending_tx = send(
