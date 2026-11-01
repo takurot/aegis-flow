@@ -1,7 +1,9 @@
 //! Structural validation for simulation inputs. It does not establish source completeness.
+mod backtest;
 mod checkpoint;
 mod replay;
 mod report;
+pub use backtest::{evaluate_backtest, BacktestReport};
 pub use replay::{replay_dataset, ReplayReport};
 pub use report::{evaluate_dataset, EvaluationReport};
 use serde::{Deserialize, Serialize};

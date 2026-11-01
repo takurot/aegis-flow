@@ -22,6 +22,12 @@ jobs:
       - run: cargo clippy --workspace --all-targets --locked -- -D warnings
       - run: cargo test --workspace --locked
       - run: python3 -m unittest discover -s tests -v
+      - name: Reproduce candidate backtest evidence
+        run: |
+          backtest_exit=0
+          cargo run --locked -p aegis-sim -- --backtest evaluations/manifest.json > "$RUNNER_TEMP/backtest-results.json" || backtest_exit=$?
+          test "$backtest_exit" -eq 2
+          diff -u evaluations/results.json "$RUNNER_TEMP/backtest-results.json"
   solidity:
     runs-on: ubuntu-latest
     timeout-minutes: 30

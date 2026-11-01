@@ -1,8 +1,40 @@
-use aegis_sim::{evaluate_dataset, replay_dataset, validate_dataset, Validation};
-use std::{env, fs, process::ExitCode};
+use aegis_sim::{
+    evaluate_backtest, evaluate_dataset, replay_dataset, validate_dataset, Validation,
+};
+use std::{env, fs, path::Path, process::ExitCode};
 
 fn main() -> ExitCode {
     let args: Vec<_> = env::args_os().collect();
+    if args.get(1).is_some_and(|arg| arg == "--backtest") {
+        if args.len() != 3 {
+            eprintln!("Usage: aegis-sim --backtest <evaluation-manifest.json>");
+            return ExitCode::from(1);
+        }
+        let plan_path = Path::new(&args[2]);
+        let plan = match fs::read(plan_path) {
+            Ok(bytes) => bytes,
+            Err(_) => {
+                println!(
+                    "{{\"status\":\"failed\",\"reason\":\"could not read evaluation manifest\"}}"
+                );
+                return ExitCode::from(1);
+            }
+        };
+        let root = plan_path
+            .parent()
+            .filter(|p| !p.as_os_str().is_empty())
+            .unwrap_or(Path::new("."));
+        let result = evaluate_backtest(&plan, root);
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&result).expect("JSON report")
+        );
+        return match result.status.as_str() {
+            "ready" => ExitCode::SUCCESS,
+            "hold" => ExitCode::from(2),
+            _ => ExitCode::from(1),
+        };
+    }
     let report = args.len() == 4 && args[1] == "--report";
     let replay = args.len() == 4 && args[1] == "--replay";
     if args.len() != 3 && !replay && !report {

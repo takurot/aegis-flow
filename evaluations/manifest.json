@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "candidates": [
+    {
+      "id": "binance-hot-wallet-20261029",
+      "kind": "observed",
+      "chain_id": 1,
+      "market": "aave-v3-ethereum-core",
+      "period": {
+        "start_unix": 1793304000,
+        "end_unix": 1793318399
+      },
+      "sources": [
+        "https://governance.aave.com/t/binance-hot-wallet-exploit-aaves-response/25954",
+        "https://github.com/bgd-labs/aave-address-book"
+      ],
+      "license": null,
+      "inputs": null,
+      "missing": [
+        "Canonical block range/hash and complete supply/borrow/repay/withdraw/liquidation events are unverified.",
+        "Historical oracle prices, initial positions/debt/interest indices and market settings are unavailable.",
+        "Attack/normal labels, population coverage, usage and redistribution conditions are unverified."
+      ],
+      "assumptions": [
+        "No observations have been acquired or replayed; this is a candidate assessment.",
+        "Baseline and protected models must use identical canonical order and block-specific prices.",
+        "Replay observed attempts only; do not invent retries, liquidation outcomes or initial balances.",
+        "Requested period is a research window, not a verified full attack history.",
+        "Actual reserve freezes must be separated from counterfactual Aegis effects."
+      ]
+    },
+    {
+      "id": "euler-v1-20230313",
+      "kind": "observed",
+      "chain_id": 1,
+      "market": null,
+      "period": {
+        "start_unix": null,
+        "end_unix": null
+      },
+      "sources": [
+        "https://www.euler.finance/blog/war-peace-behind-the-scenes-of-eulers-240m-exploit-recovery"
+      ],
+      "license": null,
+      "inputs": null,
+      "missing": [
+        "Aave collateral/borrow relevance and the precise evaluation target/window are unverified.",
+        "Canonical events, historical prices, initial positions/settings and labels have not been acquired.",
+        "Data usage and redistribution conditions are unverified."
+      ],
+      "assumptions": [
+        "No observations have been acquired or replayed; this is a candidate assessment.",
+        "Baseline and protected models must use identical canonical order and block-specific prices.",
+        "Replay observed attempts only; do not invent retries, liquidation outcomes or initial balances.",
+        "2023-03-13 is the candidate incident date; no precise observed interval is asserted.",
+        "An Euler V1 exploit is not automatically an Aave stolen-collateral borrowing scenario."
+      ]
+    },
+    {
+      "id": "normal-borrow-liquidation-comparison",
+      "kind": "observed",
+      "chain_id": 1,
+      "market": "aave-v3-ethereum-core",
+      "period": {
+        "start_unix": 1793304000,
+        "end_unix": 1793318399
+      },
+      "sources": [
+        "docs/EVALUATION_DATA.md",
+        "https://governance.aave.com/t/binance-hot-wallet-exploit-aaves-response/25954"
+      ],
+      "license": null,
+      "inputs": null,
+      "missing": [
+        "The complete normal/unknown borrowing and liquidation population is unavailable.",
+        "Intent identity, observation horizon and label evidence are unverified.",
+        "Historical prices, initial positions/debt, freeze/settings history and data usage conditions are unverified."
+      ],
+      "assumptions": [
+        "No observations have been acquired or replayed; this is a candidate assessment.",
+        "Baseline and protected models must use identical canonical order and block-specific prices.",
+        "Replay observed attempts only; do not invent retries, liquidation outcomes or initial balances.",
+        "Comparison targets the same candidate market/window; the pre-incident control period is unselected.",
+        "Zero observed denominator and unavailable denominator are different states."
+      ]
+    }
+  ]
+}
