@@ -1,0 +1,169 @@
+{
+  "events": [
+    {
+      "block": 10,
+      "transaction_index": 0,
+      "log_index": 0,
+      "timestamp": 100,
+      "market": "example-pool",
+      "asset": "example-usdt",
+      "kind": "supply",
+      "amount": "100000000",
+      "block_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "user": "alice"
+    },
+    {
+      "block": 10,
+      "transaction_index": 1,
+      "log_index": 1,
+      "timestamp": 100,
+      "market": "example-pool",
+      "asset": "example-usdt",
+      "kind": "borrow",
+      "amount": "50000000",
+      "block_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "user": "alice"
+    },
+    {
+      "block": 10,
+      "transaction_index": 2,
+      "log_index": 2,
+      "timestamp": 100,
+      "market": "example-pool",
+      "asset": "example-usdt",
+      "kind": "repay",
+      "amount": "10000000",
+      "block_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "user": "alice"
+    },
+    {
+      "block": 10,
+      "transaction_index": 3,
+      "log_index": 3,
+      "timestamp": 100,
+      "market": "example-pool",
+      "asset": "example-usdt",
+      "kind": "withdraw",
+      "amount": "80000000",
+      "block_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "user": "alice"
+    }
+  ],
+  "prices": [
+    {
+      "block": 10,
+      "asset": "example-usdt",
+      "usd_8": 100000000
+    },
+    {
+      "block": 11,
+      "asset": "example-usdt",
+      "usd_8": 100000000
+    }
+  ],
+  "settings": [
+    {
+      "market": "example-pool",
+      "asset": "example-usdt",
+      "ltv_bps": 7500,
+      "decimals": 6,
+      "liquidation_threshold_bps": 8000
+    }
+  ],
+  "labels": [
+    {
+      "block": 10,
+      "transaction_index": 0,
+      "log_index": 0,
+      "classification": "unknown",
+      "evidence": "synthetic demonstration only"
+    },
+    {
+      "block": 10,
+      "transaction_index": 1,
+      "log_index": 1,
+      "classification": "attack",
+      "evidence": "synthetic demonstration only"
+    },
+    {
+      "block": 10,
+      "transaction_index": 2,
+      "log_index": 2,
+      "classification": "unknown",
+      "evidence": "synthetic demonstration only"
+    },
+    {
+      "block": 10,
+      "transaction_index": 3,
+      "log_index": 3,
+      "classification": "unknown",
+      "evidence": "synthetic demonstration only"
+    }
+  ],
+  "initial_state": {
+    "block": 9,
+    "block_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "timestamp": 90,
+    "positions": [],
+    "markets": [
+      {
+        "market": "example-pool",
+        "seasoning_seconds": 7200,
+        "prices": [
+          {
+            "block": 9,
+            "asset": "example-usdt",
+            "usd_8": 100000000
+          }
+        ],
+        "settings": [
+          {
+            "market": "example-pool",
+            "asset": "example-usdt",
+            "ltv_bps": 7500,
+            "decimals": 6,
+            "liquidation_threshold_bps": 8000
+          }
+        ],
+        "limiter": {
+          "mode": "fixed",
+          "capacity_usd_8": "3000000000",
+          "used_usd_8": "0",
+          "epoch_start": 0,
+          "duration": 600,
+          "config_version": 1
+        },
+        "pending_changes": []
+      }
+    ],
+    "user_limits": []
+  },
+  "blocks": [
+    {
+      "number": 10,
+      "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "parent_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "timestamp": 100
+    },
+    {
+      "number": 11,
+      "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "parent_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "timestamp": 110
+    }
+  ],
+  "interest_indices": [
+    {
+      "block": 10,
+      "market": "example-pool",
+      "asset": "example-usdt",
+      "index": "1000000000000000000000000000"
+    },
+    {
+      "block": 11,
+      "market": "example-pool",
+      "asset": "example-usdt",
+      "index": "1000000000000000000000000000"
+    }
+  ]
+}

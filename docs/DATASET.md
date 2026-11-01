@@ -1,6 +1,6 @@
 # シミュレータ入力 v2
 
-`cargo run --locked -p aegis-sim -- crates/aegis-sim/examples/manifest.json crates/aegis-sim/examples/data.json` で架空データを検証する。現時点で CLI は入力検証を行い、貸借リプレイや KPI を計算しない。
+`cargo run --locked -p aegis-sim -- crates/aegis-sim/examples/manifest.json crates/aegis-sim/examples/data.json` で架空データを検証する。通常は入力検証を行い、`--replay` で対応する基本会計を再生する。KPI の集計はまだ行わない。
 
 `READY`（0）は構造上の整合性、`HOLD`（2）は必要データ不足、`FAILED`（1）は不正を示す。出典の真正性・現実の全履歴・ラベルの正しさは検証しない。v1 入力は、既存の不正検証後に初期状態・正規チェーンの根拠がないため HOLD とする。
 
@@ -44,3 +44,15 @@ pending_changes は effective_at と limiter を持つ時刻順の配列。こ�
 現行の data.settings は期間内一定の表現なので、基準設定と異なる LTV/decimals は時系列の設定履歴が不足するものとして HOLD とする。リプレイが未対応の状態・操作も別途 HOLD とする。
 
 初期状態の欠損は HOLD、内容hash不一致、不正数量、矛盾するチェーンや不正な列挙値は FAILED。ここでの形式通過を、SPEC の全評価条件が成立した証拠として扱わない。
+
+## リプレイの追加入力
+
+`--replay` は固定モードに対応する。data.settings と基準設定に liquidation_threshold_bps（LTV以上10000以下）を指定し、全対象ブロック・市場・資産の interest_indices（block、market、asset、index）と価格を渡す。index は正の整数文字列。現段階の設定履歴は期間中一定とする。
+
+初期に債務がある場合は debts に shares={numerator,denominator} を指定する。これは「token単位の債務／interest_index」を保持する正の有理数で、ceil(shares*interest_index) が amount に一致しなければ不正。部分返済・借入はこの持分を有理数で加減し、利息の各評価時に切り上げる。整数債務を繰返し丸めて再投資するモデルではない。既存持分を元の実装に対応させて出力できないデータは HOLD。実コントラクトのscaled debt丸め等を包括的に再現するものではない。
+
+出力 checkpoint は各モデルの反実仮想の最終状態。次区間の初期状態に使う際は、基準block/hash、価格・index基点、出典と内容hashを更新する。baseline と protected の状態を混同しない。途中の拒否でも価格・利息の時間経過は評価するが、操作で変更するロット・債務・枠は原子的に戻す。過剰返済は残債までに制限し、残債0への返済は会計上のno-opとして扱う。
+
+同一(block,transaction_index)に複数の保護対象操作がある場合、caught revert等の実行境界を推測せず HOLD とする。利息指数はイベントがないブロックも含め市場・資産ごとに非減少を要求し、初期債務の指数基点とも比較する。
+
+再生できない機能は HOLD、演算範囲超過や矛盾する指数は FAILED とし、未完了の一部結果を ready として出さない。使用量や借入の価格換算はUSD8。大きな中間演算がu128に収まらない場合も FAILED であり、範囲を緩めて成功にしない。正確な債務持分の各整数は最大4096桁とし、超過は明示的に拒否する。

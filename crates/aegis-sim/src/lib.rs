@@ -1,6 +1,8 @@
 //! Structural validation for simulation inputs. It does not establish source completeness.
 mod checkpoint;
-use serde::Deserialize;
+mod replay;
+pub use replay::{replay_dataset, ReplayReport};
+use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::collections::{HashMap, HashSet};
 
@@ -12,7 +14,7 @@ pub enum Validation {
     Failed(String),
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
 struct Manifest {
     #[serde(default)]
@@ -35,9 +37,11 @@ struct Manifest {
     missing: Vec<String>,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
 struct Dataset {
+    #[serde(default)]
+    interest_indices: Vec<replay::Index>,
     #[serde(default)]
     initial_state: Option<serde_json::Value>,
     #[serde(default)]
@@ -48,7 +52,7 @@ struct Dataset {
     labels: Vec<Label>,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
 struct Event {
     #[serde(default)]
@@ -69,7 +73,7 @@ struct Event {
     amount: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
 struct Price {
     block: u64,
@@ -77,9 +81,11 @@ struct Price {
     usd_8: u64,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
 struct Setting {
+    #[serde(default)]
+    liquidation_threshold_bps: Option<u16>,
     #[serde(default)]
     decimals: Option<u8>,
     market: String,
@@ -87,7 +93,7 @@ struct Setting {
     ltv_bps: u16,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
 struct Label {
     block: u64,
@@ -162,6 +168,9 @@ fn validate(manifest_bytes: &[u8], data_bytes: &[u8]) -> Result<Validation, Stri
         if !present(&setting.market)
             || !present(&setting.asset)
             || setting.decimals.is_some_and(|n| n > 38)
+            || setting
+                .liquidation_threshold_bps
+                .is_some_and(|v| v < setting.ltv_bps || v > 10_000)
             || setting.ltv_bps > 10_000
             || !settings.insert((&setting.market, &setting.asset))
         {
@@ -209,5 +218,6 @@ fn validate(manifest_bytes: &[u8], data_bytes: &[u8]) -> Result<Validation, Stri
             return Ok(Validation::Hold("missing setting, price, or label".into()));
         }
     }
+    replay::validate_indices(&manifest, &data)?;
     checkpoint::validate(&manifest, &data)
 }
