@@ -1,6 +1,6 @@
 # シミュレータ入力 v2
 
-`cargo run --locked -p aegis-sim -- crates/aegis-sim/examples/manifest.json crates/aegis-sim/examples/data.json` で架空データを検証する。通常は入力検証を行い、`--replay` で対応する基本会計を再生する。KPI の集計はまだ行わない。
+`cargo run --locked -p aegis-sim -- crates/aegis-sim/examples/manifest.json crates/aegis-sim/examples/data.json` で架空データを検証する。通常は入力検証を行い、`--replay` で対応する基本会計を再生する。`--report` では対応する評価指標と再現情報を JSON で出力する。
 
 `READY`（0）は構造上の整合性、`HOLD`（2）は必要データ不足、`FAILED`（1）は不正を示す。出典の真正性・現実の全履歴・ラベルの正しさは検証しない。v1 入力は、既存の不正検証後に初期状態・正規チェーンの根拠がないため HOLD とする。
 
@@ -56,3 +56,16 @@ pending_changes は effective_at と limiter を持つ時刻順の配列。こ�
 同一(block,transaction_index)に複数の保護対象操作がある場合、caught revert等の実行境界を推測せず HOLD とする。利息指数はイベントがないブロックも含め市場・資産ごとに非減少を要求し、初期債務の指数基点とも比較する。
 
 再生できない機能は HOLD、演算範囲超過や矛盾する指数は FAILED とし、未完了の一部結果を ready として出さない。使用量や借入の価格換算はUSD8。大きな中間演算がu128に収まらない場合も FAILED であり、範囲を緩めて成功にしない。正確な債務持分の各整数は最大4096桁とし、超過は明示的に拒否する。
+
+
+## 評価レポート
+
+`--report` は入力検証と両会計の再生後に集計する。status は ready/hold/failed、終了コードは0/2/1。HOLD/FAILED では部分的な KPI を出さず metrics は null とする。provenance の実入力 hash は失敗時も保存する。target/evaluated_operations は渡されたイベント数の範囲であり、チェーン全体の網羅性を示さない。
+
+指標は numerator/denominator（整数の文字列）、status、N/A理由を出す。attack_prevention は借入成立分の各ブロックUSD8換算を合計し、baselineとの差分をbaselineで割る。protectedの合計が大きければ負値もそのまま残す。normal_friction は明示された正常な借入意図を集計し、baselineで成功した対応attemptがprotectedで拒否された場合を追加制限による摩擦とする。baseline固有の拒否は別件数とする。unknown借入は両ラベル別指標から除き、未判定数を残す。清算は未対応のため常にN/A。
+
+意図評価は入力の intent_policy に従い、最初の観測attempt時刻+horizon_secondsまでを期限とする（期限ちょうどの成功も含む）。根拠付きIDが最初の要求を指すかはデータ提供側で検証する。同じ意図の利用者・市場・資産・要求数量・ラベルは一定、attempt_idは全体で一意。retry_interval_secondsは観測attempt間の最小間隔、max_attemptsは期限後も含む観測attemptの最大数として検証し、違反はFAILED。意図からの追加retryは生成しない。
+
+観測末尾が期限未満ならcensoredとして分母除外し、期限内成功・期限内未成功・期限内成功がなく期限後に成功した件数を別に示す。期限内に一度でも追加拒否を受けた意図は後で成功しても摩擦1件とする。正常borrowのIDが一つでも不足すれば意図KPIはN/A、observed_transaction_rejectionとattempt結果のみ出す。根拠なしに別要求を同じ意図へ束ねない。
+
+コード指紋はaegis-simの全Rustソース・package/workspace manifest・Cargo.lock・rust-toolchain.tomlの長さ付きバイト列のSHA-256。package版も出すがGit commitの検証を代用しない。configuration_sha256はscenario（manifest・基準状態・設定・指数・価格/再試行方針）のJSON hash。価格値・正規ブロック・イベント・ラベルは実data_sha256へ拘束される。seed=null、randomness=none。数値は同一入力・同一モデルで決定的だが、基盤のrustc版はrust-toolchain.tomlに固定する。

@@ -1,7 +1,9 @@
 //! Structural validation for simulation inputs. It does not establish source completeness.
 mod checkpoint;
 mod replay;
+mod report;
 pub use replay::{replay_dataset, ReplayReport};
+pub use report::{evaluate_dataset, EvaluationReport};
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::collections::{HashMap, HashSet};
