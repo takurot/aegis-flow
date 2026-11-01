@@ -83,16 +83,21 @@ fn validates_positions_claims_pending_settings_and_intents() {
     assert!(matches!(check(m, missing), Validation::Hold(_)));
 }
 
-#[test]
-fn validates_continuous_state_and_user_allowance() {
+fn continuous_input() -> (Value, Value) {
     let (m, mut d) = sample();
     d["initial_state"]["markets"][0]["limiter"] = json!({"mode":"continuous","config_version":1,"decay_seconds":600,"capacity_usd_8":"1000","retail_individual_cap_usd_8":"25","lanes":[{"corridor":"usdt-usdt","collateral_asset":"usdt","borrow_asset":"usdt","lane":"retail","capacity_usd_8":"200","work":"30000","last_update":90,"tier":"restricted","base_fee_bps":5,"surge_fee_bps":4000,"target_bps":6000},{"corridor":"usdt-usdt","collateral_asset":"usdt","borrow_asset":"usdt","lane":"whale","capacity_usd_8":"800","work":"0","last_update":90,"tier":"restricted","base_fee_bps":5,"surge_fee_bps":4000,"target_bps":6000}]});
     d["initial_state"]["user_limits"] = json!([{"user":"alice","market":"pool","capacity_usd_8":"25","work":"12000","last_update":90}]);
+    (m, d)
+}
+
+#[test]
+fn validates_continuous_state_and_user_allowance() {
+    let (m, mut d) = continuous_input();
     assert_eq!(check(m.clone(), d.clone()), Validation::Ready);
     let mut wrong_cap = d.clone();
     wrong_cap["initial_state"]["user_limits"][0]["capacity_usd_8"] = "100".into();
     assert!(matches!(check(m.clone(), wrong_cap), Validation::Failed(_)));
-    d["initial_state"]["user_limits"][0]["work"] = "15001".into();
+    d["initial_state"]["user_limits"][0]["work"] = "NaN".into();
     assert!(matches!(check(m, d), Validation::Failed(_)));
 }
 
@@ -113,4 +118,42 @@ fn allows_equal_timestamps_for_distinct_l2_blocks() {
         json!({"number":11,"hash":"c".repeat(64),"parent_hash":"b".repeat(64),"timestamp":100}),
     );
     assert_eq!(check(m, d), Validation::Ready);
+}
+
+#[test]
+fn holds_unrepresented_setting_changes() {
+    let (m, mut d) = sample();
+    d["settings"][0]["ltv_bps"] = 9000.into();
+    assert!(matches!(check(m, d), Validation::Hold(_)));
+}
+
+#[test]
+fn rejects_unknown_or_inconsistent_corridor_assets() {
+    let (m, mut d) = continuous_input();
+    d["initial_state"]["markets"][0]["limiter"]["lanes"][0]["collateral_asset"] = "ghost".into();
+    assert!(matches!(check(m, d), Validation::Failed(_)));
+    let (m, mut d) = continuous_input();
+    d["initial_state"]["markets"][0]["limiter"]["lanes"][0]["corridor"] = "other".into();
+    assert!(matches!(check(m, d), Validation::Failed(_)));
+}
+#[test]
+fn holds_missing_existing_users_retail_state() {
+    let (m, mut d) = continuous_input();
+    d["initial_state"]["positions"] = json!([{"user":"alice","market":"pool","lots":[{"id":"lot","asset":"usdt","amount":"100","supplied_at":80,"matures_at":7280,"claims":[]}],"debts":[]}]);
+    d["initial_state"]["user_limits"] = json!([]);
+    assert!(matches!(check(m, d), Validation::Hold(_)));
+}
+
+#[test]
+fn retains_over_capacity_retail_work_after_configuration_reduction() {
+    let (m, mut d) = continuous_input();
+    d["initial_state"]["user_limits"][0]["work"] = "15001".into();
+    assert_eq!(check(m, d), Validation::Ready);
+}
+
+#[test]
+fn missing_continuous_market_settings_are_held() {
+    let (m, mut d) = continuous_input();
+    d["initial_state"]["markets"][0]["settings"] = json!([]);
+    assert!(matches!(check(m, d), Validation::Hold(_)));
 }

@@ -39,6 +39,8 @@ fixed limiter は mode=`fixed`、capacity_usd_8、used_usd_8、epoch_start、dur
 
 continuous limiter は mode=`continuous`、capacity_usd_8（市場合計）、retail_individual_cap_usd_8、decay_seconds、config_version、lanes を持つ。lane は corridor、collateral_asset、borrow_asset、lane（retail/whale）、capacity_usd_8、work、last_update、tier（exempt/standard/restricted）、base_fee_bps、surge_fee_bps、target_bps。lane 容量合計は市場容量以下。容量引下げ後を表現するため lane の work が容量×T を上回る状態も保持でき、実際の借入を許可する意味ではない。
 
-pending_changes は effective_at と limiter を持つ時刻順の配列。これは将来設定の入力表現であり、移行の安全性やその操作の実行を検証するものではない。リプレイが未対応の状態・操作は別途 HOLD とする。
+pending_changes は effective_at と limiter を持つ時刻順の配列。これは将来設定の入力表現であり、移行の安全性やその操作の実行を検証するものではない。連続モードでは既存ポジションの所有者と全イベント利用者について、ゼロ使用量も明示した user_limits を要求する。全返済後も使用量が残る利用者は positions と独立して user_limits に保存する。個別枠も容量引下げ後の over-cap work を保存できるが、借入許可を意味しない。各コリドーは既知の同じ資産ペア・tier・料金を参照する retail/whale の両レーンを持つ。
+
+現行の data.settings は期間内一定の表現なので、基準設定と異なる LTV/decimals は時系列の設定履歴が不足するものとして HOLD とする。リプレイが未対応の状態・操作も別途 HOLD とする。
 
 初期状態の欠損は HOLD、内容hash不一致、不正数量、矛盾するチェーンや不正な列挙値は FAILED。ここでの形式通過を、SPEC の全評価条件が成立した証拠として扱わない。

@@ -220,6 +220,38 @@ impl Limiter {
             }
         }
     }
+    fn validate_assets(&self, assets: &HashSet<&String>) -> Result<(), String> {
+        if let Self::Continuous { lanes, .. } = self {
+            let mut groups: HashMap<&str, Vec<&Lane>> = HashMap::new();
+            for lane in lanes {
+                require(
+                    assets.contains(&lane.collateral_asset) && assets.contains(&lane.borrow_asset),
+                    "unknown corridor asset",
+                )?;
+                groups.entry(&lane.corridor).or_default().push(lane);
+            }
+            let mut pairs = HashSet::new();
+            for group in groups.values() {
+                require(group.len() == 2, "corridor requires both lanes")?;
+                let a = group[0];
+                let b = group[1];
+                require(
+                    a.collateral_asset == b.collateral_asset
+                        && a.borrow_asset == b.borrow_asset
+                        && a.tier == b.tier
+                        && a.base_fee_bps == b.base_fee_bps
+                        && a.surge_fee_bps == b.surge_fee_bps
+                        && a.target_bps == b.target_bps,
+                    "inconsistent corridor lanes",
+                )?;
+                require(
+                    pairs.insert((&a.collateral_asset, &a.borrow_asset)),
+                    "duplicate corridor pair",
+                )?;
+            }
+        }
+        Ok(())
+    }
     fn retail_cap(&self) -> Option<&str> {
         if let Self::Continuous {
             retail_individual_cap_usd_8,
@@ -297,6 +329,10 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
                 "invalid checkpoint setting",
             )?;
         }
+        if assets.is_empty() {
+            return Ok(Validation::Hold("missing checkpoint assets".into()));
+        }
+        market.limiter.validate_assets(&assets)?;
         let mut prices = HashSet::new();
         for price in &market.prices {
             require(
@@ -319,7 +355,22 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
                 "invalid pending configuration order",
             )?;
             pending.limiter.validate(pending.effective_at)?;
+            pending.limiter.validate_assets(&assets)?;
             time = pending.effective_at;
+        }
+    }
+    for setting in &d.settings {
+        let market = markets
+            .get(&setting.market)
+            .ok_or("unknown dataset market")?;
+        if !market.settings.iter().any(|s| {
+            s.asset == setting.asset
+                && s.decimals == setting.decimals
+                && s.ltv_bps == setting.ltv_bps
+        }) {
+            return Ok(Validation::Hold(
+                "setting change lacks a per-block history".into(),
+            ));
         }
     }
     let mut owners = HashSet::new();
@@ -382,6 +433,7 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
             .decay()
             .ok_or("retail limit on fixed market")?;
         let cap = quantity(&limit.capacity_usd_8)?;
+        quantity(&limit.work)?;
         require(
             text(&limit.user)
                 && cap
@@ -393,11 +445,19 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
                     )?
                 && cap > 0
                 && cap.checked_mul(duration as u128).is_some()
-                && quantity(&limit.work)? <= cap * duration as u128
                 && limit.last_update <= snap.timestamp
                 && limits.insert((&limit.user, &limit.market)),
             "invalid user limit",
         )?;
+    }
+    for position in &snap.positions {
+        if markets[&position.market].limiter.decay().is_some()
+            && !limits.contains(&(&position.user, &position.market))
+        {
+            return Ok(Validation::Hold(
+                "missing existing user's retail state".into(),
+            ));
+        }
     }
     if let Some(policy) = &m.intent_policy {
         require(
@@ -451,6 +511,11 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
             markets.contains_key(&event.market),
             "event has no initial market state",
         )?;
+        if markets[&event.market].limiter.decay().is_some()
+            && !limits.contains(&(event.user.as_ref().ok_or("missing actor")?, &event.market))
+        {
+            return Ok(Validation::Hold("missing event user's retail state".into()));
+        }
         match (&event.intent_id, &event.attempt_id) {
             (None, None) => (),
             (Some(intent), Some(attempt)) => require(
