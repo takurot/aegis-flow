@@ -1,6 +1,91 @@
 {
-  "events": [{"block": 10, "transaction_index": 0, "log_index": 0, "timestamp": 100, "market": "example-pool", "asset": "example-usdt", "kind": "supply", "amount": "1000000"}],
-  "prices": [{"block": 10, "asset": "example-usdt", "usd_8": 100000000}],
-  "settings": [{"market": "example-pool", "asset": "example-usdt", "ltv_bps": 7500}],
-  "labels": [{"block": 10, "transaction_index": 0, "log_index": 0, "classification": "unknown", "evidence": "synthetic example"}]
+  "events": [
+    {
+      "block": 10,
+      "transaction_index": 0,
+      "log_index": 0,
+      "timestamp": 100,
+      "market": "example-pool",
+      "asset": "example-usdt",
+      "kind": "supply",
+      "amount": "1000000",
+      "block_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "user": "alice"
+    }
+  ],
+  "prices": [
+    {
+      "block": 10,
+      "asset": "example-usdt",
+      "usd_8": 100000000
+    }
+  ],
+  "settings": [
+    {
+      "market": "example-pool",
+      "asset": "example-usdt",
+      "ltv_bps": 7500,
+      "decimals": 6
+    }
+  ],
+  "labels": [
+    {
+      "block": 10,
+      "transaction_index": 0,
+      "log_index": 0,
+      "classification": "unknown",
+      "evidence": "synthetic example"
+    }
+  ],
+  "initial_state": {
+    "block": 9,
+    "block_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "timestamp": 90,
+    "positions": [],
+    "markets": [
+      {
+        "market": "example-pool",
+        "seasoning_seconds": 7200,
+        "prices": [
+          {
+            "block": 9,
+            "asset": "example-usdt",
+            "usd_8": 100000000
+          }
+        ],
+        "settings": [
+          {
+            "market": "example-pool",
+            "asset": "example-usdt",
+            "ltv_bps": 7500,
+            "decimals": 6
+          }
+        ],
+        "limiter": {
+          "mode": "fixed",
+          "capacity_usd_8": "200000000000000",
+          "used_usd_8": "0",
+          "epoch_start": 0,
+          "duration": 600,
+          "config_version": 1
+        },
+        "pending_changes": []
+      }
+    ],
+    "user_limits": []
+  },
+  "blocks": [
+    {
+      "number": 10,
+      "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "parent_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "timestamp": 100
+    },
+    {
+      "number": 11,
+      "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "parent_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "timestamp": 110
+    }
+  ]
 }
