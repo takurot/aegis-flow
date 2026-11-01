@@ -51,3 +51,15 @@ python3 scripts/e2e-node.py
 ```
 
 Solidity の EVM 対象は Cancun です。Ethereum、Arbitrum、Base、Optimism は対象候補であり、各チェーンの EVM 機能と市場統合の対応は未検証です。E2E スモークテストはローカル Anvil ノードの JSON-RPC 接続を確認します（Python 3 が必要です）。現在の Solidity テストと E2E はツールチェーンの動作確認であり、担保・貸借機能の安全性を検証するものではありません。
+
+### シミュレータ入力の検証
+
+架空データを使った入力検証は次のコマンドで実行できます。
+
+```sh
+cargo run --locked -p aegis-sim -- crates/aegis-sim/examples/manifest.json crates/aegis-sim/examples/data.json
+```
+
+manifest はチェーン ID、対象ブロック範囲、出典、取得時刻（Unix 秒）、ラベル出典、データファイルの SHA-256、判明している欠損を記録します。入力はイベント、ブロック時点の USD 価格（小数点以下 8 桁の整数）、市場・資産別 LTV、イベント単位のラベルを JSON で指定します。金額は最小単位の 10 進文字列です。対応イベントは `supply`、`borrow`、`repay`、`withdraw`、`liquidation`、`transfer`、ラベルは `attack`、`normal`、`unknown` です。入力例の値は架空で、実事件とは関係ありません。
+
+`READY`（終了コード 0）は対応する形式の構造検証を通ったことのみを示し、出典の真正性、全イベント・初期状態・設定履歴の網羅、ラベルの正しさ、KPI の評価可能性を保証しません。価格・設定・ラベルの欠落や申告された欠損は `HOLD`（2）、不正形式、ハッシュ不一致、価格ゼロ、重複、順序違反は `FAILED`（1）になります。価格は各イベントと同じブロックの値を要求します。設定はデータセット内で一定として扱うため、設定変更や対応できない履歴がある場合は manifest の `missing` に記載し保留にしてください。現時点では実データの再生や KPI の計算は実装していません。
