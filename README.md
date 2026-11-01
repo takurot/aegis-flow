@@ -3,7 +3,7 @@
 分散型レンディング市場において、担保を多数のアドレスに分散し、短時間に借り入れる攻撃の影響を抑えるためのプロジェクトです。未熟成担保に依存する借入を市場全体の共有枠で制限し、資金移動の追跡と再現可能なシミュレーションを組み合わせることを目指します。
 
 > **開発状況：最小シミュレータが動作**
-> 入力検証、固定窓の基本貸借会計リプレイ、評価レポートを CLI から実行できます。オンチェーン貸借保護と追跡エンジンは未実装であり、実市場での安全性・性能・効果は未検証です。
+> 入力検証、固定窓の基本貸借会計リプレイ、評価レポートを CLI から実行できます。Sentinel は Transfer 収集と永続化・reorg 復旧に対応します。汚染追跡とオンチェーン貸借保護は未実装であり、実市場での安全性・性能・効果は未検証です。
 
 ## 設計の概要
 
@@ -35,6 +35,7 @@
 
 - [機能仕様書](docs/SPEC.md)：機能要件、信頼境界、受け入れ基準、導入条件
 - [市場統合調査](docs/MARKET_INTEGRATION.md)：対象市場の操作経路、未達条件、fork PoC の合格条件
+- [Sentinel 収集・復旧](docs/SENTINEL.md)：RPC と SQLite による取り込み、チェックポイント、最終性と観測範囲
 - [ベースアイデア](docs/IDEA.md)：プロジェクトの着想と初期案。仕様書で見直した前提を含みます
 
 ## 開発環境
@@ -50,6 +51,8 @@ forge build
 forge test
 python3 scripts/e2e-node.py
 python3 scripts/e2e-bucket.py
+python3 -m unittest discover -s tests -v
+python3 -m unittest discover -s tests -p e2e_sentinel.py -v
 ```
 
 Solidity の EVM 対象は Cancun です。Ethereum、Arbitrum、Base、Optimism は対象候補であり、各チェーンの EVM 機能と市場統合の対応は未検証です。E2E スモークテストはローカル Anvil ノードの JSON-RPC 接続を確認します（Python 3 が必要です）。`e2e-bucket.py` は `forge build` 後のテスト用 harness をローカルノードに配置し、容量超過の拒否、窓境界での設定適用、操作失敗時の状態復元を確認します。実市場の担保・貸借機能の安全性は未検証です。
