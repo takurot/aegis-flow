@@ -272,6 +272,38 @@ impl Limiter {
     }
 }
 
+// Keep the encoding independent of serde_json's optional preserve_order feature.
+fn canonical_bytes(value: &serde_json::Value, out: &mut Vec<u8>) -> Result<(), String> {
+    match value {
+        serde_json::Value::Object(map) => {
+            out.push(b'{');
+            let mut keys: Vec<_> = map.keys().collect();
+            keys.sort_unstable();
+            for (index, key) in keys.into_iter().enumerate() {
+                if index != 0 {
+                    out.push(b',');
+                }
+                serde_json::to_writer(&mut *out, key).map_err(|e| e.to_string())?;
+                out.push(b':');
+                canonical_bytes(&map[key], out)?;
+            }
+            out.push(b'}');
+        }
+        serde_json::Value::Array(values) => {
+            out.push(b'[');
+            for (index, value) in values.iter().enumerate() {
+                if index != 0 {
+                    out.push(b',');
+                }
+                canonical_bytes(value, out)?;
+            }
+            out.push(b']');
+        }
+        _ => serde_json::to_writer(&mut *out, value).map_err(|e| e.to_string())?,
+    }
+    Ok(())
+}
+
 pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> {
     if m.schema_version.is_none() {
         return Ok(Validation::Hold(
@@ -288,20 +320,19 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
     if !m.checkpoint_source.as_deref().is_some_and(text) || m.initial_state_sha256.is_none() {
         return Ok(Validation::Hold("missing checkpoint provenance".into()));
     }
-    let digest = format!(
-        "{:x}",
-        Sha256::digest(serde_json::to_vec(value).map_err(|e| e.to_string())?)
-    );
+    let mut canonical = Vec::new();
+    canonical_bytes(value, &mut canonical)?;
+    let digest = format!("{:x}", Sha256::digest(&canonical));
     require(
         m.initial_state_sha256.as_ref() == Some(&digest),
         "checkpoint SHA-256 mismatch",
     )?;
-    let snap: Snapshot = match serde_json::from_value(value.clone()) {
+    let snap: Snapshot = match serde_json::from_slice(&canonical) {
         Ok(s) => s,
         Err(e) if e.to_string().starts_with("missing field") => {
             return Ok(Validation::Hold("incomplete initial state".into()))
         }
-        Err(_) => return Err("invalid initial state schema".into()),
+        Err(e) => return Err(format!("invalid initial state schema: {e}")),
     };
     require(
         snap.block.checked_add(1) == Some(m.start_block)
@@ -360,9 +391,11 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
         }
     }
     for setting in &d.settings {
-        let market = markets
-            .get(&setting.market)
-            .ok_or("unknown dataset market")?;
+        let Some(market) = markets.get(&setting.market) else {
+            return Ok(Validation::Hold(
+                "dataset market absent from checkpoint".into(),
+            ));
+        };
         if !market.settings.iter().any(|s| {
             s.asset == setting.asset
                 && s.decimals == setting.decimals

@@ -23,7 +23,7 @@ fn cli_reports_legacy_hold_and_tampered_input() {
     };
     let valid = run();
     assert_eq!(valid.status.code(), Some(2));
-    assert!(String::from_utf8_lossy(&valid.stdout).contains("HOLD"));
+    assert!(String::from_utf8_lossy(&valid.stdout).contains("legacy"));
     let mut hold_manifest: serde_json::Value = serde_json::from_str(&manifest).unwrap();
     hold_manifest["missing"] = serde_json::json!(["initial state"]);
     fs::write(&manifest_path, serde_json::to_vec(&hold_manifest).unwrap()).unwrap();

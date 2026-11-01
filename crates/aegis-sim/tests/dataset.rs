@@ -24,9 +24,9 @@ fn holds_legacy_input_deterministically() {
     let (manifest, data) = input();
     assert!(matches!(
         check(manifest.clone(), data.clone()),
-        Validation::Hold(_)
+        Validation::Hold(reason) if reason.contains("legacy")
     ));
-    assert!(matches!(check(manifest, data), Validation::Hold(_)));
+    assert!(matches!(check(manifest, data), Validation::Hold(reason) if reason.contains("legacy")));
 }
 
 #[test]
