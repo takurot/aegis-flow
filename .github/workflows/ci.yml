@@ -38,3 +38,4 @@ jobs:
       - run: python3 scripts/e2e-node.py
       - run: python3 scripts/e2e-bucket.py
       - run: python3 -m unittest discover -s tests -p e2e_sentinel.py -v
+      - run: python3 -m unittest discover -s tests -p e2e_pricing.py -v

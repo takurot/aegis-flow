@@ -37,6 +37,7 @@
 - [市場統合調査](docs/MARKET_INTEGRATION.md)：対象市場の操作経路、未達条件、fork PoC の合格条件
 - [Sentinel 収集・復旧](docs/SENTINEL.md)：RPC と SQLite による取り込み、チェックポイント、最終性と観測範囲
 - [比例汚染追跡](docs/TRACING.md)：初期残高・シード、比例配分、unknown と reorg 後の再計算
+- [積分料金演算](docs/PRICING.md)：USD8 の厳密な積分と丸め、演算上限、参照モデルとの照合
 - [ベースアイデア](docs/IDEA.md)：プロジェクトの着想と初期案。仕様書で見直した前提を含みます
 
 ## 開発環境
@@ -54,6 +55,7 @@ python3 scripts/e2e-node.py
 python3 scripts/e2e-bucket.py
 python3 -m unittest discover -s tests -v
 python3 -m unittest discover -s tests -p e2e_sentinel.py -v
+python3 -m unittest discover -s tests -p e2e_pricing.py -v
 ```
 
 Solidity の EVM 対象は Cancun です。Ethereum、Arbitrum、Base、Optimism は対象候補であり、各チェーンの EVM 機能と市場統合の対応は未検証です。E2E スモークテストはローカル Anvil ノードの JSON-RPC 接続を確認します（Python 3 が必要です）。`e2e-bucket.py` は `forge build` 後のテスト用 harness をローカルノードに配置し、容量超過の拒否、窓境界での設定適用、操作失敗時の状態復元を確認します。実市場の担保・貸借機能の安全性は未検証です。
