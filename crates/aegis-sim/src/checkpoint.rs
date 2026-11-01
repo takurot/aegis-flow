@@ -1,78 +1,86 @@
 use crate::{Dataset, Manifest, Validation};
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::collections::{HashMap, HashSet};
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct Block {
-    number: u64,
-    hash: String,
-    parent_hash: String,
-    timestamp: u64,
+    pub(crate) number: u64,
+    pub(crate) hash: String,
+    pub(crate) parent_hash: String,
+    pub(crate) timestamp: u64,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
-struct Snapshot {
-    block: u64,
-    block_hash: String,
-    timestamp: u64,
-    positions: Vec<Position>,
-    markets: Vec<Market>,
-    user_limits: Vec<UserLimit>,
+pub(crate) struct Snapshot {
+    pub(crate) block: u64,
+    pub(crate) block_hash: String,
+    pub(crate) timestamp: u64,
+    pub(crate) positions: Vec<Position>,
+    pub(crate) markets: Vec<Market>,
+    pub(crate) user_limits: Vec<UserLimit>,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
-struct Position {
-    user: String,
-    market: String,
-    lots: Vec<Lot>,
-    debts: Vec<Debt>,
+pub(crate) struct Position {
+    pub(crate) user: String,
+    pub(crate) market: String,
+    pub(crate) lots: Vec<Lot>,
+    pub(crate) debts: Vec<Debt>,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
-struct Lot {
-    id: String,
-    asset: String,
-    amount: String,
-    supplied_at: u64,
-    matures_at: u64,
-    claims: Vec<Claim>,
+pub(crate) struct Lot {
+    pub(crate) id: String,
+    pub(crate) asset: String,
+    pub(crate) amount: String,
+    pub(crate) supplied_at: u64,
+    pub(crate) matures_at: u64,
+    pub(crate) claims: Vec<Claim>,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
-struct Claim {
-    id: String,
-    amount: String,
-    evidence: Vec<String>,
+pub(crate) struct Claim {
+    pub(crate) id: String,
+    pub(crate) amount: String,
+    pub(crate) evidence: Vec<String>,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
-struct Debt {
-    asset: String,
-    amount: String,
-    interest_index: String,
-    as_of: u64,
+pub(crate) struct Debt {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub(crate) shares: Option<DebtShares>,
+    pub(crate) asset: String,
+    pub(crate) amount: String,
+    pub(crate) interest_index: String,
+    pub(crate) as_of: u64,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
-struct Market {
-    market: String,
-    seasoning_seconds: u64,
-    prices: Vec<crate::Price>,
-    settings: Vec<crate::Setting>,
-    limiter: Limiter,
-    pending_changes: Vec<Pending>,
+pub(crate) struct DebtShares {
+    pub(crate) numerator: String,
+    pub(crate) denominator: String,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
-struct Pending {
-    effective_at: u64,
-    limiter: Limiter,
+pub(crate) struct Market {
+    pub(crate) market: String,
+    pub(crate) seasoning_seconds: u64,
+    pub(crate) prices: Vec<crate::Price>,
+    pub(crate) settings: Vec<crate::Setting>,
+    pub(crate) limiter: Limiter,
+    pub(crate) pending_changes: Vec<Pending>,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
+#[serde(deny_unknown_fields)]
+pub(crate) struct Pending {
+    pub(crate) effective_at: u64,
+    pub(crate) limiter: Limiter,
+}
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(tag = "mode", rename_all = "snake_case", deny_unknown_fields)]
-enum Limiter {
+pub(crate) enum Limiter {
     Fixed {
         capacity_usd_8: String,
         used_usd_8: String,
@@ -88,37 +96,37 @@ enum Limiter {
         lanes: Vec<Lane>,
     },
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
-struct Lane {
-    corridor: String,
-    collateral_asset: String,
-    borrow_asset: String,
-    lane: String,
+pub(crate) struct Lane {
+    pub(crate) corridor: String,
+    pub(crate) collateral_asset: String,
+    pub(crate) borrow_asset: String,
+    pub(crate) lane: String,
     capacity_usd_8: String,
-    work: String,
-    last_update: u64,
-    tier: String,
-    base_fee_bps: u16,
-    surge_fee_bps: u16,
-    target_bps: u16,
+    pub(crate) work: String,
+    pub(crate) last_update: u64,
+    pub(crate) tier: String,
+    pub(crate) base_fee_bps: u16,
+    pub(crate) surge_fee_bps: u16,
+    pub(crate) target_bps: u16,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
-struct UserLimit {
-    user: String,
-    market: String,
+pub(crate) struct UserLimit {
+    pub(crate) user: String,
+    pub(crate) market: String,
     capacity_usd_8: String,
-    work: String,
-    last_update: u64,
+    pub(crate) work: String,
+    pub(crate) last_update: u64,
 }
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone, Serialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct IntentPolicy {
-    horizon_seconds: u64,
-    retry_interval_seconds: u64,
-    max_attempts: u32,
-    identity_evidence: String,
+    pub(crate) horizon_seconds: u64,
+    pub(crate) retry_interval_seconds: u64,
+    pub(crate) max_attempts: u32,
+    pub(crate) identity_evidence: String,
 }
 
 fn text(s: &str) -> bool {
@@ -356,6 +364,9 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
                     && text(&setting.asset)
                     && setting.decimals.is_some_and(|n| n <= 38)
                     && setting.ltv_bps <= 10000
+                    && setting
+                        .liquidation_threshold_bps
+                        .is_none_or(|v| v >= setting.ltv_bps && v <= 10000)
                     && assets.insert(&setting.asset),
                 "invalid checkpoint setting",
             )?;
@@ -400,6 +411,7 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
             s.asset == setting.asset
                 && s.decimals == setting.decimals
                 && s.ltv_bps == setting.ltv_bps
+                && s.liquidation_threshold_bps == setting.liquidation_threshold_bps
         }) {
             return Ok(Validation::Hold(
                 "setting change lacks a per-block history".into(),
@@ -446,6 +458,7 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
         }
         let mut debts = HashSet::new();
         for debt in &position.debts {
+            crate::replay::validate_shares(debt)?;
             require(
                 assets.contains(&debt.asset)
                     && debts.insert(&debt.asset)

@@ -1,0 +1,15 @@
+{
+  "chain_id": 1,
+  "start_block": 10,
+  "end_block": 11,
+  "source": "synthetic example",
+  "retrieved_at": 120,
+  "label_source": "synthetic example",
+  "data_sha256": "16e1d130a5a83a4d38c1385dcc0c74a6e3095ef5a7a751a8554602a19e1a339d",
+  "missing": [],
+  "schema_version": 2,
+  "checkpoint_source": "explicit synthetic empty positions",
+  "initial_state_sha256": "3a0bac34cd940876fceea102ef25a333492e24920eff71dd5c9691d9a1e5775e",
+  "finalized_block": 11,
+  "intent_policy": null
+}
