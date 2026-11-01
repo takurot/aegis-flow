@@ -419,7 +419,7 @@ pub(crate) fn validate(m: &Manifest, d: &Dataset) -> Result<Validation, String> 
                 && block_hashes.insert(block.hash.as_str())
                 && block.parent_hash == parent
                 && hash(&block.hash)
-                && block.timestamp > time
+                && block.timestamp >= time
                 && block.timestamp <= m.retrieved_at,
             "noncanonical block sequence",
         )?;

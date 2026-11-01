@@ -102,3 +102,15 @@ fn v2_cannot_default_missing_asset_decimals() {
     d["settings"][0].as_object_mut().unwrap().remove("decimals");
     assert!(matches!(check(m, d), Validation::Hold(_)));
 }
+
+#[test]
+fn allows_equal_timestamps_for_distinct_l2_blocks() {
+    let (mut m, mut d) = sample();
+    m["chain_id"] = 42161.into();
+    m["end_block"] = 11.into();
+    m["finalized_block"] = 11.into();
+    d["blocks"].as_array_mut().unwrap().push(
+        json!({"number":11,"hash":"c".repeat(64),"parent_hash":"b".repeat(64),"timestamp":100}),
+    );
+    assert_eq!(check(m, d), Validation::Ready);
+}

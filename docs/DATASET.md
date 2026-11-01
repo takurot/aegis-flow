@@ -22,7 +22,7 @@ data_sha256 はデータファイルの**実バイト列**のハッシュ。init
 
 既存の events、prices、settings、labels に initial_state、blocks を加える。settings には asset の decimals（0–38）を必須とする。amount は token 最小単位の10進文字列、USD価格は usd_8 の整数、LTV は ltv_bps（0–10000）。スキーマ外のフィールドを拒否する。
 
-blocks は number、hash、parent_hash、timestamp を持ち、start_block から end_block まで欠損なく親hashを連結する。hash は `0x` を付けない小文字16進64桁。基準状態は start_block-1 で、先頭blockのparent_hashに一致する。イベントは block_hash と user を指定し、ブロックの時刻・hashと一致させる。取引・log位置の逆順や重複は拒否し、並べ替えて補完しない。intent_id と attempt_id を指定する場合は両方と intent_policy を必要とし、attempt_id はデータセット内で一意。意図は ID の明示根拠に依存し、推測しない。
+blocks は number、hash、parent_hash、timestamp を持ち、start_block から end_block まで欠損なく親hashを連結する。hash は `0x` を付けない小文字16進64桁。時刻は非減少とし、同一秒に複数ブロックを持つ L2 も表現する（[Arbitrum の時刻規則](https://docs.arbitrum.io/arbitrum-essentials/arbitrum-vs-ethereum/block-numbers-and-time)）。個別チェーンのコンセンサス規則を検証するものではない。基準状態は start_block-1 で、先頭blockのparent_hashに一致する。イベントは block_hash と user を指定し、ブロックの時刻・hashと一致させる。取引・log位置の逆順や重複は拒否し、並べ替えて補完しない。intent_id と attempt_id を指定する場合は両方と intent_policy を必要とし、attempt_id はデータセット内で一意。意図は ID の明示根拠に依存し、推測しない。
 
 ### initial_state
 
