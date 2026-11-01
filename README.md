@@ -38,6 +38,7 @@
 - [Sentinel 収集・復旧](docs/SENTINEL.md)：RPC と SQLite による取り込み、チェックポイント、最終性と観測範囲
 - [比例汚染追跡](docs/TRACING.md)：初期残高・シード、比例配分、unknown と reorg 後の再計算
 - [積分料金演算](docs/PRICING.md)：USD8 の厳密な積分と丸め、演算上限、参照モデルとの照合
+- [候補別バックテスト](docs/BACKTEST.md)：評価 manifest の実行、不足時の hold、再現可能な成果物
 - [ベースアイデア](docs/IDEA.md)：プロジェクトの着想と初期案。仕様書で見直した前提を含みます
 
 ## 開発環境
@@ -101,5 +102,7 @@ cargo run --locked -p aegis-sim -- --report crates/aegis-sim/examples/replay-man
 この架空例は baseline の借入50 USD、protected の借入0 USDを出力します。`metrics.attack_prevention` の分子・分母はともに `5000000000`（USD8）です。これは架空データの手計算確認であり、実事件の阻止実績ではありません。正常意図・清算の分母はなく N/A です。
 
 JSON は両モデルの attempt 結果・最終状態、指標の分子/分母・未判定数、入力/manifest/コード/設定の SHA-256、設定・価格方針・期間・再試行の前提を含みます。浮動小数点の百分率ではなく正確な整数比を保存します。乱数は使わず seed は null。同一実装・入力で同じ JSON を再現できます。
+
+実データの候補別実行は `cargo run --locked -p aegis-sim -- --backtest evaluations/manifest.json` で再現できます。現在の3候補はデータ不足のためすべて `hold`（終了コード2）で、未取得の hash・KPI 分子分母は null です。[保存成果物と利用条件](docs/BACKTEST.md)を参照してください。実事件の効果は未測定です。
 
 意図の根拠と ID がある正常借入のみ horizon と再試行を集計します。再試行は入力に明記された要求だけを観測順に再生し、追加生成しません。期間末で horizon 不足の意図は censored とし摩擦率から除外します。ID 不足時は意図を推定せず、観測された正常借入取引の追加拒否率だけを表示します。実データの取得・完全性確認は [評価データ調査](docs/EVALUATION_DATA.md) のとおり保留です。詳細な集計契約は [入力仕様](docs/DATASET.md) を参照してください。

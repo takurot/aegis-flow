@@ -236,19 +236,15 @@ fn metrics(m: &Manifest, d: &Dataset, replay: &ReplayReport) -> Result<Value, St
         "interpretation":"exact numerator/denominator ratios; no randomized retries or adaptive behavior; no real-incident or target attainment claim"
     }))
 }
-/// Deterministic evidence report. HOLD/FAILED never expose partial KPIs.
-pub fn evaluate_dataset(manifest: &[u8], data: &[u8]) -> EvaluationReport {
-    let replay = crate::replay_dataset(manifest, data);
-    let parsed = (
-        serde_json::from_slice::<Manifest>(manifest),
-        serde_json::from_slice::<Dataset>(data),
-    );
+/// Bind all simulator models, entry points, manifests and the pinned dependency/toolchain state.
+pub(crate) fn code_hash() -> String {
     // Bind executable model sources and lockfile rather than an unverified Git revision.
     let sources = [
         include_str!("lib.rs"),
         include_str!("checkpoint.rs"),
         include_str!("replay.rs"),
         include_str!("report.rs"),
+        include_str!("backtest.rs"),
         include_str!("main.rs"),
         include_str!("../Cargo.toml"),
         include_str!("../../../Cargo.toml"),
@@ -260,10 +256,20 @@ pub fn evaluate_dataset(manifest: &[u8], data: &[u8]) -> EvaluationReport {
         code.update((source.len() as u64).to_be_bytes());
         code.update(source.as_bytes());
     }
+    format!("{:x}", code.finalize())
+}
+
+/// Deterministic evidence report. HOLD/FAILED never expose partial KPIs.
+pub fn evaluate_dataset(manifest: &[u8], data: &[u8]) -> EvaluationReport {
+    let replay = crate::replay_dataset(manifest, data);
+    let parsed = (
+        serde_json::from_slice::<Manifest>(manifest),
+        serde_json::from_slice::<Dataset>(data),
+    );
     let mut result = EvaluationReport {
         status: replay.status.clone(),
         reason: replay.reason.clone(),
-        provenance: json!({"manifest_sha256":hash(manifest),"data_sha256":hash(data),"package_version":env!("CARGO_PKG_VERSION"),"code_sha256":format!("{:x}",code.finalize()),"code_scope":"aegis-sim sources, workspace/package manifests, Cargo.lock and rust-toolchain.toml","seed":null,"randomness":"none; observed attempts only"}),
+        provenance: json!({"manifest_sha256":hash(manifest),"data_sha256":hash(data),"package_version":env!("CARGO_PKG_VERSION"),"code_sha256":code_hash(),"code_scope":"aegis-sim sources, workspace/package manifests, Cargo.lock and rust-toolchain.toml","seed":null,"randomness":"none; observed attempts only"}),
         metrics: None,
         replay,
     };
