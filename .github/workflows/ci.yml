@@ -35,3 +35,4 @@ jobs:
       - run: forge build
       - run: forge test
       - run: python3 scripts/e2e-node.py
+      - run: python3 scripts/e2e-bucket.py

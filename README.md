@@ -49,9 +49,16 @@ forge fmt --check
 forge build
 forge test
 python3 scripts/e2e-node.py
+python3 scripts/e2e-bucket.py
 ```
 
-Solidity の EVM 対象は Cancun です。Ethereum、Arbitrum、Base、Optimism は対象候補であり、各チェーンの EVM 機能と市場統合の対応は未検証です。E2E スモークテストはローカル Anvil ノードの JSON-RPC 接続を確認します（Python 3 が必要です）。現在の Solidity テストと E2E はツールチェーンの動作確認であり、担保・貸借機能の安全性を検証するものではありません。
+Solidity の EVM 対象は Cancun です。Ethereum、Arbitrum、Base、Optimism は対象候補であり、各チェーンの EVM 機能と市場統合の対応は未検証です。E2E スモークテストはローカル Anvil ノードの JSON-RPC 接続を確認します（Python 3 が必要です）。`e2e-bucket.py` は `forge build` 後のテスト用 harness をローカルノードに配置し、容量超過の拒否、窓境界での設定適用、操作失敗時の状態復元を確認します。実市場の担保・貸借機能の安全性は未検証です。
+
+### 固定窓バケット（内部ライブラリ）
+
+`contracts/src/FixedEpochBucket.sol` は USD8 整数の市場別消費を管理します。初期窓は Unix 時刻の `floor(timestamp / duration)`、設定変更は旧窓終了時に適用し、その境界を新しい窓の起点とします。遅延呼出しでは適用時刻から新しい長さで経過窓を計算します。窓は `(version, start)` で識別し、再初期化・適用待ち設定の上書きを拒否します。容量ゼロは正の消費を拒否し、窓長ゼロは不正です。返済による返却 API はありません。窓境界では前後で各容量を使えるため、厳密な移動窓の上限ではありません。
+
+利用する市場が chain/market ごとの storage と呼出し権限を管理し、借入・担保変更と同一トランザクション内で `consume` を呼ぶ必要があります。ライブラリの設定イベントは市場 ID を持たないため、統合者は市場を特定する監査イベントも発行してください。`initialize` / `schedule` / `sync` も内部関数であり、公開管理 API やタイムロックは #21、実市場への統合は #8・#17 の後続作業です。テスト用 `BucketHarness` は認可を持たず、本番用コントラクトではありません。連続モード・価格評価・管理者権限はこのライブラリに含みません。
 
 ### シミュレータ入力の検証
 
