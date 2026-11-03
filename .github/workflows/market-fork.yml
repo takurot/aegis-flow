@@ -1,0 +1,23 @@
+name: Market baseline fork (opt-in)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  aave-baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: foundry-rs/foundry-toolchain@dba66c27052e63476d886f22216e119ba7e615bf # v1
+        with:
+          version: v1.8.6
+      - name: Verify pinned Ethereum block and run every baseline assertion
+        env:
+          SENTINEL_RPC_URL: ${{ secrets.SENTINEL_RPC_URL }}
+        run: python3 scripts/fork-market.py

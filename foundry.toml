@@ -5,3 +5,9 @@ out = "out"
 libs = []
 solc_version = "0.8.26"
 evm_version = "cancun"
+
+# Explicit opt-in: default CI never labels an unconfigured live fork as passed.
+[profile.market_fork]
+test = "contracts/fork"
+
+fs_permissions = [{ access = "read", path = "./forks" }]

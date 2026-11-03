@@ -41,6 +41,10 @@ jobs:
       - run: forge fmt --check
       - run: forge build
       - run: forge test
+      - name: Compile opt-in market fork suite
+        run: |
+          FOUNDRY_PROFILE=market_fork forge fmt --check
+          FOUNDRY_PROFILE=market_fork forge build
       - run: python3 scripts/e2e-node.py
       - run: python3 scripts/e2e-bucket.py
       - run: python3 -m unittest discover -s tests -p e2e_sentinel.py -v
