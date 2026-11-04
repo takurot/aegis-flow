@@ -1,4 +1,6 @@
 {
+  "chain_id": 1,
+  "block": 19000000,
   "entries": [
     {
       "signature": "ADDRESSES_PROVIDER()",
@@ -317,7 +319,7 @@
       "mutability": "nonpayable",
       "status": "guarded",
       "evidence": [
-        "selector handled; no successful signature test (recorded limitation)"
+        "testSignedPermitAndDelegationPathsAreGuarded"
       ]
     },
     {

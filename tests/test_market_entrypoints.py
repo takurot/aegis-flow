@@ -22,6 +22,8 @@ GUARDED = {
 class EntrypointArtifactTests(unittest.TestCase):
     def test_pool_artifact_classifies_all_47_entries(self):
         artifact = json.loads(POOL.read_text())
+        self.assertEqual(artifact['chain_id'], 1)
+        self.assertEqual(artifact['block'], 19000000)
         self.assertEqual(artifact['counts'], {
             'view': 18,
             'guarded': 9,
@@ -35,6 +37,8 @@ class EntrypointArtifactTests(unittest.TestCase):
         self.assertEqual(guarded, GUARDED)
         rejected = {entry['selector'] for entry in entries if entry['status'] == 'rejected'}
         self.assertIn('0x02c205f0', rejected)  # supplyWithPermit
+        repay = next(entry for entry in entries if entry['selector'] == '0xee3e210b')
+        self.assertIn('testSignedPermitAndDelegationPathsAreGuarded', repay['evidence'])
         self.assertNotIn('0xc4d66de8', rejected)  # gated initialize
         self.assertEqual(
             [entry['selector'] for entry in entries if entry['status'] == 'gated_initialize'],
@@ -56,17 +60,19 @@ class EntrypointArtifactTests(unittest.TestCase):
             self.assertEqual(token['review_required'], [])
             self.assertGreater(token['counts'].get('transfer', 0), 0)
             self.assertGreater(token['counts'].get('only_pool', 0), 0)
+            self.assertGreater(token['counts'].get('admin_only', 0), 0)
         weth = artifact['tokens']['aWETH']['entries']
         by_signature = {entry['signature']: entry['status'] for entry in weth}
         self.assertEqual(by_signature['transferOnLiquidation(address,address,uint256)'], 'pool_callback')
         self.assertEqual(by_signature['mint(address,address,uint256,uint256)'], 'only_pool')
         self.assertEqual(by_signature['burn(address,address,uint256,uint256)'], 'only_pool')
-        self.assertEqual(by_signature['setIncentivesController(address)'], 'only_pool')
+        self.assertEqual(by_signature['rescueTokens(address,address,uint256)'], 'admin_only')
+        self.assertEqual(by_signature['setIncentivesController(address)'], 'admin_only')
         debt = artifact['tokens']['variableDebtUSDC']['entries']
         by_signature = {entry['signature']: entry['status'] for entry in debt}
         self.assertEqual(by_signature['transfer(address,uint256)'], 'transfer')
         self.assertEqual(by_signature['approveDelegation(address,uint256)'], 'borrow_delegation')
-        self.assertEqual(by_signature['setIncentivesController(address)'], 'only_pool')
+        self.assertEqual(by_signature['setIncentivesController(address)'], 'admin_only')
 
 
 if __name__ == '__main__':

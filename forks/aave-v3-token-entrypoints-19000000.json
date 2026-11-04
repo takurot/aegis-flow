@@ -10,8 +10,9 @@
       "counts": {
         "read_only": 19,
         "approval": 4,
-        "only_pool": 7,
+        "only_pool": 5,
         "initializer": 1,
+        "admin_only": 2,
         "transfer": 2,
         "pool_callback": 1
       },
@@ -140,7 +141,7 @@
         {
           "signature": "rescueTokens(address,address,uint256)",
           "mutability": "nonpayable",
-          "status": "only_pool"
+          "status": "admin_only"
         },
         {
           "signature": "scaledBalanceOf(address)",
@@ -155,7 +156,7 @@
         {
           "signature": "setIncentivesController(address)",
           "mutability": "nonpayable",
-          "status": "only_pool"
+          "status": "admin_only"
         },
         {
           "signature": "symbol()",
@@ -197,8 +198,9 @@
       "counts": {
         "read_only": 19,
         "approval": 4,
-        "only_pool": 7,
+        "only_pool": 5,
         "initializer": 1,
+        "admin_only": 2,
         "transfer": 2,
         "pool_callback": 1
       },
@@ -327,7 +329,7 @@
         {
           "signature": "rescueTokens(address,address,uint256)",
           "mutability": "nonpayable",
-          "status": "only_pool"
+          "status": "admin_only"
         },
         {
           "signature": "scaledBalanceOf(address)",
@@ -342,7 +344,7 @@
         {
           "signature": "setIncentivesController(address)",
           "mutability": "nonpayable",
-          "status": "only_pool"
+          "status": "admin_only"
         },
         {
           "signature": "symbol()",
@@ -385,8 +387,9 @@
         "read_only": 19,
         "approval": 3,
         "borrow_delegation": 2,
-        "only_pool": 3,
+        "only_pool": 2,
         "initializer": 1,
+        "admin_only": 1,
         "transfer": 2
       },
       "review_required": [],
@@ -519,7 +522,7 @@
         {
           "signature": "setIncentivesController(address)",
           "mutability": "nonpayable",
-          "status": "only_pool"
+          "status": "admin_only"
         },
         {
           "signature": "symbol()",
@@ -552,8 +555,9 @@
         "read_only": 22,
         "approval": 3,
         "borrow_delegation": 2,
-        "only_pool": 3,
+        "only_pool": 2,
         "initializer": 1,
+        "admin_only": 1,
         "transfer": 2
       },
       "review_required": [],
@@ -701,7 +705,7 @@
         {
           "signature": "setIncentivesController(address)",
           "mutability": "nonpayable",
-          "status": "only_pool"
+          "status": "admin_only"
         },
         {
           "signature": "symbol()",

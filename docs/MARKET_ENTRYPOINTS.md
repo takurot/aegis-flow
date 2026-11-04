@@ -49,19 +49,19 @@ Routescan の ABI を優先し、未取得なら Etherscan V2 にフォールバ
 
 固定 block の実装 ABI（proxy ではなく implementation）を分類した。
 
-| token | 関数数 | read_only | approval | only_pool | initializer | transfer | pool_callback | borrow_delegation |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| aWETH | 34 | 19 | 4 | 7 | 1 | 2 | 1 | 0 |
-| aUSDC | 34 | 19 | 4 | 7 | 1 | 2 | 1 | 0 |
-| variableDebtUSDC | 30 | 19 | 3 | 3 | 1 | 2 | 0 | 2 |
-| stableDebtUSDC | 33 | 22 | 3 | 3 | 1 | 2 | 0 | 2 |
+| token | 関数数 | read_only | approval | only_pool | admin_only | initializer | transfer | pool_callback | borrow_delegation |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| aWETH | 34 | 19 | 4 | 5 | 2 | 1 | 2 | 1 | 0 |
+| aUSDC | 34 | 19 | 4 | 5 | 2 | 1 | 2 | 1 | 0 |
+| variableDebtUSDC | 30 | 19 | 3 | 2 | 1 | 1 | 2 | 0 | 2 |
+| stableDebtUSDC | 33 | 22 | 3 | 2 | 1 | 1 | 2 | 0 | 2 |
 
 - AToken `transfer` / `transferFrom` は Pool `finalizeTransfer` を呼ぶ。PoC は `finalizeTransfer` を `Unsupported` で拒否するため、担保証票の移転は失敗する（`testATokenAndDebtTransfersAreRejected`）。
 - AToken `transferOnLiquidation` は onlyPool。清算経路（`liquidationCall`）では内部で実行され、テスト済み。
-- AToken `mint` / `burn` / `mintToTreasury` / `transferUnderlyingTo` / `handleRepayment` / `rescueTokens` / `setIncentivesController` は onlyPool。直接呼び出しは失敗する（同テスト）。
-- debt token の `transfer` / `transferFrom` は Aave 自身が拒否する。`mint` / `burn` / `setIncentivesController` は onlyPool。直接呼び出しは失敗する。
+- AToken `mint` / `burn` / `mintToTreasury` / `transferUnderlyingTo` / `handleRepayment` は onlyPool。`rescueTokens` / `setIncentivesController` は onlyPoolAdmin。直接呼び出しは失敗する（同テスト）。
+- debt token の `transfer` / `transferFrom` は Aave 自身が拒否する。`mint` / `burn` は onlyPool、`setIncentivesController` は onlyPoolAdmin。直接呼び出しは失敗する。
 - `approveDelegation` / `delegationWithSig` は債務委任の allowance。`approveDelegation` と `delegationWithSig` の委任借入を確認済み。`permit` + `transferFrom` は `finalizeTransfer` で拒否、`repayWithPermit` は成功を確認済み。
-- `initialize` は initializer。直接呼び出しは失敗する。
+- `initialize` は initializer。直接呼び出しは失敗する（`testATokenAndDebtTransfersAreRejected` に aWETH/debt の初期化呼び出しを追加）。
 
 ## テスト
 

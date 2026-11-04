@@ -72,7 +72,7 @@ HANDLED = {
     ]),
     '0xee3e210b': (
         'repayWithPermit(address,uint256,uint256,address,uint256,uint8,bytes32,bytes32)',
-        ['selector handled; no successful signature test (recorded limitation)'],
+        ['testSignedPermitAndDelegationPathsAreGuarded'],
     ),
 }
 INITIALIZE_SELECTOR = '0xc4d66de8'
@@ -85,22 +85,23 @@ TOKEN_RULES = {
             'mintToTreasury',
             'transferUnderlyingTo',
             'handleRepayment',
-            'rescueTokens',
-            'setIncentivesController',
         },
+        'admin_only': {'rescueTokens', 'setIncentivesController'},
         'transfers': {'transfer', 'transferFrom'},
         'approvals': {'approve', 'permit', 'increaseAllowance', 'decreaseAllowance'},
     },
     'variableDebt': {
         'pool_callbacks': set(),
-        'only_pool': {'mint', 'burn', 'setIncentivesController'},
+        'only_pool': {'mint', 'burn'},
+        'admin_only': {'setIncentivesController'},
         'transfers': {'transfer', 'transferFrom'},
         'approvals': {'approve', 'permit', 'increaseAllowance', 'decreaseAllowance'},
         'delegation': {'approveDelegation', 'delegationWithSig'},
     },
     'stableDebt': {
         'pool_callbacks': set(),
-        'only_pool': {'mint', 'burn', 'setIncentivesController'},
+        'only_pool': {'mint', 'burn'},
+        'admin_only': {'setIncentivesController'},
         'transfers': {'transfer', 'transferFrom'},
         'approvals': {'approve', 'permit', 'increaseAllowance', 'decreaseAllowance'},
         'delegation': {'approveDelegation', 'delegationWithSig'},
@@ -180,7 +181,7 @@ def classify_pool():
         'rejected': 19,
     }:
         raise deps.Failure(f'unexpected Pool classification {counts}')
-    return {'entries': classified, 'counts': counts}
+    return {'chain_id': 1, 'block': 19000000, 'entries': classified, 'counts': counts}
 
 
 def classify_token(name, target, etherscan_key):
@@ -200,6 +201,8 @@ def classify_token(name, target, etherscan_key):
             status = 'pool_callback'
         elif function in rules.get('only_pool', set()):
             status = 'only_pool'
+        elif function in rules.get('admin_only', set()):
+            status = 'admin_only'
         elif function in rules.get('transfers', set()):
             status = 'transfer'
         elif function in rules.get('approvals', set()):

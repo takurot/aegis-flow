@@ -95,9 +95,35 @@ class DependencyVerifierTests(unittest.TestCase):
         self.assertEqual(authority['executor_settings']['1']['delay'], 86400)
         self.assertEqual(authority['executor_settings']['2']['delay'], 604800)
         self.assertEqual(authority['governance']['latest_payload']['delay'], 86400)
+        self.assertEqual(authority['role_holders']['provider'], 'etherscan')
         self.assertIn(authority['provider_owner'], authority['role_holders']['by_name']['POOL_ADMIN'])
         self.assertIn('EMERGENCY_ADMIN', authority['role_holders']['by_name'])
         self.assertIn('RISK_ADMIN', authority['role_holders']['by_name'])
+
+    def test_etherscan_logs_rejects_ambiguous_status_and_truncation(self):
+        with patch.object(deps, 'source_json', return_value={'status': '0', 'message': 'NOTOK', 'result': []}):
+            with self.assertRaises(deps.Failure):
+                deps.etherscan_logs('0x1', '0x2', '0x0', '0x1', 'key')
+        with patch.object(deps, 'source_json', return_value={'status': '0', 'message': 'No records found', 'result': []}):
+            self.assertEqual(deps.etherscan_logs('0x1', '0x2', '0x0', '0x1', 'key'), [])
+        with patch.object(deps, 'source_json', return_value={'status': '1', 'message': 'OK', 'result': [{}] * 1000}):
+            with patch.object(deps.time, 'sleep'):
+                with self.assertRaisesRegex(deps.Failure, 'truncated'):
+                    deps.etherscan_logs('0x1', '0x2', '0x0', '0x1', 'key')
+
+    def test_role_holders_rpc_path_filters_current_role(self):
+        topic = deps.keccak_hex(b'RoleGranted(bytes32,address,address)')
+        role = '0x' + '11' * 32
+        account = '0x' + '22' * 20
+        log = {'topics': [topic, role, '0x' + '00' * 12 + '22' * 20]}
+        with patch.object(deps, 'first_code_block', return_value=0):
+            with patch.object(deps, 'rpc', return_value=[log]):
+                with patch.object(deps, 'call_uint', return_value=0):
+                    result = deps.role_holders('https://node.example', '0xacl', '')
+                    self.assertEqual(result['holders'], {})
+                with patch.object(deps, 'call_uint', return_value=1):
+                    result = deps.role_holders('https://node.example', '0xacl', '')
+                    self.assertEqual(result['holders'][role], [account])
 
     def test_executor_settings_decoder(self):
         result = '0x' + '00' * 12 + 'ab' * 20 + '00' * 28 + '00000001'

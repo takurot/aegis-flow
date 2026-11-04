@@ -333,18 +333,24 @@ def etherscan_logs(address, topic0, from_block, to_block, etherscan_key):
             body = source_json(url)
         except Failure as error:
             raise Failure(f'etherscan logs {error}') from None
-        result = body.get('result') if isinstance(body, dict) else None
-        if isinstance(result, str):
-            if body.get('status') == '0' and 'No records' in (body.get('message') or result):
-                break
-            raise Failure('etherscan logs unavailable')
-        if not isinstance(result, list) or not result:
-            break
+        if not isinstance(body, dict):
+            raise Failure('etherscan logs invalid response')
+        status = str(body.get('status', ''))
+        message = str(body.get('message') or '')
+        result = body.get('result')
+        if status == '0':
+            if 'No records' in message or (isinstance(result, str) and 'No records' in result):
+                return results
+            raise Failure('etherscan logs unsuccessful')
+        if not isinstance(result, list):
+            raise Failure('etherscan logs invalid result')
+        if not result:
+            return results
         results.extend(result)
         if len(result) < 1000:
-            break
+            return results
         time.sleep(0.25)
-    return results
+    raise Failure('etherscan logs truncated')
 
 
 def decode_role_logs(logs):
@@ -361,37 +367,7 @@ def decode_role_logs(logs):
     return holders
 
 
-def role_holders(url, acl, etherscan_key):
-    topic = keccak_hex(b'RoleGranted(bytes32,address,address)')
-    revoked_topic = keccak_hex(b'RoleRevoked(bytes32,address,address)')
-    start = first_code_block(url, acl)
-    holders = {}
-    errors = []
-    for chunk_start in range(start, BLOCK + 1, 1_000_000):
-        chunk_end = min(chunk_start + 999_999, BLOCK)
-        try:
-            logs = rpc(url, 'eth_getLogs', [{
-                'address': acl,
-                'topics': [topic],
-                'fromBlock': hex(chunk_start),
-                'toBlock': hex(chunk_end),
-            }])
-        except Failure as error:
-            errors.append({'from': chunk_start, 'to': chunk_end, 'error': str(error)})
-            continue
-        holders.update(decode_role_logs(logs if isinstance(logs, list) else []))
-    if holders and not errors:
-        return {'deployment_block': start, 'provider': 'rpc', 'holders': holders, 'errors': errors}
-    if not etherscan_key:
-        raise Failure('role logs unavailable')
-    granted = etherscan_logs(acl, topic, hex(start), hex(BLOCK), etherscan_key)
-    revoked = etherscan_logs(acl, revoked_topic, hex(start), hex(BLOCK), etherscan_key)
-    candidates = decode_role_logs(granted)
-    for role, accounts in decode_role_logs(revoked).items():
-        candidates.setdefault(role, [])
-        for account in accounts:
-            if account not in candidates[role]:
-                candidates[role].append(account)
+def current_holders(url, acl, candidates):
     current = {}
     for role, accounts in candidates.items():
         for account in accounts:
@@ -406,14 +382,64 @@ def role_holders(url, acl, etherscan_key):
                 active = 0
             if active:
                 current.setdefault(role, []).append(account)
+    return current
+
+
+def role_holders(url, acl, etherscan_key):
+    topic = keccak_hex(b'RoleGranted(bytes32,address,address)')
+    revoked_topic = keccak_hex(b'RoleRevoked(bytes32,address,address)')
+    start = first_code_block(url, acl)
+    errors = []
+    granted_logs = []
+    revoked_logs = []
+    for chunk_start in range(start, BLOCK + 1, 1_000_000):
+        chunk_end = min(chunk_start + 999_999, BLOCK)
+        for log_topic, target in ((topic, granted_logs), (revoked_topic, revoked_logs)):
+            try:
+                logs = rpc(url, 'eth_getLogs', [{
+                    'address': acl,
+                    'topics': [log_topic],
+                    'fromBlock': hex(chunk_start),
+                    'toBlock': hex(chunk_end),
+                }])
+            except Failure as error:
+                errors.append({'from': chunk_start, 'to': chunk_end, 'error': str(error)})
+                continue
+            target.extend(logs if isinstance(logs, list) else [])
+    if granted_logs and not errors:
+        candidates = decode_role_logs(granted_logs)
+        for role, accounts in decode_role_logs(revoked_logs).items():
+            candidates.setdefault(role, [])
+            for account in accounts:
+                if account not in candidates[role]:
+                    candidates[role].append(account)
+        return {
+            'deployment_block': start,
+            'provider': 'rpc',
+            'holders': current_holders(url, acl, candidates),
+            'granted': len(granted_logs),
+            'revoked': len(revoked_logs),
+            'errors': errors,
+        }
+    if not etherscan_key:
+        raise Failure('role logs unavailable')
+    granted = etherscan_logs(acl, topic, hex(start), hex(BLOCK), etherscan_key)
+    revoked = etherscan_logs(acl, revoked_topic, hex(start), hex(BLOCK), etherscan_key)
+    candidates = decode_role_logs(granted)
+    for role, accounts in decode_role_logs(revoked).items():
+        candidates.setdefault(role, [])
+        for account in accounts:
+            if account not in candidates[role]:
+                candidates[role].append(account)
     return {
         'deployment_block': start,
         'provider': 'etherscan',
-        'holders': current,
+        'holders': current_holders(url, acl, candidates),
         'granted': len(granted),
         'revoked': len(revoked),
         'errors': errors,
     }
+
 
 def decode_executor_settings(result):
     if not isinstance(result, str) or not result.startswith('0x'):

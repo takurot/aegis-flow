@@ -567,6 +567,26 @@ contract AegisPoolPoCTest {
         );
         _expectCallFailure(address(debt), abi.encodeWithSignature("burn(address,uint256,uint256)", alice, 1, 1e27));
         _expectCallFailure(address(debt), abi.encodeWithSignature("setIncentivesController(address)", bob));
+        _expectCallFailure(
+            address(aWeth),
+            abi.encodeWithSignature(
+                "initialize(address,address,address,address,uint8,string,string,bytes)",
+                alice,
+                bob,
+                alice,
+                bob,
+                18,
+                "A",
+                "A",
+                ""
+            )
+        );
+        _expectCallFailure(
+            address(debt),
+            abi.encodeWithSignature(
+                "initialize(address,address,address,uint8,string,string,bytes)", alice, bob, alice, 18, "D", "D", ""
+            )
+        );
         require(aWeth.balanceOf(alice) == balance, "token mutation changed collateral");
     }
 

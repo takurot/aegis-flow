@@ -25,7 +25,7 @@ Routescan を優先し、Routescan で source が未検証の場合だけ Ethers
   - aWETH / aUSDC / variableDebtUSDC / stableDebtUSDC proxy → Configurator `0x64b7…`
   - Configurator proxy → Provider
   - Governance proxy admin = ProxyAdmin `0xd3cf…`、その owner = Executor `0x5300…`
-  - Pool / Configurator / Governance proxy の `admin()` は `ifAdmin` なので、`from` を admin にして確認した。
+  - Pool / Configurator proxy の `admin()` は `ifAdmin` なので、`from` を admin にして確認した。Governance proxy は EIP-1967 admin slot と ProxyAdmin の `owner()` で確認した。
 - **authority chain**:
   - Provider owner = Executor `0x5300…`
   - ACL admin = Executor
@@ -43,7 +43,7 @@ Routescan を優先し、Routescan で source が未検証の場合だけ Ethers
 
 Etherscan V2 の `RoleGranted` / `RoleRevoked` logs と `hasRole` で現在の holder を確認した。
 
-- `DEFAULT_ADMIN_ROLE`: Executor `0x5300…`
+- `DEFAULT_ADMIN_ROLE`: Executor `0x5300…`（role holder は RPC log が使える場合は `RoleRevoked` と `hasRole` で現在値にフィルタし、RPC log 不可時は Etherscan logs と `hasRole` を使う）
 - `POOL_ADMIN`: Executor `0x5300…`
 - `EMERGENCY_ADMIN`: `0xca76…`
 - `RISK_ADMIN`: `0x82dc…`, `0x2ee6…`
