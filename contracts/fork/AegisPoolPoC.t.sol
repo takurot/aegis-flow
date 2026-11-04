@@ -161,6 +161,11 @@ contract AegisPoolPoCTest {
         require(reason.length >= 4 && bytes4(reason) == selector, "unexpected revert reason");
     }
 
+    function _expectCallFailure(address target, bytes memory data) internal {
+        (bool ok,) = target.call(data);
+        require(!ok, "call unexpectedly succeeded");
+    }
+
     // ---------------------------------------------------------------------
     // Upgrade, initialization and storage isolation
     // ---------------------------------------------------------------------
@@ -518,45 +523,61 @@ contract AegisPoolPoCTest {
         vm.prank(alice);
         (ok,) = address(debt).call(abi.encodeCall(Token.transfer, (bob, 1)));
         require(!ok, "debt transfer");
+        _expectCallFailure(
+            address(aWeth), abi.encodeWithSignature("transferOnLiquidation(address,address,uint256)", alice, bob, 1)
+        );
+        _expectCallFailure(
+            address(aWeth), abi.encodeWithSignature("mint(address,address,uint256,uint256)", alice, bob, 1, 1e27)
+        );
+        _expectCallFailure(
+            address(aWeth), abi.encodeWithSignature("burn(address,address,uint256,uint256)", alice, bob, 1, 1e27)
+        );
+        _expectCallFailure(address(aWeth), abi.encodeWithSignature("mintToTreasury(uint256,uint256)", 1, 1e27));
+        _expectCallFailure(address(aWeth), abi.encodeWithSignature("transferUnderlyingTo(address,uint256)", bob, 1));
+        _expectCallFailure(
+            address(aWeth), abi.encodeWithSignature("handleRepayment(address,address,uint256)", alice, alice, 1)
+        );
+        _expectCallFailure(
+            address(aWeth), abi.encodeWithSignature("rescueTokens(address,address,uint256)", address(usdc), alice, 1)
+        );
+        _expectCallFailure(address(aWeth), abi.encodeWithSignature("setIncentivesController(address)", bob));
+        _expectCallFailure(
+            address(debt), abi.encodeWithSignature("mint(address,address,uint256,uint256)", alice, bob, 1, 1e27)
+        );
+        _expectCallFailure(address(debt), abi.encodeWithSignature("burn(address,uint256,uint256)", alice, 1, 1e27));
+        _expectCallFailure(address(debt), abi.encodeWithSignature("setIncentivesController(address)", bob));
+        require(aWeth.balanceOf(alice) == balance, "token mutation changed collateral");
     }
 
     function testUnsupportedEntrypointsFailClosed() public {
         _upgrade();
-        _expectRevert(
-            address(pool), abi.encodeWithSignature("setUserEMode(uint8)", 1), AegisPoolPoC.Unsupported.selector
-        );
-        _expectRevert(
-            address(pool),
-            abi.encodeWithSignature(
-                "supplyWithPermit(address,uint256,address,uint16,uint256,uint8,bytes32,bytes32)",
-                address(weth),
-                0,
-                alice,
-                0,
-                0,
-                0,
-                bytes32(0),
-                bytes32(0)
-            ),
-            AegisPoolPoC.Unsupported.selector
-        );
-        _expectRevert(
-            address(pool),
-            abi.encodeWithSignature(
-                "flashLoanSimple(address,address,uint256,bytes,uint16)", alice, address(usdc), 0, "", 0
-            ),
-            AegisPoolPoC.Unsupported.selector
-        );
-        _expectRevert(
-            address(pool),
-            abi.encodeWithSignature("deposit(address,uint256,address,uint16)", address(weth), 0, alice, 0),
-            AegisPoolPoC.Unsupported.selector
-        );
-        _expectRevert(
-            address(pool),
-            abi.encodeWithSignature("swapBorrowRateMode(address,uint256)", address(usdc), 2),
-            AegisPoolPoC.Unsupported.selector
-        );
+        bytes4[] memory selectors = new bytes4[](19);
+        selectors[0] = 0xd65dc7a1; // backUnbacked
+        selectors[1] = 0xd579ea7d; // configureEModeCategory
+        selectors[2] = 0xe8eda9df; // deposit
+        selectors[3] = 0x63c9b860; // dropReserve
+        selectors[4] = 0xd5ed3933; // finalizeTransfer
+        selectors[5] = 0x42b0b77c; // flashLoanSimple
+        selectors[6] = 0x7a708e92; // initReserve
+        selectors[7] = 0x9cd19996; // mintToTreasury
+        selectors[8] = 0x69a933a5; // mintUnbacked
+        selectors[9] = 0xcd112382; // rebalanceStableBorrowRate
+        selectors[10] = 0xcea9d26f; // rescueTokens
+        selectors[11] = 0xe43e88a1; // resetIsolationModeTotalDebt
+        selectors[12] = 0xf51e435b; // setConfiguration
+        selectors[13] = 0x1d2118f9; // setReserveInterestRateStrategyAddress
+        selectors[14] = 0x28530a47; // setUserEMode
+        selectors[15] = 0x02c205f0; // supplyWithPermit
+        selectors[16] = 0x94ba89a2; // swapBorrowRateMode
+        selectors[17] = 0x3036b439; // updateBridgeProtocolFee
+        selectors[18] = 0xbcb6e522; // updateFlashloanPremiums
+        for (uint256 i; i < selectors.length; ++i) {
+            (bool ok, bytes memory reason) = address(pool).call(abi.encodePacked(selectors[i]));
+            require(
+                !ok && reason.length >= 4 && bytes4(reason) == AegisPoolPoC.Unsupported.selector,
+                "unsupported selector was not rejected"
+            );
+        }
         // Views remain delegated to the original implementation.
         (uint256 collateral,,,,,) = pool.getUserAccountData(alice);
         require(collateral == 0, "view broken");

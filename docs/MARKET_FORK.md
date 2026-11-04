@@ -1,6 +1,6 @@
 # Aave V3 の fork — Issue #8 の中間成果
 
-2026-11-03 に Ethereum Mainnet の archive RPC で無変更 baseline を実行し、2026-11-04 にローカル fork 限定の保護 PoC を追加した。固定 RPC で **baseline 10 件 + 保護あり 30 件 = 40 件が PASS**。ただし保護 PoC は研究用で、本番統合・全依存先のソース/権限・市場ガバナンスの実証ではない。#8 は OPEN のまま、#11 以降の市場実装ゲートは解放しない。
+2026-11-03 に Ethereum Mainnet の archive RPC で無変更 baseline を実行し、2026-11-04 にローカル fork 限定の保護 PoC を追加した。固定 RPC で **baseline 10 件 + 保護あり 30 件 = 40 件が PASS**。加えて依存先 source の存在・proxy/authority chain・Level 1 timelock delay (1 day)・ACL role holder 全量・Pool/token 入口の分類を記録した。ただし保護 PoC は研究用で、依存先 exact runtime・未命名 role の意味・実際の upgrade proposal 履歴・本番統合・市場ガバナンスの実証ではない。#8 は OPEN のまま、#11 以降の市場実装ゲートは解放しない。
 
 ## 対象と再現
 
@@ -26,9 +26,17 @@ export SENTINEL_RPC_URL='https://endpoint.example/token/'
 
 スクリプトは chain ID と固定 block number/hash/timestamp を読み取りで照合し、`market_fork` profile で独立したテスト群を起動する。**baseline と保護ありの両 suite について、必須テストの全成功を確認する**。0 件・不足・skip・失敗・RPC 不足は終了コード 1。`FOUNDRY_*` による外部フィルタを引き継がない。RPC URL をコマンド引数に入れず、通信エラーやテスト失敗時は外部応答を表示しない。成功出力も URL・ホスト・トークンを除去する。1000 分割のテストはローカル fork の 1 トランザクションとして `gas_limit = 1,000,000,000` で実行する（本番の gas 上限を意味しない）。
 
-[固定 snapshot](../forks/aave-v3-ethereum-19000000.json) は、Pool / Provider / Configurator / ACL / oracle、担保証票・負債token・資産・価格sourceのアドレスと `EXTCODEHASH`、EIP-1967 implementation と codehash、Provider owner / ACL admin、reserve設定と価格を記録する。テストはこれらの一致を assertion で確認する。`source_bytecode_correspondence: unverified` は依存先全体の未達記録で、codehash の固定をソース検証と混同しない。Pool本体とリンク先7ライブラリの再ビルド照合は、別の[ソース照合記録](../forks/aave-v3-pool-source-19000000.json)を参照する。
+[固定 snapshot](../forks/aave-v3-ethereum-19000000.json) は、Pool / Provider / Configurator / ACL / oracle、担保証票・負債token・資産・価格sourceのアドレスと `EXTCODEHASH`、EIP-1967 implementation と codehash、Provider owner / ACL admin、reserve設定と価格を記録する。テストはこれらの一致を assertion で確認する。依存先の source は [依存先検証](MARKET_DEPENDENCIES.md) で 25 targets / 25 verified sources を取得したが、Pool + 7 ライブラリ以外の exact runtime 再ビルドは未実施である。codehash の固定をソース検証と混同しない。Pool本体とリンク先7ライブラリの再ビルド照合は、別の[ソース照合記録](../forks/aave-v3-pool-source-19000000.json)を参照する。
 
-[Pool entrypoint 一覧](../forks/aave-v3-pool-entrypoints.json)は固定ブロックの ABI と照合した 47 関数（view 18 / 非 view 29）である。`_viewSelector` は 18 個の view selector のみを delegate し、非 view selector を view として扱わない。tuple 引数を持つ 2 関数の canonical selector も修正済み。ただしこの一覧は入口の分類資料であり、未対応入口を許可する証拠ではない。
+[Pool entrypoint 一覧](../forks/aave-v3-pool-entrypoints.json)は固定ブロックの ABI と照合した 47 関数（view 18 / 非 view 29）である。`_viewSelector` は 18 個の view selector のみを delegate し、非 view selector を view として扱わない。tuple 引数を持つ 2 関数の canonical selector も修正済み。保護 PoC の allowlist・拒否・gated initialize への対応付けは [Pool/token 入口の網羅](MARKET_ENTRYPOINTS.md) と [分類成果物](../forks/aave-v3-pool-entrypoints-19000000.json) に記録した。ただしこの一覧は入口の分類資料であり、未対応入口を許可する証拠ではない。
+
+## 依存先・入口の追加検証（2026-11-04）
+
+- [依存先・権限・timelock 検証](MARKET_DEPENDENCIES.md): `scripts/verify-market-dependencies.py` で 25 targets / 25 verified sources。Configurator implementation は Routescan 未検証だったが Etherscan V2 で取得。USDC は EIP-1967 ではない custom slot の FiatTokenProxy として記録。Pool → Provider → Executor → Governance proxy の owner 関係、ACL admin、`isPoolAdmin(Executor)=1`、Governance の delay 定数を確認。
+- [Pool/token 入口の網羅](MARKET_ENTRYPOINTS.md): Pool 47 関数を **view 18 / guarded 9 / gated initialize 1 / rejected 19** に分類。19 rejected selector は実際に `Unsupported` を確認。token は aWETH/aUSDC 34、variableDebt 30、stableDebt 33 関数を分類し、transfer / transferFrom / onlyPool mutator / borrow delegation を整理。
+- 成果物: [`forks/aave-v3-dependencies-19000000.json`](../forks/aave-v3-dependencies-19000000.json)、[`forks/aave-v3-pool-entrypoints-19000000.json`](../forks/aave-v3-pool-entrypoints-19000000.json)、[`forks/aave-v3-token-entrypoints-19000000.json`](../forks/aave-v3-token-entrypoints-19000000.json)。
+- 解決: `getExecutorSettingsByAccessControl` を Governance proxy に対して呼ぶことで、Level 1 Executor `0x5300…` / delay 1 day、Level 2 Executor `0x17dd…` / delay 7 days を確認。`ExecutorSet` logs と最新 payload (access level 1 / delay 1 day / grace 7 days) も一致。ACL role holder は Etherscan `RoleGranted`/`RoleRevoked` logs と `hasRole` で列挙（POOL_ADMIN=Executor、EMERGENCY_ADMIN/RISK_ADMIN/FLASH_BORROWER は別アドレス、未命名 role hash 1 件あり）。
+- 未解決: 依存先 exact runtime 再ビルド、未命名 role の意味、実際の upgrade proposal 履歴。
 
 ## 保護あり PoC の範囲
 
@@ -76,15 +84,15 @@ baseline の 10 テストは無変更 Aave V3 の直接/委任借入、flash 可
 
 ## 未達と次のゲート
 
-- Pool本体とリンク先7ライブラリは SolcJS 0.8.19 / optimizer 200 / Paris / metadata hash none で再ビルドし、runtime全体の一致を確認した。APIが返したPoolのconstructor引数は不一致だったため採用していない。Provider immutable は対象ブロックの実値に拘束した。依存token・oracle・価格source・proxy実装のソース対応、upgrade権限・timelock全体の確認は未完了。USDCは EIP-1967 ではない proxy であり、その slot=0 を implementation 不在と解釈しない。
-- 保護 PoC はローカル fork の研究実装で、実市場のガバナンス承認・本番 upgrade・公開チェーンへの送信を行っていない。Provider owner / ACL admin の固定は確認したが、実効 timelock・承認手順・全管理者の検証は未完了。
+- Pool本体とリンク先7ライブラリは SolcJS 0.8.19 / optimizer 200 / Paris / metadata hash none で再ビルドし、runtime全体の一致を確認した。APIが返したPoolのconstructor引数は不一致だったため採用していない。Provider immutable は対象ブロックの実値に拘束した。依存 token/oracle/proxy の source 存在は取得したが、exact runtime 再ビルドは Pool + 7 ライブラリ以外未実施。USDC は EIP-1967 ではない custom slot の proxy であり、slot=0 を implementation 不在と解釈しない。
+- 保護 PoC はローカル fork の研究実装で、実市場のガバナンス承認・本番 upgrade・公開チェーンへの送信を行っていない。Provider owner / ACL admin / Executor owner / Governance proxy admin / Level 1 delay / ACL role holder は確認したが、未命名 role の意味・実際の upgrade proposal 履歴・依存先 exact runtime は未検証。
 - aToken 移転・permit 供給・eMode・stable rate・mode=0/simple flash・bridge・adapter・再入の全組合せは、拒否または未対応として記録した。拒否を「保護完了」と扱わない。本番で必要な経路は別途、追跡または明示的な市場適用外の根拠が必要である。
 - 汚染 claim の比例配賦・解除・重複通知・誤通知の訂正（#9）、複数資産・コリドー・料金・連続回復（#17/#31）、隔離と証明例外は未実装。
-- 次は依存先のソース/権限検証、本番 upgrade/migration 経路、必要な移転経路の追跡または適用外判断、人間の独立監査、対象 commit の GitHub CI 終端結果の確認が必要。[#8 合格条件](MARKET_INTEGRATION.md)を維持し、成功した市場保護として後続ゲートを解放しない。
+- 次は依存先 exact runtime の再ビルド、未命名 role の意味と実際の upgrade proposal 履歴の確認、本番 upgrade/migration 経路、必要な移転経路の追跡または適用外判断、人間の独立監査、対象 commit の GitHub CI 終端結果の確認が必要。[#8 合格条件](MARKET_INTEGRATION.md)を維持し、成功した市場保護として後続ゲートを解放しない。
 
 ## ソース照合の再実行
 
-Etherscan はこの環境から HTTP 403、試した Sourcify の full/partial match パスは404だった。代替の Routescan API から取得した候補を再ビルドした。ソース照合記録の `source_api` を再取得し、`SourceCode` 文字列の UTF-8 SHA-256 を `source_code_field_sha256` と比較する。二重の外側波括弧を1組除き、standard JSON として扱う。
+Etherscan は API key なしでは HTTP 403、Sourcify の full/partial match パスは 404 だった。現在は Routescan を優先し、Routescan で未検証の場合だけ Etherscan V2（API key はリポジトリ外の `~/.config/aegis-flow/etherscan.env`）へフォールバックする。ソース照合記録の `source_api` を再取得し、`SourceCode` 文字列の UTF-8 SHA-256 を `source_code_field_sha256` と比較する。二重の外側波括弧を1組除き、standard JSON として扱う。
 
 コンパイラはリポジトリ外へ `npm install --prefix /tmp/aegis-solcjs-0.8.19 --ignore-scripts --no-audit --no-fund solc@0.8.19` で導入する。`solc` package の integrity は照合記録の `solc_npm_integrity` と比較する。version は `0.8.19+commit.7dd6d404.Emscripten.clang`。公式 macOS amd64 native binary はこの arm64 環境で実行できなかったため使用しない。
 
@@ -99,7 +107,7 @@ Etherscan はこの環境から HTTP 403、試した Sourcify の full/partial m
 1. 調査: #8/#4、SPEC、README、最新 `origin/main` `8a7a3af`、clean main と既存 worktree、RPC を確認。
 2. 計画: #8 専用 `issue/8-market-fork` / `aegis-flow-worktrees/issue-8`。未変更市場の反例・再現基盤に加え、ローカル fork 限定の保護 PoC を同じ worktree で検証。
 3. Red/Green: baseline runner の 0 件成功・不正HTTP応答の指摘を回帰テストで再現して修正。保護 suite 追加後、runner が baseline のみを必須にしていた穴を Python テストで再現し、両 suite 必須へ変更。
-4. 検証: live fork 40 件（baseline 10 + 保護 30）、Python runner 13 件、既存 Python / Rust / Solidity、Anvil E2E、actionlint、fmt。対象 commit と終端結果は PR に記録する。
+4. 検証: live fork 40 件（baseline 10 + 保護 30）、Python runner 13 件、依存先/入口の静的テスト 9 件、既存 Python / Rust / Solidity、Anvil E2E、actionlint、fmt。依存先・入口の収集スクリプトは network を使うため通常 CI では実行せず、成果物と静的テストだけを CI で検証する。対象 commit と終端結果は PR に記録する。
 5. 独立レビュー: 別エージェントで保護 PoC、runner、文書、差分を確認し、M1–M5 を修正・再検証した。残る Low の未検証を記録する。
 6. 納品: この部分成果は #8 を close しない。PR の状態、CI と実 fork の証跡をそれぞれ確認する。
 

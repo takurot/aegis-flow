@@ -1,0 +1,729 @@
+{
+  "chain_id": 1,
+  "block": 19000000,
+  "tokens": {
+    "aWETH": {
+      "proxy": "0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8",
+      "implementation": "0x7EfFD7b47Bfd17e52fB7559d3f924201b9DbfF3d",
+      "kind": "aToken",
+      "abi_provider": "routescan",
+      "counts": {
+        "read_only": 19,
+        "approval": 4,
+        "only_pool": 7,
+        "initializer": 1,
+        "transfer": 2,
+        "pool_callback": 1
+      },
+      "review_required": [],
+      "entries": [
+        {
+          "signature": "ATOKEN_REVISION()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "DOMAIN_SEPARATOR()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "EIP712_REVISION()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "PERMIT_TYPEHASH()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "POOL()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "RESERVE_TREASURY_ADDRESS()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "UNDERLYING_ASSET_ADDRESS()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "allowance(address,address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "approve(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "balanceOf(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "burn(address,address,uint256,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "decimals()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "decreaseAllowance(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "getIncentivesController()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getPreviousIndex(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getScaledUserBalanceAndSupply(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "handleRepayment(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "increaseAllowance(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "initialize(address,address,address,address,uint8,string,string,bytes)",
+          "mutability": "nonpayable",
+          "status": "initializer"
+        },
+        {
+          "signature": "mint(address,address,uint256,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "mintToTreasury(uint256,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "name()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "nonces(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "rescueTokens(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "scaledBalanceOf(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "scaledTotalSupply()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "setIncentivesController(address)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "symbol()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "totalSupply()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "transfer(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "transfer"
+        },
+        {
+          "signature": "transferFrom(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "transfer"
+        },
+        {
+          "signature": "transferOnLiquidation(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "pool_callback"
+        },
+        {
+          "signature": "transferUnderlyingTo(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        }
+      ]
+    },
+    "aUSDC": {
+      "proxy": "0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c",
+      "implementation": "0x7EfFD7b47Bfd17e52fB7559d3f924201b9DbfF3d",
+      "kind": "aToken",
+      "abi_provider": "routescan",
+      "counts": {
+        "read_only": 19,
+        "approval": 4,
+        "only_pool": 7,
+        "initializer": 1,
+        "transfer": 2,
+        "pool_callback": 1
+      },
+      "review_required": [],
+      "entries": [
+        {
+          "signature": "ATOKEN_REVISION()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "DOMAIN_SEPARATOR()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "EIP712_REVISION()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "PERMIT_TYPEHASH()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "POOL()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "RESERVE_TREASURY_ADDRESS()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "UNDERLYING_ASSET_ADDRESS()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "allowance(address,address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "approve(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "balanceOf(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "burn(address,address,uint256,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "decimals()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "decreaseAllowance(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "getIncentivesController()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getPreviousIndex(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getScaledUserBalanceAndSupply(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "handleRepayment(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "increaseAllowance(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "initialize(address,address,address,address,uint8,string,string,bytes)",
+          "mutability": "nonpayable",
+          "status": "initializer"
+        },
+        {
+          "signature": "mint(address,address,uint256,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "mintToTreasury(uint256,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "name()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "nonces(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "rescueTokens(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "scaledBalanceOf(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "scaledTotalSupply()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "setIncentivesController(address)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "symbol()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "totalSupply()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "transfer(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "transfer"
+        },
+        {
+          "signature": "transferFrom(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "transfer"
+        },
+        {
+          "signature": "transferOnLiquidation(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "pool_callback"
+        },
+        {
+          "signature": "transferUnderlyingTo(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        }
+      ]
+    },
+    "variableDebtUSDC": {
+      "proxy": "0x72E95b8931767C79bA4EeE721354d6E99a61D004",
+      "implementation": "0xaC725CB59D16C81061BDeA61041a8A5e73DA9EC6",
+      "kind": "variableDebt",
+      "abi_provider": "routescan",
+      "counts": {
+        "read_only": 19,
+        "approval": 3,
+        "borrow_delegation": 2,
+        "only_pool": 3,
+        "initializer": 1,
+        "transfer": 2
+      },
+      "review_required": [],
+      "entries": [
+        {
+          "signature": "DEBT_TOKEN_REVISION()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "DELEGATION_WITH_SIG_TYPEHASH()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "DOMAIN_SEPARATOR()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "EIP712_REVISION()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "POOL()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "UNDERLYING_ASSET_ADDRESS()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "allowance(address,address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "approve(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "approveDelegation(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "borrow_delegation"
+        },
+        {
+          "signature": "balanceOf(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "borrowAllowance(address,address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "burn(address,uint256,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "decimals()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "decreaseAllowance(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "delegationWithSig(address,address,uint256,uint256,uint8,bytes32,bytes32)",
+          "mutability": "nonpayable",
+          "status": "borrow_delegation"
+        },
+        {
+          "signature": "getIncentivesController()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getPreviousIndex(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getScaledUserBalanceAndSupply(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "increaseAllowance(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "initialize(address,address,address,uint8,string,string,bytes)",
+          "mutability": "nonpayable",
+          "status": "initializer"
+        },
+        {
+          "signature": "mint(address,address,uint256,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "name()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "nonces(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "scaledBalanceOf(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "scaledTotalSupply()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "setIncentivesController(address)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "symbol()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "totalSupply()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "transfer(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "transfer"
+        },
+        {
+          "signature": "transferFrom(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "transfer"
+        }
+      ]
+    },
+    "stableDebtUSDC": {
+      "proxy": "0xB0fe3D292f4bd50De902Ba5bDF120Ad66E9d7a39",
+      "implementation": "0x15C5620dfFaC7c7366EED66C20Ad222DDbB1eD57",
+      "kind": "stableDebt",
+      "abi_provider": "routescan",
+      "counts": {
+        "read_only": 22,
+        "approval": 3,
+        "borrow_delegation": 2,
+        "only_pool": 3,
+        "initializer": 1,
+        "transfer": 2
+      },
+      "review_required": [],
+      "entries": [
+        {
+          "signature": "DEBT_TOKEN_REVISION()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "DELEGATION_WITH_SIG_TYPEHASH()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "DOMAIN_SEPARATOR()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "EIP712_REVISION()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "POOL()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "UNDERLYING_ASSET_ADDRESS()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "allowance(address,address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "approve(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "approveDelegation(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "borrow_delegation"
+        },
+        {
+          "signature": "balanceOf(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "borrowAllowance(address,address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "burn(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "decimals()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "decreaseAllowance(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "delegationWithSig(address,address,uint256,uint256,uint8,bytes32,bytes32)",
+          "mutability": "nonpayable",
+          "status": "borrow_delegation"
+        },
+        {
+          "signature": "getAverageStableRate()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getIncentivesController()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getSupplyData()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getTotalSupplyAndAvgRate()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getTotalSupplyLastUpdated()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getUserLastUpdated(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "getUserStableRate(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "increaseAllowance(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "approval"
+        },
+        {
+          "signature": "initialize(address,address,address,uint8,string,string,bytes)",
+          "mutability": "nonpayable",
+          "status": "initializer"
+        },
+        {
+          "signature": "mint(address,address,uint256,uint256)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "name()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "nonces(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "principalBalanceOf(address)",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "setIncentivesController(address)",
+          "mutability": "nonpayable",
+          "status": "only_pool"
+        },
+        {
+          "signature": "symbol()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "totalSupply()",
+          "mutability": "view",
+          "status": "read_only"
+        },
+        {
+          "signature": "transfer(address,uint256)",
+          "mutability": "nonpayable",
+          "status": "transfer"
+        },
+        {
+          "signature": "transferFrom(address,address,uint256)",
+          "mutability": "nonpayable",
+          "status": "transfer"
+        }
+      ]
+    }
+  }
+}
