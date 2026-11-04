@@ -19,6 +19,7 @@ spec.loader.exec_module(deps)
 
 GOVERNANCE = '0xdabad81af85554e9ae636395611c58f7ec1aaec5'
 UNKNOWN_ROLE = '0xd1d2cf869016112a9af1107bcf43c3759daf22cf734aad47d0c9c726e33bc782'
+ROLE_PATTERN = 'ISOLATED_COLLATERAL_SUPPLIER'
 PATTERNS = (
     'setPoolImpl',
     'setPoolConfiguratorImpl',
@@ -173,12 +174,14 @@ def main():
         bodies = [body for text in texts for body in execute_bodies(text)]
         matches = sorted({pattern for pattern in PATTERNS for body in bodies if pattern in body})
         role_reference = any(UNKNOWN_ROLE.lower() in text.lower() for text in texts)
+        isolated_role_reference = any(ROLE_PATTERN in text for text in texts)
         targets[address] = {
             'contract_name': row.get('ContractName') or '',
             'provider': provider,
             'execute_body_count': len(bodies),
             'upgrade_matches': matches,
             'unknown_role_reference': role_reference,
+            'isolated_collateral_role_reference': isolated_role_reference,
         }
         if 'setPoolImpl' in matches:
             try:
@@ -193,7 +196,7 @@ def main():
                 ).strip()
             except deps.Failure:
                 targets[address]['pool_addresses_provider'] = None
-        if role_reference:
+        if role_reference or isolated_role_reference:
             payloads_for_target = [
                 payload['id'] for payload in payloads
                 if any(action['target'].lower() == key for action in payload.get('actions', []))
@@ -205,6 +208,9 @@ def main():
         if any(targets.get(action['target'], {}).get('upgrade_matches') for action in payload.get('actions', []))
     ]
     role_references = [address for address, target in targets.items() if target.get('unknown_role_reference')]
+    isolated_role_references = [
+        address for address, target in targets.items() if target.get('isolated_collateral_role_reference')
+    ]
     output = {
         'chain_id': 1,
         'block': deps.BLOCK,
@@ -214,11 +220,12 @@ def main():
         'targets': targets,
         'upgrade_payloads': upgrade_payloads,
         'unknown_role_references': role_references,
+        'isolated_collateral_role_references': isolated_role_references,
         'errors': errors,
     }
     args.out.write_text(json.dumps(output, indent=2) + '\n')
     print(f'Wrote {args.out}')
-    print(f'payloads={count} targets={len(targets)} upgrade_payloads={upgrade_payloads} unknown_role_refs={role_references}')
+    print(f'payloads={count} targets={len(targets)} upgrade_payloads={upgrade_payloads} unknown_role_refs={role_references} isolated_role_refs={isolated_role_references}')
     return 0
 
 

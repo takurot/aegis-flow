@@ -49,9 +49,9 @@ Etherscan V2 の `RoleGranted` / `RoleRevoked` logs と `hasRole` で現在の h
 - `RISK_ADMIN`: `0x82dc…`, `0x2ee6…`
 - `FLASH_BORROWER`: `0xd9d8…`, `0x7291…`, `0x8761…`
 - `BRIDGE`: holder なし
-- 未命名 role hash `0xd1d2…`: `0x872f…`, `0xb748…`。admin は `DEFAULT_ADMIN_ROLE`（= Executor）。ACLManager の source にこの hash への参照はなく、ACLManager の権限付き関数には使われない。外部 contract が同じ hash を参照する可能性は未調査。
+- **`ISOLATED_COLLATERAL_SUPPLIER`**（`0xd1d2…`）: holders `0x872f…`, `0xb748…`。Aave Governance V2 proposal 213 の `V301EthereumUpgradePayload` が block 17214196 で付与し、`ACL_MANAGER.grantRole(ISOLATED_COLLATERAL_SUPPLIER_ROLE, SWAP_COLLATERAL_ADAPTER/MIGRATION_HELPER)` を実行した。根拠: [`forks/aave-v3-v2-proposal-213-role.json`](../forks/aave-v3-v2-proposal-213-role.json)。
 
-role holder の全量は取得できたが、未命名 role の意味・権限範囲は別途確認が必要。
+role holder の全量を取得し、`0xd1d2…` は `ISOLATED_COLLATERAL_SUPPLIER` と特定した。role の付与元は V2 proposal 213。
 
 ## 実行済み upgrade payload
 
@@ -71,13 +71,13 @@ python3 scripts/verify-governance-payloads.py
   - `POOL_ADDRESSES_PROVIDER = 0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e`
   - `NEW_POOL_IMPL` は固定 block の Pool implementation と一致
 - 他の payload には upgrade-specific な `setPoolImpl` / `setPoolConfiguratorImpl` / `upgradeTo` / `ProxyAdmin` 呼び出しは見つからない。
-- 未命名 role hash `0xd1d2…` は payload source 内に参照なし。
+- V3 payload source に `0xd1d2…` の hash literal 参照はない。付与元は V2 proposal 213 の `V301EthereumUpgradePayload`。
 
 ## 未解決・未検証（成功扱いにしない）
 
 - **依存先の exact runtime**: 25 targets 中 **25 が code match**（全 metadata strip + immutable/link mask）、full exact は USDC price source のみ。`PoolAddressesProvider` の二重 metadata 問題は解消。metadata hash / immutable / link 値の full exact は未再現。
 - **価格 aggregator の下位実装**: EACAggregatorProxy とその `aggregator()` は取得したが、下位 aggregator の運用・停止条件・L2 sequencer は対象外。
-- **ガバナンス承認・実行履歴**: Level 1 executor の delay 1 day、level 2 の delay 7 days、ProxyAdmin owner、ACL role holder、payload 43 の実行済み Pool upgrade を確認した。残るのは未命名 role の **非 governance / 外部 contract** からの利用、緊急権限の運用。
+- **ガバナンス承認・実行履歴**: Level 1 executor の delay 1 day、level 2 の delay 7 days、ProxyAdmin owner、ACL role holder、payload 43 の実行済み Pool upgrade、`ISOLATED_COLLATERAL_SUPPLIER` の grant 元を確認した。残るのは緊急権限の運用。
 - **公開チェーンへの書き込みなし**。deploy/upgrade/governance 操作は行っていない。
 
 ## source → runtime 再ビルド
@@ -101,4 +101,4 @@ python3 scripts/verify-source-runtime.py
 
 ## 判定
 
-依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量、payload 43 の実行済み Pool upgrade、25/25 code match は確認できた。一方、**metadata/immutable/link 値の full exact** と未命名 role の外部利用は未検証である。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。
+依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量、payload 43 の実行済み Pool upgrade、`ISOLATED_COLLATERAL_SUPPLIER` の grant 元、25/25 code match は確認できた。一方、**metadata/immutable/link 値の full exact** は未検証である。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。

@@ -912,308 +912,352 @@
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xD8e565b43b5425Dc36037ABfF9dEa94DF4870F38": {
       "contract_name": "AaveV3Ethereum_ACIPhaseII_20231029",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xc62cAb55a4376F916D107D7e09356E9799c090fa": {
       "contract_name": "AaveV2Ethereum_AaveV2EthereumLTReduction_20231030",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xBdD1458A6d399C88D4509275e4463485C6c86Ef3": {
       "contract_name": "AaveV1Ethereum_FixedREPPriceFeed_20231031",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x60b2345a6B7132917151Fc1f30FE46558FEaDE69": {
       "contract_name": "AaveV2Ethereum_Disable_Stable_Borrows_20231104",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x37DF9bd44728e513472D5d44793118cBaE975E12": {
       "contract_name": "V2EthSTokenPayload",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x3D33aBB521Ef3AA17b76c3FF9aDbEBA3903C5114": {
       "contract_name": "V2EthSTokenPayloadExtra",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x6C43cd7DC9f8d6F9892b4757941F910E3c7f2244": {
       "contract_name": "V2EthLiquidationSentinelPayload",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xa7CbEBECD0E5337E0985c3Ec81b1a40EE9094Cc6": {
       "contract_name": "AaveV3Ethereum_ChaosLabsRiskManagementRenewal_20231101",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xfb1163CD80850CD107bB134C15E5dfDF284F63FE": {
       "contract_name": "AaveV3Ethereum_ChaosLabsRiskManagementRenewal_20231101",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xA2DE136BFd7ff998C825229FdeBfAF77726c43eC": {
       "contract_name": "AaveV3Ethereum_GHOIncreaseBorrowRate_20231108",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xb96887502797c07Fc5b0F0938C61cC3D46e16e18": {
       "contract_name": "AaveV3Ethereum_UpgradeAaveV3ETHPooolWETHParameters_20231031",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xd639df0EE7f2fD905926cC23FF7174dC0ad4EeFA": {
       "contract_name": "AaveV3Ethereum_AmendSafetyModuleAAVEEmissions_20231104",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xf75cBd975756C52aA7321d10E6aCA90e07835Dee": {
       "contract_name": "ConfiguratorUpdatePayload",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x9441B65EE553F70df9C77d45d3283B6BC24F222d": {
       "contract_name": "V2EthAmmLiquidationSentinelPayload",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xB08b75BaAC19FAcd43e643af10B35E5cA3527F5F": {
       "contract_name": "AaveV3Ethereum_TreasuryManagementAddToRETHHolding_20231103",
       "provider": "routescan",
       "execute_body_count": 2,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x23AceD103f5E22bD22B9272c82f29C0E51abC5c2": {
       "contract_name": "ConfiguratorUpdatePayload",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x97D74bceC48b003FCd54Ae30e595028A38e8bBA1": {
       "contract_name": "AaveV3Ethereum_TokenLogicFunding_20231114",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x333d00b056a72787e4432fbcD075b32953677AEd": {
       "contract_name": "AaveV3Ethereum_AddFXSToEthereumV3_20231108",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x333b081caaD6B94697a1C06560EE336f41338110": {
       "contract_name": "AaveV3Ethereum_CRVUSDOnboardingOnAaveV3Ethereum_20231116",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x21A18A52529e252AFC26AFc4Dfb386860035e35d": {
       "contract_name": "AaveV2Ethereum_IncreaseStablecoinOptimalBorrowRates_20231113",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x659C3e5965255A492B2923A404317A17673cb43a": {
       "contract_name": "AaveV3Ethereum_IncreaseStablecoinOptimalBorrowRates_20231113",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xb1dA0D9bBC23A602145C9Efaf81ADD188B206d88": {
       "contract_name": "AaveV3Ethereum_ChaosLabsRiskParameterUpdatesIncreaseMKRDebtCeilingOnV3Ethereum_20231116",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x0d66E00c5b876d661C3261e82a99BfFaD1ebE147": {
       "contract_name": "AaveV3Ethereum_IncreaseGHOBorrowRate_20231121",
       "provider": "etherscan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x47a200a4805297c396aE73FFD52044D1Edb261bA": {
       "contract_name": "AaveV2Ethereum_V2DeprecationPlan20231120_20231121",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x0B60713B53Cf01Ff53111D0BC29743eF1E03C296": {
       "contract_name": "AaveV3Ethereum_AaveFundingUpdates_20231102",
       "provider": "routescan",
       "execute_body_count": 2,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x5107F3274893dAF384241370CB84c9991780A786": {
       "contract_name": "AaveV3Ethereum_GHO_Incident_Report_20231122",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x92B64Dd461944ace6FD2e9F91714d3962Ae5007A": {
       "contract_name": "EthShortV3Payload",
       "provider": "routescan",
       "execute_body_count": 2,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x54dC357F7461BcEEE5BdbA80996f5CB7d7512445": {
       "contract_name": "AaveV3Ethereum_GauntletAaveRenewal2023_20231128",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x822d0b61d7d79d0AC2170D0A5bd634d7E11df06e": {
       "contract_name": "AaveV3Ethereum_GauntletAaveRenewal2023_20231128",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x6147Be7E92242B9119Da9aE81a6a14e64caCe094": {
       "contract_name": "AaveV3Ethereum_GauntletAaveRenewal2023_20231128",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xBE90E16CA2f6d2e0b828164Ef644f189d24D91bA": {
       "contract_name": "AaveV2Ethereum_ChaosLabsRFAndIRUpdatesAaveV2Ethereum_20231203",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x78aCeC1B92dF516DA14B3dbed91219772180330A": {
       "contract_name": "AaveV3Ethereum_GauntletRecommendationToReactivateCRVBorrowingOnV3_20231127",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x312C428a84102B76ca9D38027Ea506f542120965": {
       "contract_name": "AaveV3Ethereum_TransferAURAToGLCSafe_20231123",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xbC9ffee8d18d75a412474B92192257d3c18471FF": {
       "contract_name": "AaveV3Ethereum_GhoIncidentReport_20231113",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xeeDaE6Ac41Cf7A3722eE0a220e4c932D1d58b113": {
       "contract_name": "AaveV3Ethereum_TreasuryManagementAddToRETHHoldingResubmission_20231123",
       "provider": "routescan",
       "execute_body_count": 2,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x0d8Eb779542EAb8d3bF40BeBFb6b573a3879B2dd": {
       "contract_name": "AaveV2EthereumAMM_SyncEmergencyAdminOnV2AMM_20231207",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x41b08a9C1dddBfdBFBb46973A17f76FF06A7d3D6": {
       "contract_name": "AaveV2Ethereum_ChaosLabsV2EthereumAndPolygonLTReductions_20231205",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x888Ffb3949ba4bCCCa176E13d8b3843db1E6a18D": {
       "contract_name": "AaveV3Ethereum_IncreaseGHOBorrowRate100BpsTo635OnAaveV3_20231205",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x66c6ba442D5947007263238bA8deDDE2Dc9fd855": {
       "contract_name": "AaveV2Ethereum_RedeemCRVFromAaveV2EthereumAndTransferToGLC_20231123",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x485CDe091918e1EaC67495a73DBa7bbcf1Da4F86": {
       "contract_name": "AaveV3Ethereum_TokenLogicKarpatkeyServiceProviderPartnership_20231207",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xa9d439364f425E22EF04e71beF7647464774D551": {
       "contract_name": "AaveV3Ethereum_ContinuousSecurityProposalAaveCertoraPart1_20231212",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x6f63B4FA837751E9cc2A3b50EE74E9a194091454": {
       "contract_name": "AaveV3Ethereum_RequestForBountyPayoutDecember2023_20231213",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x30dB87b980D42C060ED90fc890b3b64a24EF41c5": {
       "contract_name": "EthShortV3Payload",
       "provider": "etherscan",
       "execute_body_count": 2,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x529c448048b9a08ffdC1Be84E1dE8631A2FAa994": {
       "contract_name": "AaveV3Ethereum_Patch_20240104",
@@ -1223,6 +1267,7 @@
         "setPoolImpl"
       ],
       "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false,
       "new_pool_impl": "0x5FAab9E1adbddaD0a08734BE8a52185Fd6558E14",
       "pool_addresses_provider": "0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e"
     },
@@ -1231,33 +1276,38 @@
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x8b97205b38F4aa3dA9Dc27Ff1CACbf16Af3636A9": {
       "contract_name": "AaveV3Ethereum_StablecoinIRCurvesUpdates_20231221",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0xE477a9F7848cF2d40FE42bB47bB1c54D3416b810": {
       "contract_name": "AaveV2Ethereum_V2DeprecationPlan20240102_20240103",
       "provider": "routescan",
       "execute_body_count": 1,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     },
     "0x1F5cD22582B4cD85fF8382Fd40B88776470C38fc": {
       "contract_name": "AaveV3Ethereum_AaveFundingUpdates_20231106",
       "provider": "routescan",
       "execute_body_count": 2,
       "upgrade_matches": [],
-      "unknown_role_reference": false
+      "unknown_role_reference": false,
+      "isolated_collateral_role_reference": false
     }
   },
   "upgrade_payloads": [
     43
   ],
   "unknown_role_references": [],
+  "isolated_collateral_role_references": [],
   "errors": []
 }

@@ -99,6 +99,7 @@ class DependencyVerifierTests(unittest.TestCase):
         self.assertIn(authority['provider_owner'], authority['role_holders']['by_name']['POOL_ADMIN'])
         self.assertIn('EMERGENCY_ADMIN', authority['role_holders']['by_name'])
         self.assertIn('RISK_ADMIN', authority['role_holders']['by_name'])
+        self.assertIn('ISOLATED_COLLATERAL_SUPPLIER', authority['role_holders']['by_name'])
 
     def test_etherscan_logs_rejects_ambiguous_status_and_truncation(self):
         with patch.object(deps, 'source_json', return_value={'status': '0', 'message': 'NOTOK', 'result': []}):
