@@ -53,6 +53,8 @@ interface Pool {
     function liquidationCall(address collateral, address debt, address user, uint256 amount, bool receiveAToken)
         external;
     function getReserveData(address asset) external view returns (Reserve memory);
+    function getUserConfiguration(address user) external view returns (uint256);
+    function getUserEMode(address user) external view returns (uint256);
     function getUserAccountData(address user)
         external
         view

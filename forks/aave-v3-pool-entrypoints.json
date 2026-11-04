@@ -1,0 +1,237 @@
+[
+  {
+    "signature": "ADDRESSES_PROVIDER()",
+    "selector": "0x0542975c",
+    "mutability": "view"
+  },
+  {
+    "signature": "BRIDGE_PROTOCOL_FEE()",
+    "selector": "0x272d9072",
+    "mutability": "view"
+  },
+  {
+    "signature": "FLASHLOAN_PREMIUM_TOTAL()",
+    "selector": "0x074b2e43",
+    "mutability": "view"
+  },
+  {
+    "signature": "FLASHLOAN_PREMIUM_TO_PROTOCOL()",
+    "selector": "0x6a99c036",
+    "mutability": "view"
+  },
+  {
+    "signature": "MAX_NUMBER_RESERVES()",
+    "selector": "0xf8119d51",
+    "mutability": "view"
+  },
+  {
+    "signature": "MAX_STABLE_RATE_BORROW_SIZE_PERCENT()",
+    "selector": "0xe82fec2f",
+    "mutability": "view"
+  },
+  {
+    "signature": "POOL_REVISION()",
+    "selector": "0x0148170e",
+    "mutability": "view"
+  },
+  {
+    "signature": "backUnbacked(address,uint256,uint256)",
+    "selector": "0xd65dc7a1",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "borrow(address,uint256,uint256,uint16,address)",
+    "selector": "0xa415bcad",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "configureEModeCategory(uint8,(uint16,uint16,uint16,address,string))",
+    "selector": "0xd579ea7d",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "deposit(address,uint256,address,uint16)",
+    "selector": "0xe8eda9df",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "dropReserve(address)",
+    "selector": "0x63c9b860",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "finalizeTransfer(address,address,address,uint256,uint256,uint256)",
+    "selector": "0xd5ed3933",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "flashLoan(address,address[],uint256[],uint256[],address,bytes,uint16)",
+    "selector": "0xab9c4b5d",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "flashLoanSimple(address,address,uint256,bytes,uint16)",
+    "selector": "0x42b0b77c",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "getConfiguration(address)",
+    "selector": "0xc44b11f7",
+    "mutability": "view"
+  },
+  {
+    "signature": "getEModeCategoryData(uint8)",
+    "selector": "0x6c6f6ae1",
+    "mutability": "view"
+  },
+  {
+    "signature": "getReserveAddressById(uint16)",
+    "selector": "0x52751797",
+    "mutability": "view"
+  },
+  {
+    "signature": "getReserveData(address)",
+    "selector": "0x35ea6a75",
+    "mutability": "view"
+  },
+  {
+    "signature": "getReserveNormalizedIncome(address)",
+    "selector": "0xd15e0053",
+    "mutability": "view"
+  },
+  {
+    "signature": "getReserveNormalizedVariableDebt(address)",
+    "selector": "0x386497fd",
+    "mutability": "view"
+  },
+  {
+    "signature": "getReservesCount()",
+    "selector": "0x72218d04",
+    "mutability": "view"
+  },
+  {
+    "signature": "getReservesList()",
+    "selector": "0xd1946dbc",
+    "mutability": "view"
+  },
+  {
+    "signature": "getUserAccountData(address)",
+    "selector": "0xbf92857c",
+    "mutability": "view"
+  },
+  {
+    "signature": "getUserConfiguration(address)",
+    "selector": "0x4417a583",
+    "mutability": "view"
+  },
+  {
+    "signature": "getUserEMode(address)",
+    "selector": "0xeddf1b79",
+    "mutability": "view"
+  },
+  {
+    "signature": "initReserve(address,address,address,address,address)",
+    "selector": "0x7a708e92",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "initialize(address)",
+    "selector": "0xc4d66de8",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "liquidationCall(address,address,address,uint256,bool)",
+    "selector": "0x00a718a9",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "mintToTreasury(address[])",
+    "selector": "0x9cd19996",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "mintUnbacked(address,uint256,address,uint16)",
+    "selector": "0x69a933a5",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "rebalanceStableBorrowRate(address,address)",
+    "selector": "0xcd112382",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "repay(address,uint256,uint256,address)",
+    "selector": "0x573ade81",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "repayWithATokens(address,uint256,uint256)",
+    "selector": "0x2dad97d4",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "repayWithPermit(address,uint256,uint256,address,uint256,uint8,bytes32,bytes32)",
+    "selector": "0xee3e210b",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "rescueTokens(address,address,uint256)",
+    "selector": "0xcea9d26f",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "resetIsolationModeTotalDebt(address)",
+    "selector": "0xe43e88a1",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "setConfiguration(address,(uint256))",
+    "selector": "0xf51e435b",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "setReserveInterestRateStrategyAddress(address,address)",
+    "selector": "0x1d2118f9",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "setUserEMode(uint8)",
+    "selector": "0x28530a47",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "setUserUseReserveAsCollateral(address,bool)",
+    "selector": "0x5a3b74b9",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "supply(address,uint256,address,uint16)",
+    "selector": "0x617ba037",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "supplyWithPermit(address,uint256,address,uint16,uint256,uint8,bytes32,bytes32)",
+    "selector": "0x02c205f0",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "swapBorrowRateMode(address,uint256)",
+    "selector": "0x94ba89a2",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "updateBridgeProtocolFee(uint256)",
+    "selector": "0x3036b439",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "updateFlashloanPremiums(uint128,uint128)",
+    "selector": "0xbcb6e522",
+    "mutability": "nonpayable"
+  },
+  {
+    "signature": "withdraw(address,uint256,address)",
+    "selector": "0x69328dec",
+    "mutability": "nonpayable"
+  }
+]

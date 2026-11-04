@@ -15,6 +15,8 @@ BLOCK = 19_000_000
 BLOCK_HASH = '0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac'
 TIMESTAMP = 1_705_173_443
 ROOT = Path(__file__).resolve().parents[1]
+BASELINE_SUITE = 'contracts/fork/AaveV3Baseline.t.sol:AaveV3BaselineTest'
+PROTECTED_SUITE = 'contracts/fork/AegisPoolPoC.t.sol:AegisPoolPoCTest'
 REQUIRED_TESTS = {
     'testDeploymentSnapshot()',
     'testOptionalClosedWrapperDoesNotPreventDirectBorrow()',
@@ -26,6 +28,38 @@ REQUIRED_TESTS = {
     'testDirectRepayAndRepayWithATokens()',
     'testLiquidationDeliversUnderlying()',
     'testLiquidationDeliversAToken()',
+}
+REQUIRED_PROTECTED_TESTS = {
+    'testATokenAndDebtTransfersAreRejected()',
+    'testAdminFixturesAreProviderOnly()',
+    'testBatchCallerCannotSplitAroundSharedBudget()',
+    'testBucketExhaustionSentinelStopAndTaintDoNotBlockRepayOrLiquidation()',
+    'testCallbackCannotCreateNestedDebt()',
+    'testCollateralDisableAndWithdrawCannotShiftDebtToImmatureLots()',
+    'testDebtFreeExitIgnoresSentinelAndPriceFaults()',
+    'testDelegatedBorrowChargesOwnerNotDelegate()',
+    'testEModeLegacyAccountCannotEnroll()',
+    'testFlashLoanDebtIsChargedToOwner()',
+    'testImmatureBorrowChargesQAndSharesBudget()',
+    'testInitializeIsProviderOnlyAndSingleUse()',
+    'testLegacyAccountCanRepayAndExitButCannotBorrowOrWithdrawWithDebt()',
+    'testLiquidationATokenAtMaxLotsDoesNotBlockSafeExit()',
+    'testMatureCollateralBorrowConsumesZero()',
+    'testMaxLotsRejectsNinthSupplyAtomically()',
+    'testRepaymentDoesNotRestoreConsumedBudget()',
+    'testSameBlockSplitBorrowsExhaustCapacity()',
+    'testStalePriceRejectsNewRiskButKeepsLiquidation()',
+    'testSupplyCreatesLotsAndRejectsThirdParty()',
+    'testTaintRemovesBackingAndBlocksNewRiskButKeepsRepay()',
+    'testUnavailablePriceFeedRejectsNewRisk()',
+    'testUnsupportedEntrypointsFailClosed()',
+    'testUpgradePreservesLegacyPositionAndInitializesBucket()',
+    'testUsdcSupplyIsAllowedButCannotBackRisk()',
+    'testWindowBoundaryResetsBudgetButNotMaturity()',
+    'testWithdrawMatureCollateralWithinBackingIsFree()',
+    'testZeroAndUnsupportedSupplyAreRejected()',
+    'testZeroDebtPriceCannotHideOutstandingDebt()',
+    'testZeroPriceRejectsNewRiskButKeepsRepay()',
 }
 
 
@@ -97,16 +131,29 @@ def preflight(url):
         raise ValueError('fixed block identity mismatch')
 
 
+def _required_suite(suites, name, required):
+    try:
+        suite = suites[name]
+        results = suite['test_results']
+        if set(results) != required or any(r['status'] != 'Success' for r in results.values()):
+            raise ValueError
+    except (KeyError, TypeError, AttributeError):
+        raise ValueError from None
+    return suite
+
+
 def validate_results(output):
     try:
         suites = json.loads(output)
-        suite = suites['contracts/fork/AaveV3Baseline.t.sol:AaveV3BaselineTest']
-        results = suite['test_results']
-        if set(results) != REQUIRED_TESTS or any(r['status'] != 'Success' for r in results.values()):
-            raise ValueError
-    except (ValueError, KeyError, TypeError, AttributeError):
-        raise ValueError('expected complete passing baseline fork suite') from None
-    return suite
+    except (ValueError, TypeError):
+        raise ValueError('expected complete passing baseline and protected fork suites') from None
+    try:
+        return {
+            'baseline': _required_suite(suites, BASELINE_SUITE, REQUIRED_TESTS),
+            'protected': _required_suite(suites, PROTECTED_SUITE, REQUIRED_PROTECTED_TESTS),
+        }
+    except ValueError:
+        raise ValueError('expected complete passing baseline and protected fork suites') from None
 
 
 def main():
@@ -133,12 +180,15 @@ def main():
         print('Fork tests failed; no success recorded.', file=sys.stderr)
         return 1
     try:
-        suite = validate_results(result.stdout)
+        suites = validate_results(result.stdout)
     except ValueError:
         print('Fork suite missing, incomplete, skipped or failed; no success recorded.', file=sys.stderr)
         return 1
-    print(redact(json.dumps(suite, indent=2), url))
-    print('Baseline fork passed (10 tests); Aegis enforcement remains UNPROVEN.')
+    print(redact(json.dumps(suites, indent=2), url))
+    print(
+        f'Baseline and protected fork passed ({len(REQUIRED_TESTS) + len(REQUIRED_PROTECTED_TESTS)} tests); '
+        'Aegis production readiness remains UNPROVEN.'
+    )
     return 0
 
 

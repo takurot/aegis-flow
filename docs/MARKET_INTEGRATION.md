@@ -1,6 +1,6 @@
 # 市場統合経路調査（Issue #4）
 
-調査日: 2026-11-01、fork baseline 追記: 2026-11-03。SPEC v0.4 §2–5、§8 の着手判定資料。静的調査と[無変更市場の fork baseline 10件](MARKET_FORK.md)を実施済み。Aegis 強制適用と保護あり清算比較は **未実証**。#8 の成功を意味しない。既存市場への保護導入は BLOCKED とする。
+調査日: 2026-11-01、fork baseline 追記: 2026-11-03、保護ありローカル fork 追記: 2026-11-04。SPEC v0.4 §2–5、§8 の着手判定資料。静的調査、[無変更市場の fork baseline 10件、ローカル fork 限定の保護 PoC 30件](MARKET_FORK.md)を実施済み。ただし保護 PoC は研究用で、本番の全入口保護・依存先ソース/権限・ガバナンス承認・実市場清算の可用性は **未実証**。#8 の成功を意味しない。既存市場への保護導入は BLOCKED とする。
 
 ## 対象と根拠
 
@@ -38,7 +38,7 @@ V4 の supply / withdraw / borrow / repay（Spoke L225–345）、setUsingAsColl
 
 | チェーン・市場 | #8 の候補と現状 | 再開・成功条件 |
 | --- | --- | --- |
-| Ethereum V3 Core | 第一候補。archive RPC と block 19000000 / hash / 実装 codehash を固定、baseline 実施済み | 下記の固定ブロック証拠を揃え、全経路と清算を fork 上で検証 |
+| Ethereum V3 Core | 第一候補。archive RPC と block 19000000 / hash / 実装 codehash を固定。baseline 10件と保護ありローカル PoC 30件を実施済み。保護 PoC は限定入口・テスト用容量で、本番完了ではない | 下記の固定ブロック証拠を揃え、全経路と清算を fork 上で検証 |
 | Arbitrum V3 | 第二候補、未調査・未実施 | 対象 Pool/L2Pool と圧縮 calldata 入口、実装版、sequencer/oracle の設定を固定し Ethereum と独立に検証 |
 | Base V3 | 第二候補、未調査・未実施 | Pool と実装版、L2 障害条件、権限を固定。Ethereum の成功を流用しない |
 | Optimism V3 | 第二候補、未調査・未実施 | 同上。chain ID・市場ごとにバケットが独立する証拠を追加 |

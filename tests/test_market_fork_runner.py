@@ -16,6 +16,21 @@ runner = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(runner)
 
 
+def _results(required):
+    return {name: {'status': 'Success'} for name in required}
+
+
+def _payload(baseline=None, protected=None):
+    return runner.json.dumps({
+        runner.BASELINE_SUITE: {
+            'test_results': _results(runner.REQUIRED_TESTS) if baseline is None else baseline,
+        },
+        runner.PROTECTED_SUITE: {
+            'test_results': _results(runner.REQUIRED_PROTECTED_TESTS) if protected is None else protected,
+        },
+    })
+
+
 class MarketForkRunnerTests(unittest.TestCase):
     def test_missing_endpoint_fails_before_launch(self):
         with patch.dict(os.environ, {}, clear=True):
@@ -60,12 +75,31 @@ class MarketForkRunnerTests(unittest.TestCase):
         for output in ['{}', '{"suite": {"test_results": {}}}', 'not json']:
             with self.assertRaises(ValueError):
                 runner.validate_results(output)
-        results = {name: {'status': 'Success'} for name in runner.REQUIRED_TESTS}
-        payload = {'contracts/fork/AaveV3Baseline.t.sol:AaveV3BaselineTest': {'test_results': results}}
-        runner.validate_results(runner.json.dumps(payload))
-        results[next(iter(results))]['status'] = 'Skipped'
+        runner.validate_results(_payload())
+        baseline = _results(runner.REQUIRED_TESTS)
+        baseline[next(iter(baseline))]['status'] = 'Skipped'
         with self.assertRaises(ValueError):
-            runner.validate_results(runner.json.dumps(payload))
+            runner.validate_results(_payload(baseline=baseline))
+        protected = _results(runner.REQUIRED_PROTECTED_TESTS)
+        protected.pop(next(iter(protected)))
+        with self.assertRaises(ValueError):
+            runner.validate_results(_payload(protected=protected))
+        protected = _results(runner.REQUIRED_PROTECTED_TESTS)
+        protected[next(iter(protected))]['status'] = 'Failed'
+        with self.assertRaises(ValueError):
+            runner.validate_results(_payload(protected=protected))
+
+    def test_protected_suite_is_required_separately(self):
+        baseline_only = runner.json.dumps({
+            runner.BASELINE_SUITE: {'test_results': _results(runner.REQUIRED_TESTS)},
+        })
+        with self.assertRaises(ValueError):
+            runner.validate_results(baseline_only)
+        protected_only = runner.json.dumps({
+            runner.PROTECTED_SUITE: {'test_results': _results(runner.REQUIRED_PROTECTED_TESTS)},
+        })
+        with self.assertRaises(ValueError):
+            runner.validate_results(protected_only)
 
     def test_main_rejects_zero_tests_and_ignores_foundry_filters(self):
         fake = subprocess.CompletedProcess([], 0, '{}')
@@ -78,9 +112,7 @@ class MarketForkRunnerTests(unittest.TestCase):
                     self.assertEqual(run.call_args.kwargs['env']['FOUNDRY_PROFILE'], 'market_fork')
 
     def test_main_success_and_failed_launch_keep_secrets_private(self):
-        results = {name: {'status': 'Success'} for name in runner.REQUIRED_TESTS}
-        payload = {'contracts/fork/AaveV3Baseline.t.sol:AaveV3BaselineTest': {'test_results': results}}
-        success = subprocess.CompletedProcess([], 0, runner.json.dumps(payload))
+        success = subprocess.CompletedProcess([], 0, _payload())
         failure = subprocess.CompletedProcess([], 1, 'reflected secret-token')
         cases = [(success, 0), (failure, 1), (OSError('secret-token'), 1),
                  (subprocess.TimeoutExpired('secret-token', 600), 1)]

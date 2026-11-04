@@ -1,6 +1,6 @@
-# Aave V3 の無変更 fork — Issue #8 の中間成果
+# Aave V3 の fork — Issue #8 の中間成果
 
-2026-11-03 に Ethereum Mainnet の archive RPC で実行した。**baseline 10件は PASS、Aegis の強制適用は未実証、#8 は OPEN のまま**。この成果は [市場統合調査](MARKET_INTEGRATION.md) の合格条件1の一部と、条件2の操作再現を進めるものであり、条件3–5の保護統合を完成させない。#11 等の後続市場実装ゲートは解放しない。
+2026-11-03 に Ethereum Mainnet の archive RPC で無変更 baseline を実行し、2026-11-04 にローカル fork 限定の保護 PoC を追加した。固定 RPC で **baseline 10 件 + 保護あり 30 件 = 40 件が PASS**。ただし保護 PoC は研究用で、本番統合・全依存先のソース/権限・市場ガバナンスの実証ではない。#8 は OPEN のまま、#11 以降の市場実装ゲートは解放しない。
 
 ## 対象と再現
 
@@ -24,34 +24,63 @@ python3 scripts/fork-market.py --config "$HOME/.config/aegis-flow/rpc.env"
 export SENTINEL_RPC_URL='https://endpoint.example/token/'
 ```
 
-スクリプトは chain ID と固定 block number/hash/timestamp を読み取りで照合し、`market_fork` profile で独立したテスト群を起動する。必須10件の全成功を確認し、0件・不足・skip・失敗・RPC不足は終了コード1。`FOUNDRY_*` による外部フィルタを引き継がない。RPC URL をコマンド引数に入れず、通信エラーやテスト失敗時は外部応答を表示しない。成功出力も URL・ホスト・トークンを除去する。
+スクリプトは chain ID と固定 block number/hash/timestamp を読み取りで照合し、`market_fork` profile で独立したテスト群を起動する。**baseline と保護ありの両 suite について、必須テストの全成功を確認する**。0 件・不足・skip・失敗・RPC 不足は終了コード 1。`FOUNDRY_*` による外部フィルタを引き継がない。RPC URL をコマンド引数に入れず、通信エラーやテスト失敗時は外部応答を表示しない。成功出力も URL・ホスト・トークンを除去する。1000 分割のテストはローカル fork の 1 トランザクションとして `gas_limit = 1,000,000,000` で実行する（本番の gas 上限を意味しない）。
 
 [固定 snapshot](../forks/aave-v3-ethereum-19000000.json) は、Pool / Provider / Configurator / ACL / oracle、担保証票・負債token・資産・価格sourceのアドレスと `EXTCODEHASH`、EIP-1967 implementation と codehash、Provider owner / ACL admin、reserve設定と価格を記録する。テストはこれらの一致を assertion で確認する。`source_bytecode_correspondence: unverified` は依存先全体の未達記録で、codehash の固定をソース検証と混同しない。Pool本体とリンク先7ライブラリの再ビルド照合は、別の[ソース照合記録](../forks/aave-v3-pool-source-19000000.json)を参照する。
 
+[Pool entrypoint 一覧](../forks/aave-v3-pool-entrypoints.json)は固定ブロックの ABI と照合した 47 関数（view 18 / 非 view 29）である。`_viewSelector` は 18 個の view selector のみを delegate し、非 view selector を view として扱わない。tuple 引数を持つ 2 関数の canonical selector も修正済み。ただしこの一覧は入口の分類資料であり、未対応入口を許可する証拠ではない。
+
+## 保護あり PoC の範囲
+
+`contracts/fork/AegisPoolPoC.sol` は、既存 Pool の実装を置き換えず、Provider の `setPoolImpl` でローカル fork にだけ設置する fallback wrapper である。テストは実 Provider の owner を prank して設置し、次の保護を確認する。
+
+- Provider 経由の初期化だけを許可し、二重初期化を拒否する。既存ポジション・reserve 設定・aToken アドレスを保持する。
+- WETH を担保、USDC 可変負債を対象に、lot（scaled share、満期、汚染量）と固定窓バケットを共有会計する。
+- 直接借入・委任借入・flash loan の債務化のいずれも債務者へ `q` を課金し、複数アドレス・同一ブロック・1000 分割・窓境界で共有容量を迂回できない。
+- callback 中の入れ子借入、aToken 移転（`finalizeTransfer`）、eMode、permit 供給、flashLoanSimple、deposit alias、管理/設定入口を `Unsupported` または `Reentered` で拒否する。debt token の移転は Aave 自身が拒否する。
+- 担保無効化・引き出しでは `D <= S + U` を維持し、既に不足している場合は不足を悪化させない。`q_change` は窓残量に課金し、残量不足なら拒否する。許可経路は newest-first と `D <= S + U` により、熟成担保を残したまま未熟成担保へ債務を付け替える操作を成立させない（aToken 移転は拒否）。
+- 汚染ロットを `S/U` から除外し、汚染分を裏付けにした新規リスクを拒否する。部分汚染では残る clean 担保を通常どおり利用でき、無関係な clean 担保を一律 freeze しない（SPEC §2/§4.4）。バケット枯渇・Sentinel 停止・汚染中でも返済と清算は追加制限しない。
+- 価格がゼロ・stale・取得不能なら新規リスクを拒否するが、返済と統合先の清算は妨げない。debt-free 判定は USD 評価ではなく各 reserve の debt token 残高で行い、USDC 価格のゼロ/欠損で債務を隠せない。債務ゼロの引き出しは Sentinel 停止や PoC の価格チェックに依存せず実行できる（Aave 自身が担保価格を必要とする場合は統合先の制約に従う）。
+- 清算の `receiveAToken=true` で受領した未分類 aToken は lot に append せず、受領者が enrolled の場合だけ口座を quarantine する（未 enrolled は scaled 残高のため再 enroll できない）。最大 8 lot でも清算は失敗せず、新規リスクは拒否され、返済後の debt-free exit は可能である。
+
+### 保護ありテスト（30件）
+
+| 分類 | テスト |
+| --- | --- |
+| upgrade / 初期化 | `testUpgradePreservesLegacyPositionAndInitializesBucket`, `testInitializeIsProviderOnlyAndSingleUse`, `testAdminFixturesAreProviderOnly` |
+| 供給・lot | `testSupplyCreatesLotsAndRejectsThirdParty`, `testZeroAndUnsupportedSupplyAreRejected`, `testMaxLotsRejectsNinthSupplyAtomically` |
+| 借入・バケット | `testMatureCollateralBorrowConsumesZero`, `testImmatureBorrowChargesQAndSharesBudget`, `testSameBlockSplitBorrowsExhaustCapacity`, `testWindowBoundaryResetsBudgetButNotMaturity`, `testDelegatedBorrowChargesOwnerNotDelegate`, `testFlashLoanDebtIsChargedToOwner`, `testCallbackCannotCreateNestedDebt`, `testBatchCallerCannotSplitAroundSharedBudget`, `testRepaymentDoesNotRestoreConsumedBudget` |
+| 担保・移転・入口 | `testCollateralDisableAndWithdrawCannotShiftDebtToImmatureLots`, `testWithdrawMatureCollateralWithinBackingIsFree`, `testATokenAndDebtTransfersAreRejected`, `testUnsupportedEntrypointsFailClosed`, `testUsdcSupplyIsAllowedButCannotBackRisk` |
+| 汚染・可用性 | `testTaintRemovesBackingAndBlocksNewRiskButKeepsRepay`, `testBucketExhaustionSentinelStopAndTaintDoNotBlockRepayOrLiquidation`, `testDebtFreeExitIgnoresSentinelAndPriceFaults` |
+| 清算 | `testLiquidationATokenAtMaxLotsDoesNotBlockSafeExit` |
+| 価格障害 | `testZeroPriceRejectsNewRiskButKeepsRepay`, `testStalePriceRejectsNewRiskButKeepsLiquidation`, `testUnavailablePriceFeedRejectsNewRisk`, `testZeroDebtPriceCannotHideOutstandingDebt` |
+| 既存口座 | `testLegacyAccountCanRepayAndExitButCannotBorrowOrWithdrawWithDebt`, `testEModeLegacyAccountCannotEnroll` |
+
 ## 実行結果と限界
 
-| テスト | 確認した結果 |
-| --- | --- |
-| DeploymentSnapshot | 固定 snapshot と実 fork のアドレス・codehash・設定・価格が一致 |
-| OptionalClosedWrapperDoesNotPreventDirectBorrow | test double の wrapper が拒否しても直接 Pool から借入可能 |
-| DelegatedBorrowAttributesDebtToOwner | 委任者の担保/債務で代理人が借入資金を受領 |
-| FlashLoanCreatesDelegatedVariableDebt | mode=2 の callback と委任による可変負債生成を確認 |
-| CollateralWithdrawAndDisableRemainDirect | 担保の引出しと無効化を直接呼出し可能 |
-| ATokenTransferAndTransferFromRemainDirect | 担保証票の直接 transfer / transferFrom を確認 |
-| DebtTokenTransferIsUnsupported | USDC可変負債tokenの transfer は revert、受取先債務は不変 |
-| DirectRepayAndRepayWithATokens | underlying と aToken の返済経路を確認 |
-| LiquidationDeliversUnderlying | 債務・担保減少と underlying 受領を確認 |
-| LiquidationDeliversAToken | 債務・担保減少と aToken 受領を確認 |
+baseline の 10 テストは無変更 Aave V3 の直接/委任借入、flash 可変負債化、担保操作、aToken 移転、負債 transfer 拒否、返済、清算両分岐を確認する。保護あり 30 テストは上表のとおり、保護実装を設置した fork で同じ Pool 入口と追加の失敗系を確認する。いずれも固定 block の実 archive RPC で実行し、`scripts/fork-market.py` が両 suite の全 40 件を必須とする。
 
 残高は清算直前の実残高と比較する。fork 上の借り手には `vm.deal` でローカル ETH を用意し、WETHへ変換して実Poolに供給する。清算人は別の担保ポジションから実Poolで USDC を借りる。清算条件はローカル `vm.mockCall` による WETH=1000 USD の価格ショックで作る。これらは再現用の反実仮想であり、歴史的取引・事件被害額・攻撃阻止率・本番安全性の証拠ではない。
 
+保護 PoC の制約（本番完了と混同しない）:
+
+- WETH 担保 / USDC 可変負債のみ。aToken 移転、`supplyWithPermit`、`flashLoanSimple`、`deposit`、eMode、stable rate、第三者供給、USDC 担保化、管理/設定入口は拒否する。これらは「未対応経路を拒否した」証拠であり、全経路の保護完了ではない。
+- 既存口座は返済と debt-free exit のみ可能で、債務が残る間の引き出し・新規借入は拒否する。安全側の制限だが、通常利用の可用性は本番要件を満たさない。
+- `initialize` は Provider のみ・1 回だけ。再度の `setPoolImpl` は `already initialized` で失敗する。本番の upgrade/migration 経路は未設計。
+- バケット容量はテスト用 `2,000 USD8 / 600 秒`。SPEC §3 の 2,000,000 USD / 10 分の実装・ガバナンス値ではない。満期 2 時間は SPEC の既定値。
+- `receiveAToken=true` の unclassified/quarantine は PoC の最小会計であり、汚染 claim の比例配賦・解除・証拠管理の完成（#9/#17）ではない。
+- 価格は AaveOracle と WETH/USDC feed の固定 block 値を使う。L2 停止・sequencer・複数資産の価格障害は対象外。
+- ロット最大 8。最大 lot 数での返済・清算の可用性は確認したが、任意のロット数・gas 上限の本番保証ではない。
+- 別エージェントによる独立レビューを 2026-11-04 に実施した。初回レビューで M1–M5 を指摘され修正したが、再レビューで H1（USDC 価格ゼロで USD 評価債務が 0 になり、債務を残したまま WETH を全額引き出せる）を検出した。debt-free 判定を各 reserve の生の debt token 残高へ変更し、`testZeroDebtPriceCannotHideOutstandingDebt` で回帰を固定した。H1 修正後の再レビューでは、H1/M1′/M2′ の解消と、残る Critical/High/Medium がないことを確認した（M2′ の成熟→未成熟シフト例は newest-first の誤認として撤回された）。ただしレビューは実装者と別の AI セッションであり、人間の監査・本番承認ではない。
+- 残る未検証: `repayWithPermit` の成功署名経路、`answered < round`/`value > 1e16` の価格分岐、WETH `repayWithATokens` の enrolled 経路。いずれも fail-closed 側だが、成功証拠としては扱わない。`_hasDebt` は全 reserve を走査するため withdraw の gas が増え、reserve 数はガバナンス管理である。debt token が address(0) の場合は skip する防御を入れた。q_change の正の withdraw 課金は newest-first のためこの PoC では到達しない（式は実装済み）。
+
 ## 未達と次のゲート
 
-- Pool本体とリンク先7ライブラリは SolcJS 0.8.19 / optimizer 200 / Paris / metadata hash none で再ビルドし、runtime全体の一致を確認した。APIが返したPoolのconstructor引数は不一致だったため採用していない。Provider immutable は対象ブロックの実値に拘束した。ソース文字列のSHA-256・設定・immutable位置・ライブラリ別codehashと照合結果を保存した。依存token等のソース対応、upgrade権限・timelock全体の確認は未完了。USDCは EIP-1967 ではない proxy であり、その slot=0 を implementation 不在と解釈しない。USDC本体・価格sourceの背後の実装/管理者の全検証も未完了。
-- 既存 Pool を変更しない baseline には Aegis hook がない。閉じた wrapper は保護実装ではなく、任意 wrapper の限界を示す test double である。実市場の全入口への hook 設置・共有 q/q_change 会計の強制、ロットや枠の保存は未実装。
-- permit、eMode、stable-rate、mode=0/simple flash、bridge、各種adapter、再入/複数アドレス/窓境界を含む経路網羅と、未存在機能の版別証明は未完了。負債tokenの transfer 拒否を、借換え・委任・全債務移転の網羅と扱わない。
-- バケット枯渇・Sentinel停止・汚染中・最大ロット数での返済清算比較、revert時のロット/債務/枠の原子性も未実証。baseline の可用性を保護ありの可用性として扱わない。
-- 次は残る依存先のソース対応、ローカル fork 限定の管理者模擬操作による強制実装、全入口と返済清算の保護あり比較が必要。[#8 合格条件](MARKET_INTEGRATION.md)を維持する。公開チェーンへの送信・本番権限変更はしない。
+- Pool本体とリンク先7ライブラリは SolcJS 0.8.19 / optimizer 200 / Paris / metadata hash none で再ビルドし、runtime全体の一致を確認した。APIが返したPoolのconstructor引数は不一致だったため採用していない。Provider immutable は対象ブロックの実値に拘束した。依存token・oracle・価格source・proxy実装のソース対応、upgrade権限・timelock全体の確認は未完了。USDCは EIP-1967 ではない proxy であり、その slot=0 を implementation 不在と解釈しない。
+- 保護 PoC はローカル fork の研究実装で、実市場のガバナンス承認・本番 upgrade・公開チェーンへの送信を行っていない。Provider owner / ACL admin の固定は確認したが、実効 timelock・承認手順・全管理者の検証は未完了。
+- aToken 移転・permit 供給・eMode・stable rate・mode=0/simple flash・bridge・adapter・再入の全組合せは、拒否または未対応として記録した。拒否を「保護完了」と扱わない。本番で必要な経路は別途、追跡または明示的な市場適用外の根拠が必要である。
+- 汚染 claim の比例配賦・解除・重複通知・誤通知の訂正（#9）、複数資産・コリドー・料金・連続回復（#17/#31）、隔離と証明例外は未実装。
+- 次は依存先のソース/権限検証、本番 upgrade/migration 経路、必要な移転経路の追跡または適用外判断、人間の独立監査、対象 commit の GitHub CI 終端結果の確認が必要。[#8 合格条件](MARKET_INTEGRATION.md)を維持し、成功した市場保護として後続ゲートを解放しない。
 
 ## ソース照合の再実行
 
@@ -68,10 +97,10 @@ Etherscan はこの環境から HTTP 403、試した Sourcify の full/partial m
 ## CI とワークフロー証跡
 
 1. 調査: #8/#4、SPEC、README、最新 `origin/main` `8a7a3af`、clean main と既存 worktree、RPC を確認。
-2. 計画: #8 専用 `issue/8-market-fork` / `aegis-flow-worktrees/issue-8`。まず未変更市場の反例と再現基盤を保存する範囲。
-3. Red/Green: runner 不在の失敗を確認して実装。独立レビューの0件成功と不正HTTP応答の指摘も回帰テストの失敗を再現して修正。
-4. 検証: live fork 10件、Python runner 12件（行coverage 97%）、既存 Python 全50件 / Rust全56件 / Solidity全19件、Anvil E2E、actionlint。対象 commit と終端結果は PR に記録する。
-5. 独立レビュー: runner と fork assertion、最終文書/CI/差分を別のレビュー担当で確認する。
+2. 計画: #8 専用 `issue/8-market-fork` / `aegis-flow-worktrees/issue-8`。未変更市場の反例・再現基盤に加え、ローカル fork 限定の保護 PoC を同じ worktree で検証。
+3. Red/Green: baseline runner の 0 件成功・不正HTTP応答の指摘を回帰テストで再現して修正。保護 suite 追加後、runner が baseline のみを必須にしていた穴を Python テストで再現し、両 suite 必須へ変更。
+4. 検証: live fork 40 件（baseline 10 + 保護 30）、Python runner 13 件、既存 Python / Rust / Solidity、Anvil E2E、actionlint、fmt。対象 commit と終端結果は PR に記録する。
+5. 独立レビュー: 別エージェントで保護 PoC、runner、文書、差分を確認し、M1–M5 を修正・再検証した。残る Low の未検証を記録する。
 6. 納品: この部分成果は #8 を close しない。PR の状態、CI と実 fork の証跡をそれぞれ確認する。
 
-通常 CI は Python の失敗系、fork suite のコンパイルと形式のみを検証し、live fork PASS を主張しない。`Market baseline fork (opt-in)` は手動起動し、repository secret `SENTINEL_RPC_URL` が必要。未設定なら失敗する。ローカル設定を GitHub へ自動転送しない。
+通常 CI は Python の失敗系、fork suite のコンパイルと形式のみを検証し、live fork PASS を主張しない。`Market baseline and protected fork (opt-in)` は手動起動し、repository secret `SENTINEL_RPC_URL` が必要。未設定なら失敗する。ローカル設定を GitHub へ自動転送しない。この worktree のローカル実行は、手動 GitHub workflow の実行を意味しない。
