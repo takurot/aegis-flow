@@ -14,6 +14,8 @@ interface PoCVm {
     function prank(address) external;
     function warp(uint256) external;
     function mockCall(address, bytes calldata, bytes calldata) external;
+    function sign(uint256, bytes32) external returns (uint8, bytes32, bytes32);
+    function addr(uint256) external returns (address);
 }
 
 interface UpgradeProvider {
@@ -26,6 +28,22 @@ interface Feed {
 
 interface ScaledToken {
     function scaledBalanceOf(address) external view returns (uint256);
+}
+
+interface PermitToken {
+    function DOMAIN_SEPARATOR() external view returns (bytes32);
+    function PERMIT_TYPEHASH() external view returns (bytes32);
+    function nonces(address) external view returns (uint256);
+    function allowance(address, address) external view returns (uint256);
+    function permit(address, address, uint256, uint256, uint8, bytes32, bytes32) external;
+}
+
+interface DelegationToken {
+    function DOMAIN_SEPARATOR() external view returns (bytes32);
+    function DELEGATION_WITH_SIG_TYPEHASH() external view returns (bytes32);
+    function nonces(address) external view returns (uint256);
+    function borrowAllowance(address, address) external view returns (uint256);
+    function delegationWithSig(address, address, uint256, uint256, uint8, bytes32, bytes32) external;
 }
 
 /// @dev Test-only batching caller. Not a production adapter.
@@ -76,6 +94,7 @@ contract AegisPoolPoCTest {
     Provider constant provider = Provider(0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e);
     Token constant weth = Token(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2);
     Token constant usdc = Token(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48);
+    uint256 constant SIGNER_KEY = 0xA11CE;
     address constant alice = address(0xA11CE);
     address constant bob = address(0xB0B);
     address constant carol = address(0xCA201);
@@ -88,6 +107,8 @@ contract AegisPoolPoCTest {
 
     AegisPoolPoC guard;
     Token aWeth;
+
+    event log_named_uint(string key, uint256 value);
     Token aUsdc;
     Token debt;
     address oracle;
@@ -799,6 +820,96 @@ contract AegisPoolPoCTest {
         (ok,) = address(pool).call(abi.encodeCall(Pool.supply, (address(weth), 0.1 ether, alice, 0)));
         vm.stopPrank();
         require(!ok, "eMode account enrolled");
+    }
+
+    function testSignedPermitAndDelegationPathsAreGuarded() public {
+        _upgrade();
+        address signer = vm.addr(SIGNER_KEY);
+        _supply(signer, 1 ether);
+        uint256 deadline = block.timestamp + 1 hours;
+        _permitATokenAndRejectTransfer(signer, 0.1 ether, deadline);
+        _delegationWithSigAndBorrow(signer, 200e6, deadline);
+        _repayWithPermit(signer, 200e6, deadline);
+    }
+
+    function _permitATokenAndRejectTransfer(address signer, uint256 amount, uint256 deadline) internal {
+        PermitToken token = PermitToken(address(aWeth));
+        uint256 nonce = token.nonces(signer);
+        bytes32 digest = keccak256(
+            abi.encodePacked(
+                "\x19\x01",
+                token.DOMAIN_SEPARATOR(),
+                keccak256(abi.encode(token.PERMIT_TYPEHASH(), signer, bob, amount, nonce, deadline))
+            )
+        );
+        (uint8 v, bytes32 r, bytes32 s) = vm.sign(SIGNER_KEY, digest);
+        vm.prank(signer);
+        token.permit(signer, bob, amount, deadline, v, r, s);
+        require(token.allowance(signer, bob) >= amount, "aToken permit");
+        uint256 before = aWeth.balanceOf(signer);
+        vm.prank(bob);
+        (bool ok, bytes memory reason) = address(aWeth).call(abi.encodeCall(Token.transferFrom, (signer, bob, amount)));
+        require(!ok && bytes4(reason) == AegisPoolPoC.Unsupported.selector, "permit transfer bypass");
+        require(aWeth.balanceOf(signer) == before, "permit transfer changed balance");
+    }
+
+    function _delegationWithSigAndBorrow(address signer, uint256 amount, uint256 deadline) internal {
+        DelegationToken token = DelegationToken(address(debt));
+        uint256 nonce = token.nonces(signer);
+        bytes32 digest = keccak256(
+            abi.encodePacked(
+                "\x19\x01",
+                token.DOMAIN_SEPARATOR(),
+                keccak256(abi.encode(token.DELEGATION_WITH_SIG_TYPEHASH(), bob, amount, nonce, deadline))
+            )
+        );
+        (uint8 v, bytes32 r, bytes32 s) = vm.sign(SIGNER_KEY, digest);
+        vm.prank(signer);
+        token.delegationWithSig(signer, bob, amount, deadline, v, r, s);
+        require(token.borrowAllowance(signer, bob) >= amount, "delegation signature");
+        vm.prank(bob);
+        pool.borrow(address(usdc), amount, 2, 0, signer);
+        require(debt.balanceOf(signer) > 0 && guard.pocUsed() > 0, "signed delegation bypassed");
+        vm.prank(bob);
+        require(usdc.transfer(signer, amount), "fund signer");
+    }
+
+    function _repayWithPermit(address signer, uint256 amount, uint256 deadline) internal {
+        PermitToken token = PermitToken(address(usdc));
+        uint256 nonce = token.nonces(signer);
+        bytes32 digest = keccak256(
+            abi.encodePacked(
+                "\x19\x01",
+                token.DOMAIN_SEPARATOR(),
+                keccak256(abi.encode(token.PERMIT_TYPEHASH(), signer, address(pool), amount, nonce, deadline))
+            )
+        );
+        (uint8 v, bytes32 r, bytes32 s) = vm.sign(SIGNER_KEY, digest);
+        uint256 before = debt.balanceOf(signer);
+        vm.prank(signer);
+        pool.repayWithPermit(address(usdc), amount, 2, signer, deadline, v, r, s);
+        require(debt.balanceOf(signer) < before, "permit repay failed");
+    }
+
+    function testProtectedBorrowGasOverheadIsRecorded() public {
+        _supply(alice, 1 ether);
+        vm.startPrank(alice);
+        uint256 before = gasleft();
+        pool.borrow(address(usdc), 100e6, 2, 0, alice);
+        uint256 baselineGas = before - gasleft();
+        vm.stopPrank();
+
+        _upgrade();
+        _supply(bob, 1 ether);
+        vm.startPrank(bob);
+        before = gasleft();
+        pool.borrow(address(usdc), 100e6, 2, 0, bob);
+        uint256 protectedGas = before - gasleft();
+        vm.stopPrank();
+        emit log_named_uint("baseline_borrow_gas", baselineGas);
+        emit log_named_uint("protected_borrow_gas", protectedGas);
+        emit log_named_uint("overhead", protectedGas > baselineGas ? protectedGas - baselineGas : 0);
+        require(protectedGas > 0, "gas not measured");
     }
 
     function testLegacyAccountCanRepayAndExitButCannotBorrowOrWithdrawWithDebt() public {

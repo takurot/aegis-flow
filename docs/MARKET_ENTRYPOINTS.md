@@ -37,7 +37,7 @@ Routescan の ABI を優先し、未取得なら Etherscan V2 にフォールバ
 | `0x00a718a9` | `liquidationCall(address,address,address,uint256,bool)` | `testLiquidationATokenAtMaxLotsDoesNotBlockSafeExit` |
 | `0x573ade81` | `repay(address,uint256,uint256,address)` | `testTaintRemovesBackingAndBlocksNewRiskButKeepsRepay` |
 | `0x2dad97d4` | `repayWithATokens(address,uint256,uint256)` | `testUsdcSupplyIsAllowedButCannotBackRisk` |
-| `0xee3e210b` | `repayWithPermit(address,uint256,uint256,address,uint256,uint8,bytes32,bytes32)` | **成功署名経路は未試験**（selector は handled） |
+| `0xee3e210b` | `repayWithPermit(address,uint256,uint256,address,uint256,uint8,bytes32,bytes32)` | `testSignedPermitAndDelegationPathsAreGuarded`（USDC permit で返済成功） |
 
 ### rejected 19 関数
 
@@ -60,7 +60,7 @@ Routescan の ABI を優先し、未取得なら Etherscan V2 にフォールバ
 - AToken `transferOnLiquidation` は onlyPool。清算経路（`liquidationCall`）では内部で実行され、テスト済み。
 - AToken `mint` / `burn` / `mintToTreasury` / `transferUnderlyingTo` / `handleRepayment` / `rescueTokens` / `setIncentivesController` は onlyPool。直接呼び出しは失敗する（同テスト）。
 - debt token の `transfer` / `transferFrom` は Aave 自身が拒否する。`mint` / `burn` / `setIncentivesController` は onlyPool。直接呼び出しは失敗する。
-- `approveDelegation` / `delegationWithSig` は債務委任の allowance。`approveDelegation` は委任借入テストで確認済み。`delegationWithSig` の署名経路、`permit` の署名経路、`repayWithPermit` の成功署名経路は未試験。
+- `approveDelegation` / `delegationWithSig` は債務委任の allowance。`approveDelegation` と `delegationWithSig` の委任借入を確認済み。`permit` + `transferFrom` は `finalizeTransfer` で拒否、`repayWithPermit` は成功を確認済み。
 - `initialize` は initializer。直接呼び出しは失敗する。
 
 ## テスト
@@ -68,14 +68,13 @@ Routescan の ABI を優先し、未取得なら Etherscan V2 にフォールバ
 - `contracts/fork/AegisPoolPoC.t.sol`:
   - `testUnsupportedEntrypointsFailClosed`: 19 rejected selector + view 委譲
   - `testATokenAndDebtTransfersAreRejected`: transfer / transferFrom / debt token / token-side onlyPool mutator
+  - `testSignedPermitAndDelegationPathsAreGuarded`: aToken permit + transferFrom（拒否）、debt delegationWithSig + 委任借入（guarded）、repayWithPermit（返済成功）
 - `tests/test_market_entrypoints.py`: Pool 47 件（18/9/1/19）、token 34/30/33、分類の再現性
 - `tests/test_pool_entrypoints.py`: 固定 block ABI 47 件と Solidity `_viewSelector` の照合
 
 ## 未検証（成功扱いにしない）
 
-- `repayWithPermit` の成功署名経路
-- `permit` / `delegationWithSig` を使った移転・委任の署名経路
-- token 側 `initialize` の初期化引数・upgrade 経路
+- token 側 `initialize` / upgrade 経路
 - 依存先の exact runtime 再ビルド（[MARKET_DEPENDENCIES.md](MARKET_DEPENDENCIES.md) 参照）
 - Aave の他資産・eMode・stable rate・bridge/adapter 経路の実市場適用（PoC では拒否または対象外）
 

@@ -48,6 +48,16 @@ interface Pool {
     function borrow(address asset, uint256 amount, uint256 mode, uint16 referral, address onBehalfOf) external;
     function repay(address asset, uint256 amount, uint256 mode, address onBehalfOf) external returns (uint256);
     function repayWithATokens(address asset, uint256 amount, uint256 mode) external returns (uint256);
+    function repayWithPermit(
+        address asset,
+        uint256 amount,
+        uint256 mode,
+        address onBehalfOf,
+        uint256 deadline,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) external returns (uint256);
     function withdraw(address asset, uint256 amount, address to) external returns (uint256);
     function setUserUseReserveAsCollateral(address asset, bool enabled) external;
     function liquidationCall(address collateral, address debt, address user, uint256 amount, bool receiveAToken)

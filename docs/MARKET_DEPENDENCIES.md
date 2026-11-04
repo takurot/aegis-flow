@@ -49,7 +49,7 @@ Etherscan V2 の `RoleGranted` / `RoleRevoked` logs と `hasRole` で現在の h
 - `RISK_ADMIN`: `0x82dc…`, `0x2ee6…`
 - `FLASH_BORROWER`: `0xd9d8…`, `0x7291…`, `0x8761…`
 - `BRIDGE`: holder なし
-- 未命名 role hash `0xd1d2…`: `0x872f…`, `0xb748…`（ACLManager source の既知 role 定数に一致しないため、名前は未確定）
+- 未命名 role hash `0xd1d2…`: `0x872f…`, `0xb748…`。admin は `DEFAULT_ADMIN_ROLE`（= Executor）。ACLManager の source にこの hash への参照はなく、ACLManager の権限付き関数には使われない。外部 contract が同じ hash を参照する可能性は未調査。
 
 role holder の全量は取得できたが、未命名 role の意味・権限範囲は別途確認が必要。
 
@@ -57,7 +57,7 @@ role holder の全量は取得できたが、未命名 role の意味・権限�
 
 - **依存先の exact runtime 再ビルドは未実施**。source の存在・compiler・source SHA-256・codehash は記録したが、Pool + リンク先 7 ライブラリ以外の runtime 完全一致は確認していない。`forks/aave-v3-pool-source-19000000.json` の exact match を依存先全体へ拡張したとは扱わない。
 - **価格 aggregator の下位実装**: EACAggregatorProxy とその `aggregator()` は取得したが、下位 aggregator の運用・停止条件・L2 sequencer は対象外。
-- **ガバナンス承認・実行履歴**: Level 1 executor の delay 1 day、level 2 の delay 7 days、ProxyAdmin owner、ACL role holder は確認した。ただし、実際の対象 upgrade proposal の承認・実行記録、緊急権限の運用、未命名 role の意味は未確認。
+- **ガバナンス承認・実行履歴**: Level 1 executor の delay 1 day、level 2 の delay 7 days、ProxyAdmin owner、ACL role holder は確認した。payload 0..46 の action に Provider / ProxyAdmin / Pool を直接 target する upgrade は見つからず、最新 payload 46 は funding update。payload contract 本体の `execute()` 内の upgrade 呼び出し全量、緊急権限の運用、未命名 role の外部利用は未確認。
 - **公開チェーンへの書き込みなし**。deploy/upgrade/governance 操作は行っていない。
 
 ## テスト
@@ -66,4 +66,4 @@ role holder の全量は取得できたが、未命名 role の意味・権限�
 
 ## 判定
 
-依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量は確認できた。一方、**依存先 exact runtime** と未命名 role の意味・実際の upgrade proposal 履歴は未検証である。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。
+依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量は確認できた。一方、**依存先 exact runtime** と未命名 role の外部利用・payload contract 本体の upgrade 履歴は未検証である。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。

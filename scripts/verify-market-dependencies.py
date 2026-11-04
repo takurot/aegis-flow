@@ -574,6 +574,18 @@ def main():
                 name = next((key for key, value in authority['role_hashes'].items() if value == role), role)
                 by_name[name] = accounts
             holders['by_name'] = by_name
+            admins = {}
+            for role in holders.get('holders', {}):
+                try:
+                    admins[role] = eth_call(
+                        rpc_url,
+                        acl,
+                        'getRoleAdmin(bytes32)',
+                        role[2:].rjust(64, '0'),
+                    )
+                except Failure as error:
+                    admins[role] = {'error': str(error)}
+            holders['admins'] = admins
             authority['role_holders'] = holders
         except Failure as error:
             authority['role_holders'] = {'error': str(error)}
