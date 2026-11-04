@@ -40,10 +40,11 @@ class RuntimeArtifactTests(unittest.TestCase):
         self.assertEqual(artifact['block'], 19000000)
         self.assertEqual(artifact['summary']['total'], 25)
         self.assertEqual(artifact['summary']['errors'], 0)
-        self.assertGreaterEqual(artifact['summary']['code_match'], 24)
+        self.assertEqual(artifact['summary']['code_match'], 25)
+        self.assertEqual(artifact['summary']['mismatched'], 0)
         for name in CRITICAL:
             self.assertTrue(artifact['targets'][name]['code_match'], name)
         provider = artifact['targets']['provider']
-        self.assertFalse(provider['code_match'])
-        self.assertTrue(provider['first_differences'])
-        self.assertGreater(provider['deployed_bytes'], 0)
+        self.assertTrue(provider['code_match'])
+        self.assertGreater(provider['metadata_bytes']['compiled'], 0)
+        self.assertEqual(provider['metadata_bytes']['compiled'], provider['metadata_bytes']['deployed'])

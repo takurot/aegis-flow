@@ -196,6 +196,16 @@ def strip_metadata(value):
     return value[:len(value) - total], total // 2
 
 
+def strip_all_metadata(value):
+    total = 0
+    while True:
+        stripped, size = strip_metadata(value)
+        if size == 0:
+            return value, total
+        value = stripped
+        total += size
+
+
 def mask_hex(value, ranges):
     characters = list(value)
     for start, length in ranges:
@@ -238,8 +248,8 @@ def verify_target(name, target, rpc_url, etherscan_key, cache):
     immutable_ranges = flatten_ranges(bytecode.get('immutableReferences'))
     link_ranges = flatten_links(bytecode.get('linkReferences'))
     masked_ranges = immutable_ranges + link_ranges
-    compiled_code, compiled_metadata = strip_metadata(compiled)
-    deployed_code, deployed_metadata = strip_metadata(deployed)
+    compiled_code, compiled_metadata = strip_all_metadata(compiled)
+    deployed_code, deployed_metadata = strip_all_metadata(deployed)
     exact_match = compiled == deployed
     metadata_equal = (
         compiled_metadata == deployed_metadata

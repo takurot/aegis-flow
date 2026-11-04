@@ -254,23 +254,18 @@
       "source_sha256": "0x0240f3f4898c5a3d1c8a44f7e4f4fec1905f4e97fc75c7e7e6210dc982a9c52c",
       "deployed_bytes": 9846,
       "compiled_bytes": 9846,
-      "code_bytes": 9793,
+      "code_bytes": 9740,
       "metadata_bytes": {
-        "compiled": 53,
-        "deployed": 53
+        "compiled": 106,
+        "deployed": 106
       },
       "metadata_equal": false,
       "exact_match": false,
-      "code_match": false,
+      "code_match": true,
       "immutable_ranges": [],
       "link_ranges": [],
       "libraries": {},
-      "masked_match": false,
-      "first_differences": [
-        9750,
-        9750,
-        9751
-      ]
+      "masked_match": true
     },
     "configurator": {
       "address": "0x64b761D848206f447Fe2dd461b0c635Ec39EbB27",
@@ -1521,8 +1516,8 @@
   "summary": {
     "total": 25,
     "exact": 1,
-    "code_match": 24,
+    "code_match": 25,
     "errors": 0,
-    "mismatched": 1
+    "mismatched": 0
   }
 }
