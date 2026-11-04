@@ -55,15 +55,30 @@ role holder の全量は取得できたが、未命名 role の意味・権限�
 
 ## 未解決・未検証（成功扱いにしない）
 
-- **依存先の exact runtime 再ビルドは未実施**。source の存在・compiler・source SHA-256・codehash は記録したが、Pool + リンク先 7 ライブラリ以外の runtime 完全一致は確認していない。`forks/aave-v3-pool-source-19000000.json` の exact match を依存先全体へ拡張したとは扱わない。
+- **依存先の exact runtime**: 25 targets 中 24 が code match（metadata strip + immutable/link mask）、full exact は USDC price source のみ。**`PoolAddressesProvider` は code mismatch**（first diff 9750）で未解決。Pool + 7 ライブラリの full exact を依存先全体へ拡張したとは扱わない。
 - **価格 aggregator の下位実装**: EACAggregatorProxy とその `aggregator()` は取得したが、下位 aggregator の運用・停止条件・L2 sequencer は対象外。
 - **ガバナンス承認・実行履歴**: Level 1 executor の delay 1 day、level 2 の delay 7 days、ProxyAdmin owner、ACL role holder は確認した。payload 0..46 の action に Provider / ProxyAdmin / Pool を直接 target する upgrade は見つからず、最新 payload 46 は funding update。payload contract 本体の `execute()` 内の upgrade 呼び出し全量、緊急権限の運用、未命名 role の外部利用は未確認。
 - **公開チェーンへの書き込みなし**。deploy/upgrade/governance 操作は行っていない。
 
+## source → runtime 再ビルド
+
+```sh
+python3 scripts/verify-source-runtime.py
+```
+
+出力: [`forks/aave-v3-runtime-19000000.json`](../forks/aave-v3-runtime-19000000.json)
+
+- 25 targets を Solidity compiler（0.4.19 / 0.4.24 / 0.6.6 / 0.6.12 / 0.7.6 / 0.8.10 / 0.8.12 / 0.8.14 / 0.8.19）で再ビルド。
+- **24/25 が code match**（metadata suffix を除去し、immutable/link ranges を mask した比較）。**exact full match は USDC price source の 1 件のみ**。
+- Pool + リンク先 7 ライブラリは既存の [`aave-v3-pool-source-19000000.json`](../forks/aave-v3-pool-source-19000000.json) で full exact を確認済み。
+- **未解決: `PoolAddressesProvider` は code mismatch**（`first_differences: [9750, 9750, 9751]`、deployed/compiled 9846 bytes、source は v0.8.10）。source/compiler settings か対象実装の版差を追加調査するまで、authority の Provider について exact runtime を主張しない。
+- code match は metadata hash・constructor immutable/link 値の一致を意味しない。immutable/link は mask している。
+- solc 0.8.14 の npm wrapper は `common/` が欠落するため、ローカルでは 0.8.19 の wrapper common を補完して実行した。再実行時は `scripts/verify-source-runtime.py` が同じ補完を試みる。
+
 ## テスト
 
-`tests/test_market_dependencies.py` は、設定ファイルの厳格な読み取り（シェル実行なし）、source SHA-256、Routescan→Etherscan フォールバック、secret 非出力、executor settings の decode を検証する。ネットワークは使わない。
+`tests/test_market_dependencies.py` は、設定ファイルの厳格な読み取り（シェル実行なし）、source SHA-256、Routescan→Etherscan フォールバック、secret 非出力、executor settings の decode、role log の fail-closed 処理を検証する。`tests/test_market_runtime.py` は runtime artifact の 25 targets / 24 code match / Provider mismatch を固定する。ネットワークは使わない。
 
 ## 判定
 
-依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量は確認できた。一方、**依存先 exact runtime** と未命名 role の外部利用・payload contract 本体の upgrade 履歴は未検証である。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。
+依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量は確認できた。一方、**`PoolAddressesProvider` の exact runtime mismatch**、未命名 role の外部利用、payload contract 本体の upgrade 履歴は未検証である。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。

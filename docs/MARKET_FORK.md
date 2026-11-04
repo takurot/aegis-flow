@@ -26,7 +26,7 @@ export SENTINEL_RPC_URL='https://endpoint.example/token/'
 
 スクリプトは chain ID と固定 block number/hash/timestamp を読み取りで照合し、`market_fork` profile で独立したテスト群を起動する。**baseline と保護ありの両 suite について、必須テストの全成功を確認する**。0 件・不足・skip・失敗・RPC 不足は終了コード 1。`FOUNDRY_*` による外部フィルタを引き継がない。RPC URL をコマンド引数に入れず、通信エラーやテスト失敗時は外部応答を表示しない。成功出力も URL・ホスト・トークンを除去する。1000 分割のテストはローカル fork の 1 トランザクションとして `gas_limit = 1,000,000,000` で実行する（本番の gas 上限を意味しない）。
 
-[固定 snapshot](../forks/aave-v3-ethereum-19000000.json) は、Pool / Provider / Configurator / ACL / oracle、担保証票・負債token・資産・価格sourceのアドレスと `EXTCODEHASH`、EIP-1967 implementation と codehash、Provider owner / ACL admin、reserve設定と価格を記録する。テストはこれらの一致を assertion で確認する。依存先の source は [依存先検証](MARKET_DEPENDENCIES.md) で 25 targets / 25 verified sources を取得したが、Pool + 7 ライブラリ以外の exact runtime 再ビルドは未実施である。codehash の固定をソース検証と混同しない。Pool本体とリンク先7ライブラリの再ビルド照合は、別の[ソース照合記録](../forks/aave-v3-pool-source-19000000.json)を参照する。
+[固定 snapshot](../forks/aave-v3-ethereum-19000000.json) は、Pool / Provider / Configurator / ACL / oracle、担保証票・負債token・資産・価格sourceのアドレスと `EXTCODEHASH`、EIP-1967 implementation と codehash、Provider owner / ACL admin、reserve設定と価格を記録する。テストはこれらの一致を assertion で確認する。依存先の source は [依存先検証](MARKET_DEPENDENCIES.md) で 25 targets / 25 verified sources を取得し、[runtime 再ビルド](../forks/aave-v3-runtime-19000000.json) で 24/25 が code match（metadata strip + immutable/link mask）。`PoolAddressesProvider` は code mismatch で未解決、full exact は USDC price source と Pool + 7 ライブラリのみである。codehash の固定をソース検証と混同しない。Pool本体とリンク先7ライブラリの再ビルド照合は、別の[ソース照合記録](../forks/aave-v3-pool-source-19000000.json)を参照する。
 
 [Pool entrypoint 一覧](../forks/aave-v3-pool-entrypoints.json)は固定ブロックの ABI と照合した 47 関数（view 18 / 非 view 29）である。`_viewSelector` は 18 個の view selector のみを delegate し、非 view selector を view として扱わない。tuple 引数を持つ 2 関数の canonical selector も修正済み。保護 PoC の allowlist・拒否・gated initialize への対応付けは [Pool/token 入口の網羅](MARKET_ENTRYPOINTS.md) と [分類成果物](../forks/aave-v3-pool-entrypoints-19000000.json) に記録した。ただしこの一覧は入口の分類資料であり、未対応入口を許可する証拠ではない。
 
@@ -36,7 +36,7 @@ export SENTINEL_RPC_URL='https://endpoint.example/token/'
 - [Pool/token 入口の網羅](MARKET_ENTRYPOINTS.md): Pool 47 関数を **view 18 / guarded 9 / gated initialize 1 / rejected 19** に分類。19 rejected selector は実際に `Unsupported` を確認。token は aWETH/aUSDC 34、variableDebt 30、stableDebt 33 関数を分類し、transfer / transferFrom / onlyPool mutator / borrow delegation を整理。
 - 成果物: [`forks/aave-v3-dependencies-19000000.json`](../forks/aave-v3-dependencies-19000000.json)、[`forks/aave-v3-pool-entrypoints-19000000.json`](../forks/aave-v3-pool-entrypoints-19000000.json)、[`forks/aave-v3-token-entrypoints-19000000.json`](../forks/aave-v3-token-entrypoints-19000000.json)。
 - 解決: `getExecutorSettingsByAccessControl` を Governance proxy に対して呼ぶことで、Level 1 Executor `0x5300…` / delay 1 day、Level 2 Executor `0x17dd…` / delay 7 days を確認。`ExecutorSet` logs と最新 payload (access level 1 / delay 1 day / grace 7 days) も一致。ACL role holder は Etherscan `RoleGranted`/`RoleRevoked` logs と `hasRole` で列挙（POOL_ADMIN=Executor、EMERGENCY_ADMIN/RISK_ADMIN/FLASH_BORROWER は別アドレス、未命名 role hash 1 件あり）。
-- 未解決: 依存先 exact runtime 再ビルド、未命名 role の外部利用、payload contract 本体の upgrade 履歴。
+- 未解決: `PoolAddressesProvider` の exact runtime mismatch、未命名 role の外部利用、payload contract 本体の upgrade 履歴。
 
 ## 保護あり PoC の範囲
 
@@ -82,7 +82,7 @@ baseline の 10 テストは無変更 Aave V3 の直接/委任借入、flash 可
 - 別エージェントによる独立レビューを 2026-11-04 に実施した。初回レビューで M1–M5 を指摘され修正したが、再レビューで H1（USDC 価格ゼロで USD 評価債務が 0 になり、債務を残したまま WETH を全額引き出せる）を検出した。debt-free 判定を各 reserve の生の debt token 残高へ変更し、`testZeroDebtPriceCannotHideOutstandingDebt` で回帰を固定した。H1 修正後の再レビューでは、この PoC の H1/M1′/M2′ の解消と、残る Critical/High/Medium がないことを確認した（M2′ の成熟→未成熟シフト例は newest-first の誤認として撤回された）。追加した依存先/入口検証のデルタレビューでは M-A（RPC role log の未フィルタ）、M-B（Etherscan logs の曖昧応答/ページ上限）、M-C（token の onlyPoolAdmin 分類）を指摘され、修正・回帰テスト追加済み。ただしレビューは実装者と別の AI セッションであり、人間の監査・本番承認ではない。
 - 署名経路: aToken `permit` + `transferFrom` は `Unsupported`、debt `delegationWithSig` + 委任借入は owner に q を課金、`repayWithPermit` は返済成功を確認した。
 - gas: baseline borrow 309,317 / protected borrow 555,989 / overhead 246,672。protected は upgrade 後の 2 回目 borrow で Aave 側の warm state を含むため、この差分は **indicative** であり、guard の実コストを過小評価する可能性がある。いずれにせよ SPEC の +8,500 gas 目標は **未達**。
-- 残る未検証: `answered < round`/`value > 1e16` の価格分岐、WETH `repayWithATokens` の enrolled 経路、依存先 exact runtime、未命名 ACL role の外部利用、payload contract 本体の upgrade 呼び出し履歴。いずれも fail-closed 側だが、成功証拠としては扱わない。`_hasDebt` は全 reserve を走査するため withdraw の gas が増え、reserve 数はガバナンス管理である。debt token が address(0) の場合は skip する防御を入れた。q_change の正の withdraw 課金は newest-first のためこの PoC では到達しない（式は実装済み）。
+- 残る未検証: `answered < round`/`value > 1e16` の価格分岐、WETH `repayWithATokens` の enrolled 経路、`PoolAddressesProvider` の exact runtime mismatch、未命名 ACL role の外部利用、payload contract 本体の upgrade 呼び出し履歴。いずれも fail-closed 側だが、成功証拠としては扱わない。`_hasDebt` は全 reserve を走査するため withdraw の gas が増え、reserve 数はガバナンス管理である。debt token が address(0) の場合は skip する防御を入れた。q_change の正の withdraw 課金は newest-first のためこの PoC では到達しない（式は実装済み）。
 
 ## 未達と次のゲート
 
@@ -109,7 +109,7 @@ Etherscan は API key なしでは HTTP 403、Sourcify の full/partial match �
 1. 調査: #8/#4、SPEC、README、最新 `origin/main` `8a7a3af`、clean main と既存 worktree、RPC を確認。
 2. 計画: #8 専用 `issue/8-market-fork` / `aegis-flow-worktrees/issue-8`。未変更市場の反例・再現基盤に加え、ローカル fork 限定の保護 PoC を同じ worktree で検証。
 3. Red/Green: baseline runner の 0 件成功・不正HTTP応答の指摘を回帰テストで再現して修正。保護 suite 追加後、runner が baseline のみを必須にしていた穴を Python テストで再現し、両 suite 必須へ変更。
-4. 検証: live fork 42 件（baseline 10 + 保護 32）、Python runner 13 件、依存先/入口の静的テスト 9 件、既存 Python / Rust / Solidity、Anvil E2E、actionlint、fmt。依存先・入口の収集スクリプトは network を使うため通常 CI では実行せず、成果物と静的テストだけを CI で検証する。対象 commit と終端結果は PR に記録する。
+4. 検証: live fork 42 件（baseline 10 + 保護 32）、Python runner 13 件、依存先/入口/ランタイムの静的テスト 12 件、既存 Python / Rust / Solidity、Anvil E2E、actionlint、fmt。依存先・入口の収集スクリプトは network を使うため通常 CI では実行せず、成果物と静的テストだけを CI で検証する。対象 commit と終端結果は PR に記録する。
 5. 独立レビュー: 別エージェントで保護 PoC、runner、文書、差分を確認し、M1–M5 を修正・再検証した。残る Low の未検証を記録する。
 6. 納品: この部分成果は #8 を close しない。PR の状態、CI と実 fork の証跡をそれぞれ確認する。
 

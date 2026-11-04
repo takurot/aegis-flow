@@ -1,0 +1,1528 @@
+{
+  "chain_id": 1,
+  "block": 19000000,
+  "block_hash": "0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac",
+  "timestamp": 1705173443,
+  "source": "Routescan primary; Etherscan V2 fallback",
+  "targets": {
+    "pool_impl": {
+      "address": "0x5FAab9E1adbddaD0a08734BE8a52185Fd6558E14",
+      "contract_name": "Pool",
+      "compiler": "0.8.19",
+      "source_provider": "routescan",
+      "source_sha256": "0x097169d4e294891b7453358b8acc2092166190beeb20b78743ed1a258f91635a",
+      "deployed_bytes": 17753,
+      "compiled_bytes": 17753,
+      "code_bytes": 17741,
+      "metadata_bytes": {
+        "compiled": 12,
+        "deployed": 12
+      },
+      "metadata_equal": true,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          737,
+          32
+        ],
+        [
+          2342,
+          32
+        ],
+        [
+          2533,
+          32
+        ],
+        [
+          3432,
+          32
+        ],
+        [
+          4700,
+          32
+        ],
+        [
+          5412,
+          32
+        ],
+        [
+          6903,
+          32
+        ],
+        [
+          7074,
+          32
+        ],
+        [
+          7589,
+          32
+        ],
+        [
+          8193,
+          32
+        ],
+        [
+          8694,
+          32
+        ],
+        [
+          9830,
+          32
+        ],
+        [
+          10933,
+          32
+        ],
+        [
+          11232,
+          32
+        ],
+        [
+          11524,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {
+        "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/BorrowLogic.sol": {
+          "BorrowLogic": "0x5547D7d54d10C359108e36d098016c4020443Fd4"
+        },
+        "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/BridgeLogic.sol": {
+          "BridgeLogic": "0xd948Cfb92eBF175E4bD772305fdEe8f39e934520"
+        },
+        "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/ConfiguratorLogic.sol": {
+          "ConfiguratorLogic": "0x433c792f11D102249DccD55452dDD84c7A2Ef8f2"
+        },
+        "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/EModeLogic.sol": {
+          "EModeLogic": "0xB341e4f99c73caA2136302f468ac3b75827C1736"
+        },
+        "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/FlashLoanLogic.sol": {
+          "FlashLoanLogic": "0x0063Bcd116694c21F6A94AA78E10eF4d7819a609"
+        },
+        "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/LiquidationLogic.sol": {
+          "LiquidationLogic": "0x5125bCf6380C5D5Ccad4d4A88C3664DF646Bc6c3"
+        },
+        "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/PoolLogic.sol": {
+          "PoolLogic": "0x7b8186933eAd860f49114fb10e3a7f17a11bEd8a"
+        },
+        "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/SupplyLogic.sol": {
+          "SupplyLogic": "0x589F82Ff8162Fa96545b435435713E9D6ca79fBB"
+        }
+      },
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          737,
+          32
+        ],
+        [
+          2342,
+          32
+        ],
+        [
+          2533,
+          32
+        ],
+        [
+          3432,
+          32
+        ],
+        [
+          4700,
+          32
+        ],
+        [
+          5412,
+          32
+        ],
+        [
+          6903,
+          32
+        ],
+        [
+          7074,
+          32
+        ],
+        [
+          7589,
+          32
+        ],
+        [
+          8193,
+          32
+        ],
+        [
+          8694,
+          32
+        ],
+        [
+          9830,
+          32
+        ],
+        [
+          10933,
+          32
+        ],
+        [
+          11232,
+          32
+        ],
+        [
+          11524,
+          32
+        ]
+      ]
+    },
+    "pool": {
+      "address": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+      "contract_name": "InitializableImmutableAdminUpgradeabilityProxy",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0xf5c7734fbc05e13dcae3033f1519a1ae9e48870df7f016888ed2d6d06b06bae2",
+      "deployed_bytes": 2400,
+      "compiled_bytes": 2400,
+      "code_bytes": 2347,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": true,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ]
+    },
+    "provider": {
+      "address": "0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e",
+      "contract_name": "PoolAddressesProvider",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0x0240f3f4898c5a3d1c8a44f7e4f4fec1905f4e97fc75c7e7e6210dc982a9c52c",
+      "deployed_bytes": 9846,
+      "compiled_bytes": 9846,
+      "code_bytes": 9793,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": false,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": false,
+      "first_differences": [
+        9750,
+        9750,
+        9751
+      ]
+    },
+    "configurator": {
+      "address": "0x64b761D848206f447Fe2dd461b0c635Ec39EbB27",
+      "contract_name": "InitializableImmutableAdminUpgradeabilityProxy",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0x0925980bf748627460d6ba9c0b192efc37fc85b4618bf94943aa282018444fad",
+      "deployed_bytes": 2400,
+      "compiled_bytes": 2400,
+      "code_bytes": 2347,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ]
+    },
+    "configurator_impl": {
+      "address": "0xFDA7ffA872bDc906D43079EA134ebC9a511db0c2",
+      "contract_name": "PoolConfigurator",
+      "compiler": "0.8.10",
+      "source_provider": "etherscan",
+      "source_sha256": "0xd6e2e2f564c68c5ad7a3727cc8f358f116bf6e34078442f139989d27b94d5fdf",
+      "deployed_bytes": 24267,
+      "compiled_bytes": 24267,
+      "code_bytes": 24214,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {
+        "@aave/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic.sol": {
+          "ConfiguratorLogic": "0x66ac02c3120b848d65231ce977af3db1f60b97f9"
+        }
+      },
+      "masked_match": true
+    },
+    "acl": {
+      "address": "0xc2aaCf6553D20d1e9d78E365AAba8032af9c85b0",
+      "contract_name": "ACLManager",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0x030b3e5e75e2e245c2687a86146f4e17f1979e89519c1cfb42c931ec743a4567",
+      "deployed_bytes": 4943,
+      "compiled_bytes": 4943,
+      "code_bytes": 4890,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          594,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          594,
+          32
+        ]
+      ]
+    },
+    "oracle": {
+      "address": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+      "contract_name": "AaveOracle",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0xf8e5a42bce2982945b249bfd90f7e8dc38e2433a91bb6a98495862b20652affe",
+      "deployed_bytes": 3405,
+      "compiled_bytes": 3405,
+      "code_bytes": 3352,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          173,
+          32
+        ],
+        [
+          1443,
+          32
+        ],
+        [
+          485,
+          32
+        ],
+        [
+          890,
+          32
+        ],
+        [
+          305,
+          32
+        ],
+        [
+          933,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          173,
+          32
+        ],
+        [
+          1443,
+          32
+        ],
+        [
+          485,
+          32
+        ],
+        [
+          890,
+          32
+        ],
+        [
+          305,
+          32
+        ],
+        [
+          933,
+          32
+        ]
+      ]
+    },
+    "aWETH": {
+      "address": "0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8",
+      "contract_name": "InitializableImmutableAdminUpgradeabilityProxy",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0xf5c7734fbc05e13dcae3033f1519a1ae9e48870df7f016888ed2d6d06b06bae2",
+      "deployed_bytes": 2400,
+      "compiled_bytes": 2400,
+      "code_bytes": 2347,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": true,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ]
+    },
+    "aWETH_impl": {
+      "address": "0x7EfFD7b47Bfd17e52fB7559d3f924201b9DbfF3d",
+      "contract_name": "AToken",
+      "compiler": "0.8.12",
+      "source_provider": "routescan",
+      "source_sha256": "0x9724dcd09217cda05746b35fcbc88a1bc756ef417dac6f83f928cf8965065ffa",
+      "deployed_bytes": 13783,
+      "compiled_bytes": 13783,
+      "code_bytes": 13730,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          7371,
+          32
+        ],
+        [
+          4412,
+          32
+        ],
+        [
+          6086,
+          32
+        ],
+        [
+          956,
+          32
+        ],
+        [
+          1821,
+          32
+        ],
+        [
+          2178,
+          32
+        ],
+        [
+          2689,
+          32
+        ],
+        [
+          3227,
+          32
+        ],
+        [
+          3432,
+          32
+        ],
+        [
+          3626,
+          32
+        ],
+        [
+          3853,
+          32
+        ],
+        [
+          3981,
+          32
+        ],
+        [
+          4277,
+          32
+        ],
+        [
+          5895,
+          32
+        ],
+        [
+          6615,
+          32
+        ],
+        [
+          9088,
+          32
+        ],
+        [
+          9463,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          7371,
+          32
+        ],
+        [
+          4412,
+          32
+        ],
+        [
+          6086,
+          32
+        ],
+        [
+          956,
+          32
+        ],
+        [
+          1821,
+          32
+        ],
+        [
+          2178,
+          32
+        ],
+        [
+          2689,
+          32
+        ],
+        [
+          3227,
+          32
+        ],
+        [
+          3432,
+          32
+        ],
+        [
+          3626,
+          32
+        ],
+        [
+          3853,
+          32
+        ],
+        [
+          3981,
+          32
+        ],
+        [
+          4277,
+          32
+        ],
+        [
+          5895,
+          32
+        ],
+        [
+          6615,
+          32
+        ],
+        [
+          9088,
+          32
+        ],
+        [
+          9463,
+          32
+        ]
+      ]
+    },
+    "aUSDC": {
+      "address": "0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c",
+      "contract_name": "InitializableImmutableAdminUpgradeabilityProxy",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0xf5c7734fbc05e13dcae3033f1519a1ae9e48870df7f016888ed2d6d06b06bae2",
+      "deployed_bytes": 2400,
+      "compiled_bytes": 2400,
+      "code_bytes": 2347,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": true,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ]
+    },
+    "variableDebtUSDC": {
+      "address": "0x72E95b8931767C79bA4EeE721354d6E99a61D004",
+      "contract_name": "InitializableImmutableAdminUpgradeabilityProxy",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0x0925980bf748627460d6ba9c0b192efc37fc85b4618bf94943aa282018444fad",
+      "deployed_bytes": 2400,
+      "compiled_bytes": 2400,
+      "code_bytes": 2347,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ]
+    },
+    "variableDebtUSDC_impl": {
+      "address": "0xaC725CB59D16C81061BDeA61041a8A5e73DA9EC6",
+      "contract_name": "VariableDebtToken",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0x39d0980a6d65b440cecffd0e56c37b4d041b86dae13ca9e7913eefa1cf1960cf",
+      "deployed_bytes": 9403,
+      "compiled_bytes": 9403,
+      "code_bytes": 9350,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          2744,
+          32
+        ],
+        [
+          4153,
+          32
+        ],
+        [
+          894,
+          32
+        ],
+        [
+          2617,
+          32
+        ],
+        [
+          2943,
+          32
+        ],
+        [
+          3150,
+          32
+        ],
+        [
+          3602,
+          32
+        ],
+        [
+          3949,
+          32
+        ],
+        [
+          4685,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          2744,
+          32
+        ],
+        [
+          4153,
+          32
+        ],
+        [
+          894,
+          32
+        ],
+        [
+          2617,
+          32
+        ],
+        [
+          2943,
+          32
+        ],
+        [
+          3150,
+          32
+        ],
+        [
+          3602,
+          32
+        ],
+        [
+          3949,
+          32
+        ],
+        [
+          4685,
+          32
+        ]
+      ]
+    },
+    "stableDebtUSDC": {
+      "address": "0xB0fe3D292f4bd50De902Ba5bDF120Ad66E9d7a39",
+      "contract_name": "InitializableImmutableAdminUpgradeabilityProxy",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0x5c7ea5dc94c148eb56e8fcf09d65d69b9311170ab62deb37b3cd7055057858fb",
+      "deployed_bytes": 2400,
+      "compiled_bytes": 2400,
+      "code_bytes": 2347,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": true,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          335,
+          32
+        ],
+        [
+          417,
+          32
+        ],
+        [
+          628,
+          32
+        ],
+        [
+          1041,
+          32
+        ],
+        [
+          1082,
+          32
+        ],
+        [
+          1451,
+          32
+        ]
+      ]
+    },
+    "stableDebtUSDC_impl": {
+      "address": "0x15C5620dfFaC7c7366EED66C20Ad222DDbB1eD57",
+      "contract_name": "StableDebtToken",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0x7e14c3023f4c22ad735d79982ab18ea1ff164a5f66dcaefcd70e383dd9505d8b",
+      "deployed_bytes": 10699,
+      "compiled_bytes": 10699,
+      "code_bytes": 10646,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": true,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          2749,
+          32
+        ],
+        [
+          6345,
+          32
+        ],
+        [
+          773,
+          32
+        ],
+        [
+          3141,
+          32
+        ],
+        [
+          4420,
+          32
+        ],
+        [
+          5794,
+          32
+        ],
+        [
+          6141,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          2749,
+          32
+        ],
+        [
+          6345,
+          32
+        ],
+        [
+          773,
+          32
+        ],
+        [
+          3141,
+          32
+        ],
+        [
+          4420,
+          32
+        ],
+        [
+          5794,
+          32
+        ],
+        [
+          6141,
+          32
+        ]
+      ]
+    },
+    "WETH": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "contract_name": "WETH9",
+      "compiler": "0.4.19",
+      "source_provider": "routescan",
+      "source_sha256": "0x84eb54d071b3e95a1ed3ad37db9a6700f26c0432cce469fa5989e09c0fbff04f",
+      "deployed_bytes": 3124,
+      "compiled_bytes": 3124,
+      "code_bytes": 3081,
+      "metadata_bytes": {
+        "compiled": 43,
+        "deployed": 43
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true
+    },
+    "USDC": {
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "contract_name": "FiatTokenProxy",
+      "compiler": "0.4.24",
+      "source_provider": "routescan",
+      "source_sha256": "0x54ee57539f47287b83fc4d9fe8447e3bf91c99e4d2d630a2cfbad2aa84726176",
+      "deployed_bytes": 2186,
+      "compiled_bytes": 2186,
+      "code_bytes": 2143,
+      "metadata_bytes": {
+        "compiled": 43,
+        "deployed": 43
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true
+    },
+    "USDC_impl": {
+      "address": "0x43506849d7c04f9138d1a2050bbf3a0c054402dd",
+      "contract_name": "FiatTokenV2_2",
+      "compiler": "0.6.12",
+      "source_provider": "routescan",
+      "source_sha256": "0x3c13173c2a5526cdcc8b2456a1a5ec9494b5abc2b2b7d00ccf2c1474ff8118a7",
+      "deployed_bytes": 23464,
+      "compiled_bytes": 23464,
+      "code_bytes": 23411,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {
+        "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/util/SignatureChecker.sol": {
+          "SignatureChecker": "0x800C32EaA2a6c93cF4CB51794450ED77fBfbB172"
+        }
+      },
+      "masked_match": true
+    },
+    "WETH_price_source": {
+      "address": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
+      "contract_name": "EACAggregatorProxy",
+      "compiler": "0.6.6",
+      "source_provider": "routescan",
+      "source_sha256": "0xfec54044159bae3d90a0070d0c2d329d72e95398fa2278d71a23de68512c9959",
+      "deployed_bytes": 9571,
+      "compiled_bytes": 9571,
+      "code_bytes": 9518,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true
+    },
+    "USDC_price_source": {
+      "address": "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6",
+      "contract_name": "EACAggregatorProxy",
+      "compiler": "0.6.6",
+      "source_provider": "routescan",
+      "source_sha256": "0xfec54044159bae3d90a0070d0c2d329d72e95398fa2278d71a23de68512c9959",
+      "deployed_bytes": 9571,
+      "compiled_bytes": 9571,
+      "code_bytes": 9518,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": true,
+      "exact_match": true,
+      "code_match": true,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true
+    },
+    "WETH_price_source_aggregator": {
+      "address": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+      "contract_name": "AccessControlledOffchainAggregator",
+      "compiler": "0.7.6",
+      "source_provider": "routescan",
+      "source_sha256": "0x979558ba539e19ede06d9aa849290420ae1d9cbcfb22ac93ad9d0ffa2b138790",
+      "deployed_bytes": 20871,
+      "compiled_bytes": 20871,
+      "code_bytes": 20818,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": true,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          3742,
+          32
+        ],
+        [
+          3609,
+          32
+        ],
+        [
+          13295,
+          32
+        ],
+        [
+          6698,
+          32
+        ],
+        [
+          13340,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          3742,
+          32
+        ],
+        [
+          3609,
+          32
+        ],
+        [
+          13295,
+          32
+        ],
+        [
+          6698,
+          32
+        ],
+        [
+          13340,
+          32
+        ]
+      ]
+    },
+    "USDC_price_source_aggregator": {
+      "address": "0x789190466e21a8b78b8027866cbbdc151542a26c",
+      "contract_name": "AccessControlledOffchainAggregator",
+      "compiler": "0.7.6",
+      "source_provider": "routescan",
+      "source_sha256": "0x6230c2b3b382e83d8ca839b79b1db254155ad55c84a97df5da4296f35ed951f4",
+      "deployed_bytes": 22811,
+      "compiled_bytes": 22811,
+      "code_bytes": 22758,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          4179,
+          32
+        ],
+        [
+          3982,
+          32
+        ],
+        [
+          11367,
+          32
+        ],
+        [
+          11607,
+          32
+        ],
+        [
+          15720,
+          32
+        ],
+        [
+          17398,
+          32
+        ],
+        [
+          19573,
+          32
+        ],
+        [
+          4018,
+          32
+        ],
+        [
+          14593,
+          32
+        ],
+        [
+          7127,
+          32
+        ],
+        [
+          14638,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          4179,
+          32
+        ],
+        [
+          3982,
+          32
+        ],
+        [
+          11367,
+          32
+        ],
+        [
+          11607,
+          32
+        ],
+        [
+          15720,
+          32
+        ],
+        [
+          17398,
+          32
+        ],
+        [
+          19573,
+          32
+        ],
+        [
+          4018,
+          32
+        ],
+        [
+          14593,
+          32
+        ],
+        [
+          7127,
+          32
+        ],
+        [
+          14638,
+          32
+        ]
+      ]
+    },
+    "governance_proxy": {
+      "address": "0xdabad81af85554e9ae636395611c58f7ec1aaec5",
+      "contract_name": "TransparentUpgradeableProxy",
+      "compiler": "0.8.10",
+      "source_provider": "routescan",
+      "source_sha256": "0xc22ea08e91f1da68af5dc3cf22062a9a178ff51e84699dfc3eb1ede9110e857f",
+      "deployed_bytes": 2161,
+      "compiled_bytes": 2161,
+      "code_bytes": 2108,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true
+    },
+    "governance_impl": {
+      "address": "0x7222182cb9c5320587b5148bf03eee107ad64578",
+      "contract_name": "PayloadsController",
+      "compiler": "0.8.19",
+      "source_provider": "routescan",
+      "source_sha256": "0x87b4cf55bc2bcdfdf14fa0f7d0115bab5c7428d7d121b780da36a5e09e45dd45",
+      "deployed_bytes": 15245,
+      "compiled_bytes": 15245,
+      "code_bytes": 15192,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [
+        [
+          1140,
+          32
+        ],
+        [
+          1398,
+          32
+        ],
+        [
+          1024,
+          32
+        ],
+        [
+          1356,
+          32
+        ],
+        [
+          419,
+          32
+        ],
+        [
+          1459,
+          32
+        ]
+      ],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true,
+      "masked_ranges": [
+        [
+          1140,
+          32
+        ],
+        [
+          1398,
+          32
+        ],
+        [
+          1024,
+          32
+        ],
+        [
+          1356,
+          32
+        ],
+        [
+          419,
+          32
+        ],
+        [
+          1459,
+          32
+        ]
+      ]
+    },
+    "executor": {
+      "address": "0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A",
+      "contract_name": "Executor",
+      "compiler": "0.8.19",
+      "source_provider": "routescan",
+      "source_sha256": "0x81f1f6d8d00cb38928207c8497d75fd7e3161b861444db18b496d1930e87fc86",
+      "deployed_bytes": 1808,
+      "compiled_bytes": 1808,
+      "code_bytes": 1755,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true
+    },
+    "governance_proxy_admin": {
+      "address": "0xd3cf979e676265e4f6379749dece4708b9a22476",
+      "contract_name": "ZkBridgeAdmin",
+      "compiler": "0.8.14",
+      "source_provider": "routescan",
+      "source_sha256": "0xd6db44590de65586aa833257f66bfbfeee22421ca13c9b29e0e5265fd865f216",
+      "deployed_bytes": 1690,
+      "compiled_bytes": 1690,
+      "code_bytes": 1637,
+      "metadata_bytes": {
+        "compiled": 53,
+        "deployed": 53
+      },
+      "metadata_equal": false,
+      "exact_match": false,
+      "code_match": true,
+      "immutable_ranges": [],
+      "link_ranges": [],
+      "libraries": {},
+      "masked_match": true
+    }
+  },
+  "summary": {
+    "total": 25,
+    "exact": 1,
+    "code_match": 24,
+    "errors": 0,
+    "mismatched": 1
+  }
+}
