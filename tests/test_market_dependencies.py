@@ -112,18 +112,19 @@ class DependencyVerifierTests(unittest.TestCase):
                     deps.etherscan_logs('0x1', '0x2', '0x0', '0x1', 'key')
 
     def test_role_holders_rpc_path_filters_current_role(self):
-        topic = deps.keccak_hex(b'RoleGranted(bytes32,address,address)')
+        topic = '0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d'
         role = '0x' + '11' * 32
         account = '0x' + '22' * 20
         log = {'topics': [topic, role, '0x' + '00' * 12 + '22' * 20]}
-        with patch.object(deps, 'first_code_block', return_value=0):
-            with patch.object(deps, 'rpc', return_value=[log]):
-                with patch.object(deps, 'call_uint', return_value=0):
-                    result = deps.role_holders('https://node.example', '0xacl', '')
-                    self.assertEqual(result['holders'], {})
-                with patch.object(deps, 'call_uint', return_value=1):
-                    result = deps.role_holders('https://node.example', '0xacl', '')
-                    self.assertEqual(result['holders'][role], [account])
+        with patch.object(deps, 'keccak_hex', return_value=topic):
+            with patch.object(deps, 'first_code_block', return_value=0):
+                with patch.object(deps, 'rpc', return_value=[log]):
+                    with patch.object(deps, 'call_uint', return_value=0):
+                        result = deps.role_holders('https://node.example', '0xacl', '')
+                        self.assertEqual(result['holders'], {})
+                    with patch.object(deps, 'call_uint', return_value=1):
+                        result = deps.role_holders('https://node.example', '0xacl', '')
+                        self.assertEqual(result['holders'][role], [account])
 
     def test_executor_settings_decoder(self):
         result = '0x' + '00' * 12 + 'ab' * 20 + '00' * 28 + '00000001'
