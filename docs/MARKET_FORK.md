@@ -1,6 +1,6 @@
 # Aave V3 の fork — Issue #8 の中間成果
 
-2026-11-03 に Ethereum Mainnet の archive RPC で無変更 baseline を実行し、2026-11-04 にローカル fork 限定の保護 PoC を追加した。固定 RPC で **baseline 10 件 + 保護あり 32 件 = 42 件が PASS**。加えて依存先 source の存在・proxy/authority chain・Level 1 timelock delay (1 day)・ACL role holder 全量・Pool/token 入口の分類を記録した。ただし保護 PoC は研究用で、依存先 exact runtime・未命名 role の外部利用・payload contract 本体の upgrade 履歴・本番統合・市場ガバナンスの実証ではない。#8 は OPEN のまま、#11 以降の市場実装ゲートは解放しない。
+2026-11-03 に Ethereum Mainnet の archive RPC で無変更 baseline を実行し、2026-11-04 にローカル fork 限定の保護 PoC を追加した。固定 RPC で **baseline 10 件 + 保護あり 32 件 = 42 件が PASS**。加えて依存先 source の存在・proxy/authority chain・Level 1 timelock delay (1 day)・ACL role holder 全量・Pool/token 入口の分類を記録した。ただし保護 PoC は研究用で、依存先 exact runtime・未命名 role の外部利用・本番統合・市場ガバナンスの実証ではない。#8 は OPEN のまま、#11 以降の市場実装ゲートは解放しない。
 
 ## 対象と再現
 
@@ -36,7 +36,8 @@ export SENTINEL_RPC_URL='https://endpoint.example/token/'
 - [Pool/token 入口の網羅](MARKET_ENTRYPOINTS.md): Pool 47 関数を **view 18 / guarded 9 / gated initialize 1 / rejected 19** に分類。19 rejected selector は実際に `Unsupported` を確認。token は aWETH/aUSDC 34、variableDebt 30、stableDebt 33 関数を分類し、transfer / transferFrom / onlyPool mutator / borrow delegation を整理。
 - 成果物: [`forks/aave-v3-dependencies-19000000.json`](../forks/aave-v3-dependencies-19000000.json)、[`forks/aave-v3-pool-entrypoints-19000000.json`](../forks/aave-v3-pool-entrypoints-19000000.json)、[`forks/aave-v3-token-entrypoints-19000000.json`](../forks/aave-v3-token-entrypoints-19000000.json)。
 - 解決: `getExecutorSettingsByAccessControl` を Governance proxy に対して呼ぶことで、Level 1 Executor `0x5300…` / delay 1 day、Level 2 Executor `0x17dd…` / delay 7 days を確認。`ExecutorSet` logs と最新 payload (access level 1 / delay 1 day / grace 7 days) も一致。ACL role holder は Etherscan `RoleGranted`/`RoleRevoked` logs と `hasRole` で列挙（POOL_ADMIN=Executor、EMERGENCY_ADMIN/RISK_ADMIN/FLASH_BORROWER は別アドレス、未命名 role hash 1 件あり）。
-- 未解決: `PoolAddressesProvider` の exact runtime mismatch、未命名 role の外部利用、payload contract 本体の upgrade 履歴。
+- 解決: payload 43 `AaveV3Ethereum_Patch_20240104` が実行済みで、`setPoolImpl(NEW_POOL_IMPL=0x5FA…)` により固定 block の Pool implementation を設定したことを確認。
+- 未解決: `PoolAddressesProvider` の exact runtime mismatch、未命名 role の外部利用。
 
 ## 保護あり PoC の範囲
 
@@ -82,15 +83,15 @@ baseline の 10 テストは無変更 Aave V3 の直接/委任借入、flash 可
 - 別エージェントによる独立レビューを 2026-11-04 に実施した。初回レビューで M1–M5 を指摘され修正したが、再レビューで H1（USDC 価格ゼロで USD 評価債務が 0 になり、債務を残したまま WETH を全額引き出せる）を検出した。debt-free 判定を各 reserve の生の debt token 残高へ変更し、`testZeroDebtPriceCannotHideOutstandingDebt` で回帰を固定した。H1 修正後の再レビューでは、この PoC の H1/M1′/M2′ の解消と、残る Critical/High/Medium がないことを確認した（M2′ の成熟→未成熟シフト例は newest-first の誤認として撤回された）。追加した依存先/入口検証のデルタレビューでは M-A（RPC role log の未フィルタ）、M-B（Etherscan logs の曖昧応答/ページ上限）、M-C（token の onlyPoolAdmin 分類）を指摘され、修正・回帰テスト追加済み。ただしレビューは実装者と別の AI セッションであり、人間の監査・本番承認ではない。
 - 署名経路: aToken `permit` + `transferFrom` は `Unsupported`、debt `delegationWithSig` + 委任借入は owner に q を課金、`repayWithPermit` は返済成功を確認した。
 - gas: baseline borrow 309,317 / protected borrow 555,989 / overhead 246,672。protected は upgrade 後の 2 回目 borrow で Aave 側の warm state を含むため、この差分は **indicative** であり、guard の実コストを過小評価する可能性がある。いずれにせよ SPEC の +8,500 gas 目標は **未達**。
-- 残る未検証: `answered < round`/`value > 1e16` の価格分岐、WETH `repayWithATokens` の enrolled 経路、`PoolAddressesProvider` の exact runtime mismatch、未命名 ACL role の外部利用、payload contract 本体の upgrade 呼び出し履歴。いずれも fail-closed 側だが、成功証拠としては扱わない。`_hasDebt` は全 reserve を走査するため withdraw の gas が増え、reserve 数はガバナンス管理である。debt token が address(0) の場合は skip する防御を入れた。q_change の正の withdraw 課金は newest-first のためこの PoC では到達しない（式は実装済み）。
+- 残る未検証: `answered < round`/`value > 1e16` の価格分岐、WETH `repayWithATokens` の enrolled 経路、`PoolAddressesProvider` の exact runtime mismatch、未命名 ACL role の外部利用。いずれも fail-closed 側だが、成功証拠としては扱わない。`_hasDebt` は全 reserve を走査するため withdraw の gas が増え、reserve 数はガバナンス管理である。debt token が address(0) の場合は skip する防御を入れた。q_change の正の withdraw 課金は newest-first のためこの PoC では到達しない（式は実装済み）。
 
 ## 未達と次のゲート
 
 - Pool本体とリンク先7ライブラリは SolcJS 0.8.19 / optimizer 200 / Paris / metadata hash none で再ビルドし、runtime全体の一致を確認した。APIが返したPoolのconstructor引数は不一致だったため採用していない。Provider immutable は対象ブロックの実値に拘束した。依存 token/oracle/proxy の source 存在は取得したが、exact runtime 再ビルドは Pool + 7 ライブラリ以外未実施。USDC は EIP-1967 ではない custom slot の proxy であり、slot=0 を implementation 不在と解釈しない。
-- 保護 PoC はローカル fork の研究実装で、実市場のガバナンス承認・本番 upgrade・公開チェーンへの送信を行っていない。Provider owner / ACL admin / Executor owner / Governance proxy admin / Level 1 delay / ACL role holder は確認したが、未命名 role の外部利用・payload contract 本体の upgrade 履歴・依存先 exact runtime は未検証。
+- 保護 PoC はローカル fork の研究実装で、実市場のガバナンス承認・本番 upgrade・公開チェーンへの送信を行っていない。Provider owner / ACL admin / Executor owner / Governance proxy admin / Level 1 delay / ACL role holder は確認したが、未命名 role の外部利用・依存先 exact runtime は未検証。
 - aToken 移転・permit 供給・eMode・stable rate・mode=0/simple flash・bridge・adapter・再入の全組合せは、拒否または未対応として記録した。拒否を「保護完了」と扱わない。本番で必要な経路は別途、追跡または明示的な市場適用外の根拠が必要である。
 - 汚染 claim の比例配賦・解除・重複通知・誤通知の訂正（#9）、複数資産・コリドー・料金・連続回復（#17/#31）、隔離と証明例外は未実装。
-- 次は依存先 exact runtime の再ビルド、payload contract 本体の upgrade 呼び出し履歴、未命名 role の外部利用、本番 upgrade/migration 経路、必要な移転経路の追跡または適用外判断、人間の独立監査、対象 commit の GitHub CI 終端結果の確認が必要。[#8 合格条件](MARKET_INTEGRATION.md)を維持し、成功した市場保護として後続ゲートを解放しない。
+- 次は `PoolAddressesProvider` の exact runtime mismatch の解消、未命名 role の外部利用、本番 upgrade/migration 経路、必要な移転経路の追跡または適用外判断、人間の独立監査、手動 live-fork workflow の GitHub 実行が必要。[#8 合格条件](MARKET_INTEGRATION.md)を維持し、成功した市場保護として後続ゲートを解放しない。
 
 ## ソース照合の再実行
 
@@ -109,7 +110,7 @@ Etherscan は API key なしでは HTTP 403、Sourcify の full/partial match �
 1. 調査: #8/#4、SPEC、README、最新 `origin/main` `8a7a3af`、clean main と既存 worktree、RPC を確認。
 2. 計画: #8 専用 `issue/8-market-fork` / `aegis-flow-worktrees/issue-8`。未変更市場の反例・再現基盤に加え、ローカル fork 限定の保護 PoC を同じ worktree で検証。
 3. Red/Green: baseline runner の 0 件成功・不正HTTP応答の指摘を回帰テストで再現して修正。保護 suite 追加後、runner が baseline のみを必須にしていた穴を Python テストで再現し、両 suite 必須へ変更。
-4. 検証: live fork 42 件（baseline 10 + 保護 32）、Python runner 13 件、依存先/入口/ランタイムの静的テスト 12 件、既存 Python / Rust / Solidity、Anvil E2E、actionlint、fmt。依存先・入口の収集スクリプトは network を使うため通常 CI では実行せず、成果物と静的テストだけを CI で検証する。対象 commit と終端結果は PR に記録する。
+4. 検証: live fork 42 件（baseline 10 + 保護 32）、Python runner 13 件、依存先/入口/ランタイム/governance の静的テスト 13 件、既存 Python / Rust / Solidity、Anvil E2E、actionlint、fmt。依存先・入口の収集スクリプトは network を使うため通常 CI では実行せず、成果物と静的テストだけを CI で検証する。対象 commit と終端結果は PR に記録する。
 5. 独立レビュー: 別エージェントで保護 PoC、runner、文書、差分を確認し、M1–M5 を修正・再検証した。残る Low の未検証を記録する。
 6. 納品: この部分成果は #8 を close しない。PR の状態、CI と実 fork の証跡をそれぞれ確認する。
 
