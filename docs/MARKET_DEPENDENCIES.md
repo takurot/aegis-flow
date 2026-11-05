@@ -95,10 +95,24 @@ python3 scripts/verify-source-runtime.py
 - code match は metadata hash・constructor immutable/link 値の一致を意味しない。immutable/link は mask している。deployed metadata の IPFS CID は抽出したが、この環境では IPFS gateway（ipfs.io / cloudflare / pinata / dweb / nftstorage / lighthouse / filebase / 4everland / w3s / runfission / aragon）から metadata JSON を取得できなかった。full exact は未再現。
 - solc 0.8.14 の npm wrapper は `common/` が欠落するため、ローカルでは 0.8.19 の wrapper common を補完して実行した。再実行時は `scripts/verify-source-runtime.py` が同じ補完を試みる。
 
+## Sourcify の独立照合
+
+```sh
+python3 scripts/verify-sourcify.py
+```
+
+出力: [`forks/aave-v3-sourcify-19000000.json`](../forks/aave-v3-sourcify-19000000.json)
+
+- **14/25 が `exact_match`**（provider, AToken, debt token, oracle, ACL, proxy の一部など）
+- **11/25 が `match`（partial; bytecode match, metadata/partial）**（Pool impl, WETH, USDC, governance proxy/impl, executor, 一部 aggregator など）
+- errors 0
+- Pool + 7 ライブラリは既存の local full exact、USDC price source は local full exact。
+- Sourcify の `match` は code/bytecode 一致の独立証拠だが、full metadata の完全一致を意味しない。local recompile は 25/25 code match、full exact は USDC price source のみ。IPFS metadata はこの環境から取得できなかった。
+
 ## テスト
 
-`tests/test_market_dependencies.py` は、設定ファイルの厳格な読み取り（シェル実行なし）、source SHA-256、Routescan→Etherscan フォールバック、secret 非出力、executor settings の decode、role log の fail-closed 処理を検証する。`tests/test_market_runtime.py` は runtime artifact の 25 targets / 25 code match / Provider の二重 metadata を固定する。ネットワークは使わない。
+`tests/test_market_dependencies.py` は、設定ファイルの厳格な読み取り（シェル実行なし）、source SHA-256、Routescan→Etherscan フォールバック、secret 非出力、executor settings の decode、role log の fail-closed 処理を検証する。`tests/test_market_runtime.py` は runtime artifact の 25 targets / 25 code match / Provider の二重 metadata を固定する。`tests/test_market_sourcify.py` は Sourcify の 14 exact / 11 partial を固定する。ネットワークは使わない。
 
 ## 判定
 
-依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量、payload 43 の実行済み Pool upgrade、`ISOLATED_COLLATERAL_SUPPLIER` の grant 元、25/25 code match は確認できた。一方、**metadata/immutable/link 値の full exact** は未検証である。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。
+依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量、payload 43 の実行済み Pool upgrade、`ISOLATED_COLLATERAL_SUPPLIER` の grant 元、25/25 code match は確認できた。一方、**11 targets の full exact metadata/immutable/link** は未検証である。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。
