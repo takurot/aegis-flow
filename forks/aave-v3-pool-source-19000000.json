@@ -1,0 +1,217 @@
+{
+  "chain_id": 1,
+  "block": 19000000,
+  "block_hash": "0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac",
+  "implementation": "0x5FAab9E1adbddaD0a08734BE8a52185Fd6558E14",
+  "source_api": "https://api.routescan.io/v2/network/mainnet/evm/1/etherscan/api?module=contract&action=getsourcecode&address=0x5faab9e1adbddad0a08734be8a52185fd6558e14",
+  "source_code_field_sha256": "06765cce076705e9cbdba2ca723caab203dfe8a0f20f87093fbd2a4dad805f34",
+  "compiler": "v0.8.19+commit.7dd6d404",
+  "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/pool/Pool.sol",
+  "settings": {
+    "remappings": [
+      "@aave/core-v2/=lib/aave-v3-factory/lib/aave-collector-unification/lib/protocol-v2/",
+      "@aave/core-v3/=lib/aave-v3-factory/lib/aave-address-book/lib/aave-v3-core/",
+      "@aave/periphery-v3/=lib/aave-v3-factory/lib/aave-address-book/lib/aave-v3-periphery/",
+      "aave-address-book/=lib/aave-helpers/lib/aave-address-book/src/",
+      "aave-collector-unification/=lib/aave-v3-factory/lib/aave-collector-unification/",
+      "aave-helpers/=lib/aave-helpers/src/",
+      "aave-v3-core/=lib/aave-v3-factory/src/core/",
+      "aave-v3-factory/=lib/aave-v3-factory/",
+      "aave-v3-periphery/=lib/aave-v3-factory/src/periphery/",
+      "ds-test/=lib/forge-std/lib/ds-test/src/",
+      "forge-std/=lib/aave-helpers/lib/forge-std/src/",
+      "governance-crosschain-bridges/=lib/aave-v3-factory/lib/aave-helpers/lib/governance-crosschain-bridges/",
+      "protocol-v2/=lib/aave-v3-factory/lib/aave-collector-unification/lib/protocol-v2/",
+      "solidity-utils/=lib/aave-helpers/lib/solidity-utils/src/"
+    ],
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "metadata": {
+      "useLiteralContent": false,
+      "bytecodeHash": "none",
+      "appendCBOR": true
+    },
+    "outputSelection": {
+      "lib/aave-v3-factory/src/core/contracts/protocol/pool/Pool.sol": {
+        "Pool": [
+          "*"
+        ]
+      },
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "evmVersion": "paris",
+    "libraries": {
+      "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/BorrowLogic.sol": {
+        "BorrowLogic": "0x5547D7d54d10C359108e36d098016c4020443Fd4"
+      },
+      "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/BridgeLogic.sol": {
+        "BridgeLogic": "0xd948Cfb92eBF175E4bD772305fdEe8f39e934520"
+      },
+      "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/ConfiguratorLogic.sol": {
+        "ConfiguratorLogic": "0x433c792f11D102249DccD55452dDD84c7A2Ef8f2"
+      },
+      "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/EModeLogic.sol": {
+        "EModeLogic": "0xB341e4f99c73caA2136302f468ac3b75827C1736"
+      },
+      "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/FlashLoanLogic.sol": {
+        "FlashLoanLogic": "0x0063Bcd116694c21F6A94AA78E10eF4d7819a609"
+      },
+      "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/LiquidationLogic.sol": {
+        "LiquidationLogic": "0x5125bCf6380C5D5Ccad4d4A88C3664DF646Bc6c3"
+      },
+      "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/PoolLogic.sol": {
+        "PoolLogic": "0x7b8186933eAd860f49114fb10e3a7f17a11bEd8a"
+      },
+      "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/SupplyLogic.sol": {
+        "SupplyLogic": "0x589F82Ff8162Fa96545b435435713E9D6ca79fBB"
+      }
+    }
+  },
+  "runtime_exact_match": true,
+  "runtime_bytes": 17753,
+  "immutable_references": {
+    "13349": [
+      {
+        "length": 32,
+        "start": 737
+      },
+      {
+        "length": 32,
+        "start": 2342
+      },
+      {
+        "length": 32,
+        "start": 2533
+      },
+      {
+        "length": 32,
+        "start": 3432
+      },
+      {
+        "length": 32,
+        "start": 4700
+      },
+      {
+        "length": 32,
+        "start": 5412
+      },
+      {
+        "length": 32,
+        "start": 6903
+      },
+      {
+        "length": 32,
+        "start": 7074
+      },
+      {
+        "length": 32,
+        "start": 7589
+      },
+      {
+        "length": 32,
+        "start": 8193
+      },
+      {
+        "length": 32,
+        "start": 8694
+      },
+      {
+        "length": 32,
+        "start": 9830
+      },
+      {
+        "length": 32,
+        "start": 10933
+      },
+      {
+        "length": 32,
+        "start": 11232
+      },
+      {
+        "length": 32,
+        "start": 11524
+      }
+    ]
+  },
+  "immutable_provider": "0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e",
+  "api_constructor_arguments_mismatch": true,
+  "api_constructor_arguments": "0x000000000000000000000000a97684ead0e402dc232d5a977953df7ecbab3cdb",
+  "linked_library_source_correspondence": "verified",
+  "dependencies_source_correspondence": "unverified",
+  "notes": [
+    "Runtime equality includes metadata and linked library addresses after binding immutable provider to fixed-block runtime.",
+    "The API constructor field does not match this deployment; it was not accepted as deployment evidence.",
+    "SolcJS 0.8.19 was used because the official macOS amd64 binary cannot execute on this arm64 environment.",
+    "No Aegis protection implementation or market-wide enforcement is proven."
+  ],
+  "linked_libraries": [
+    {
+      "source": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/BorrowLogic.sol",
+      "name": "BorrowLogic",
+      "address": "0x5547D7d54d10C359108e36d098016c4020443Fd4",
+      "codehash": "0x6dd22707165c63341a68ccf7cae3bd6cbda751d1c57b25d98ad8421386e5b0c6",
+      "runtime_exact_match": true
+    },
+    {
+      "source": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/BridgeLogic.sol",
+      "name": "BridgeLogic",
+      "address": "0xd948Cfb92eBF175E4bD772305fdEe8f39e934520",
+      "codehash": "0x48b4033de81cb6df970f3694bf39d40c223d8979d72ece36da2016aaeef2585f",
+      "runtime_exact_match": true
+    },
+    {
+      "source": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/EModeLogic.sol",
+      "name": "EModeLogic",
+      "address": "0xB341e4f99c73caA2136302f468ac3b75827C1736",
+      "codehash": "0x99fd088a2052886827d299ffac1e3153d3872be788c1e490063e9f36cf8553e5",
+      "runtime_exact_match": true
+    },
+    {
+      "source": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/FlashLoanLogic.sol",
+      "name": "FlashLoanLogic",
+      "address": "0x0063Bcd116694c21F6A94AA78E10eF4d7819a609",
+      "codehash": "0x7898911e904dc95c0e099c4bc79241707e1f86b1704402e613ec89b64b3e8322",
+      "runtime_exact_match": true
+    },
+    {
+      "source": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+      "name": "LiquidationLogic",
+      "address": "0x5125bCf6380C5D5Ccad4d4A88C3664DF646Bc6c3",
+      "codehash": "0x8ce5f910ed61b2ba3078e2881601dd06ffe59dfadff85d1999f3447902b061e0",
+      "runtime_exact_match": true
+    },
+    {
+      "source": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/PoolLogic.sol",
+      "name": "PoolLogic",
+      "address": "0x7b8186933eAd860f49114fb10e3a7f17a11bEd8a",
+      "codehash": "0xa907ea82b35119104cffa6193ffe459aa97b1e2eb79d9842a12826b5a6bb5ce5",
+      "runtime_exact_match": true
+    },
+    {
+      "source": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/SupplyLogic.sol",
+      "name": "SupplyLogic",
+      "address": "0x589F82Ff8162Fa96545b435435713E9D6ca79fBB",
+      "codehash": "0xe7a06bbdef059f19c7a5db8eb4912c35c395a48e609c7f0dd2796311c413a6a8",
+      "runtime_exact_match": true
+    }
+  ],
+  "unused_library_setting": "ConfiguratorLogic is present in input settings but is not linked by Pool and has no source in the API payload.",
+  "solc_npm_integrity": "sha512-yqurS3wzC4LdEvmMobODXqprV4MYJcVtinuxgrp61ac8K2zz40vXA0eSAskSHPgv8dQo7Nux39i3QBsHx4pqyA=="
+}

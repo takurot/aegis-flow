@@ -1,0 +1,21 @@
+{
+  "chain_id": 1,
+  "block": 17214196,
+  "governance": "0xec568fffba86c094cf06b22134b23074dfe2252c",
+  "executor": "0xee56e2b3d491590b5b31738cc34d5232f378a8d5",
+  "proposal_id": 213,
+  "transaction": "0x012b6d5e9be9ae815f6d4af51adc11aed782a6979eca66f9afbf4d122245f342",
+  "target": "0x6f6caee8348c10dc9441fbe28cb588566f1251d5",
+  "contract_name": "V301EthereumUpgradePayload",
+  "source_provider": "etherscan",
+  "role_name": "ISOLATED_COLLATERAL_SUPPLIER",
+  "role_hash": "0xd1d2cf869016112a9af1107bcf43c3759daf22cf734aad47d0c9c726e33bc782",
+  "role_holders": [
+    "0x872fbcb1b582e8cd0d0dd4327fbfa0b4c2730995",
+    "0xb748952c7bc638f31775245964707bcc5ddfabfc"
+  ],
+  "grant_calls": [
+    "ACL_MANAGER.grantRole(ISOLATED_COLLATERAL_SUPPLIER_ROLE, SWAP_COLLATERAL_ADAPTER)",
+    "ACL_MANAGER.grantRole(ISOLATED_COLLATERAL_SUPPLIER_ROLE, MIGRATION_HELPER)"
+  ]
+}

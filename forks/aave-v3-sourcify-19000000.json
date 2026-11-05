@@ -1,0 +1,213 @@
+{
+  "chain_id": 1,
+  "block": 19000000,
+  "source": "Sourcify v2",
+  "targets": {
+    "pool": {
+      "address": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "2030300",
+      "verifiedAt": "2025-05-18T11:51:24Z"
+    },
+    "pool_impl": {
+      "address": "0x5FAab9E1adbddaD0a08734BE8a52185Fd6558E14",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "2394027",
+      "verifiedAt": "2024-08-08T15:18:25Z"
+    },
+    "provider": {
+      "address": "0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "6510696",
+      "verifiedAt": "2025-06-21T16:49:11Z"
+    },
+    "configurator": {
+      "address": "0x64b761D848206f447Fe2dd461b0c635Ec39EbB27",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "6316058",
+      "verifiedAt": "2025-04-28T07:33:17Z"
+    },
+    "configurator_impl": {
+      "address": "0xFDA7ffA872bDc906D43079EA134ebC9a511db0c2",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "6803712",
+      "verifiedAt": "2025-07-05T02:51:23Z"
+    },
+    "acl": {
+      "address": "0xc2aaCf6553D20d1e9d78E365AAba8032af9c85b0",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "2106929",
+      "verifiedAt": "2025-07-04T16:11:55Z"
+    },
+    "oracle": {
+      "address": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "6555986",
+      "verifiedAt": "2025-06-22T05:32:33Z"
+    },
+    "aWETH": {
+      "address": "0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "14068008",
+      "verifiedAt": "2026-01-18T09:10:43Z"
+    },
+    "aWETH_impl": {
+      "address": "0x7EfFD7b47Bfd17e52fB7559d3f924201b9DbfF3d",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "6611392",
+      "verifiedAt": "2025-06-23T02:59:53Z"
+    },
+    "aUSDC": {
+      "address": "0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "7871374",
+      "verifiedAt": "2025-07-22T10:33:50Z"
+    },
+    "variableDebtUSDC": {
+      "address": "0x72E95b8931767C79bA4EeE721354d6E99a61D004",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "9127606",
+      "verifiedAt": "2025-09-06T05:31:54Z"
+    },
+    "variableDebtUSDC_impl": {
+      "address": "0xaC725CB59D16C81061BDeA61041a8A5e73DA9EC6",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "6695330",
+      "verifiedAt": "2025-07-04T11:40:34Z"
+    },
+    "stableDebtUSDC": {
+      "address": "0xB0fe3D292f4bd50De902Ba5bDF120Ad66E9d7a39",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "22362659",
+      "verifiedAt": "2026-03-12T03:41:46Z"
+    },
+    "stableDebtUSDC_impl": {
+      "address": "0x15C5620dfFaC7c7366EED66C20Ad222DDbB1eD57",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "38121",
+      "verifiedAt": "2024-08-08T10:35:55Z"
+    },
+    "WETH": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "1605500",
+      "verifiedAt": "2024-08-08T13:28:37Z"
+    },
+    "USDC": {
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "1532018",
+      "verifiedAt": "2024-08-08T13:20:07Z"
+    },
+    "WETH_price_source": {
+      "address": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "2398528",
+      "verifiedAt": "2024-08-08T15:19:12Z"
+    },
+    "USDC_price_source": {
+      "address": "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "6633329",
+      "verifiedAt": "2025-06-23T07:26:05Z"
+    },
+    "USDC_impl": {
+      "address": "0x43506849d7c04f9138d1a2050bbf3a0c054402dd",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "2343264",
+      "verifiedAt": "2024-08-08T15:09:21Z"
+    },
+    "governance_proxy": {
+      "address": "0xdabad81af85554e9ae636395611c58f7ec1aaec5",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "2704028",
+      "verifiedAt": "2024-08-08T16:14:27Z"
+    },
+    "governance_impl": {
+      "address": "0x7222182cb9c5320587b5148bf03eee107ad64578",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "1896040",
+      "verifiedAt": "2024-08-08T14:07:01Z"
+    },
+    "governance_proxy_admin": {
+      "address": "0xd3cf979e676265e4f6379749dece4708b9a22476",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "2072452",
+      "verifiedAt": "2024-08-08T14:31:08Z"
+    },
+    "executor": {
+      "address": "0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "1897734",
+      "verifiedAt": "2024-08-08T14:07:16Z"
+    },
+    "WETH_price_source_aggregator": {
+      "address": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+      "match": "exact_match",
+      "runtimeMatch": "exact_match",
+      "creationMatch": "exact_match",
+      "matchId": "7868826",
+      "verifiedAt": "2025-07-22T09:29:24Z"
+    },
+    "USDC_price_source_aggregator": {
+      "address": "0x789190466e21a8b78b8027866cbbdc151542a26c",
+      "match": "match",
+      "runtimeMatch": "match",
+      "creationMatch": "match",
+      "matchId": "2450350",
+      "verifiedAt": "2024-08-08T15:28:46Z"
+    }
+  },
+  "summary": {
+    "total": 25,
+    "exact": 14,
+    "partial": 11,
+    "errors": 0
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "chain_id": 1,
+  "block": 19000000,
+  "block_hash": "0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac",
+  "timestamp": 1705173443,
+  "contracts": {
+    "pool": {
+      "address": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+      "codehash": "0x96107dc4006b4c7fecd1827cfb275ffeef31e6194cd50466f85f8eb24ccf2679",
+      "implementation": "0x5FAab9E1adbddaD0a08734BE8a52185Fd6558E14",
+      "implementation_codehash": "0x0fa847465426a62889d1982f9796154d78ff4bdee227b8d4d288fd14793d2245"
+    },
+    "provider": {
+      "address": "0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e",
+      "codehash": "0x0f8c7f9c735ac0f3f35b1e78882a617380549def43faeca0d959d5aadd81dee4"
+    },
+    "configurator": {
+      "address": "0x64b761D848206f447Fe2dd461b0c635Ec39EbB27",
+      "codehash": "0x96107dc4006b4c7fecd1827cfb275ffeef31e6194cd50466f85f8eb24ccf2679",
+      "implementation": "0xFDA7ffA872bDc906D43079EA134ebC9a511db0c2",
+      "implementation_codehash": "0x3f1e049412e5d9f738c76a5184c75b43501f4a0ccb0efa8e1e494c497fd0d477"
+    },
+    "acl": {
+      "address": "0xc2aaCf6553D20d1e9d78E365AAba8032af9c85b0",
+      "codehash": "0x8f5149c586070246e4a0090b78d2a0b6737a3453399f3e5bdfa6203999990c26"
+    },
+    "oracle": {
+      "address": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+      "codehash": "0x45cd52c8cff7bafe9b7003f246cc7df89dfc668d8e95d0414178ef6f9f4a3701"
+    },
+    "aWETH": {
+      "address": "0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8",
+      "codehash": "0x82c6d153799b3226525e3b7ec27b843ef44c5f6bca21fcf8b3c80db61ba64881",
+      "implementation": "0x7EfFD7b47Bfd17e52fB7559d3f924201b9DbfF3d",
+      "implementation_codehash": "0x71967695f3c266ab58af4b2bd527d789c6f26ff08309b218f45a28de003eab81"
+    },
+    "aUSDC": {
+      "address": "0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c",
+      "codehash": "0x82c6d153799b3226525e3b7ec27b843ef44c5f6bca21fcf8b3c80db61ba64881",
+      "implementation": "0x7EfFD7b47Bfd17e52fB7559d3f924201b9DbfF3d",
+      "implementation_codehash": "0x71967695f3c266ab58af4b2bd527d789c6f26ff08309b218f45a28de003eab81"
+    },
+    "variableDebtUSDC": {
+      "address": "0x72E95b8931767C79bA4EeE721354d6E99a61D004",
+      "codehash": "0x82c6d153799b3226525e3b7ec27b843ef44c5f6bca21fcf8b3c80db61ba64881",
+      "implementation": "0xaC725CB59D16C81061BDeA61041a8A5e73DA9EC6",
+      "implementation_codehash": "0x1c6bfa34fcf568d72d11492bf3821c47f63c11a2c13457986ae97e1ac03c6b8b"
+    },
+    "stableDebtUSDC": {
+      "address": "0xB0fe3D292f4bd50De902Ba5bDF120Ad66E9d7a39",
+      "codehash": "0x82c6d153799b3226525e3b7ec27b843ef44c5f6bca21fcf8b3c80db61ba64881",
+      "implementation": "0x15C5620dfFaC7c7366EED66C20Ad222DDbB1eD57",
+      "implementation_codehash": "0x38cebd47052f3f386d65d8078e75d0700a486f5671fa39f0ea1469f3c0320fbd"
+    },
+    "WETH": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "codehash": "0xd0a06b12ac47863b5c7be4185c2deaad1c61557033f56c7d4ea74429cbb25e23"
+    },
+    "USDC": {
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "codehash": "0xd80d4b7c890cb9d6a4893e6b52bc34b56b25335cb13716e0d1d31383e6b41505",
+      "implementation": "0x0000000000000000000000000000000000000000"
+    },
+    "WETH_price_source": {
+      "address": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
+      "codehash": "0x4b79b5c8aee6da0f7b393e8b53e6265ef7320a1d16184c65bd3841b5aa3d700d"
+    },
+    "USDC_price_source": {
+      "address": "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6",
+      "codehash": "0xbd6f524cdc4268b6bd1bb6f77a8821faeea9c52ee9e0afa0b6d948ce82c966c2"
+    }
+  },
+  "roles": {
+    "provider_owner": "0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A",
+    "ACL_admin": "0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A"
+  },
+  "values": {
+    "WETH_reserve_configuration": "379853410077073136111871992929984913585795781894002",
+    "USDC_reserve_configuration": "11418127756727217299315102183945323275182015520276",
+    "WETH_USD8": "256292441874",
+    "USDC_USD8": "100010301"
+  },
+  "source_bytecode_correspondence": "unverified",
+  "enforcement": "unproven",
+  "pool_source_runtime_correspondence": "verified; see aave-v3-pool-source-19000000.json"
+}

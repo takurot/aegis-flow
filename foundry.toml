@@ -5,3 +5,11 @@ out = "out"
 libs = []
 solc_version = "0.8.26"
 evm_version = "cancun"
+
+# Explicit opt-in: default CI never labels an unconfigured live fork as passed.
+[profile.market_fork]
+test = "contracts/fork"
+# The 1,000-split assertion executes one local-fork transaction; no live chain gas limit is implied.
+gas_limit = 1_000_000_000
+
+fs_permissions = [{ access = "read", path = "./forks" }]
