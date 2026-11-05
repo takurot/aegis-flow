@@ -48,3 +48,4 @@ class RuntimeArtifactTests(unittest.TestCase):
         self.assertTrue(provider['code_match'])
         self.assertGreater(provider['metadata_bytes']['compiled'], 0)
         self.assertEqual(provider['metadata_bytes']['compiled'], provider['metadata_bytes']['deployed'])
+        self.assertNotEqual(provider['metadata_cids']['compiled'], provider['metadata_cids']['deployed'])

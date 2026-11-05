@@ -38,6 +38,7 @@
 - [Aave V3 の fork](docs/MARKET_FORK.md)：固定ブロックの baseline、ローカル限定の保護 PoC、任意 wrapper の反例と未達ゲート
 - [Aave V3 依存先・権限](docs/MARKET_DEPENDENCIES.md)：固定ブロックの source/proxy/authority/timelock 検証と未検証記録
 - [Pool/token 入口](docs/MARKET_ENTRYPOINTS.md)：Pool 47 関数と token 側入口の分類・拒否・保護テスト対応
+- [fork gas 分析](docs/MARKET_GAS.md)：baseline/protected borrow gas と SPEC +8,500 目標の未達記録
 - [Sentinel 収集・復旧](docs/SENTINEL.md)：RPC と SQLite による取り込み、チェックポイント、最終性と観測範囲
 - [比例汚染追跡](docs/TRACING.md)：初期残高・シード、比例配分、unknown と reorg 後の再計算
 - [積分料金演算](docs/PRICING.md)：USD8 の厳密な積分と丸め、演算上限、参照モデルとの照合

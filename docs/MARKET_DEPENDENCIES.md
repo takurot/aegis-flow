@@ -92,7 +92,7 @@ python3 scripts/verify-source-runtime.py
 - **25/25 が code match**（末尾の metadata suffix をすべて除去し、immutable/link ranges を mask した比較）。**exact full match は USDC price source の 1 件のみ**。
 - Pool + リンク先 7 ライブラリは既存の [`aave-v3-pool-source-19000000.json`](../forks/aave-v3-pool-source-19000000.json) で full exact を確認済み。
 - `PoolAddressesProvider` の以前の mismatch は **末尾の二重 metadata** が原因だった。両方の metadata を除去すると code は一致する（9846 bytes、metadata 106 bytes）。full exact（metadata hash 含む）ではないため、metadata/immutable/link 値の完全再現は未主張。
-- code match は metadata hash・constructor immutable/link 値の一致を意味しない。immutable/link は mask している。
+- code match は metadata hash・constructor immutable/link 値の一致を意味しない。immutable/link は mask している。deployed metadata の IPFS CID は抽出したが、この環境では IPFS gateway（ipfs.io / cloudflare / pinata / dweb / nftstorage / lighthouse / filebase / 4everland / w3s / runfission / aragon）から metadata JSON を取得できなかった。full exact は未再現。
 - solc 0.8.14 の npm wrapper は `common/` が欠落するため、ローカルでは 0.8.19 の wrapper common を補完して実行した。再実行時は `scripts/verify-source-runtime.py` が同じ補完を試みる。
 
 ## テスト

@@ -196,6 +196,28 @@ def strip_metadata(value):
     return value[:len(value) - total], total // 2
 
 
+def base58_encode(value):
+    alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+    number = int.from_bytes(value, 'big')
+    encoded = ''
+    while number:
+        number, remainder = divmod(number, 58)
+        encoded = alphabet[remainder] + encoded
+    for byte in value:
+        if byte == 0:
+            encoded = '1' + encoded
+        else:
+            break
+    return encoded
+
+
+def metadata_cids(value):
+    return [
+        base58_encode(bytes.fromhex('1220' + digest))
+        for digest in re.findall(r'6970667358221220([0-9a-fA-F]{64})', value)
+    ]
+
+
 def strip_all_metadata(value):
     total = 0
     while True:
@@ -272,6 +294,10 @@ def verify_target(name, target, rpc_url, etherscan_key, cache):
         'code_bytes': len(deployed_code) // 2,
         'metadata_bytes': {'compiled': compiled_metadata, 'deployed': deployed_metadata},
         'metadata_equal': metadata_equal,
+        'metadata_cids': {
+            'compiled': metadata_cids(compiled),
+            'deployed': metadata_cids(deployed),
+        },
         'exact_match': exact_match,
         'code_match': code_match,
         'immutable_ranges': immutable_ranges,

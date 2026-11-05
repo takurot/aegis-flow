@@ -19,6 +19,10 @@
         "deployed": 12
       },
       "metadata_equal": true,
+      "metadata_cids": {
+        "compiled": [],
+        "deployed": []
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -188,6 +192,14 @@
         "deployed": 53
       },
       "metadata_equal": true,
+      "metadata_cids": {
+        "compiled": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ],
+        "deployed": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -260,6 +272,16 @@
         "deployed": 106
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmWKbpyBUpdKs4vFnbfLoCxmdn34di7gwvsdcNkqmLyEXQ",
+          "QmZwTVmMWdaFSux1YuCb2ygkyc5F75Yxwwxk7NV5ofsguN"
+        ],
+        "deployed": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y",
+          "QmRJoHrGxDf2yzNsNKvuN4hbanQB8irTgkRFjnwdHwp3Hz"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [],
@@ -281,6 +303,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmWKbpyBUpdKs4vFnbfLoCxmdn34di7gwvsdcNkqmLyEXQ"
+        ],
+        "deployed": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -353,6 +383,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmR6R5WixUEzGDci7Y83jYDjYPyki2r35LjDkrSq9PbWMH"
+        ],
+        "deployed": [
+          "QmURYQGZqK8VtBFmoRGmyQevKndmZSU27HWmBk7tcg312r"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [],
@@ -378,6 +416,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmR1RuMzruLpE2NdvYEJSHT3awXnkRx1vTUQD6BfcJadbe"
+        ],
+        "deployed": [
+          "Qmc48WhzVaHft69XBNH2ePzrMFmp4MVotDnsuhs9t2eLn3"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -410,6 +456,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmUs2rGazFyDTsqULaZ1W9RLt52m31bQmqcF41bTx1WnhS"
+        ],
+        "deployed": [
+          "QmXKmCxG3vQ3RvmGBzjr5REG2ndDi1LuRaMXQXPkz7steE"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -482,6 +536,14 @@
         "deployed": 53
       },
       "metadata_equal": true,
+      "metadata_cids": {
+        "compiled": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ],
+        "deployed": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -554,6 +616,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmQBJcb9hP39kGGnhBDhoWaHN6PLP4nDirpDrZFSAMKr52"
+        ],
+        "deployed": [
+          "QmVDmJ8GRG6bEgGmouXYRqzjqF789rsZFNJkA8wYVJVgdi"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -714,6 +784,14 @@
         "deployed": 53
       },
       "metadata_equal": true,
+      "metadata_cids": {
+        "compiled": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ],
+        "deployed": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -786,6 +864,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmWKbpyBUpdKs4vFnbfLoCxmdn34di7gwvsdcNkqmLyEXQ"
+        ],
+        "deployed": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -858,6 +944,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmPXD68gQNmxsxXqmhMBcp7g9mq68VWcDCZnvQDUD27eMz"
+        ],
+        "deployed": [
+          "QmNnuHfdyyAT5ziArjJYG2rfYvmc6ajWds5FgVL2sfGKLk"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -954,6 +1048,14 @@
         "deployed": 53
       },
       "metadata_equal": true,
+      "metadata_cids": {
+        "compiled": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ],
+        "deployed": [
+          "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -1026,6 +1128,14 @@
         "deployed": 53
       },
       "metadata_equal": true,
+      "metadata_cids": {
+        "compiled": [
+          "QmWwGqe6ki6He12dtzmCtXbZfVTbAQL6gKufepTDcMM1r2"
+        ],
+        "deployed": [
+          "QmWwGqe6ki6He12dtzmCtXbZfVTbAQL6gKufepTDcMM1r2"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -1106,6 +1216,10 @@
         "deployed": 43
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [],
+        "deployed": []
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [],
@@ -1127,6 +1241,10 @@
         "deployed": 43
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [],
+        "deployed": []
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [],
@@ -1148,6 +1266,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmSUZWMCg8dfxZSpzXqqDTgkDeTCaC2YbgFipUEqxfHgti"
+        ],
+        "deployed": [
+          "QmNhkGfa5zEkiTbpnDmyvm2DjSGTFDazKhc5xbZq3Sgs58"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [],
@@ -1173,6 +1299,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmbfsbgQwvkxffBBy2cMzfuxUZBauJkT7CGMa39y2dGv6k"
+        ],
+        "deployed": [
+          "QmR48zpR684GHSuELCcbjBLC6yh1Pic5kduNusFNwGPb7j"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [],
@@ -1194,6 +1328,14 @@
         "deployed": 53
       },
       "metadata_equal": true,
+      "metadata_cids": {
+        "compiled": [
+          "QmbfsbgQwvkxffBBy2cMzfuxUZBauJkT7CGMa39y2dGv6k"
+        ],
+        "deployed": [
+          "QmbfsbgQwvkxffBBy2cMzfuxUZBauJkT7CGMa39y2dGv6k"
+        ]
+      },
       "exact_match": true,
       "code_match": true,
       "immutable_ranges": [],
@@ -1215,6 +1357,14 @@
         "deployed": 53
       },
       "metadata_equal": true,
+      "metadata_cids": {
+        "compiled": [
+          "QmR7ZoU1J6P8uUnb46Stow3VGLK855xBEzBtzKNF8gVp61"
+        ],
+        "deployed": [
+          "QmR7ZoU1J6P8uUnb46Stow3VGLK855xBEzBtzKNF8gVp61"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -1279,6 +1429,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmPbCDtPh4fzibKAHociHnUugDoYAtdSPGK2neJAYPC4Wg"
+        ],
+        "deployed": [
+          "QmYxxXdsaPAxbZ2EW98dk33eJTjRu8bzgSeniad39vdWdf"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -1391,6 +1549,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmPqrwLtF1aSCSsdoJk2f7USLcBGU2xFf9MuGA4qMx3Gtp"
+        ],
+        "deployed": [
+          "QmNRkeSjuybfntB3kU2HGJ187i2FWZfS5rn1bdC6HLL61B"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [],
@@ -1412,6 +1578,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmT7VE7R8oy9n7wbfHDgq8wdTahimKc2VzcprgyNrXFyGo"
+        ],
+        "deployed": [
+          "QmWpzXgE8u4TQHmN3ob2FUdUict4ozTCBAYqnkrmvx1y9F"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [
@@ -1484,6 +1658,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmXD3Hm4yoroEq2onLjkRbNdPst4SKCwizE1cfVbgsebLD"
+        ],
+        "deployed": [
+          "QmPyBHeMtRkSEHgdV7oSGbzwd7hLpkLkAmG5VjQkGfd6X2"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [],
@@ -1505,6 +1687,14 @@
         "deployed": 53
       },
       "metadata_equal": false,
+      "metadata_cids": {
+        "compiled": [
+          "QmYTdM4UG7JSc4J3jBF8xnqZqHJbLSS8PJeFHXAvgBywdE"
+        ],
+        "deployed": [
+          "Qmbn5VStTrB5nUKgkfA9ETqEyWoaPba7kHPkFcpvvSfXtn"
+        ]
+      },
       "exact_match": false,
       "code_match": true,
       "immutable_ranges": [],
