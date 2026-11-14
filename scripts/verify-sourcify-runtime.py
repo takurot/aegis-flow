@@ -94,7 +94,7 @@ def attempt(address, rpc_url):
         'settings': settings,
     }
     if version.startswith('0.4.'):
-        input_obj['settings']['outputSelection'] = {'*': {'*': ['evm.deployedBytecode.object']}}
+        input_obj['settings']['outputSelection'] = {'*': {'*': ['metadata', 'evm.deployedBytecode.object']}}
     else:
         input_obj['settings']['outputSelection'] = {
             '*': {
@@ -105,6 +105,8 @@ def attempt(address, rpc_url):
                 ]
             }
         }
+    provenance = rt.capture_provenance(input_obj, json.dumps(metadata).encode('utf-8'),
+                                       'reconstructed Sourcify v2 metadata', address, version, metadata['compiler']['version'])
     output = rt.compile_source(input_obj, version)
     compiled_data = output['contracts'][path][contract]
     bytecode = compiled_data.get('evm', {}).get('deployedBytecode', {})
@@ -127,13 +129,17 @@ def attempt(address, rpc_url):
         'source_path': path,
         'contract_name': contract,
         'provenance': {
+            **provenance,
+            'compiled_runtime_raw_bytes_sha256': hashlib.sha256(bytes.fromhex(compiled)).hexdigest(),
+            'deployed_runtime_raw_bytes_sha256': hashlib.sha256(bytes.fromhex(deployed)).hexdigest(),
+            'raw_runtime_hash_encoding': 'raw bytes decoded from hex',
             'source_url': f'https://sourcify.dev/server/v2/contract/1/{address}?fields=metadata,sources,compilation',
             'compiler_input_sha256': hashlib.sha256(json.dumps(input_obj, sort_keys=True).encode()).hexdigest(),
             'metadata_json_sha256': hashlib.sha256(json.dumps(metadata, sort_keys=True).encode()).hexdigest(),
             'compiled_runtime_sha256': hashlib.sha256(compiled.encode()).hexdigest(),
             'deployed_runtime_sha256': hashlib.sha256(deployed.encode()).hexdigest(),
             'runtime_hash_encoding': 'lowercase hex text without 0x',
-            'metadata_source_association': 'not independently checked against metadata source keccak256',
+            'metadata_source_association': 'Ethereum keccak256 checked for metadata-declared sources; extras unreferenced',
         },
         'deployed_bytes': len(deployed) // 2,
         'compiled_bytes': len(compiled) // 2,

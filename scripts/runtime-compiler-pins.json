@@ -1,0 +1,2255 @@
+{
+  "0.4.19": {
+    "pin_id": "npm-solc-0.4.19-reviewed-v1",
+    "files_sha256": {
+      "solc/translate.js": "97dc2a1aabc1a2f31aa1a557b7a38437e36d200c330df04f51f4438bbb6359ab",
+      "solc/wrapper.js": "e3573967e9648a6518fc03c494d5e785a04b9116581fe2e82c9b10a274b6f9f8",
+      "solc/soljson.js": "61071ed96228ac7b88ccb9c6eeae9a152daf6c06f19bb15b45b7ed22226a27e8",
+      "solc/index.js": "63485638d4865840607bdfed1a30b426ff3eaf6b7463bb9b5cb9701d1d1d06b8",
+      "solc/package.json": "817a2f809b4f76ffc39b6ff9f8f706a5dae9d7b6cb490249c97452f3618f0d11",
+      "solc/abi.js": "ff8efda38f268385577665abfc4bbb8e2e689cd6b068df8aaa8344e6081a421f",
+      "solc/linker.js": "d7527a8a4c82eb04f937dd29ddbd0d2c7d8dd761d0647d63934cf841df903ede",
+      "solc/common/types.js": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+      "solc/common/helpers.js": "8086fe96c9f4edbf375122311153459502f9cae6708c98b4ae3b6c0e4314334c",
+      "hosted-git-info/git-host-info.js": "37f1e752f6d19e50f070e083d36ff982e09633a1d443845b442c1a3fe4c4cc29",
+      "hosted-git-info/index.js": "519dbed3316df01a81732f519749fea55c8721316f317250c3f2ca7617cdb2fe",
+      "hosted-git-info/git-host.js": "a486b24538b04bffe49ead77440f2a87e2087323a6bb134be0dfb6b8003b6f3c",
+      "hosted-git-info/package.json": "d9de0c05a99a641a152add4b5f8cbb0db31cfb110433a0cb429acd36fb770e50",
+      "lodash.assign/index.js": "65dfbbe15a92c1a289fe433ae5f5e50b9e354da0a7a0f526f96eea5feeba976a",
+      "lodash.assign/package.json": "6c4905e1da5d0baa0fc1a944e30b56e911c54f68988153ef2e54de82c988118c",
+      "path-is-absolute/index.js": "4eb1119c3eeccc4d8e8841b77d062abaf4572b332801f5b16175bc3311b5d8f1",
+      "path-is-absolute/package.json": "be5b83877f6998b840b9365d7ab77e885f0d583337826c22daccaeb6e303fd4c",
+      "normalize-package-data/package.json": "16630d0c9feff9fdbcb66ca9d183923765ff7f25f2b1e643ca1afdca0ba07ae1",
+      "normalize-package-data/lib/normalize.js": "f561166658465b7ae0df3a1f774758a4bb150d860769cae3d827bafdc5c7a403",
+      "normalize-package-data/lib/fixer.js": "5df3f49babf88d7b1ff050b452c4061560a1222d03afde8e210f1e98b8cb0e71",
+      "normalize-package-data/lib/safe_format.js": "5329ad1f1523fbb1514f881668e1a3f2457150c7ef891b698b3822cd2e8f85da",
+      "normalize-package-data/lib/typos.json": "aa8fd1a11b9ce3cb523b3e913ed2a514c6c6afc13bd581a13d7b4211bb514a25",
+      "normalize-package-data/lib/make_warning.js": "53720fd0c82cbab210cec8394733bbad2b1f546fc9f83d7cceb205b2ba33ed57",
+      "normalize-package-data/lib/warning_messages.json": "8d477c902b2bcd8d8152a6abc663b2acd43caf41c64ca989dcfc3e5d0b75b641",
+      "normalize-package-data/lib/extract_description.js": "8a8bba0482629190433219f2540cefafafb2f1148033040538b31351d7ff269a",
+      "spdx-exceptions/package.json": "0af9bd4b68c9e3d1bc7a9208881cbde84da140d564a3bb42cf53184c6e83f2e3",
+      "spdx-exceptions/deprecated.json": "bf84cb52b5bc8e2b1e6b4341765204d23b7bbce74b06ae8aec1cfee7f76faa24",
+      "spdx-exceptions/index.json": "26144efbe0f61f41b0f8751e266b8b828ac53eb3f28f9041620442892228e92b",
+      "path-type/index.js": "26106de437f8795522861fa6dbb836606d687ce46228f68a66954d8e85e73469",
+      "path-type/package.json": "a9ead9bec16402db0276671088fdd98fb85d393b722fd2170458787129f0d4be",
+      "strip-ansi/index.js": "02abcd70c31523c8c34ffaa7222629ae14b12ccd425e49ffa964a5051614691c",
+      "strip-ansi/package.json": "60dfc6bf58aea11944e7ddf08e516814a33fe805c38620939a5a1d7303c0bc54",
+      "es-errors/range.js": "e376220f3a0226bd5b09b6d5a1411bbac274db8d2d9f7eb723142b7e676374be",
+      "es-errors/type.js": "c71b2f41c15edb3824f50dd24df900495c8caaba5b6e9a80851b82bb2309827b",
+      "es-errors/index.js": "28fee350e89561019cf27ea37a313b4b4995f521fd087198fa235a8f135962de",
+      "es-errors/eval.js": "d3161a97f162b483206e9849e41bb17fd54166810c76ebaa1df068133e54caae",
+      "es-errors/package.json": "1a0a0bcccc76b915cb64073317312840cf6363e9144b96f406d0059774dd5278",
+      "es-errors/tsconfig.json": "539cacffe5895fcf9a9eb59e3a6a9fadbb41ba3e05339d97e3b55da34d2c85a4",
+      "es-errors/syntax.js": "56574ecd3eb54c06efd319080cc8923992791e430c914520b85e92c2f5e373f5",
+      "es-errors/ref.js": "31945f1740a0a2143fb8c38943afc6cce5de5ba6fab7af42d17b7874a19a0900",
+      "es-errors/uri.js": "e1e5591bde037a2ffeda822fa03fac22ff7c93c7b269ed9adf1cbea0e21614b0",
+      "es-errors/test/index.js": "14e2b88a10618ac3947289f93011dcfc5a2c27fcb585f453f99de8ee739185f8",
+      "require-main-filename/test.js": "07ebe3bd78247e502cf512315ac402eb046252fe5b40260bad0baa9640efc8ea",
+      "require-main-filename/index.js": "2ef41461635fc6b9689fdf72a9989dd2f675757483d85658968056ccec0eab21",
+      "require-main-filename/package.json": "76bdb44f47dd32ec2f67501a54c29df6d03e5e033f21c6d458f4476dea940523",
+      "require-directory/index.js": "65eaf8b7b519d6ae7be7ea20382d91a117d9c689897897ce4c2ee798e128a2d3",
+      "require-directory/package.json": "5690bdddd6eb4abd795fa5319df7552279508df9d562d571e3132ddff3045a71",
+      "rimraf/bin.js": "6557bc0e1bebd5eedcf1cc7df314c016b6593bcdbf323941c9c5b9ea57e7eedf",
+      "rimraf/rimraf.js": "39b8a308a9d3fecc1b80fb0284b1c9574cc2d9a9a02b18f0961e323d1d5cb72c",
+      "rimraf/package.json": "3fb2eed4a1f87b6d9c0b28cb502967bff6c3bfd3484e505b91b157d88200d071",
+      "error-ex/index.js": "ce2f8852444caccee5a19008a7582cc3bd072c39fa6008edac3ad4e489f02d5e",
+      "error-ex/package.json": "9b6c358fc3b9fd85003e5a489e9fa022f086e41580d66ab8f144b6f88c0acd84",
+      "klaw/package.json": "16ea33ad46413aef6e0559f73926b8d9480e0234e8fa913f333ee62bef46bb0a",
+      "klaw/src/index.js": "433cae109b8d3d42ac92bc27f27c35f6107c765f9cafa774ad650459dfd338b0",
+      "klaw/src/assign.js": "811ebaa415c0130201fa77eeeb2595ee11bed38673241c7be9daab717378289f",
+      "balanced-match/index.js": "06e4d0037715251cb3be2b2db063662f555b3538d9e30a9c517a54374d941cbc",
+      "balanced-match/package.json": "b30c328501dead1870b894ad604405b2284b571c1f12664cdc61d92a2e3397c2",
+      "path-exists/index.js": "68ea04f85c85d10efd354738232306832b8e989c8ccc9aa5b030015aecacaff4",
+      "path-exists/package.json": "2635976491f388569dfa55939b03c47c6c0a27598642add59f3749d963b6563a",
+      "resolve/sync.js": "48bf4ce0175e835cbfb3af9f4f848d9d839f9e9997587f175629a963283598d8",
+      "resolve/index.js": "4952fa49a809ad740f6d9b6a1c1e9a9c93777f37b03efd253291ff68753a56b8",
+      "resolve/async.js": "30d9986bdca6c456b803c4577913bc27b93b110aa7300bffb85254452067708d",
+      "resolve/package.json": "ffb43617eda497b14ba00404c04b8984c6f6802ea0e924358f0b507a370d2e3f",
+      "resolve/test/shadowed_core.js": "d9dac7834975814a4572bcc59effb3d3022f748876104903938bdd03777dc2d3",
+      "resolve/test/dotdot.js": "31bb7415309643a9ddaa8d4eca81523a5bfae167cb151fc39c0a875aa158ac1d",
+      "resolve/test/home_paths.js": "2216ba3cff8c16d7a603bd7f3afecd14ac889367195dd58534e29ea7fce89003",
+      "resolve/test/core.js": "48bf903e7651308ccd673f433613a3801465ee65fa035f5eb1f507c4ad630dec",
+      "resolve/test/filter_sync.js": "0c381bfb2ec51f3916a376eb9f8b9d92c2b58ea7fb025172d51dfae3fdb96d5a",
+      "resolve/test/subdirs.js": "69e89b07dd922f37caecb129c6edde3a92156b04b2975fdc1310fadd3cc10a21",
+      "resolve/test/node_path.js": "9107398b734da097531bdca48f2de2051be7e2f1748932727a14d553fad4c0f1",
+      "resolve/test/pathfilter_sync.js": "ece353fbd24896f87c44fe8c223eee8af2dc9433803e1a4ddb3aed6c22ecec50",
+      "resolve/test/module_dir.js": "084a0f83f8baaff0a918aa47f2eb4187251529ecd72ece0b4ba200d33e1e019a",
+      "resolve/test/symlinks.js": "cb8a2a7b38c09b62b278ce3bf0faf79de5e55249138ae57f785fce80c1b9bcf2",
+      "resolve/test/faulty_basedir.js": "7fd0c45c47f3957f31389a2ecfa98ea0d983836939b4a52b52a917b46f34d36d",
+      "resolve/test/resolver_sync.js": "3c5ffbff3801f448d1a2601786acb95e7967b375a7dd23a40c5842ce3bae4310",
+      "resolve/test/homedir.js": "4632ff172892f0089ac04c8439df8f4b36d624d34d0d936f0a692d0e66687b9c",
+      "resolve/test/default_paths.js": "a5f8b66bd73caf39b59186ea82e14a3e5b66693f9cc2714633851c79816579ec",
+      "resolve/test/mock.js": "1fedae270b2fa18a3ca5f769b19d37897bc7f7eddeda98999f671006df5fc534",
+      "resolve/test/precedence.js": "b7da2ea305e663e33d3613cf5c4436b16266a6717136a2bb82a6c225b2c7af4e",
+      "resolve/test/home_paths_sync.js": "a1b8fd06f59a85c2c35b9bd110994d454cb126ab3891bf45bf56d3f8c11ddf0b",
+      "resolve/test/nonstring.js": "df9d05dc6ec0090b937b6d5c8863c4a7d138ae154c4ede95c0f19d5457772e78",
+      "resolve/test/mock_sync.js": "0e0ee5bd3efe5eacfab3f887d6ebc7e232364a987a6246c9cd92ff827b517d7d",
+      "resolve/test/filter.js": "d7e51d8820e3a919fd34ede446ad58ab2325578aab1d34e2132783e3b8c9eaf7",
+      "resolve/test/resolver.js": "ac5c9acb8b8cdf08a4c6909109f691e338637cb8baf67204d02022004a5d9438",
+      "resolve/test/node-modules-paths.js": "7bb5cee27a9397dddfcf6479dd42b39740dd341731fbb1bc3d8579bbdc8c1e7d",
+      "resolve/test/pathfilter.js": "bfd895a3a2e938652d30c3f79514c6d5b49502eb5bfc39d961bcf36cbcc45939",
+      "resolve/test/pathfilter/deep_ref/main.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/node_path/x/ccc/index.js": "bda6764a35f67532924c2947792d43607077c432a80fb6eeaeacb5b6c2cb2dfc",
+      "resolve/test/node_path/x/aaa/index.js": "92be6c1033b349f698beb024661077b8dc35cb8826f1e5b6472d1d666101b9f5",
+      "resolve/test/node_path/y/bbb/index.js": "55a5eb25cf5c91fe763958cc3a458eb42e45cbbc858efd597a41883add1bf69a",
+      "resolve/test/node_path/y/ccc/index.js": "4d70e15bf4fe8e869e6239ef6a99e6fcf36abe7d02c39308877c4e185edcd85d",
+      "resolve/test/dotdot/index.js": "5299b6d1d00c7598bf5b580015b2722ccc9b2673956cc153f61ccbbc33beabdf",
+      "resolve/test/dotdot/abc/index.js": "917f64ff1ac7e88b7c2c2aca1135c2cd99e894435838dd00e22a2c59121ffc42",
+      "resolve/test/module_dir/ymodules/aaa/index.js": "f092f74d8eec199aa40a944e96f546a786f7cbbfef5890388235c4ff5669d2cf",
+      "resolve/test/module_dir/xmodules/aaa/index.js": "9657125da658e9e0648e767d59d0773338b03623e4b238e698d456d336e4c94c",
+      "resolve/test/module_dir/zmodules/bbb/main.js": "652198c18778572c922370c55c49c80b49b0587c2c7cd24df17678040c767320",
+      "resolve/test/module_dir/zmodules/bbb/package.json": "be4c48fbcb9bcbed4019785e1b14f5150416acb00bff12442366826901555e05",
+      "resolve/test/precedence/bbb.js": "2186281fc4410287717bd80f49b0625c4b89180b7daaca8e1d396dd02c019a7d",
+      "resolve/test/precedence/aaa.js": "a49a7ae6beb9fb73f1507aacb3365e395d1d18a60790339d2fcb421163f26db2",
+      "resolve/test/precedence/bbb/main.js": "62aa79a4ed27edce24f74298b0ccb28597f08bdecf71dbbc22bc45cfbd9efc9f",
+      "resolve/test/precedence/aaa/index.js": "fa5a75012753e5d2f448af1c8e63a7f3abf7fa4a418828c443e7b764851999d7",
+      "resolve/test/precedence/aaa/main.js": "05ca0b0aef5b62bfba0f0ac42fcf14760d9d1c229df959272bf6f3e6020a741a",
+      "resolve/test/shadowed_core/node_modules/util/index.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/mug.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/foo.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/same_names/foo.js": "1737ef29ba647e558b55fccbdaebad1b5737bc2528f166d42d062e240a25c766",
+      "resolve/test/resolver/same_names/foo/index.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/symlinked/_/node_modules/foo.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/symlinked/package/package.json": "8caed21b350cd172328e10dd2000a1d786e2d59768a5a73d250ba7e518acb5c2",
+      "resolve/test/resolver/symlinked/package/bar.js": "f5013f841e8f78fc67b6fa1e6ef8b299ffa04192066a7e62b266d84a656cbbcc",
+      "resolve/test/resolver/without_basedir/main.js": "cdbd3521451c090349184834b2c4b937f0a486f144fbd9e7c10d203ec87852e2",
+      "resolve/test/resolver/dot_main/index.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/dot_main/package.json": "c16316c71a38c66c3cf13c48f52324c8f488337a89fd129884e8c9b3f1d65e1c",
+      "resolve/test/resolver/invalid_main/package.json": "ed30bf3c22be924be67b278ed079ba425dd0ae37110d7027bf9369f771abcb36",
+      "resolve/test/resolver/multirepo/package.json": "ec13311cdf8e7ba462d94656a0f2f90c55b290dc1ad6f7e82da2d3b140c27f20",
+      "resolve/test/resolver/multirepo/lerna.json": "9845b6f52c3ecb04e3ca5e18553a47c83dd8e692f48702ecc03ecff99ad654f7",
+      "resolve/test/resolver/multirepo/packages/package-b/index.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/multirepo/packages/package-b/package.json": "f41fd8ba3d2df58d7d1658be4c77d11d07285fab1e94a6c8151b3548c6f0a8aa",
+      "resolve/test/resolver/multirepo/packages/package-a/index.js": "f1cebc8b2be364cdef965682af898847d5120582a9cad954dd042dc2269cc74e",
+      "resolve/test/resolver/multirepo/packages/package-a/package.json": "ab5dbb7f635d5474648e5ac92df08020b60d0d91a68a740e46186587e05d3da3",
+      "resolve/test/resolver/dot_slash_main/index.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/dot_slash_main/package.json": "f7d5b70847ddd6e2b385f38cba5bdc31a366b1883ffa0e986141543b7e598a53",
+      "resolve/test/resolver/quux/foo/index.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/baz/doom.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/baz/quux.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/baz/package.json": "cd33f816f635bcf9cdbe5a13d877bc8901a1a90819b1d73c16b35b6cdbebecaf",
+      "resolve/test/resolver/browser_field/a.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/browser_field/package.json": "2857c211f81109bda6a96584f2e7a1ac5610baa0f67bbc77f7e766c4152281f4",
+      "resolve/test/resolver/browser_field/b.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/nested_symlinks/mylib/sync.js": "5d4d74edf8eeb719bf2e40ddde566ac581cea8807b1d4c15b18c75cf1ae7d9ac",
+      "resolve/test/resolver/nested_symlinks/mylib/async.js": "379908f90bd2f53c644fee9d86415d931374181296e36bc60ed5cbe2388c64d6",
+      "resolve/test/resolver/nested_symlinks/mylib/package.json": "41ea23c25ff8e7080ab08d38a9f5de9ab986280902f7268de45bc0a5b7e9e028",
+      "resolve/test/resolver/incorrect_main/index.js": "056299c0c1ceda95624a055ec624f796a5b2e83a859e9315909d3132b6af4d71",
+      "resolve/test/resolver/incorrect_main/package.json": "ac00da5e934b8bd9d1e077f2ab20bf434c4efe0f507276cf60e755649a0de383",
+      "resolve/test/resolver/false_main/index.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/false_main/package.json": "064d9e3c87123a24e31276d1bcfce16b81bb2156d42c07f427b8ddcbf675f790",
+      "resolve/test/resolver/other_path/root.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/other_path/lib/other-lib.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/example/sync.js": "2e101fc3a627afd2c65c4c616a8927f61ad3a79cd566bd41fbdfa0400077ba69",
+      "resolve/example/async.js": "39a9d5f97b6536b991b74f9ad5661b45819b2ae37c051af8d8c627e4c5f7bef7",
+      "resolve/lib/core.js": "5583c4b415d7390f2edbab4aa18e10b58096b4e773c03a00055e6c7ed7a31f2d",
+      "resolve/lib/caller.js": "1faea7ab3ce8c3eee7a5d647dfd6b7f0c91022a00e62cec54c948b7845f75004",
+      "resolve/lib/sync.js": "101a84f2f3c085c567b7c76de1c20db113735a3d2b9de9ffa4f6bca33b3ae633",
+      "resolve/lib/normalize-options.js": "88db22b3239f92484b70acadf2b4c786c7117af191c0efe46d17fdda9e40743a",
+      "resolve/lib/homedir.js": "5386cdb8c25db5c991091338c013a297fc67eb9b29ba9135c7f82c23b481f457",
+      "resolve/lib/core.json": "62f3a8881d5932824d705fdecf6d6de978354b578360809d4079032545eb8ed0",
+      "resolve/lib/async.js": "fba51744290eea716e1ddc179ed5b8865de5e55ce31c567c17e01a2f9c0ee6e5",
+      "resolve/lib/is-core.js": "9e8f47a3ab41debd52aee46f12d5c1fcbac0e47703950dca9fc3567a5270738e",
+      "resolve/lib/node-modules-paths.js": "5e615db3c990b5169838a5a03fe9ced6180bf5c03fe68e18b095068a0829a289",
+      "parse-json/index.js": "b151655c25becec63a7ddb65b3c03bdb393bf407a760c77fafd76225ef44b379",
+      "parse-json/package.json": "f59994ddbc5e055c3abf341f3658329d4e08996e3c542d0e78f79f7ca73722c0",
+      "parse-json/vendor/unicode.js": "a70a2621b8bbb853cecb758825e5a5c1299d51715b3e16dc11a1c2cce89fa758",
+      "parse-json/vendor/parse.js": "6ae12a2f399fdb7e0e35b2f04c3f13e1972cf96f95c3ec78bcd81866b16f7633",
+      "pinkie-promise/index.js": "101192976ed9972cf8cfe365b6bcff41f7d054560f8dfb861573690f3e7bb421",
+      "pinkie-promise/package.json": "0be4b7f157d8f59a1e9f3358c8ffc374e0350467ecebea59f795a49639115eb0",
+      "wrap-ansi/index.js": "7899d61da5b6e431621f0f895257897a90fcf9a5f74c22636d679fb395e9b5b7",
+      "wrap-ansi/package.json": "2bc50250765b0e5e86dbe14ea15a47f729832a570ed249ffbebc458414d7271a",
+      "y18n/index.js": "3cc73eb3c315f3039b08571f2f89bbebf72de1827bc2d66f7a4a3bc8bae65b1d",
+      "y18n/package.json": "759d1f49f6475e3265c75d035b3344671ddde731ccd442d89a6a73f81b1882aa",
+      "once/package.json": "33840d74c14c94bfb75c76374765b635531b1eacb88d7f1f2f380c94d0ea1328",
+      "once/once.js": "3db73e347ecbdbafdf8d0db85145c877e133f5372e767360ef90c09f70ac5103",
+      "spdx-correct/index.js": "bf6aaa22f934f48c945a0302eff34d6e0edb265fa06917f82cd41551465c8f6c",
+      "spdx-correct/package.json": "4d5b264748a7510ad96a135debdae4833a62506bfc95df06c70d657096df6aaa",
+      "function-bind/index.js": "12fa1b92429db25599f6fe118cbbb877f7f62b83cb9bfe2fc896b2d6a8110647",
+      "function-bind/package.json": "edb1c4faf4148e6e3d74ed8dbac1a1dc359a647ff4207aad4851396dc7a3559a",
+      "function-bind/implementation.js": "5c52eb40601e0716dafff9759cf28d8d4af3e2fc2e2c96384f43dbfd0f7370b5",
+      "function-bind/test/index.js": "32ba00e232dc250a945bdb23461a7346f6029d31b595aa2046bf386aab6a91e9",
+      "is-fullwidth-code-point/index.js": "6701d64b4ad395f30b07f8685c04c6d61ca9c98094d75d0b2e06687e2386910f",
+      "is-fullwidth-code-point/package.json": "8bab82161f70f70214df34fdf7c1cdfcef69d9aea8e9a56a575991a5ed7d905e",
+      "yargs-parser/index.js": "623053ca417fb59df224581acc45b3e38151c011737bcdfbbe77c543d419454a",
+      "yargs-parser/package.json": "a82d12edd17ebbdcdd5bc041333f36c3f121c3bf646378c3b82f62fa005869d4",
+      "yargs-parser/lib/tokenize-arg-string.js": "1ffe8556df8783e364e4d2c2c01766615b50690e65db8970082705a2b9160dc4",
+      "inherits/inherits_browser.js": "ad322a7b1dec60f3d2ebda2091816469efb55b567d241cf3cf0fa4c5a4afe500",
+      "inherits/package.json": "be645800bc94fd8de29c8ae91690549b316cc437100108aeea7b2f347693cc80",
+      "inherits/inherits.js": "bb380f32bef5feb18678f0f45f88073fed5d7a0069a309132cb2080cd553d5c7",
+      "jsonfile/index.js": "6768dc1ff8dc737b32e9531a787ec0befa69ea1769d06893158493db0d983cd7",
+      "jsonfile/package.json": "7919bcc7f06f97d125df18304561e3707816f85b52dab1dde4efb2a1ae47d5fe",
+      "read-pkg-up/index.js": "1d94031d6309d9b2e4b4776c7739a5f51d4d54dac2309a0d29e477c63281e2a3",
+      "read-pkg-up/package.json": "9ab7b7d0524f6e6b66ca2d36432bbbe249d361d4037a2af42cc46dea1b9a1fde",
+      "decamelize/index.js": "d51dde17c67ddf486a827fec29a9ecb3036ad36bb39089729184ea285b3ded4e",
+      "decamelize/package.json": "fb07ecfb5937f8757b0721fdafa6febff75d3c159f6dc8ec0d6ad4e1d1be7d9c",
+      "pify/index.js": "92ee3c24b0239df2a47c226b5e271cb1041d1cff2b7199d88524f49007832c52",
+      "pify/package.json": "bb4265f25a454b4daf716b81e525679d774fb23208b3f15284f23723be4e3284",
+      "hasown/index.js": "8f875520f41a3d711566013882af290c840969316cc72cd6b35f7e81d7dfc6d2",
+      "hasown/package.json": "40b750c55a8bacf2c5ac316f5299dd44d48acc101c189a00cd59d39376b5eb89",
+      "hasown/tsconfig.json": "29ef530207266f2859676c048073e7f746db37a0a20e2a75bc2ef2b3893fbf40",
+      "strip-bom/index.js": "f0f90490f748302e2b54fb8b202f356fca7e820d45f0a8e10f0f894890b6258c",
+      "strip-bom/package.json": "b6c83978a200f03a065f415b2b85be20493f6bc124f59e83fa12e056afa7c546",
+      "find-up/index.js": "57c27802e01b5400442505a201934274451e5fbdebf5e890d9287657368be0a9",
+      "find-up/package.json": "742d98fba470968cab9200d177d411d72a8489d7b64717322871e009b4260df4",
+      "ansi-regex/index.js": "0f78062e714965d168fb51f1cb507aa95dd6270b563d04679adf2506245a62b3",
+      "ansi-regex/package.json": "23061f1352b3fe3c948a7a340f94fae9f5e08e430949f12e449636ba727b784b",
+      "fs-extra/package.json": "5897ac8e79f0b2fba0691701ead0fde9993329575d114f88a45a00f6d135584a",
+      "fs-extra/lib/index.js": "c6bc4bf3f6914a6994318b31a30445c39d966035c5d4011b8a8937270ff092cf",
+      "fs-extra/lib/move/index.js": "81bd5b52c46943ec5e24091da85bf7f4b9a31ba418c0cec453bacad307512a15",
+      "fs-extra/lib/ensure/link.js": "90056415ed821cd5dd5b5fe6af992cfd28d531c64b55b09fdf9e0136f969e16f",
+      "fs-extra/lib/ensure/index.js": "ca308cbe4ec1e110a3feccc8c11c222347efe4bd04c5cb576aae48366c5e319d",
+      "fs-extra/lib/ensure/symlink.js": "2469d6d4a7f01388c20384b692b6b4eb34c6a74e7d75960344144660a5c89380",
+      "fs-extra/lib/ensure/file.js": "0096995e24ce1319d00a8a749df4831c5af7285c306c07d3370287d2875434ce",
+      "fs-extra/lib/ensure/symlink-paths.js": "aa191b83b8bb30bad7929904a9fbc87876fab4a876c656e0705b0753dded2625",
+      "fs-extra/lib/ensure/symlink-type.js": "00be26a6705edb85a4acd448e58477b8905899e73f30fc0d673f7c7a24ebd7aa",
+      "fs-extra/lib/remove/index.js": "2e3b2f3e1612db69cbff8efd3f7dfdae18a1eae87964ef56dba3845742aa5823",
+      "fs-extra/lib/walk/index.js": "b7054e63e9470859b029d178461785ec8a6b01fb79a242525eb6b77b66978673",
+      "fs-extra/lib/empty/index.js": "7e7a6df716fab982576a59ce58a62a63693c1ea607911f8a5de437ba98365805",
+      "fs-extra/lib/util/utimes.js": "972557200208a21fc9697b7f8e7405830dbecec16e758eb8eaa1d31c252b3ee4",
+      "fs-extra/lib/util/assign.js": "284206a0323f7cc9a59dd0e902565a8ac19c00485f51135ecb695a21d30b389b",
+      "fs-extra/lib/copy-sync/index.js": "360b7c95ad351f0e7650735a4b4dcda0d5dbed434837a8e08a6fb8d94d2e6b51",
+      "fs-extra/lib/copy-sync/copy-sync.js": "3418b251b8dfefde91ff6267ba839b9194daaf6b805185a7c45491eaa6049740",
+      "fs-extra/lib/copy-sync/copy-file-sync.js": "60d9c76b0ec4ab90ffe07f289dcb2e78ad0581501b207fc4a1acedc54d86e647",
+      "fs-extra/lib/output/index.js": "2bffc890867130c4e06524f300a65fd5234500fd991a71656fe2d411eeade09a",
+      "fs-extra/lib/mkdirs/win32.js": "e3c05ed8a8d05807561dc2d09c5088939976106c37ba81cf6eb8b9335c5913d8",
+      "fs-extra/lib/mkdirs/index.js": "714b7221ecf937c8cf3dffefaebc6986d00d2309bccfa048e32173a00165929d",
+      "fs-extra/lib/mkdirs/mkdirs-sync.js": "e43f9110a270b2b22b360a880f42a1292e4b3bb43600fe4962ab0daf3775ee6d",
+      "fs-extra/lib/mkdirs/mkdirs.js": "1b207846f56cb41cd2c980629bdadd37e423e385e385fb1c6e9c8bc92ac5ae65",
+      "fs-extra/lib/json/output-json.js": "64a6daf28c5ea2ead19c3d88153f37c9137ae9084cbfeb71e00990267120b0bf",
+      "fs-extra/lib/json/index.js": "20aa1413e95c415d911650ee5f1bc38401d9e6b0c0c1838bc3e69a02224f9840",
+      "fs-extra/lib/json/output-json-sync.js": "b4da579d2773cc51b1d81633ed3a7b163f000b78def43282fd7c7579105c234e",
+      "fs-extra/lib/json/jsonfile.js": "6f07246a2e3b26171a2f86b1a75618c7895c0ad19bf82cd43a275da830fcdaf6",
+      "fs-extra/lib/copy/ncp.js": "b004656c82063161aa1d5bd7695b25d2f3f26a357ddbdf96f15100df5d4599d2",
+      "fs-extra/lib/copy/copy.js": "578b1cef74b540046dd10b1e24ff0af39c855e0cdbedfc47943b1b2ac5f70f17",
+      "fs-extra/lib/copy/index.js": "2d45292dc3d280c8ee1e32c332e69fdd81ece987ee5baa8522dd8bd9208b4c8c",
+      "supports-preserve-symlinks-flag/index.js": "1d565122b3861c88d9c367fbe4f7ee5a1606429bcdec5a429129549abec2115c",
+      "supports-preserve-symlinks-flag/package.json": "aef0ae2d21ae9181d8702c2063ce0ee274ba1063e5312e4baab5673aa6d4d5db",
+      "supports-preserve-symlinks-flag/browser.js": "f53f91e08e1243f1b20840f8b04079873987c4fc7b3ce4db29c3503268175fb4",
+      "supports-preserve-symlinks-flag/test/index.js": "b80a3607ca19e18384059a67793a37d10772d7285d43abcece946a939db07528",
+      "spdx-license-ids/package.json": "6897dee2944aee17aff9226a9fc84ed07ab5f79d8606a20b76fdec93be73ff63",
+      "spdx-license-ids/deprecated.json": "29c9e630daa0adc09dec96ddeb6f81d1046210e81824bebda6486250450fb130",
+      "spdx-license-ids/index.json": "2e45ab65c2a1e4fbda9862ac01cfda5fac25a4ce5d37536052638c483db965ba",
+      "brace-expansion/index.js": "7b65bfff6b542eb77a13c79f83bcdffb7e9689c0da1187c54cb6fb6cdb2a4c8f",
+      "brace-expansion/package.json": "ffd1f96a15b7c022cd0b5ed5ef40a7337ada2e78debed2c85d79d5ae43ccabd0",
+      "get-caller-file/index.js": "aa2f6490c783e6c5ae3bd700ed774d514ae152aeb7f9fdeb77e2f62afe98bb44",
+      "get-caller-file/package.json": "fed303de5f484101de03edfc85c2d60f6fbcdcd304a99b2fec5bb0a838ed3bf0",
+      "path-parse/index.js": "6bd95b5d0cf6f3821cc8acf81c2f4d84b7a158f6fd284659884f9e3b44f34124",
+      "path-parse/package.json": "9c680ecfd322afe056b4ccbfdb6c7043342276903f017c0a29b77c3926790d13",
+      "load-json-file/index.js": "8c33f2c8dc91d2e89f7cfdfb1f0a9e5f20947d27bd1317eba1226bf05241fb17",
+      "load-json-file/package.json": "948d50d5b71b75e5737ef4ac08c7acbddf1478b1afd6b3ad2d195beab264b9a0",
+      "pinkie/index.js": "8c78d177d3a72d5e7e6586b5d5e4327399d008bfd96cf15e42da655e2fe293a1",
+      "pinkie/package.json": "afcd1666f0ca44b0ffe0587fbd1db52799334626cb121ef4eaa1780a9951dfb7",
+      "semver/semver.js": "9894ea74a46345b9dcff1491f644a1585db47e0fa737c9cc9e5606744686f74e",
+      "semver/package.json": "caff547bcb99c4985491ad5baa9c0dcc433ccb6f13413b789a087bf2217ffe3a",
+      "window-size/index.js": "7f68169c240b9f86268085abca5fc0e60e02c68009a79ef1ad7aac8d731cecb9",
+      "window-size/package.json": "e63cc17cab5aed6c17bea69e93f7240952759c51c68a251be37105597b0f1bda",
+      "window-size/cli.js": "6304a2ad85a597341545a4ba8608d0bd3a072c0d9cc18a4513df25b6e8ea716a",
+      "number-is-nan/index.js": "ae6aa905876623b7774309fa69f6fb23924760fe2fc2db63a514a468d4b8d8f8",
+      "number-is-nan/package.json": "242447f707a34988f6307983f56ab5efc4bee47dda47f931ad9d53ed9937c78d",
+      "minimatch/package.json": "eefa1c89527d52bbb2e8b053fe8ecf3e3ced399bdba82cf27e0e92edfd833938",
+      "minimatch/minimatch.js": "746849f267c4868a53729225bd85c7dccd387712136fb305fcc0a3eadd4a3d9d",
+      "is-core-module/index.js": "1ef75b5126cfc5720c4a4ce7e07d5c65c217fc3bff1df67284d1faa676a32a40",
+      "is-core-module/core.json": "62f3a8881d5932824d705fdecf6d6de978354b578360809d4079032545eb8ed0",
+      "is-core-module/package.json": "23d2acfe98b94e89d142893c6f7b02e53ff1023f034cb4bcdec9b3429e48f220",
+      "validate-npm-package-license/index.js": "bb81b15cca6d4c7fbc3cbcc0c473359bdc257f772d5a836fc189027de1acde67",
+      "validate-npm-package-license/package.json": "e510bebf52a39ff777c88c3494b0bba688252b361edf0774aec2b7dd8bb1fde4",
+      "fs.realpath/old.js": "07245a82717f9bfa2a63b9784284a1b7fc43ff5fcb4af2a94bce5f83611d4a2f",
+      "fs.realpath/index.js": "2e334ba43cd4852f7a3ed68159029167c05d7fa6af536e6ef177eb868ccd1bb8",
+      "fs.realpath/package.json": "2985019b1b3cf5894df9b831816f7b480833931da982489e3a98c346ce7da897",
+      "os-locale/index.js": "85caa959c2a2883711f694ed875e0ee1519f4f740ffdc64054e3e7ff215bf344",
+      "os-locale/package.json": "5affa51bc146fb2b5eccd0398211a9dec9d35f1ba2d2b2ebcb3e39e7faa15c52",
+      "concat-map/index.js": "091b65d778337599d0140b35d53c038603d1732d27c33bfe39e03871a96926b2",
+      "concat-map/package.json": "4fe5e8089b65ebfd55bb86f465ba896ba6a8e24b7b61de1e0f420f590616b118",
+      "concat-map/test/map.js": "e2a41fad6a88afcd0958cb9f93217ac2d62670d2a116ab7deb2b790e8f9bc90a",
+      "concat-map/example/map.js": "ffd5fbdaf966b799cd9d046624be96b48e206920e58ad52d2ed1f2bdd10e93d0",
+      "is-utf8/package.json": "60e0c3f7db395f6ad28d8c90d4151f71a1dd2c74078a6d83f5e23814ee11953c",
+      "is-utf8/is-utf8.js": "635be415f93491eb3ebf52fad3f68bd59621d6b53a1b9fd1d66b189f1767d05d",
+      "memorystream/Gruntfile.js": "b340ed0d9e5db5bbcfc019edb4cb7f1f758ade1c2941bec68b53b852fecdca8b",
+      "memorystream/index.js": "cbcfd7ab33d1009f5ae828ca45a918e93e3752b054befecf09964869d88ea612",
+      "memorystream/package.json": "dfff650f4c6c600aaaeeab58f50429325a94ebcbe28a0689c3c4b545b270b76a",
+      "memorystream/test/example.js": "b645119c26a68d1a8f2623883491518fa752d21f56f72f7a9a2252b52d02d59d",
+      "memorystream/test/memorystream.test.js": "e30ff98263ba0d7824380181c66b40a2c95fac7f2c845747a4a87180f2425049",
+      "which-module/index.js": "cd3b335884bb4d258e863128b87f90a8025ce97c9cde64b9114e8cfbfc71618c",
+      "which-module/package.json": "d433a26a4ce8ff5e1f78c8a47420be922851352ecddcee1a5fc0463c3d1118cf",
+      "is-arrayish/index.js": "2b9860e6cb7fdc4edb7b31d893738d8631f52b7289ad74c7dd3b3d3ad79e4eb5",
+      "is-arrayish/package.json": "7598eefa3f8d75a42582eed0c3756c863984106147f63c7e7c088a8b31be7c19",
+      "spdx-expression-parse/index.js": "108d9f96d7901b70f3cf4ea369ee2c7b3c47e28d23b9bb67a69a559831d245bf",
+      "spdx-expression-parse/parse.js": "629d3bef1a8ea96455646d2d0594949fe6c332b2be95fd7d2b6502a918c423c1",
+      "spdx-expression-parse/package.json": "019a60839cf6b909b3f7f7079888edce8d9aa7de6c296bb4ef7e2df587173afb",
+      "spdx-expression-parse/scan.js": "b3c4dcd0af9b6e72cd1c56335db37447657114e8201271653bf35c5bfe7afba6",
+      "cliui/index.js": "f636a12d6ffa966fdf873907abf47e6f53be5649de9c3c2118de56dc0e68bdf7",
+      "cliui/package.json": "069b1bef1acbea234512d75819b3dc22588355ecf2632662962bf26dd4271575",
+      "invert-kv/index.js": "667a84b611b874325c70245cc1435228cd8b8175cf13f39c435fbd7209da9a68",
+      "invert-kv/package.json": "4ff273dcae9007c0f880c1bacf945f543e08468c8456285d6ba4bbbb0d70c009",
+      "yargs/yargs.js": "29f900e98731ab6bb55d5fa88b08b89de33947d9141fd32522021ba40c278373",
+      "yargs/index.js": "08e679ae2233fc24333ed8a56327af55396a05c9193980ddd7c2805b9db4f588",
+      "yargs/package.json": "21943d06824b2a5670f3d23867f6c91067c46700a784f5e4fc100a98b824892a",
+      "yargs/locales/zh.json": "9f4d425f8e3136bb391f9ea22dae4817d30b9a8fdbe9df524b35de3408a719f1",
+      "yargs/locales/tr.json": "d903ef1e7a597e49353645be7a9a73d076ec365f35e6587a5169a427e690a3bd",
+      "yargs/locales/pirate.json": "4494922856dddcb3ebfeebc22ad18ee80cca217274804ce4f7e4483a3facd1ce",
+      "yargs/locales/zh_CN.json": "9f4d425f8e3136bb391f9ea22dae4817d30b9a8fdbe9df524b35de3408a719f1",
+      "yargs/locales/ja.json": "44250eeab6eecfccf5ec32d90792e4675e03aecc09fccdb13110b4ede3ee6dcf",
+      "yargs/locales/de.json": "8f7f6500a6e67702157be294393c8e7f82e2d752ade32f6256f795ed32a3933a",
+      "yargs/locales/pl.json": "5e21b192f03b8d3133ec05f503c898268d82ce0e05ddff97a466a6c7e46e329a",
+      "yargs/locales/pt.json": "1277ab0743dc3a53c0fe399ada39bb5321b5ea77541371842446cae891cf2d32",
+      "yargs/locales/en.json": "eb968593d1ac1b28025c7df3a01cc780ba9cce0f85f66557ded0cc9f5bc254e4",
+      "yargs/locales/it.json": "7d65a8b353389631437f64af473334f17cd5b54dba290908e6136f46021b1abf",
+      "yargs/locales/fr.json": "93de78be5a4b194c2b6102b8e6a8d4b62bba681fc229696f054ceb3794e3c1c6",
+      "yargs/locales/ko.json": "5de3d91773612f443676f4a0b6efe11ded739c655d40068e30bc24f8be0e72a9",
+      "yargs/locales/id.json": "8cb9f291b6ba67aeb9e144f8f5f6e2ba186460d4257f9179a1abb95a338681c3",
+      "yargs/locales/pt_BR.json": "e2a1c6bc3c042c9cd39043b9fc6fcd9a3c0c075cf2259fb8aa4262fecb7199af",
+      "yargs/locales/es.json": "833e2fe685d53f1f8334c550ab34b4a459bcbd875c393d6fb5b707c311ce8687",
+      "yargs/locales/nb.json": "344afd8dea0419fa15d9218be472ee80ab57a51cce6080707abe1da15d59d271",
+      "yargs/lib/completion.js": "0955a86cdf129c32ad3e4fe4c4fd1bcd8d57ba3e71b1ff90a7ff5147271d7a2b",
+      "yargs/lib/command.js": "be078a195d4f8f18ed6d17eeca08c2075d26bf2486c28b392e691d3cc646df29",
+      "yargs/lib/validation.js": "f3f2a0d509195e0376680825ee75a3c41666f755a037f515d621e49afd9729c0",
+      "yargs/lib/usage.js": "b7f4387add0c04424fb25f5d7a043e230df426645e0182f3ce9aa70917242dc4",
+      "yargs/lib/obj-filter.js": "fffdd4c7cc6992834995b68b35d67329c7875d444296b7a53c00cdfb580529b4",
+      "glob/sync.js": "0f61227f4b55297f1ad16798c53e6a6dd55d633856f153133716413b7c5f61ad",
+      "glob/package.json": "b00b6d35eda6d4aa6893baf19e53b7d005019ed840e4fa116c926a532ec577cf",
+      "glob/common.js": "b867e089ab5d4ab19a83e5b34da3dd7f4018fdf255fcacc681aab87d41dc77e8",
+      "glob/glob.js": "b8f35657ca927593d0f9e1aae3a8cfe9c33c697bf3c5733c2f6727f25ae25be1",
+      "code-point-at/index.js": "5754f556e5e9888233cbef45872a7f8b49419527403a4fd5c77b99278b389fcd",
+      "code-point-at/package.json": "25069e9b754306d51bb333f034a741d99e052bee4c99d13ecdba7f485bb01749",
+      "string-width/index.js": "7d88178fb35726264fa3a8500abeae44d5b585491edf3cd5b0ecf4dec1bbb299",
+      "string-width/package.json": "d33f936e64b142b548af5923f28d0e3bf1bc8cac3dca174bc0d1f8d068e91868",
+      "camelcase/index.js": "487b7efdb9f137a0a4529b850ac7f2382ca23973f363456bcaf695a1a46c132b",
+      "camelcase/package.json": "ba65c660b199daed1f2c03fed4f607c873eb0ae4b5bdc19500225b9d09c5de2b",
+      "wrappy/package.json": "712ac9c4c3cef8bc79f42cf6075ff18551f4cb768f35158214fd643853ad7abc",
+      "wrappy/wrappy.js": "153453c4d84a3c2f13589c37055a7daff61d48475dcce554f7eedad15fc7b3e5",
+      "set-blocking/index.js": "8b238f1de62bb2a7b35a9e6b0364a64ce0f357cb63251580ff5a25429712e1d1",
+      "set-blocking/package.json": "e0c598215c66f2c35edbc3cb2a3433d45f9d4b726524c095c93e7376d87a3bce",
+      "lcid/lcid.json": "9d3eb7570f33fc619019cf1a22bce7dbb5d39db6af4ce35b7d412c661bd0d6f6",
+      "lcid/index.js": "6f4d4ce756e73dc1e7baefefc69c048aa5dc74c8f1e626305777ca5365ebcb40",
+      "lcid/package.json": "7d7d222b2b0e62080f895312eb9ff83a4429606313d1327d28c63ba61d0f8bdf",
+      "graceful-fs/polyfills.js": "66ea1687ed5edf39d67296d26edccc8da695d9a869303a78d0e580cd770aca27",
+      "graceful-fs/graceful-fs.js": "7da35669b6b6b0e4aafee31674c033f2cebb0c8f9ae010f709dcc185d3f17786",
+      "graceful-fs/package.json": "7cc365c012febc9c44ef6d998b49d749840c852d91db3302b19eb6eca07ead3d",
+      "graceful-fs/clone.js": "7258eca52e65d69845759503f9fdd66c252f40e5eafb76db5d481172e31ac9ed",
+      "graceful-fs/legacy-streams.js": "60a6a7ecf7c3e55a3ffaae13433b6cff388b7205bba6daf393c863f77a949e36",
+      "require-from-string/index.js": "08a485a5fbe80a2f2f455cc94a9fd0846adeb82760d5fc1663388ef73e00a772",
+      "require-from-string/package.json": "0f71653e825ef92d80880002adcf216964760572654dd098ac6c66ce644faf51",
+      "read-pkg/index.js": "409c677842d146f38533d942971150ecfb0cfa85068d18fcda8ef0c329e91255",
+      "read-pkg/package.json": "313716dc1134b143d618c096d32c3b03981833f797f82b95e2c0e8e7c028ef9b",
+      "inflight/inflight.js": "e33ea098a91d2c41be886fbbcecacb9799fe183d8a446f138a4786cb3d809802",
+      "inflight/package.json": "5f2489e13f73e9ebad999134fae8a591f6d8b58e8341ec8e3b33397c4d1ef817"
+    },
+    "registry_tarballs": {
+      "solc@0.4.19": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.4.19.tgz",
+        "integrity": "sha512-hvi/vi9rQcB73poRLoLRfQIYKwmdhrNbZlOOFCGd5v58gEsYEUr3+oHPSXhyk4CFNchWC2ojpMYrHDJNm0h4jQ=="
+      },
+      "solc@0.8.19": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.8.19.tgz",
+        "integrity": "sha512-yqurS3wzC4LdEvmMobODXqprV4MYJcVtinuxgrp61ac8K2zz40vXA0eSAskSHPgv8dQo7Nux39i3QBsHx4pqyA=="
+      },
+      "hosted-git-info@2.8.9": {
+        "url": "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-2.8.9.tgz",
+        "integrity": "sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw=="
+      },
+      "lodash.assign@4.2.0": {
+        "url": "https://registry.npmjs.org/lodash.assign/-/lodash.assign-4.2.0.tgz",
+        "integrity": "sha512-hFuH8TY+Yji7Eja3mGiuAxBqLagejScbG8GbG0j6o9vzn0YL14My+ktnqtZgFTosKymC9/44wP6s7xyuLfnClw=="
+      },
+      "path-is-absolute@1.0.1": {
+        "url": "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz",
+        "integrity": "sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg=="
+      },
+      "normalize-package-data@2.5.0": {
+        "url": "https://registry.npmjs.org/normalize-package-data/-/normalize-package-data-2.5.0.tgz",
+        "integrity": "sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA=="
+      },
+      "spdx-exceptions@2.5.0": {
+        "url": "https://registry.npmjs.org/spdx-exceptions/-/spdx-exceptions-2.5.0.tgz",
+        "integrity": "sha512-PiU42r+xO4UbUS1buo3LPJkjlO7430Xn5SVAhdpzzsPHsjbYVflnnFdATgabnLude+Cqu25p6N+g2lw/PFsa4w=="
+      },
+      "path-type@1.1.0": {
+        "url": "https://registry.npmjs.org/path-type/-/path-type-1.1.0.tgz",
+        "integrity": "sha512-S4eENJz1pkiQn9Znv33Q+deTOKmbl+jj1Fl+qiP/vYezj+S8x+J3Uo0ISrx/QoEvIlOaDWJhPaRd1flJ9HXZqg=="
+      },
+      "strip-ansi@3.0.1": {
+        "url": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz",
+        "integrity": "sha512-VhumSSbBqDTP8p2ZLKj40UjBCV4+v8bUSEpUb4KjRgWk9pbqGF4REFj6KEagidb2f/M6AzC0EmFyDNGaw9OCzg=="
+      },
+      "es-errors@1.3.0": {
+        "url": "https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz",
+        "integrity": "sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw=="
+      },
+      "require-main-filename@1.0.1": {
+        "url": "https://registry.npmjs.org/require-main-filename/-/require-main-filename-1.0.1.tgz",
+        "integrity": "sha512-IqSUtOVP4ksd1C/ej5zeEh/BIP2ajqpn8c5x+q99gvcIG/Qf0cud5raVnE/Dwd0ua9TXYDoDc0RE5hBSdz22Ug=="
+      },
+      "require-directory@2.1.1": {
+        "url": "https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz",
+        "integrity": "sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q=="
+      },
+      "rimraf@2.7.1": {
+        "url": "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz",
+        "integrity": "sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w=="
+      },
+      "error-ex@1.3.4": {
+        "url": "https://registry.npmjs.org/error-ex/-/error-ex-1.3.4.tgz",
+        "integrity": "sha512-sqQamAnR14VgCr1A618A3sGrygcpK+HEbenA/HiEAkkUwcZIIB/tgWqHFxWgOyDh4nB4JCRimh79dR5Ywc9MDQ=="
+      },
+      "klaw@1.3.1": {
+        "url": "https://registry.npmjs.org/klaw/-/klaw-1.3.1.tgz",
+        "integrity": "sha512-TED5xi9gGQjGpNnvRWknrwAB1eL5GciPfVFOt3Vk1OJCVDQbzuSfrF3hkUQKlsgKrG1F+0t5W0m+Fje1jIt8rw=="
+      },
+      "balanced-match@1.0.2": {
+        "url": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+        "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
+      },
+      "path-exists@2.1.0": {
+        "url": "https://registry.npmjs.org/path-exists/-/path-exists-2.1.0.tgz",
+        "integrity": "sha512-yTltuKuhtNeFJKa1PiRzfLAU5182q1y4Eb4XCJ3PBqyzEDkAZRzBrKKBct682ls9reBVHf9udYLN5Nd+K1B9BQ=="
+      },
+      "resolve@1.22.14": {
+        "url": "https://registry.npmjs.org/resolve/-/resolve-1.22.14.tgz",
+        "integrity": "sha512-1ZjYvR9sbkiwC5+9QHetqW5HmA2pHRMaoupD01t2HlYnV/vydC2zPwLixhsMieSWVZt0JJRg5LVIk0Ow1D/TrA=="
+      },
+      "parse-json@2.2.0": {
+        "url": "https://registry.npmjs.org/parse-json/-/parse-json-2.2.0.tgz",
+        "integrity": "sha512-QR/GGaKCkhwk1ePQNYDRKYZ3mwU9ypsKhB0XyFnLQdomyEqk3e8wpW3V5Jp88zbxK4n5ST1nqo+g9juTpownhQ=="
+      },
+      "pinkie-promise@2.0.1": {
+        "url": "https://registry.npmjs.org/pinkie-promise/-/pinkie-promise-2.0.1.tgz",
+        "integrity": "sha512-0Gni6D4UcLTbv9c57DfxDGdr41XfgUjqWZu492f0cIGr16zDU06BWP/RAEvOuo7CQ0CNjHaLlM59YJJFm3NWlw=="
+      },
+      "wrap-ansi@2.1.0": {
+        "url": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-2.1.0.tgz",
+        "integrity": "sha512-vAaEaDM946gbNpH5pLVNR+vX2ht6n0Bt3GXwVB1AuAqZosOvHNF3P7wDnh8KLkSqgUh0uh77le7Owgoz+Z9XBw=="
+      },
+      "y18n@3.2.2": {
+        "url": "https://registry.npmjs.org/y18n/-/y18n-3.2.2.tgz",
+        "integrity": "sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ=="
+      },
+      "once@1.4.0": {
+        "url": "https://registry.npmjs.org/once/-/once-1.4.0.tgz",
+        "integrity": "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w=="
+      },
+      "spdx-correct@3.2.0": {
+        "url": "https://registry.npmjs.org/spdx-correct/-/spdx-correct-3.2.0.tgz",
+        "integrity": "sha512-kN9dJbvnySHULIluDHy32WHRUu3Og7B9sbY7tsFLctQkIqnMh3hErYgdMjTYuqmcXX+lK5T1lnUt3G7zNswmZA=="
+      },
+      "function-bind@1.1.2": {
+        "url": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz",
+        "integrity": "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA=="
+      },
+      "is-fullwidth-code-point@1.0.0": {
+        "url": "https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-1.0.0.tgz",
+        "integrity": "sha512-1pqUqRjkhPJ9miNq9SwMfdvi6lBJcd6eFxvfaivQhaH3SgisfiuudvFntdKOmxuee/77l+FPjKrQjWvmPjWrRw=="
+      },
+      "yargs-parser@2.4.1": {
+        "url": "https://registry.npmjs.org/yargs-parser/-/yargs-parser-2.4.1.tgz",
+        "integrity": "sha512-9pIKIJhnI5tonzG6OnCFlz/yln8xHYcGl+pn3xR0Vzff0vzN1PbNRaelgfgRUwZ3s4i3jvxT9WhmUGL4whnasA=="
+      },
+      "inherits@2.0.4": {
+        "url": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+        "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+      },
+      "jsonfile@2.4.0": {
+        "url": "https://registry.npmjs.org/jsonfile/-/jsonfile-2.4.0.tgz",
+        "integrity": "sha512-PKllAqbgLgxHaj8TElYymKCAgrASebJrWpTnEkOaTowt23VKXXN0sUeriJ+eh7y6ufb/CC5ap11pz71/cM0hUw=="
+      },
+      "read-pkg-up@1.0.1": {
+        "url": "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-1.0.1.tgz",
+        "integrity": "sha512-WD9MTlNtI55IwYUS27iHh9tK3YoIVhxis8yKhLpTqWtml739uXc9NWTpxoHkfZf3+DkCCsXox94/VWZniuZm6A=="
+      },
+      "decamelize@1.2.0": {
+        "url": "https://registry.npmjs.org/decamelize/-/decamelize-1.2.0.tgz",
+        "integrity": "sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA=="
+      },
+      "pify@2.3.0": {
+        "url": "https://registry.npmjs.org/pify/-/pify-2.3.0.tgz",
+        "integrity": "sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog=="
+      },
+      "hasown@2.0.4": {
+        "url": "https://registry.npmjs.org/hasown/-/hasown-2.0.4.tgz",
+        "integrity": "sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A=="
+      },
+      "strip-bom@2.0.0": {
+        "url": "https://registry.npmjs.org/strip-bom/-/strip-bom-2.0.0.tgz",
+        "integrity": "sha512-kwrX1y7czp1E69n2ajbG65mIo9dqvJ+8aBQXOGVxqwvNbsXdFM6Lq37dLAY3mknUwru8CfcCbfOLL/gMo+fi3g=="
+      },
+      "find-up@1.1.2": {
+        "url": "https://registry.npmjs.org/find-up/-/find-up-1.1.2.tgz",
+        "integrity": "sha512-jvElSjyuo4EMQGoTwo1uJU5pQMwTW5lS1x05zzfJuTIyLR3zwO27LYrxNg+dlvKpGOuGy/MzBdXh80g0ve5+HA=="
+      },
+      "ansi-regex@2.1.1": {
+        "url": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-2.1.1.tgz",
+        "integrity": "sha512-TIGnTpdo+E3+pCyAluZvtED5p5wCqLdezCyhPZzKPcxvFplEt4i+W7OONCKgeZFT3+y5NZZfOOS/Bdcanm1MYA=="
+      },
+      "fs-extra@0.30.0": {
+        "url": "https://registry.npmjs.org/fs-extra/-/fs-extra-0.30.0.tgz",
+        "integrity": "sha512-UvSPKyhMn6LEd/WpUaV9C9t3zATuqoqfWc3QdPhPLb58prN9tqYPlPWi8Krxi44loBoUzlobqZ3+8tGpxxSzwA=="
+      },
+      "supports-preserve-symlinks-flag@1.0.0": {
+        "url": "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz",
+        "integrity": "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="
+      },
+      "spdx-license-ids@3.0.24": {
+        "url": "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.24.tgz",
+        "integrity": "sha512-cLS9TtWkIQFyLkJ3/5aFQAOHOSKTlOs/7WDut/XPSdjom1fJhUdkepeJAKXa9Y05+FabHd0sti+Et559vDtkpQ=="
+      },
+      "brace-expansion@1.1.22": {
+        "url": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.22.tgz",
+        "integrity": "sha512-CKLDTuSsN0+r1ThM0WkzzBI7dnPI6xEGfa/JnVYIK9JNBA1N1NyPwXVHor//NKD/y3sDxp764sZdLhFK7pH8XQ=="
+      },
+      "get-caller-file@1.0.3": {
+        "url": "https://registry.npmjs.org/get-caller-file/-/get-caller-file-1.0.3.tgz",
+        "integrity": "sha512-3t6rVToeoZfYSGd8YoLFR2DJkiQrIiUrGcjvFX2mDw3bn6k2OtwHN0TNCLbBO+w8qTvimhDkv+LSscbJY1vE6w=="
+      },
+      "path-parse@1.0.7": {
+        "url": "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz",
+        "integrity": "sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw=="
+      },
+      "load-json-file@1.1.0": {
+        "url": "https://registry.npmjs.org/load-json-file/-/load-json-file-1.1.0.tgz",
+        "integrity": "sha512-cy7ZdNRXdablkXYNI049pthVeXFurRyb9+hA/dZzerZ0pGTx42z+y+ssxBaVV2l70t1muq5IdKhn4UtcoGUY9A=="
+      },
+      "pinkie@2.0.4": {
+        "url": "https://registry.npmjs.org/pinkie/-/pinkie-2.0.4.tgz",
+        "integrity": "sha512-MnUuEycAemtSaeFSjXKW/aroV7akBbY+Sv+RkyqFjgAe73F+MR0TBWKBRDkmfWq/HiFmdavfZ1G7h4SPZXaCSg=="
+      },
+      "semver@5.7.3": {
+        "url": "https://registry.npmjs.org/semver/-/semver-5.7.3.tgz",
+        "integrity": "sha512-kM18BPOqTi0+TB68703/GJRpAML5Me+IDQsR1J26YB3EFKKNEyHIVZuWDX7+WKQB3tHwDwgk24BfhdpWUbytvQ=="
+      },
+      "window-size@0.2.0": {
+        "url": "https://registry.npmjs.org/window-size/-/window-size-0.2.0.tgz",
+        "integrity": "sha512-UD7d8HFA2+PZsbKyaOCEy8gMh1oDtHgJh1LfgjQ4zVXmYjAT/kvz3PueITKuqDiIXQe7yzpPnxX3lNc+AhQMyw=="
+      },
+      "number-is-nan@1.0.1": {
+        "url": "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz",
+        "integrity": "sha512-4jbtZXNAsfZbAHiiqjLPBiCl16dES1zI4Hpzzxw61Tk+loF+sBDBKx1ICKKKwIqQ7M0mFn1TmkN7euSncWgHiQ=="
+      },
+      "minimatch@3.1.5": {
+        "url": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+        "integrity": "sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w=="
+      },
+      "is-core-module@2.18.0": {
+        "url": "https://registry.npmjs.org/is-core-module/-/is-core-module-2.18.0.tgz",
+        "integrity": "sha512-qyax9fgaKOEC4qK8WZn7Q4IcoZC9RC1O1fFxRcRTq/oMMkWT/uXpqpXa12kzWR409zAt1drYN9N9BO26UmBCmw=="
+      },
+      "validate-npm-package-license@3.0.4": {
+        "url": "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz",
+        "integrity": "sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew=="
+      },
+      "fs.realpath@1.0.0": {
+        "url": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz",
+        "integrity": "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
+      },
+      "os-locale@1.4.0": {
+        "url": "https://registry.npmjs.org/os-locale/-/os-locale-1.4.0.tgz",
+        "integrity": "sha512-PRT7ZORmwu2MEFt4/fv3Q+mEfN4zetKxufQrkShY2oGvUms9r8otu5HfdyIFHkYXjO7laNsoVGmM2MANfuTA8g=="
+      },
+      "concat-map@0.0.1": {
+        "url": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz",
+        "integrity": "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
+      },
+      "is-utf8@0.2.1": {
+        "url": "https://registry.npmjs.org/is-utf8/-/is-utf8-0.2.1.tgz",
+        "integrity": "sha512-rMYPYvCzsXywIsldgLaSoPlw5PfoB/ssr7hY4pLfcodrA5M/eArza1a9VmTiNIBNMjOGr1Ow9mTyU2o69U6U9Q=="
+      },
+      "memorystream@0.3.1": {
+        "url": "https://registry.npmjs.org/memorystream/-/memorystream-0.3.1.tgz",
+        "integrity": "sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw=="
+      },
+      "which-module@1.0.0": {
+        "url": "https://registry.npmjs.org/which-module/-/which-module-1.0.0.tgz",
+        "integrity": "sha512-F6+WgncZi/mJDrammbTuHe1q0R5hOXv/mBaiNA2TCNT/LTHusX0V+CJnj9XT8ki5ln2UZyyddDgHfCzyrOH7MQ=="
+      },
+      "is-arrayish@0.2.1": {
+        "url": "https://registry.npmjs.org/is-arrayish/-/is-arrayish-0.2.1.tgz",
+        "integrity": "sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg=="
+      },
+      "spdx-expression-parse@3.0.1": {
+        "url": "https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-3.0.1.tgz",
+        "integrity": "sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q=="
+      },
+      "cliui@3.2.0": {
+        "url": "https://registry.npmjs.org/cliui/-/cliui-3.2.0.tgz",
+        "integrity": "sha512-0yayqDxWQbqk3ojkYqUKqaAQ6AfNKeKWRNA8kR0WXzAsdHpP4BIaOmMAG87JGuO6qcobyW4GjxHd9PmhEd+T9w=="
+      },
+      "invert-kv@1.0.0": {
+        "url": "https://registry.npmjs.org/invert-kv/-/invert-kv-1.0.0.tgz",
+        "integrity": "sha512-xgs2NH9AE66ucSq4cNG1nhSFghr5l6tdL15Pk+jl46bmmBapgoaY/AacXyaDznAqmGL99TiLSQgO/XazFSKYeQ=="
+      },
+      "yargs@4.8.1": {
+        "url": "https://registry.npmjs.org/yargs/-/yargs-4.8.1.tgz",
+        "integrity": "sha512-LqodLrnIDM3IFT+Hf/5sxBnEGECrfdC1uIbgZeJmESCSo4HoCAaKEus8MylXHAkdacGc0ye+Qa+dpkuom8uVYA=="
+      },
+      "glob@7.2.3": {
+        "url": "https://registry.npmjs.org/glob/-/glob-7.2.3.tgz",
+        "integrity": "sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q=="
+      },
+      "code-point-at@1.1.0": {
+        "url": "https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz",
+        "integrity": "sha512-RpAVKQA5T63xEj6/giIbUEtZwJ4UFIc3ZtvEkiaUERylqe8xb5IvqcgOurZLahv93CLKfxcw5YI+DZcUBRyLXA=="
+      },
+      "string-width@1.0.2": {
+        "url": "https://registry.npmjs.org/string-width/-/string-width-1.0.2.tgz",
+        "integrity": "sha512-0XsVpQLnVCXHJfyEs8tC0zpTVIr5PKKsQtkT29IwupnPTjtPmQ3xT/4yCREF9hYkV/3M3kzcUTSAZT6a6h81tw=="
+      },
+      "camelcase@3.0.0": {
+        "url": "https://registry.npmjs.org/camelcase/-/camelcase-3.0.0.tgz",
+        "integrity": "sha512-4nhGqUkc4BqbBBB4Q6zLuD7lzzrHYrjKGeYaEji/3tFR5VdJu9v+LilhGIVe8wxEJPPOeWo7eg8dwY13TZ1BNg=="
+      },
+      "wrappy@1.0.2": {
+        "url": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz",
+        "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
+      },
+      "set-blocking@2.0.0": {
+        "url": "https://registry.npmjs.org/set-blocking/-/set-blocking-2.0.0.tgz",
+        "integrity": "sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw=="
+      },
+      "lcid@1.0.0": {
+        "url": "https://registry.npmjs.org/lcid/-/lcid-1.0.0.tgz",
+        "integrity": "sha512-YiGkH6EnGrDGqLMITnGjXtGmNtjoXw9SVUzcaos8RBi7Ps0VBylkq+vOcY9QE5poLasPCR849ucFUkl0UzUyOw=="
+      },
+      "graceful-fs@4.2.12": {
+        "url": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.12.tgz",
+        "integrity": "sha512-iuyGF2E4oafQfPsRrG2wtY2ILupMhvtdrhzrxB+0VcjsPpSPttpfYdjnGFGsTi5MaJFjI1jOKHPQ6UTbTj9TAw=="
+      },
+      "require-from-string@1.2.1": {
+        "url": "https://registry.npmjs.org/require-from-string/-/require-from-string-1.2.1.tgz",
+        "integrity": "sha512-H7AkJWMobeskkttHyhTVtS0fxpFLjxhbfMa6Bk3wimP7sdPRGL3EyCg3sAQenFfAe+xQ+oAc85Nmtvq0ROM83Q=="
+      },
+      "read-pkg@1.1.0": {
+        "url": "https://registry.npmjs.org/read-pkg/-/read-pkg-1.1.0.tgz",
+        "integrity": "sha512-7BGwRHqt4s/uVbuyoeejRn4YmFnYZiFl4AuaeXHlgZf3sONF0SOGlxs2Pw8g6hCKupo08RafIO5YXFNOKTfwsQ=="
+      },
+      "inflight@1.0.6": {
+        "url": "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz",
+        "integrity": "sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA=="
+      }
+    },
+    "full_version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+    "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee"
+  },
+  "0.4.24": {
+    "pin_id": "npm-solc-0.4.24-reviewed-v1",
+    "files_sha256": {
+      "solc/translate.js": "08793d4bc5bb08da76f1234556b719624c705c51bd28236b89b9d59dd0e0d819",
+      "solc/wrapper.js": "cc8f660ddae00e97efe44c682d0693492fc9f7b8fa8169fe555b79b2fb2723f8",
+      "solc/soljson.js": "9d9ec631865882a435fc577126fe068ccdf9c3962aa439acb2cdd0794907fccc",
+      "solc/index.js": "63485638d4865840607bdfed1a30b426ff3eaf6b7463bb9b5cb9701d1d1d06b8",
+      "solc/package.json": "fb5b24f21378791449d4c6234affebe4c551c4de5899adfa3bbcb094f91f4f85",
+      "solc/abi.js": "ff8efda38f268385577665abfc4bbb8e2e689cd6b068df8aaa8344e6081a421f",
+      "solc/linker.js": "b5eeee12abbf9abf07567c48b5873bd55d46fa8dc2e6dfbba514de39fbd68183",
+      "solc/common/types.js": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+      "solc/common/helpers.js": "8086fe96c9f4edbf375122311153459502f9cae6708c98b4ae3b6c0e4314334c",
+      "hosted-git-info/git-host-info.js": "37f1e752f6d19e50f070e083d36ff982e09633a1d443845b442c1a3fe4c4cc29",
+      "hosted-git-info/index.js": "519dbed3316df01a81732f519749fea55c8721316f317250c3f2ca7617cdb2fe",
+      "hosted-git-info/git-host.js": "a486b24538b04bffe49ead77440f2a87e2087323a6bb134be0dfb6b8003b6f3c",
+      "hosted-git-info/package.json": "d9de0c05a99a641a152add4b5f8cbb0db31cfb110433a0cb429acd36fb770e50",
+      "lodash.assign/index.js": "65dfbbe15a92c1a289fe433ae5f5e50b9e354da0a7a0f526f96eea5feeba976a",
+      "lodash.assign/package.json": "6c4905e1da5d0baa0fc1a944e30b56e911c54f68988153ef2e54de82c988118c",
+      "path-is-absolute/index.js": "4eb1119c3eeccc4d8e8841b77d062abaf4572b332801f5b16175bc3311b5d8f1",
+      "path-is-absolute/package.json": "be5b83877f6998b840b9365d7ab77e885f0d583337826c22daccaeb6e303fd4c",
+      "normalize-package-data/package.json": "16630d0c9feff9fdbcb66ca9d183923765ff7f25f2b1e643ca1afdca0ba07ae1",
+      "normalize-package-data/lib/normalize.js": "f561166658465b7ae0df3a1f774758a4bb150d860769cae3d827bafdc5c7a403",
+      "normalize-package-data/lib/fixer.js": "5df3f49babf88d7b1ff050b452c4061560a1222d03afde8e210f1e98b8cb0e71",
+      "normalize-package-data/lib/safe_format.js": "5329ad1f1523fbb1514f881668e1a3f2457150c7ef891b698b3822cd2e8f85da",
+      "normalize-package-data/lib/typos.json": "aa8fd1a11b9ce3cb523b3e913ed2a514c6c6afc13bd581a13d7b4211bb514a25",
+      "normalize-package-data/lib/make_warning.js": "53720fd0c82cbab210cec8394733bbad2b1f546fc9f83d7cceb205b2ba33ed57",
+      "normalize-package-data/lib/warning_messages.json": "8d477c902b2bcd8d8152a6abc663b2acd43caf41c64ca989dcfc3e5d0b75b641",
+      "normalize-package-data/lib/extract_description.js": "8a8bba0482629190433219f2540cefafafb2f1148033040538b31351d7ff269a",
+      "spdx-exceptions/package.json": "0af9bd4b68c9e3d1bc7a9208881cbde84da140d564a3bb42cf53184c6e83f2e3",
+      "spdx-exceptions/deprecated.json": "bf84cb52b5bc8e2b1e6b4341765204d23b7bbce74b06ae8aec1cfee7f76faa24",
+      "spdx-exceptions/index.json": "26144efbe0f61f41b0f8751e266b8b828ac53eb3f28f9041620442892228e92b",
+      "path-type/index.js": "26106de437f8795522861fa6dbb836606d687ce46228f68a66954d8e85e73469",
+      "path-type/package.json": "a9ead9bec16402db0276671088fdd98fb85d393b722fd2170458787129f0d4be",
+      "strip-ansi/index.js": "02abcd70c31523c8c34ffaa7222629ae14b12ccd425e49ffa964a5051614691c",
+      "strip-ansi/package.json": "60dfc6bf58aea11944e7ddf08e516814a33fe805c38620939a5a1d7303c0bc54",
+      "es-errors/range.js": "e376220f3a0226bd5b09b6d5a1411bbac274db8d2d9f7eb723142b7e676374be",
+      "es-errors/type.js": "c71b2f41c15edb3824f50dd24df900495c8caaba5b6e9a80851b82bb2309827b",
+      "es-errors/index.js": "28fee350e89561019cf27ea37a313b4b4995f521fd087198fa235a8f135962de",
+      "es-errors/eval.js": "d3161a97f162b483206e9849e41bb17fd54166810c76ebaa1df068133e54caae",
+      "es-errors/package.json": "1a0a0bcccc76b915cb64073317312840cf6363e9144b96f406d0059774dd5278",
+      "es-errors/tsconfig.json": "539cacffe5895fcf9a9eb59e3a6a9fadbb41ba3e05339d97e3b55da34d2c85a4",
+      "es-errors/syntax.js": "56574ecd3eb54c06efd319080cc8923992791e430c914520b85e92c2f5e373f5",
+      "es-errors/ref.js": "31945f1740a0a2143fb8c38943afc6cce5de5ba6fab7af42d17b7874a19a0900",
+      "es-errors/uri.js": "e1e5591bde037a2ffeda822fa03fac22ff7c93c7b269ed9adf1cbea0e21614b0",
+      "es-errors/test/index.js": "14e2b88a10618ac3947289f93011dcfc5a2c27fcb585f453f99de8ee739185f8",
+      "require-main-filename/test.js": "07ebe3bd78247e502cf512315ac402eb046252fe5b40260bad0baa9640efc8ea",
+      "require-main-filename/index.js": "2ef41461635fc6b9689fdf72a9989dd2f675757483d85658968056ccec0eab21",
+      "require-main-filename/package.json": "76bdb44f47dd32ec2f67501a54c29df6d03e5e033f21c6d458f4476dea940523",
+      "require-directory/index.js": "65eaf8b7b519d6ae7be7ea20382d91a117d9c689897897ce4c2ee798e128a2d3",
+      "require-directory/package.json": "5690bdddd6eb4abd795fa5319df7552279508df9d562d571e3132ddff3045a71",
+      "rimraf/bin.js": "6557bc0e1bebd5eedcf1cc7df314c016b6593bcdbf323941c9c5b9ea57e7eedf",
+      "rimraf/rimraf.js": "39b8a308a9d3fecc1b80fb0284b1c9574cc2d9a9a02b18f0961e323d1d5cb72c",
+      "rimraf/package.json": "3fb2eed4a1f87b6d9c0b28cb502967bff6c3bfd3484e505b91b157d88200d071",
+      "error-ex/index.js": "ce2f8852444caccee5a19008a7582cc3bd072c39fa6008edac3ad4e489f02d5e",
+      "error-ex/package.json": "9b6c358fc3b9fd85003e5a489e9fa022f086e41580d66ab8f144b6f88c0acd84",
+      "klaw/package.json": "16ea33ad46413aef6e0559f73926b8d9480e0234e8fa913f333ee62bef46bb0a",
+      "klaw/src/index.js": "433cae109b8d3d42ac92bc27f27c35f6107c765f9cafa774ad650459dfd338b0",
+      "klaw/src/assign.js": "811ebaa415c0130201fa77eeeb2595ee11bed38673241c7be9daab717378289f",
+      "balanced-match/index.js": "06e4d0037715251cb3be2b2db063662f555b3538d9e30a9c517a54374d941cbc",
+      "balanced-match/package.json": "b30c328501dead1870b894ad604405b2284b571c1f12664cdc61d92a2e3397c2",
+      "path-exists/index.js": "68ea04f85c85d10efd354738232306832b8e989c8ccc9aa5b030015aecacaff4",
+      "path-exists/package.json": "2635976491f388569dfa55939b03c47c6c0a27598642add59f3749d963b6563a",
+      "resolve/sync.js": "48bf4ce0175e835cbfb3af9f4f848d9d839f9e9997587f175629a963283598d8",
+      "resolve/index.js": "4952fa49a809ad740f6d9b6a1c1e9a9c93777f37b03efd253291ff68753a56b8",
+      "resolve/async.js": "30d9986bdca6c456b803c4577913bc27b93b110aa7300bffb85254452067708d",
+      "resolve/package.json": "ffb43617eda497b14ba00404c04b8984c6f6802ea0e924358f0b507a370d2e3f",
+      "resolve/test/shadowed_core.js": "d9dac7834975814a4572bcc59effb3d3022f748876104903938bdd03777dc2d3",
+      "resolve/test/dotdot.js": "31bb7415309643a9ddaa8d4eca81523a5bfae167cb151fc39c0a875aa158ac1d",
+      "resolve/test/home_paths.js": "2216ba3cff8c16d7a603bd7f3afecd14ac889367195dd58534e29ea7fce89003",
+      "resolve/test/core.js": "48bf903e7651308ccd673f433613a3801465ee65fa035f5eb1f507c4ad630dec",
+      "resolve/test/filter_sync.js": "0c381bfb2ec51f3916a376eb9f8b9d92c2b58ea7fb025172d51dfae3fdb96d5a",
+      "resolve/test/subdirs.js": "69e89b07dd922f37caecb129c6edde3a92156b04b2975fdc1310fadd3cc10a21",
+      "resolve/test/node_path.js": "9107398b734da097531bdca48f2de2051be7e2f1748932727a14d553fad4c0f1",
+      "resolve/test/pathfilter_sync.js": "ece353fbd24896f87c44fe8c223eee8af2dc9433803e1a4ddb3aed6c22ecec50",
+      "resolve/test/module_dir.js": "084a0f83f8baaff0a918aa47f2eb4187251529ecd72ece0b4ba200d33e1e019a",
+      "resolve/test/symlinks.js": "cb8a2a7b38c09b62b278ce3bf0faf79de5e55249138ae57f785fce80c1b9bcf2",
+      "resolve/test/faulty_basedir.js": "7fd0c45c47f3957f31389a2ecfa98ea0d983836939b4a52b52a917b46f34d36d",
+      "resolve/test/resolver_sync.js": "3c5ffbff3801f448d1a2601786acb95e7967b375a7dd23a40c5842ce3bae4310",
+      "resolve/test/homedir.js": "4632ff172892f0089ac04c8439df8f4b36d624d34d0d936f0a692d0e66687b9c",
+      "resolve/test/default_paths.js": "a5f8b66bd73caf39b59186ea82e14a3e5b66693f9cc2714633851c79816579ec",
+      "resolve/test/mock.js": "1fedae270b2fa18a3ca5f769b19d37897bc7f7eddeda98999f671006df5fc534",
+      "resolve/test/precedence.js": "b7da2ea305e663e33d3613cf5c4436b16266a6717136a2bb82a6c225b2c7af4e",
+      "resolve/test/home_paths_sync.js": "a1b8fd06f59a85c2c35b9bd110994d454cb126ab3891bf45bf56d3f8c11ddf0b",
+      "resolve/test/nonstring.js": "df9d05dc6ec0090b937b6d5c8863c4a7d138ae154c4ede95c0f19d5457772e78",
+      "resolve/test/mock_sync.js": "0e0ee5bd3efe5eacfab3f887d6ebc7e232364a987a6246c9cd92ff827b517d7d",
+      "resolve/test/filter.js": "d7e51d8820e3a919fd34ede446ad58ab2325578aab1d34e2132783e3b8c9eaf7",
+      "resolve/test/resolver.js": "ac5c9acb8b8cdf08a4c6909109f691e338637cb8baf67204d02022004a5d9438",
+      "resolve/test/node-modules-paths.js": "7bb5cee27a9397dddfcf6479dd42b39740dd341731fbb1bc3d8579bbdc8c1e7d",
+      "resolve/test/pathfilter.js": "bfd895a3a2e938652d30c3f79514c6d5b49502eb5bfc39d961bcf36cbcc45939",
+      "resolve/test/pathfilter/deep_ref/main.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/node_path/x/ccc/index.js": "bda6764a35f67532924c2947792d43607077c432a80fb6eeaeacb5b6c2cb2dfc",
+      "resolve/test/node_path/x/aaa/index.js": "92be6c1033b349f698beb024661077b8dc35cb8826f1e5b6472d1d666101b9f5",
+      "resolve/test/node_path/y/bbb/index.js": "55a5eb25cf5c91fe763958cc3a458eb42e45cbbc858efd597a41883add1bf69a",
+      "resolve/test/node_path/y/ccc/index.js": "4d70e15bf4fe8e869e6239ef6a99e6fcf36abe7d02c39308877c4e185edcd85d",
+      "resolve/test/dotdot/index.js": "5299b6d1d00c7598bf5b580015b2722ccc9b2673956cc153f61ccbbc33beabdf",
+      "resolve/test/dotdot/abc/index.js": "917f64ff1ac7e88b7c2c2aca1135c2cd99e894435838dd00e22a2c59121ffc42",
+      "resolve/test/module_dir/ymodules/aaa/index.js": "f092f74d8eec199aa40a944e96f546a786f7cbbfef5890388235c4ff5669d2cf",
+      "resolve/test/module_dir/xmodules/aaa/index.js": "9657125da658e9e0648e767d59d0773338b03623e4b238e698d456d336e4c94c",
+      "resolve/test/module_dir/zmodules/bbb/main.js": "652198c18778572c922370c55c49c80b49b0587c2c7cd24df17678040c767320",
+      "resolve/test/module_dir/zmodules/bbb/package.json": "be4c48fbcb9bcbed4019785e1b14f5150416acb00bff12442366826901555e05",
+      "resolve/test/precedence/bbb.js": "2186281fc4410287717bd80f49b0625c4b89180b7daaca8e1d396dd02c019a7d",
+      "resolve/test/precedence/aaa.js": "a49a7ae6beb9fb73f1507aacb3365e395d1d18a60790339d2fcb421163f26db2",
+      "resolve/test/precedence/bbb/main.js": "62aa79a4ed27edce24f74298b0ccb28597f08bdecf71dbbc22bc45cfbd9efc9f",
+      "resolve/test/precedence/aaa/index.js": "fa5a75012753e5d2f448af1c8e63a7f3abf7fa4a418828c443e7b764851999d7",
+      "resolve/test/precedence/aaa/main.js": "05ca0b0aef5b62bfba0f0ac42fcf14760d9d1c229df959272bf6f3e6020a741a",
+      "resolve/test/shadowed_core/node_modules/util/index.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/mug.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/foo.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/same_names/foo.js": "1737ef29ba647e558b55fccbdaebad1b5737bc2528f166d42d062e240a25c766",
+      "resolve/test/resolver/same_names/foo/index.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/symlinked/_/node_modules/foo.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/symlinked/package/package.json": "8caed21b350cd172328e10dd2000a1d786e2d59768a5a73d250ba7e518acb5c2",
+      "resolve/test/resolver/symlinked/package/bar.js": "f5013f841e8f78fc67b6fa1e6ef8b299ffa04192066a7e62b266d84a656cbbcc",
+      "resolve/test/resolver/without_basedir/main.js": "cdbd3521451c090349184834b2c4b937f0a486f144fbd9e7c10d203ec87852e2",
+      "resolve/test/resolver/dot_main/index.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/dot_main/package.json": "c16316c71a38c66c3cf13c48f52324c8f488337a89fd129884e8c9b3f1d65e1c",
+      "resolve/test/resolver/invalid_main/package.json": "ed30bf3c22be924be67b278ed079ba425dd0ae37110d7027bf9369f771abcb36",
+      "resolve/test/resolver/multirepo/package.json": "ec13311cdf8e7ba462d94656a0f2f90c55b290dc1ad6f7e82da2d3b140c27f20",
+      "resolve/test/resolver/multirepo/lerna.json": "9845b6f52c3ecb04e3ca5e18553a47c83dd8e692f48702ecc03ecff99ad654f7",
+      "resolve/test/resolver/multirepo/packages/package-b/index.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/multirepo/packages/package-b/package.json": "f41fd8ba3d2df58d7d1658be4c77d11d07285fab1e94a6c8151b3548c6f0a8aa",
+      "resolve/test/resolver/multirepo/packages/package-a/index.js": "f1cebc8b2be364cdef965682af898847d5120582a9cad954dd042dc2269cc74e",
+      "resolve/test/resolver/multirepo/packages/package-a/package.json": "ab5dbb7f635d5474648e5ac92df08020b60d0d91a68a740e46186587e05d3da3",
+      "resolve/test/resolver/dot_slash_main/index.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/dot_slash_main/package.json": "f7d5b70847ddd6e2b385f38cba5bdc31a366b1883ffa0e986141543b7e598a53",
+      "resolve/test/resolver/quux/foo/index.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/baz/doom.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/baz/quux.js": "6e66e366f0aefb84ad8110afcd9b2245702c643c831edf8316ff048fec739d2e",
+      "resolve/test/resolver/baz/package.json": "cd33f816f635bcf9cdbe5a13d877bc8901a1a90819b1d73c16b35b6cdbebecaf",
+      "resolve/test/resolver/browser_field/a.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/browser_field/package.json": "2857c211f81109bda6a96584f2e7a1ac5610baa0f67bbc77f7e766c4152281f4",
+      "resolve/test/resolver/browser_field/b.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/nested_symlinks/mylib/sync.js": "5d4d74edf8eeb719bf2e40ddde566ac581cea8807b1d4c15b18c75cf1ae7d9ac",
+      "resolve/test/resolver/nested_symlinks/mylib/async.js": "379908f90bd2f53c644fee9d86415d931374181296e36bc60ed5cbe2388c64d6",
+      "resolve/test/resolver/nested_symlinks/mylib/package.json": "41ea23c25ff8e7080ab08d38a9f5de9ab986280902f7268de45bc0a5b7e9e028",
+      "resolve/test/resolver/incorrect_main/index.js": "056299c0c1ceda95624a055ec624f796a5b2e83a859e9315909d3132b6af4d71",
+      "resolve/test/resolver/incorrect_main/package.json": "ac00da5e934b8bd9d1e077f2ab20bf434c4efe0f507276cf60e755649a0de383",
+      "resolve/test/resolver/false_main/index.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/false_main/package.json": "064d9e3c87123a24e31276d1bcfce16b81bb2156d42c07f427b8ddcbf675f790",
+      "resolve/test/resolver/other_path/root.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/test/resolver/other_path/lib/other-lib.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resolve/example/sync.js": "2e101fc3a627afd2c65c4c616a8927f61ad3a79cd566bd41fbdfa0400077ba69",
+      "resolve/example/async.js": "39a9d5f97b6536b991b74f9ad5661b45819b2ae37c051af8d8c627e4c5f7bef7",
+      "resolve/lib/core.js": "5583c4b415d7390f2edbab4aa18e10b58096b4e773c03a00055e6c7ed7a31f2d",
+      "resolve/lib/caller.js": "1faea7ab3ce8c3eee7a5d647dfd6b7f0c91022a00e62cec54c948b7845f75004",
+      "resolve/lib/sync.js": "101a84f2f3c085c567b7c76de1c20db113735a3d2b9de9ffa4f6bca33b3ae633",
+      "resolve/lib/normalize-options.js": "88db22b3239f92484b70acadf2b4c786c7117af191c0efe46d17fdda9e40743a",
+      "resolve/lib/homedir.js": "5386cdb8c25db5c991091338c013a297fc67eb9b29ba9135c7f82c23b481f457",
+      "resolve/lib/core.json": "62f3a8881d5932824d705fdecf6d6de978354b578360809d4079032545eb8ed0",
+      "resolve/lib/async.js": "fba51744290eea716e1ddc179ed5b8865de5e55ce31c567c17e01a2f9c0ee6e5",
+      "resolve/lib/is-core.js": "9e8f47a3ab41debd52aee46f12d5c1fcbac0e47703950dca9fc3567a5270738e",
+      "resolve/lib/node-modules-paths.js": "5e615db3c990b5169838a5a03fe9ced6180bf5c03fe68e18b095068a0829a289",
+      "parse-json/index.js": "b151655c25becec63a7ddb65b3c03bdb393bf407a760c77fafd76225ef44b379",
+      "parse-json/package.json": "f59994ddbc5e055c3abf341f3658329d4e08996e3c542d0e78f79f7ca73722c0",
+      "parse-json/vendor/unicode.js": "a70a2621b8bbb853cecb758825e5a5c1299d51715b3e16dc11a1c2cce89fa758",
+      "parse-json/vendor/parse.js": "6ae12a2f399fdb7e0e35b2f04c3f13e1972cf96f95c3ec78bcd81866b16f7633",
+      "pinkie-promise/index.js": "101192976ed9972cf8cfe365b6bcff41f7d054560f8dfb861573690f3e7bb421",
+      "pinkie-promise/package.json": "0be4b7f157d8f59a1e9f3358c8ffc374e0350467ecebea59f795a49639115eb0",
+      "wrap-ansi/index.js": "7899d61da5b6e431621f0f895257897a90fcf9a5f74c22636d679fb395e9b5b7",
+      "wrap-ansi/package.json": "2bc50250765b0e5e86dbe14ea15a47f729832a570ed249ffbebc458414d7271a",
+      "y18n/index.js": "3cc73eb3c315f3039b08571f2f89bbebf72de1827bc2d66f7a4a3bc8bae65b1d",
+      "y18n/package.json": "759d1f49f6475e3265c75d035b3344671ddde731ccd442d89a6a73f81b1882aa",
+      "once/package.json": "33840d74c14c94bfb75c76374765b635531b1eacb88d7f1f2f380c94d0ea1328",
+      "once/once.js": "3db73e347ecbdbafdf8d0db85145c877e133f5372e767360ef90c09f70ac5103",
+      "spdx-correct/index.js": "bf6aaa22f934f48c945a0302eff34d6e0edb265fa06917f82cd41551465c8f6c",
+      "spdx-correct/package.json": "4d5b264748a7510ad96a135debdae4833a62506bfc95df06c70d657096df6aaa",
+      "function-bind/index.js": "12fa1b92429db25599f6fe118cbbb877f7f62b83cb9bfe2fc896b2d6a8110647",
+      "function-bind/package.json": "edb1c4faf4148e6e3d74ed8dbac1a1dc359a647ff4207aad4851396dc7a3559a",
+      "function-bind/implementation.js": "5c52eb40601e0716dafff9759cf28d8d4af3e2fc2e2c96384f43dbfd0f7370b5",
+      "function-bind/test/index.js": "32ba00e232dc250a945bdb23461a7346f6029d31b595aa2046bf386aab6a91e9",
+      "is-fullwidth-code-point/index.js": "6701d64b4ad395f30b07f8685c04c6d61ca9c98094d75d0b2e06687e2386910f",
+      "is-fullwidth-code-point/package.json": "8bab82161f70f70214df34fdf7c1cdfcef69d9aea8e9a56a575991a5ed7d905e",
+      "yargs-parser/index.js": "623053ca417fb59df224581acc45b3e38151c011737bcdfbbe77c543d419454a",
+      "yargs-parser/package.json": "a82d12edd17ebbdcdd5bc041333f36c3f121c3bf646378c3b82f62fa005869d4",
+      "yargs-parser/lib/tokenize-arg-string.js": "1ffe8556df8783e364e4d2c2c01766615b50690e65db8970082705a2b9160dc4",
+      "inherits/inherits_browser.js": "ad322a7b1dec60f3d2ebda2091816469efb55b567d241cf3cf0fa4c5a4afe500",
+      "inherits/package.json": "be645800bc94fd8de29c8ae91690549b316cc437100108aeea7b2f347693cc80",
+      "inherits/inherits.js": "bb380f32bef5feb18678f0f45f88073fed5d7a0069a309132cb2080cd553d5c7",
+      "jsonfile/index.js": "6768dc1ff8dc737b32e9531a787ec0befa69ea1769d06893158493db0d983cd7",
+      "jsonfile/package.json": "7919bcc7f06f97d125df18304561e3707816f85b52dab1dde4efb2a1ae47d5fe",
+      "read-pkg-up/index.js": "1d94031d6309d9b2e4b4776c7739a5f51d4d54dac2309a0d29e477c63281e2a3",
+      "read-pkg-up/package.json": "9ab7b7d0524f6e6b66ca2d36432bbbe249d361d4037a2af42cc46dea1b9a1fde",
+      "decamelize/index.js": "d51dde17c67ddf486a827fec29a9ecb3036ad36bb39089729184ea285b3ded4e",
+      "decamelize/package.json": "fb07ecfb5937f8757b0721fdafa6febff75d3c159f6dc8ec0d6ad4e1d1be7d9c",
+      "pify/index.js": "92ee3c24b0239df2a47c226b5e271cb1041d1cff2b7199d88524f49007832c52",
+      "pify/package.json": "bb4265f25a454b4daf716b81e525679d774fb23208b3f15284f23723be4e3284",
+      "hasown/index.js": "8f875520f41a3d711566013882af290c840969316cc72cd6b35f7e81d7dfc6d2",
+      "hasown/package.json": "40b750c55a8bacf2c5ac316f5299dd44d48acc101c189a00cd59d39376b5eb89",
+      "hasown/tsconfig.json": "29ef530207266f2859676c048073e7f746db37a0a20e2a75bc2ef2b3893fbf40",
+      "strip-bom/index.js": "f0f90490f748302e2b54fb8b202f356fca7e820d45f0a8e10f0f894890b6258c",
+      "strip-bom/package.json": "b6c83978a200f03a065f415b2b85be20493f6bc124f59e83fa12e056afa7c546",
+      "find-up/index.js": "57c27802e01b5400442505a201934274451e5fbdebf5e890d9287657368be0a9",
+      "find-up/package.json": "742d98fba470968cab9200d177d411d72a8489d7b64717322871e009b4260df4",
+      "ansi-regex/index.js": "0f78062e714965d168fb51f1cb507aa95dd6270b563d04679adf2506245a62b3",
+      "ansi-regex/package.json": "23061f1352b3fe3c948a7a340f94fae9f5e08e430949f12e449636ba727b784b",
+      "fs-extra/package.json": "5897ac8e79f0b2fba0691701ead0fde9993329575d114f88a45a00f6d135584a",
+      "fs-extra/lib/index.js": "c6bc4bf3f6914a6994318b31a30445c39d966035c5d4011b8a8937270ff092cf",
+      "fs-extra/lib/move/index.js": "81bd5b52c46943ec5e24091da85bf7f4b9a31ba418c0cec453bacad307512a15",
+      "fs-extra/lib/ensure/link.js": "90056415ed821cd5dd5b5fe6af992cfd28d531c64b55b09fdf9e0136f969e16f",
+      "fs-extra/lib/ensure/index.js": "ca308cbe4ec1e110a3feccc8c11c222347efe4bd04c5cb576aae48366c5e319d",
+      "fs-extra/lib/ensure/symlink.js": "2469d6d4a7f01388c20384b692b6b4eb34c6a74e7d75960344144660a5c89380",
+      "fs-extra/lib/ensure/file.js": "0096995e24ce1319d00a8a749df4831c5af7285c306c07d3370287d2875434ce",
+      "fs-extra/lib/ensure/symlink-paths.js": "aa191b83b8bb30bad7929904a9fbc87876fab4a876c656e0705b0753dded2625",
+      "fs-extra/lib/ensure/symlink-type.js": "00be26a6705edb85a4acd448e58477b8905899e73f30fc0d673f7c7a24ebd7aa",
+      "fs-extra/lib/remove/index.js": "2e3b2f3e1612db69cbff8efd3f7dfdae18a1eae87964ef56dba3845742aa5823",
+      "fs-extra/lib/walk/index.js": "b7054e63e9470859b029d178461785ec8a6b01fb79a242525eb6b77b66978673",
+      "fs-extra/lib/empty/index.js": "7e7a6df716fab982576a59ce58a62a63693c1ea607911f8a5de437ba98365805",
+      "fs-extra/lib/util/utimes.js": "972557200208a21fc9697b7f8e7405830dbecec16e758eb8eaa1d31c252b3ee4",
+      "fs-extra/lib/util/assign.js": "284206a0323f7cc9a59dd0e902565a8ac19c00485f51135ecb695a21d30b389b",
+      "fs-extra/lib/copy-sync/index.js": "360b7c95ad351f0e7650735a4b4dcda0d5dbed434837a8e08a6fb8d94d2e6b51",
+      "fs-extra/lib/copy-sync/copy-sync.js": "3418b251b8dfefde91ff6267ba839b9194daaf6b805185a7c45491eaa6049740",
+      "fs-extra/lib/copy-sync/copy-file-sync.js": "60d9c76b0ec4ab90ffe07f289dcb2e78ad0581501b207fc4a1acedc54d86e647",
+      "fs-extra/lib/output/index.js": "2bffc890867130c4e06524f300a65fd5234500fd991a71656fe2d411eeade09a",
+      "fs-extra/lib/mkdirs/win32.js": "e3c05ed8a8d05807561dc2d09c5088939976106c37ba81cf6eb8b9335c5913d8",
+      "fs-extra/lib/mkdirs/index.js": "714b7221ecf937c8cf3dffefaebc6986d00d2309bccfa048e32173a00165929d",
+      "fs-extra/lib/mkdirs/mkdirs-sync.js": "e43f9110a270b2b22b360a880f42a1292e4b3bb43600fe4962ab0daf3775ee6d",
+      "fs-extra/lib/mkdirs/mkdirs.js": "1b207846f56cb41cd2c980629bdadd37e423e385e385fb1c6e9c8bc92ac5ae65",
+      "fs-extra/lib/json/output-json.js": "64a6daf28c5ea2ead19c3d88153f37c9137ae9084cbfeb71e00990267120b0bf",
+      "fs-extra/lib/json/index.js": "20aa1413e95c415d911650ee5f1bc38401d9e6b0c0c1838bc3e69a02224f9840",
+      "fs-extra/lib/json/output-json-sync.js": "b4da579d2773cc51b1d81633ed3a7b163f000b78def43282fd7c7579105c234e",
+      "fs-extra/lib/json/jsonfile.js": "6f07246a2e3b26171a2f86b1a75618c7895c0ad19bf82cd43a275da830fcdaf6",
+      "fs-extra/lib/copy/ncp.js": "b004656c82063161aa1d5bd7695b25d2f3f26a357ddbdf96f15100df5d4599d2",
+      "fs-extra/lib/copy/copy.js": "578b1cef74b540046dd10b1e24ff0af39c855e0cdbedfc47943b1b2ac5f70f17",
+      "fs-extra/lib/copy/index.js": "2d45292dc3d280c8ee1e32c332e69fdd81ece987ee5baa8522dd8bd9208b4c8c",
+      "supports-preserve-symlinks-flag/index.js": "1d565122b3861c88d9c367fbe4f7ee5a1606429bcdec5a429129549abec2115c",
+      "supports-preserve-symlinks-flag/package.json": "aef0ae2d21ae9181d8702c2063ce0ee274ba1063e5312e4baab5673aa6d4d5db",
+      "supports-preserve-symlinks-flag/browser.js": "f53f91e08e1243f1b20840f8b04079873987c4fc7b3ce4db29c3503268175fb4",
+      "supports-preserve-symlinks-flag/test/index.js": "b80a3607ca19e18384059a67793a37d10772d7285d43abcece946a939db07528",
+      "spdx-license-ids/package.json": "6897dee2944aee17aff9226a9fc84ed07ab5f79d8606a20b76fdec93be73ff63",
+      "spdx-license-ids/deprecated.json": "29c9e630daa0adc09dec96ddeb6f81d1046210e81824bebda6486250450fb130",
+      "spdx-license-ids/index.json": "2e45ab65c2a1e4fbda9862ac01cfda5fac25a4ce5d37536052638c483db965ba",
+      "brace-expansion/index.js": "7b65bfff6b542eb77a13c79f83bcdffb7e9689c0da1187c54cb6fb6cdb2a4c8f",
+      "brace-expansion/package.json": "ffd1f96a15b7c022cd0b5ed5ef40a7337ada2e78debed2c85d79d5ae43ccabd0",
+      "get-caller-file/index.js": "aa2f6490c783e6c5ae3bd700ed774d514ae152aeb7f9fdeb77e2f62afe98bb44",
+      "get-caller-file/package.json": "fed303de5f484101de03edfc85c2d60f6fbcdcd304a99b2fec5bb0a838ed3bf0",
+      "path-parse/index.js": "6bd95b5d0cf6f3821cc8acf81c2f4d84b7a158f6fd284659884f9e3b44f34124",
+      "path-parse/package.json": "9c680ecfd322afe056b4ccbfdb6c7043342276903f017c0a29b77c3926790d13",
+      "load-json-file/index.js": "8c33f2c8dc91d2e89f7cfdfb1f0a9e5f20947d27bd1317eba1226bf05241fb17",
+      "load-json-file/package.json": "948d50d5b71b75e5737ef4ac08c7acbddf1478b1afd6b3ad2d195beab264b9a0",
+      "pinkie/index.js": "8c78d177d3a72d5e7e6586b5d5e4327399d008bfd96cf15e42da655e2fe293a1",
+      "pinkie/package.json": "afcd1666f0ca44b0ffe0587fbd1db52799334626cb121ef4eaa1780a9951dfb7",
+      "semver/semver.js": "9894ea74a46345b9dcff1491f644a1585db47e0fa737c9cc9e5606744686f74e",
+      "semver/package.json": "caff547bcb99c4985491ad5baa9c0dcc433ccb6f13413b789a087bf2217ffe3a",
+      "window-size/index.js": "7f68169c240b9f86268085abca5fc0e60e02c68009a79ef1ad7aac8d731cecb9",
+      "window-size/package.json": "e63cc17cab5aed6c17bea69e93f7240952759c51c68a251be37105597b0f1bda",
+      "window-size/cli.js": "6304a2ad85a597341545a4ba8608d0bd3a072c0d9cc18a4513df25b6e8ea716a",
+      "number-is-nan/index.js": "ae6aa905876623b7774309fa69f6fb23924760fe2fc2db63a514a468d4b8d8f8",
+      "number-is-nan/package.json": "242447f707a34988f6307983f56ab5efc4bee47dda47f931ad9d53ed9937c78d",
+      "minimatch/package.json": "eefa1c89527d52bbb2e8b053fe8ecf3e3ced399bdba82cf27e0e92edfd833938",
+      "minimatch/minimatch.js": "746849f267c4868a53729225bd85c7dccd387712136fb305fcc0a3eadd4a3d9d",
+      "is-core-module/index.js": "1ef75b5126cfc5720c4a4ce7e07d5c65c217fc3bff1df67284d1faa676a32a40",
+      "is-core-module/core.json": "62f3a8881d5932824d705fdecf6d6de978354b578360809d4079032545eb8ed0",
+      "is-core-module/package.json": "23d2acfe98b94e89d142893c6f7b02e53ff1023f034cb4bcdec9b3429e48f220",
+      "validate-npm-package-license/index.js": "bb81b15cca6d4c7fbc3cbcc0c473359bdc257f772d5a836fc189027de1acde67",
+      "validate-npm-package-license/package.json": "e510bebf52a39ff777c88c3494b0bba688252b361edf0774aec2b7dd8bb1fde4",
+      "fs.realpath/old.js": "07245a82717f9bfa2a63b9784284a1b7fc43ff5fcb4af2a94bce5f83611d4a2f",
+      "fs.realpath/index.js": "2e334ba43cd4852f7a3ed68159029167c05d7fa6af536e6ef177eb868ccd1bb8",
+      "fs.realpath/package.json": "2985019b1b3cf5894df9b831816f7b480833931da982489e3a98c346ce7da897",
+      "os-locale/index.js": "85caa959c2a2883711f694ed875e0ee1519f4f740ffdc64054e3e7ff215bf344",
+      "os-locale/package.json": "5affa51bc146fb2b5eccd0398211a9dec9d35f1ba2d2b2ebcb3e39e7faa15c52",
+      "concat-map/index.js": "091b65d778337599d0140b35d53c038603d1732d27c33bfe39e03871a96926b2",
+      "concat-map/package.json": "4fe5e8089b65ebfd55bb86f465ba896ba6a8e24b7b61de1e0f420f590616b118",
+      "concat-map/test/map.js": "e2a41fad6a88afcd0958cb9f93217ac2d62670d2a116ab7deb2b790e8f9bc90a",
+      "concat-map/example/map.js": "ffd5fbdaf966b799cd9d046624be96b48e206920e58ad52d2ed1f2bdd10e93d0",
+      "is-utf8/package.json": "60e0c3f7db395f6ad28d8c90d4151f71a1dd2c74078a6d83f5e23814ee11953c",
+      "is-utf8/is-utf8.js": "635be415f93491eb3ebf52fad3f68bd59621d6b53a1b9fd1d66b189f1767d05d",
+      "memorystream/Gruntfile.js": "b340ed0d9e5db5bbcfc019edb4cb7f1f758ade1c2941bec68b53b852fecdca8b",
+      "memorystream/index.js": "cbcfd7ab33d1009f5ae828ca45a918e93e3752b054befecf09964869d88ea612",
+      "memorystream/package.json": "dfff650f4c6c600aaaeeab58f50429325a94ebcbe28a0689c3c4b545b270b76a",
+      "memorystream/test/example.js": "b645119c26a68d1a8f2623883491518fa752d21f56f72f7a9a2252b52d02d59d",
+      "memorystream/test/memorystream.test.js": "e30ff98263ba0d7824380181c66b40a2c95fac7f2c845747a4a87180f2425049",
+      "which-module/index.js": "cd3b335884bb4d258e863128b87f90a8025ce97c9cde64b9114e8cfbfc71618c",
+      "which-module/package.json": "d433a26a4ce8ff5e1f78c8a47420be922851352ecddcee1a5fc0463c3d1118cf",
+      "is-arrayish/index.js": "2b9860e6cb7fdc4edb7b31d893738d8631f52b7289ad74c7dd3b3d3ad79e4eb5",
+      "is-arrayish/package.json": "7598eefa3f8d75a42582eed0c3756c863984106147f63c7e7c088a8b31be7c19",
+      "spdx-expression-parse/index.js": "108d9f96d7901b70f3cf4ea369ee2c7b3c47e28d23b9bb67a69a559831d245bf",
+      "spdx-expression-parse/parse.js": "629d3bef1a8ea96455646d2d0594949fe6c332b2be95fd7d2b6502a918c423c1",
+      "spdx-expression-parse/package.json": "019a60839cf6b909b3f7f7079888edce8d9aa7de6c296bb4ef7e2df587173afb",
+      "spdx-expression-parse/scan.js": "b3c4dcd0af9b6e72cd1c56335db37447657114e8201271653bf35c5bfe7afba6",
+      "cliui/index.js": "f636a12d6ffa966fdf873907abf47e6f53be5649de9c3c2118de56dc0e68bdf7",
+      "cliui/package.json": "069b1bef1acbea234512d75819b3dc22588355ecf2632662962bf26dd4271575",
+      "invert-kv/index.js": "667a84b611b874325c70245cc1435228cd8b8175cf13f39c435fbd7209da9a68",
+      "invert-kv/package.json": "4ff273dcae9007c0f880c1bacf945f543e08468c8456285d6ba4bbbb0d70c009",
+      "yargs/yargs.js": "29f900e98731ab6bb55d5fa88b08b89de33947d9141fd32522021ba40c278373",
+      "yargs/index.js": "08e679ae2233fc24333ed8a56327af55396a05c9193980ddd7c2805b9db4f588",
+      "yargs/package.json": "21943d06824b2a5670f3d23867f6c91067c46700a784f5e4fc100a98b824892a",
+      "yargs/locales/zh.json": "9f4d425f8e3136bb391f9ea22dae4817d30b9a8fdbe9df524b35de3408a719f1",
+      "yargs/locales/tr.json": "d903ef1e7a597e49353645be7a9a73d076ec365f35e6587a5169a427e690a3bd",
+      "yargs/locales/pirate.json": "4494922856dddcb3ebfeebc22ad18ee80cca217274804ce4f7e4483a3facd1ce",
+      "yargs/locales/zh_CN.json": "9f4d425f8e3136bb391f9ea22dae4817d30b9a8fdbe9df524b35de3408a719f1",
+      "yargs/locales/ja.json": "44250eeab6eecfccf5ec32d90792e4675e03aecc09fccdb13110b4ede3ee6dcf",
+      "yargs/locales/de.json": "8f7f6500a6e67702157be294393c8e7f82e2d752ade32f6256f795ed32a3933a",
+      "yargs/locales/pl.json": "5e21b192f03b8d3133ec05f503c898268d82ce0e05ddff97a466a6c7e46e329a",
+      "yargs/locales/pt.json": "1277ab0743dc3a53c0fe399ada39bb5321b5ea77541371842446cae891cf2d32",
+      "yargs/locales/en.json": "eb968593d1ac1b28025c7df3a01cc780ba9cce0f85f66557ded0cc9f5bc254e4",
+      "yargs/locales/it.json": "7d65a8b353389631437f64af473334f17cd5b54dba290908e6136f46021b1abf",
+      "yargs/locales/fr.json": "93de78be5a4b194c2b6102b8e6a8d4b62bba681fc229696f054ceb3794e3c1c6",
+      "yargs/locales/ko.json": "5de3d91773612f443676f4a0b6efe11ded739c655d40068e30bc24f8be0e72a9",
+      "yargs/locales/id.json": "8cb9f291b6ba67aeb9e144f8f5f6e2ba186460d4257f9179a1abb95a338681c3",
+      "yargs/locales/pt_BR.json": "e2a1c6bc3c042c9cd39043b9fc6fcd9a3c0c075cf2259fb8aa4262fecb7199af",
+      "yargs/locales/es.json": "833e2fe685d53f1f8334c550ab34b4a459bcbd875c393d6fb5b707c311ce8687",
+      "yargs/locales/nb.json": "344afd8dea0419fa15d9218be472ee80ab57a51cce6080707abe1da15d59d271",
+      "yargs/lib/completion.js": "0955a86cdf129c32ad3e4fe4c4fd1bcd8d57ba3e71b1ff90a7ff5147271d7a2b",
+      "yargs/lib/command.js": "be078a195d4f8f18ed6d17eeca08c2075d26bf2486c28b392e691d3cc646df29",
+      "yargs/lib/validation.js": "f3f2a0d509195e0376680825ee75a3c41666f755a037f515d621e49afd9729c0",
+      "yargs/lib/usage.js": "b7f4387add0c04424fb25f5d7a043e230df426645e0182f3ce9aa70917242dc4",
+      "yargs/lib/obj-filter.js": "fffdd4c7cc6992834995b68b35d67329c7875d444296b7a53c00cdfb580529b4",
+      "glob/sync.js": "0f61227f4b55297f1ad16798c53e6a6dd55d633856f153133716413b7c5f61ad",
+      "glob/package.json": "b00b6d35eda6d4aa6893baf19e53b7d005019ed840e4fa116c926a532ec577cf",
+      "glob/common.js": "b867e089ab5d4ab19a83e5b34da3dd7f4018fdf255fcacc681aab87d41dc77e8",
+      "glob/glob.js": "b8f35657ca927593d0f9e1aae3a8cfe9c33c697bf3c5733c2f6727f25ae25be1",
+      "code-point-at/index.js": "5754f556e5e9888233cbef45872a7f8b49419527403a4fd5c77b99278b389fcd",
+      "code-point-at/package.json": "25069e9b754306d51bb333f034a741d99e052bee4c99d13ecdba7f485bb01749",
+      "string-width/index.js": "7d88178fb35726264fa3a8500abeae44d5b585491edf3cd5b0ecf4dec1bbb299",
+      "string-width/package.json": "d33f936e64b142b548af5923f28d0e3bf1bc8cac3dca174bc0d1f8d068e91868",
+      "camelcase/index.js": "487b7efdb9f137a0a4529b850ac7f2382ca23973f363456bcaf695a1a46c132b",
+      "camelcase/package.json": "ba65c660b199daed1f2c03fed4f607c873eb0ae4b5bdc19500225b9d09c5de2b",
+      "wrappy/package.json": "712ac9c4c3cef8bc79f42cf6075ff18551f4cb768f35158214fd643853ad7abc",
+      "wrappy/wrappy.js": "153453c4d84a3c2f13589c37055a7daff61d48475dcce554f7eedad15fc7b3e5",
+      "set-blocking/index.js": "8b238f1de62bb2a7b35a9e6b0364a64ce0f357cb63251580ff5a25429712e1d1",
+      "set-blocking/package.json": "e0c598215c66f2c35edbc3cb2a3433d45f9d4b726524c095c93e7376d87a3bce",
+      "lcid/lcid.json": "9d3eb7570f33fc619019cf1a22bce7dbb5d39db6af4ce35b7d412c661bd0d6f6",
+      "lcid/index.js": "6f4d4ce756e73dc1e7baefefc69c048aa5dc74c8f1e626305777ca5365ebcb40",
+      "lcid/package.json": "7d7d222b2b0e62080f895312eb9ff83a4429606313d1327d28c63ba61d0f8bdf",
+      "graceful-fs/polyfills.js": "66ea1687ed5edf39d67296d26edccc8da695d9a869303a78d0e580cd770aca27",
+      "graceful-fs/graceful-fs.js": "7da35669b6b6b0e4aafee31674c033f2cebb0c8f9ae010f709dcc185d3f17786",
+      "graceful-fs/package.json": "7cc365c012febc9c44ef6d998b49d749840c852d91db3302b19eb6eca07ead3d",
+      "graceful-fs/clone.js": "7258eca52e65d69845759503f9fdd66c252f40e5eafb76db5d481172e31ac9ed",
+      "graceful-fs/legacy-streams.js": "60a6a7ecf7c3e55a3ffaae13433b6cff388b7205bba6daf393c863f77a949e36",
+      "require-from-string/index.js": "08a485a5fbe80a2f2f455cc94a9fd0846adeb82760d5fc1663388ef73e00a772",
+      "require-from-string/package.json": "0f71653e825ef92d80880002adcf216964760572654dd098ac6c66ce644faf51",
+      "read-pkg/index.js": "409c677842d146f38533d942971150ecfb0cfa85068d18fcda8ef0c329e91255",
+      "read-pkg/package.json": "313716dc1134b143d618c096d32c3b03981833f797f82b95e2c0e8e7c028ef9b",
+      "inflight/inflight.js": "e33ea098a91d2c41be886fbbcecacb9799fe183d8a446f138a4786cb3d809802",
+      "inflight/package.json": "5f2489e13f73e9ebad999134fae8a591f6d8b58e8341ec8e3b33397c4d1ef817"
+    },
+    "registry_tarballs": {
+      "solc@0.4.24": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.4.24.tgz",
+        "integrity": "sha512-2xd7Cf1HeVwrIb6Bu1cwY2/TaLRodrppCq3l7rhLimFQgmxptXhTC3+/wesVLpB09F1A2kZgvbMOgH7wvhFnBQ=="
+      },
+      "solc@0.8.19": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.8.19.tgz",
+        "integrity": "sha512-yqurS3wzC4LdEvmMobODXqprV4MYJcVtinuxgrp61ac8K2zz40vXA0eSAskSHPgv8dQo7Nux39i3QBsHx4pqyA=="
+      },
+      "hosted-git-info@2.8.9": {
+        "url": "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-2.8.9.tgz",
+        "integrity": "sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw=="
+      },
+      "lodash.assign@4.2.0": {
+        "url": "https://registry.npmjs.org/lodash.assign/-/lodash.assign-4.2.0.tgz",
+        "integrity": "sha512-hFuH8TY+Yji7Eja3mGiuAxBqLagejScbG8GbG0j6o9vzn0YL14My+ktnqtZgFTosKymC9/44wP6s7xyuLfnClw=="
+      },
+      "path-is-absolute@1.0.1": {
+        "url": "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz",
+        "integrity": "sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg=="
+      },
+      "normalize-package-data@2.5.0": {
+        "url": "https://registry.npmjs.org/normalize-package-data/-/normalize-package-data-2.5.0.tgz",
+        "integrity": "sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA=="
+      },
+      "spdx-exceptions@2.5.0": {
+        "url": "https://registry.npmjs.org/spdx-exceptions/-/spdx-exceptions-2.5.0.tgz",
+        "integrity": "sha512-PiU42r+xO4UbUS1buo3LPJkjlO7430Xn5SVAhdpzzsPHsjbYVflnnFdATgabnLude+Cqu25p6N+g2lw/PFsa4w=="
+      },
+      "path-type@1.1.0": {
+        "url": "https://registry.npmjs.org/path-type/-/path-type-1.1.0.tgz",
+        "integrity": "sha512-S4eENJz1pkiQn9Znv33Q+deTOKmbl+jj1Fl+qiP/vYezj+S8x+J3Uo0ISrx/QoEvIlOaDWJhPaRd1flJ9HXZqg=="
+      },
+      "strip-ansi@3.0.1": {
+        "url": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz",
+        "integrity": "sha512-VhumSSbBqDTP8p2ZLKj40UjBCV4+v8bUSEpUb4KjRgWk9pbqGF4REFj6KEagidb2f/M6AzC0EmFyDNGaw9OCzg=="
+      },
+      "es-errors@1.3.0": {
+        "url": "https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz",
+        "integrity": "sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw=="
+      },
+      "require-main-filename@1.0.1": {
+        "url": "https://registry.npmjs.org/require-main-filename/-/require-main-filename-1.0.1.tgz",
+        "integrity": "sha512-IqSUtOVP4ksd1C/ej5zeEh/BIP2ajqpn8c5x+q99gvcIG/Qf0cud5raVnE/Dwd0ua9TXYDoDc0RE5hBSdz22Ug=="
+      },
+      "require-directory@2.1.1": {
+        "url": "https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz",
+        "integrity": "sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q=="
+      },
+      "rimraf@2.7.1": {
+        "url": "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz",
+        "integrity": "sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w=="
+      },
+      "error-ex@1.3.4": {
+        "url": "https://registry.npmjs.org/error-ex/-/error-ex-1.3.4.tgz",
+        "integrity": "sha512-sqQamAnR14VgCr1A618A3sGrygcpK+HEbenA/HiEAkkUwcZIIB/tgWqHFxWgOyDh4nB4JCRimh79dR5Ywc9MDQ=="
+      },
+      "klaw@1.3.1": {
+        "url": "https://registry.npmjs.org/klaw/-/klaw-1.3.1.tgz",
+        "integrity": "sha512-TED5xi9gGQjGpNnvRWknrwAB1eL5GciPfVFOt3Vk1OJCVDQbzuSfrF3hkUQKlsgKrG1F+0t5W0m+Fje1jIt8rw=="
+      },
+      "balanced-match@1.0.2": {
+        "url": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+        "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
+      },
+      "path-exists@2.1.0": {
+        "url": "https://registry.npmjs.org/path-exists/-/path-exists-2.1.0.tgz",
+        "integrity": "sha512-yTltuKuhtNeFJKa1PiRzfLAU5182q1y4Eb4XCJ3PBqyzEDkAZRzBrKKBct682ls9reBVHf9udYLN5Nd+K1B9BQ=="
+      },
+      "resolve@1.22.14": {
+        "url": "https://registry.npmjs.org/resolve/-/resolve-1.22.14.tgz",
+        "integrity": "sha512-1ZjYvR9sbkiwC5+9QHetqW5HmA2pHRMaoupD01t2HlYnV/vydC2zPwLixhsMieSWVZt0JJRg5LVIk0Ow1D/TrA=="
+      },
+      "parse-json@2.2.0": {
+        "url": "https://registry.npmjs.org/parse-json/-/parse-json-2.2.0.tgz",
+        "integrity": "sha512-QR/GGaKCkhwk1ePQNYDRKYZ3mwU9ypsKhB0XyFnLQdomyEqk3e8wpW3V5Jp88zbxK4n5ST1nqo+g9juTpownhQ=="
+      },
+      "pinkie-promise@2.0.1": {
+        "url": "https://registry.npmjs.org/pinkie-promise/-/pinkie-promise-2.0.1.tgz",
+        "integrity": "sha512-0Gni6D4UcLTbv9c57DfxDGdr41XfgUjqWZu492f0cIGr16zDU06BWP/RAEvOuo7CQ0CNjHaLlM59YJJFm3NWlw=="
+      },
+      "wrap-ansi@2.1.0": {
+        "url": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-2.1.0.tgz",
+        "integrity": "sha512-vAaEaDM946gbNpH5pLVNR+vX2ht6n0Bt3GXwVB1AuAqZosOvHNF3P7wDnh8KLkSqgUh0uh77le7Owgoz+Z9XBw=="
+      },
+      "y18n@3.2.2": {
+        "url": "https://registry.npmjs.org/y18n/-/y18n-3.2.2.tgz",
+        "integrity": "sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ=="
+      },
+      "once@1.4.0": {
+        "url": "https://registry.npmjs.org/once/-/once-1.4.0.tgz",
+        "integrity": "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w=="
+      },
+      "spdx-correct@3.2.0": {
+        "url": "https://registry.npmjs.org/spdx-correct/-/spdx-correct-3.2.0.tgz",
+        "integrity": "sha512-kN9dJbvnySHULIluDHy32WHRUu3Og7B9sbY7tsFLctQkIqnMh3hErYgdMjTYuqmcXX+lK5T1lnUt3G7zNswmZA=="
+      },
+      "function-bind@1.1.2": {
+        "url": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz",
+        "integrity": "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA=="
+      },
+      "is-fullwidth-code-point@1.0.0": {
+        "url": "https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-1.0.0.tgz",
+        "integrity": "sha512-1pqUqRjkhPJ9miNq9SwMfdvi6lBJcd6eFxvfaivQhaH3SgisfiuudvFntdKOmxuee/77l+FPjKrQjWvmPjWrRw=="
+      },
+      "yargs-parser@2.4.1": {
+        "url": "https://registry.npmjs.org/yargs-parser/-/yargs-parser-2.4.1.tgz",
+        "integrity": "sha512-9pIKIJhnI5tonzG6OnCFlz/yln8xHYcGl+pn3xR0Vzff0vzN1PbNRaelgfgRUwZ3s4i3jvxT9WhmUGL4whnasA=="
+      },
+      "inherits@2.0.4": {
+        "url": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+        "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+      },
+      "jsonfile@2.4.0": {
+        "url": "https://registry.npmjs.org/jsonfile/-/jsonfile-2.4.0.tgz",
+        "integrity": "sha512-PKllAqbgLgxHaj8TElYymKCAgrASebJrWpTnEkOaTowt23VKXXN0sUeriJ+eh7y6ufb/CC5ap11pz71/cM0hUw=="
+      },
+      "read-pkg-up@1.0.1": {
+        "url": "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-1.0.1.tgz",
+        "integrity": "sha512-WD9MTlNtI55IwYUS27iHh9tK3YoIVhxis8yKhLpTqWtml739uXc9NWTpxoHkfZf3+DkCCsXox94/VWZniuZm6A=="
+      },
+      "decamelize@1.2.0": {
+        "url": "https://registry.npmjs.org/decamelize/-/decamelize-1.2.0.tgz",
+        "integrity": "sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA=="
+      },
+      "pify@2.3.0": {
+        "url": "https://registry.npmjs.org/pify/-/pify-2.3.0.tgz",
+        "integrity": "sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog=="
+      },
+      "hasown@2.0.4": {
+        "url": "https://registry.npmjs.org/hasown/-/hasown-2.0.4.tgz",
+        "integrity": "sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A=="
+      },
+      "strip-bom@2.0.0": {
+        "url": "https://registry.npmjs.org/strip-bom/-/strip-bom-2.0.0.tgz",
+        "integrity": "sha512-kwrX1y7czp1E69n2ajbG65mIo9dqvJ+8aBQXOGVxqwvNbsXdFM6Lq37dLAY3mknUwru8CfcCbfOLL/gMo+fi3g=="
+      },
+      "find-up@1.1.2": {
+        "url": "https://registry.npmjs.org/find-up/-/find-up-1.1.2.tgz",
+        "integrity": "sha512-jvElSjyuo4EMQGoTwo1uJU5pQMwTW5lS1x05zzfJuTIyLR3zwO27LYrxNg+dlvKpGOuGy/MzBdXh80g0ve5+HA=="
+      },
+      "ansi-regex@2.1.1": {
+        "url": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-2.1.1.tgz",
+        "integrity": "sha512-TIGnTpdo+E3+pCyAluZvtED5p5wCqLdezCyhPZzKPcxvFplEt4i+W7OONCKgeZFT3+y5NZZfOOS/Bdcanm1MYA=="
+      },
+      "fs-extra@0.30.0": {
+        "url": "https://registry.npmjs.org/fs-extra/-/fs-extra-0.30.0.tgz",
+        "integrity": "sha512-UvSPKyhMn6LEd/WpUaV9C9t3zATuqoqfWc3QdPhPLb58prN9tqYPlPWi8Krxi44loBoUzlobqZ3+8tGpxxSzwA=="
+      },
+      "supports-preserve-symlinks-flag@1.0.0": {
+        "url": "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz",
+        "integrity": "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="
+      },
+      "spdx-license-ids@3.0.24": {
+        "url": "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.24.tgz",
+        "integrity": "sha512-cLS9TtWkIQFyLkJ3/5aFQAOHOSKTlOs/7WDut/XPSdjom1fJhUdkepeJAKXa9Y05+FabHd0sti+Et559vDtkpQ=="
+      },
+      "brace-expansion@1.1.22": {
+        "url": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.22.tgz",
+        "integrity": "sha512-CKLDTuSsN0+r1ThM0WkzzBI7dnPI6xEGfa/JnVYIK9JNBA1N1NyPwXVHor//NKD/y3sDxp764sZdLhFK7pH8XQ=="
+      },
+      "get-caller-file@1.0.3": {
+        "url": "https://registry.npmjs.org/get-caller-file/-/get-caller-file-1.0.3.tgz",
+        "integrity": "sha512-3t6rVToeoZfYSGd8YoLFR2DJkiQrIiUrGcjvFX2mDw3bn6k2OtwHN0TNCLbBO+w8qTvimhDkv+LSscbJY1vE6w=="
+      },
+      "path-parse@1.0.7": {
+        "url": "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz",
+        "integrity": "sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw=="
+      },
+      "load-json-file@1.1.0": {
+        "url": "https://registry.npmjs.org/load-json-file/-/load-json-file-1.1.0.tgz",
+        "integrity": "sha512-cy7ZdNRXdablkXYNI049pthVeXFurRyb9+hA/dZzerZ0pGTx42z+y+ssxBaVV2l70t1muq5IdKhn4UtcoGUY9A=="
+      },
+      "pinkie@2.0.4": {
+        "url": "https://registry.npmjs.org/pinkie/-/pinkie-2.0.4.tgz",
+        "integrity": "sha512-MnUuEycAemtSaeFSjXKW/aroV7akBbY+Sv+RkyqFjgAe73F+MR0TBWKBRDkmfWq/HiFmdavfZ1G7h4SPZXaCSg=="
+      },
+      "semver@5.7.3": {
+        "url": "https://registry.npmjs.org/semver/-/semver-5.7.3.tgz",
+        "integrity": "sha512-kM18BPOqTi0+TB68703/GJRpAML5Me+IDQsR1J26YB3EFKKNEyHIVZuWDX7+WKQB3tHwDwgk24BfhdpWUbytvQ=="
+      },
+      "window-size@0.2.0": {
+        "url": "https://registry.npmjs.org/window-size/-/window-size-0.2.0.tgz",
+        "integrity": "sha512-UD7d8HFA2+PZsbKyaOCEy8gMh1oDtHgJh1LfgjQ4zVXmYjAT/kvz3PueITKuqDiIXQe7yzpPnxX3lNc+AhQMyw=="
+      },
+      "number-is-nan@1.0.1": {
+        "url": "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz",
+        "integrity": "sha512-4jbtZXNAsfZbAHiiqjLPBiCl16dES1zI4Hpzzxw61Tk+loF+sBDBKx1ICKKKwIqQ7M0mFn1TmkN7euSncWgHiQ=="
+      },
+      "minimatch@3.1.5": {
+        "url": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+        "integrity": "sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w=="
+      },
+      "is-core-module@2.18.0": {
+        "url": "https://registry.npmjs.org/is-core-module/-/is-core-module-2.18.0.tgz",
+        "integrity": "sha512-qyax9fgaKOEC4qK8WZn7Q4IcoZC9RC1O1fFxRcRTq/oMMkWT/uXpqpXa12kzWR409zAt1drYN9N9BO26UmBCmw=="
+      },
+      "validate-npm-package-license@3.0.4": {
+        "url": "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz",
+        "integrity": "sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew=="
+      },
+      "fs.realpath@1.0.0": {
+        "url": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz",
+        "integrity": "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
+      },
+      "os-locale@1.4.0": {
+        "url": "https://registry.npmjs.org/os-locale/-/os-locale-1.4.0.tgz",
+        "integrity": "sha512-PRT7ZORmwu2MEFt4/fv3Q+mEfN4zetKxufQrkShY2oGvUms9r8otu5HfdyIFHkYXjO7laNsoVGmM2MANfuTA8g=="
+      },
+      "concat-map@0.0.1": {
+        "url": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz",
+        "integrity": "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
+      },
+      "is-utf8@0.2.1": {
+        "url": "https://registry.npmjs.org/is-utf8/-/is-utf8-0.2.1.tgz",
+        "integrity": "sha512-rMYPYvCzsXywIsldgLaSoPlw5PfoB/ssr7hY4pLfcodrA5M/eArza1a9VmTiNIBNMjOGr1Ow9mTyU2o69U6U9Q=="
+      },
+      "memorystream@0.3.1": {
+        "url": "https://registry.npmjs.org/memorystream/-/memorystream-0.3.1.tgz",
+        "integrity": "sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw=="
+      },
+      "which-module@1.0.0": {
+        "url": "https://registry.npmjs.org/which-module/-/which-module-1.0.0.tgz",
+        "integrity": "sha512-F6+WgncZi/mJDrammbTuHe1q0R5hOXv/mBaiNA2TCNT/LTHusX0V+CJnj9XT8ki5ln2UZyyddDgHfCzyrOH7MQ=="
+      },
+      "is-arrayish@0.2.1": {
+        "url": "https://registry.npmjs.org/is-arrayish/-/is-arrayish-0.2.1.tgz",
+        "integrity": "sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg=="
+      },
+      "spdx-expression-parse@3.0.1": {
+        "url": "https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-3.0.1.tgz",
+        "integrity": "sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q=="
+      },
+      "cliui@3.2.0": {
+        "url": "https://registry.npmjs.org/cliui/-/cliui-3.2.0.tgz",
+        "integrity": "sha512-0yayqDxWQbqk3ojkYqUKqaAQ6AfNKeKWRNA8kR0WXzAsdHpP4BIaOmMAG87JGuO6qcobyW4GjxHd9PmhEd+T9w=="
+      },
+      "invert-kv@1.0.0": {
+        "url": "https://registry.npmjs.org/invert-kv/-/invert-kv-1.0.0.tgz",
+        "integrity": "sha512-xgs2NH9AE66ucSq4cNG1nhSFghr5l6tdL15Pk+jl46bmmBapgoaY/AacXyaDznAqmGL99TiLSQgO/XazFSKYeQ=="
+      },
+      "yargs@4.8.1": {
+        "url": "https://registry.npmjs.org/yargs/-/yargs-4.8.1.tgz",
+        "integrity": "sha512-LqodLrnIDM3IFT+Hf/5sxBnEGECrfdC1uIbgZeJmESCSo4HoCAaKEus8MylXHAkdacGc0ye+Qa+dpkuom8uVYA=="
+      },
+      "glob@7.2.3": {
+        "url": "https://registry.npmjs.org/glob/-/glob-7.2.3.tgz",
+        "integrity": "sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q=="
+      },
+      "code-point-at@1.1.0": {
+        "url": "https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz",
+        "integrity": "sha512-RpAVKQA5T63xEj6/giIbUEtZwJ4UFIc3ZtvEkiaUERylqe8xb5IvqcgOurZLahv93CLKfxcw5YI+DZcUBRyLXA=="
+      },
+      "string-width@1.0.2": {
+        "url": "https://registry.npmjs.org/string-width/-/string-width-1.0.2.tgz",
+        "integrity": "sha512-0XsVpQLnVCXHJfyEs8tC0zpTVIr5PKKsQtkT29IwupnPTjtPmQ3xT/4yCREF9hYkV/3M3kzcUTSAZT6a6h81tw=="
+      },
+      "camelcase@3.0.0": {
+        "url": "https://registry.npmjs.org/camelcase/-/camelcase-3.0.0.tgz",
+        "integrity": "sha512-4nhGqUkc4BqbBBB4Q6zLuD7lzzrHYrjKGeYaEji/3tFR5VdJu9v+LilhGIVe8wxEJPPOeWo7eg8dwY13TZ1BNg=="
+      },
+      "wrappy@1.0.2": {
+        "url": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz",
+        "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
+      },
+      "set-blocking@2.0.0": {
+        "url": "https://registry.npmjs.org/set-blocking/-/set-blocking-2.0.0.tgz",
+        "integrity": "sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw=="
+      },
+      "lcid@1.0.0": {
+        "url": "https://registry.npmjs.org/lcid/-/lcid-1.0.0.tgz",
+        "integrity": "sha512-YiGkH6EnGrDGqLMITnGjXtGmNtjoXw9SVUzcaos8RBi7Ps0VBylkq+vOcY9QE5poLasPCR849ucFUkl0UzUyOw=="
+      },
+      "graceful-fs@4.2.12": {
+        "url": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.12.tgz",
+        "integrity": "sha512-iuyGF2E4oafQfPsRrG2wtY2ILupMhvtdrhzrxB+0VcjsPpSPttpfYdjnGFGsTi5MaJFjI1jOKHPQ6UTbTj9TAw=="
+      },
+      "require-from-string@1.2.1": {
+        "url": "https://registry.npmjs.org/require-from-string/-/require-from-string-1.2.1.tgz",
+        "integrity": "sha512-H7AkJWMobeskkttHyhTVtS0fxpFLjxhbfMa6Bk3wimP7sdPRGL3EyCg3sAQenFfAe+xQ+oAc85Nmtvq0ROM83Q=="
+      },
+      "read-pkg@1.1.0": {
+        "url": "https://registry.npmjs.org/read-pkg/-/read-pkg-1.1.0.tgz",
+        "integrity": "sha512-7BGwRHqt4s/uVbuyoeejRn4YmFnYZiFl4AuaeXHlgZf3sONF0SOGlxs2Pw8g6hCKupo08RafIO5YXFNOKTfwsQ=="
+      },
+      "inflight@1.0.6": {
+        "url": "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz",
+        "integrity": "sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA=="
+      }
+    },
+    "full_version": "0.4.24+commit.e67f0147.Emscripten.clang",
+    "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee"
+  },
+  "0.6.6": {
+    "pin_id": "npm-solc-0.6.6-reviewed-v1",
+    "files_sha256": {
+      "solc/translate.js": "a1cb0729af3b7e1ead5dc3cf9c36cfc881e374d1911043a8f456f12c8f7ba1cb",
+      "solc/wrapper.js": "ec7354a7e826ca5aef59f850ec5149dd8b2bdb8835afdbe0f48a1bbfe0c2488c",
+      "solc/soljson.js": "09f6098026622c5c334c7798c3ad2b8f7c0ebc62f87846c7d5e7e725c3d1cbc2",
+      "solc/smtchecker.js": "4daaf8e0d670f40d767107c6ae494b431b6c9d4e31efc596d00c3c497cb328b0",
+      "solc/index.js": "63485638d4865840607bdfed1a30b426ff3eaf6b7463bb9b5cb9701d1d1d06b8",
+      "solc/package.json": "23a30c26ce552cdb8403e17d4dc6a6cef6aec4ebaf407eac8a2d78fb3e724c47",
+      "solc/smtsolver.js": "818193add255ea78d4382f9909befb7648437b873c558eb868c57742481d0e7c",
+      "solc/abi.js": "ff8efda38f268385577665abfc4bbb8e2e689cd6b068df8aaa8344e6081a421f",
+      "solc/linker.js": "01b61e3493903d5f349c827d140fae77cc49801a7de5f60b6cc4385c42ed9622",
+      "solc/common/types.js": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+      "solc/common/helpers.js": "8086fe96c9f4edbf375122311153459502f9cae6708c98b4ae3b6c0e4314334c",
+      "path-is-absolute/index.js": "4eb1119c3eeccc4d8e8841b77d062abaf4572b332801f5b16175bc3311b5d8f1",
+      "path-is-absolute/package.json": "be5b83877f6998b840b9365d7ab77e885f0d583337826c22daccaeb6e303fd4c",
+      "command-exists/index.js": "13f054e3bc257282ba5eb4cd22b1ac3201a0b7b35c664ba709777dfcd81a47f7",
+      "command-exists/package.json": "c0acc936f656bc164946c40c8283b18d53f33cf316569adaf8b6eee195d512cf",
+      "command-exists/test/non-executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/test/test.js": "b5ce8bac604d626de94766fe2b411dde5a2cc3064b60b7a7c83b9c94df5529f9",
+      "command-exists/test/executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/lib/command-exists.js": "3aee1c28a00088a6a2db894dcc5b5e71accac02ffb13a30dd1215dbe80c52658",
+      "os-tmpdir/index.js": "d4593403a467ad0d189d2823df8808a6515b7612e6c141b16b1a7a2db917d732",
+      "os-tmpdir/package.json": "708404ce657fbad57a4804f3ccfcda877e038b981fb9675aebcc57de91e95694",
+      "commander/index.js": "9ee922ce8aab03bf0e345c7eb7660ba2bbf3b04f5a8e50ced7b90fb35dd62999",
+      "commander/package.json": "4f037ffd15ae149c61f79ca38b73a8c601031fee8e4bd4745a3d02a573019a71",
+      "rimraf/bin.js": "6557bc0e1bebd5eedcf1cc7df314c016b6593bcdbf323941c9c5b9ea57e7eedf",
+      "rimraf/rimraf.js": "39b8a308a9d3fecc1b80fb0284b1c9574cc2d9a9a02b18f0961e323d1d5cb72c",
+      "rimraf/package.json": "3fb2eed4a1f87b6d9c0b28cb502967bff6c3bfd3484e505b91b157d88200d071",
+      "klaw/package.json": "16ea33ad46413aef6e0559f73926b8d9480e0234e8fa913f333ee62bef46bb0a",
+      "klaw/src/index.js": "433cae109b8d3d42ac92bc27f27c35f6107c765f9cafa774ad650459dfd338b0",
+      "klaw/src/assign.js": "811ebaa415c0130201fa77eeeb2595ee11bed38673241c7be9daab717378289f",
+      "balanced-match/index.js": "06e4d0037715251cb3be2b2db063662f555b3538d9e30a9c517a54374d941cbc",
+      "balanced-match/package.json": "b30c328501dead1870b894ad604405b2284b571c1f12664cdc61d92a2e3397c2",
+      "once/package.json": "33840d74c14c94bfb75c76374765b635531b1eacb88d7f1f2f380c94d0ea1328",
+      "once/once.js": "3db73e347ecbdbafdf8d0db85145c877e133f5372e767360ef90c09f70ac5103",
+      "inherits/inherits_browser.js": "ad322a7b1dec60f3d2ebda2091816469efb55b567d241cf3cf0fa4c5a4afe500",
+      "inherits/package.json": "be645800bc94fd8de29c8ae91690549b316cc437100108aeea7b2f347693cc80",
+      "inherits/inherits.js": "bb380f32bef5feb18678f0f45f88073fed5d7a0069a309132cb2080cd553d5c7",
+      "jsonfile/index.js": "6768dc1ff8dc737b32e9531a787ec0befa69ea1769d06893158493db0d983cd7",
+      "jsonfile/package.json": "7919bcc7f06f97d125df18304561e3707816f85b52dab1dde4efb2a1ae47d5fe",
+      "fs-extra/package.json": "5897ac8e79f0b2fba0691701ead0fde9993329575d114f88a45a00f6d135584a",
+      "fs-extra/lib/index.js": "c6bc4bf3f6914a6994318b31a30445c39d966035c5d4011b8a8937270ff092cf",
+      "fs-extra/lib/move/index.js": "81bd5b52c46943ec5e24091da85bf7f4b9a31ba418c0cec453bacad307512a15",
+      "fs-extra/lib/ensure/link.js": "90056415ed821cd5dd5b5fe6af992cfd28d531c64b55b09fdf9e0136f969e16f",
+      "fs-extra/lib/ensure/index.js": "ca308cbe4ec1e110a3feccc8c11c222347efe4bd04c5cb576aae48366c5e319d",
+      "fs-extra/lib/ensure/symlink.js": "2469d6d4a7f01388c20384b692b6b4eb34c6a74e7d75960344144660a5c89380",
+      "fs-extra/lib/ensure/file.js": "0096995e24ce1319d00a8a749df4831c5af7285c306c07d3370287d2875434ce",
+      "fs-extra/lib/ensure/symlink-paths.js": "aa191b83b8bb30bad7929904a9fbc87876fab4a876c656e0705b0753dded2625",
+      "fs-extra/lib/ensure/symlink-type.js": "00be26a6705edb85a4acd448e58477b8905899e73f30fc0d673f7c7a24ebd7aa",
+      "fs-extra/lib/remove/index.js": "2e3b2f3e1612db69cbff8efd3f7dfdae18a1eae87964ef56dba3845742aa5823",
+      "fs-extra/lib/walk/index.js": "b7054e63e9470859b029d178461785ec8a6b01fb79a242525eb6b77b66978673",
+      "fs-extra/lib/empty/index.js": "7e7a6df716fab982576a59ce58a62a63693c1ea607911f8a5de437ba98365805",
+      "fs-extra/lib/util/utimes.js": "972557200208a21fc9697b7f8e7405830dbecec16e758eb8eaa1d31c252b3ee4",
+      "fs-extra/lib/util/assign.js": "284206a0323f7cc9a59dd0e902565a8ac19c00485f51135ecb695a21d30b389b",
+      "fs-extra/lib/copy-sync/index.js": "360b7c95ad351f0e7650735a4b4dcda0d5dbed434837a8e08a6fb8d94d2e6b51",
+      "fs-extra/lib/copy-sync/copy-sync.js": "3418b251b8dfefde91ff6267ba839b9194daaf6b805185a7c45491eaa6049740",
+      "fs-extra/lib/copy-sync/copy-file-sync.js": "60d9c76b0ec4ab90ffe07f289dcb2e78ad0581501b207fc4a1acedc54d86e647",
+      "fs-extra/lib/output/index.js": "2bffc890867130c4e06524f300a65fd5234500fd991a71656fe2d411eeade09a",
+      "fs-extra/lib/mkdirs/win32.js": "e3c05ed8a8d05807561dc2d09c5088939976106c37ba81cf6eb8b9335c5913d8",
+      "fs-extra/lib/mkdirs/index.js": "714b7221ecf937c8cf3dffefaebc6986d00d2309bccfa048e32173a00165929d",
+      "fs-extra/lib/mkdirs/mkdirs-sync.js": "e43f9110a270b2b22b360a880f42a1292e4b3bb43600fe4962ab0daf3775ee6d",
+      "fs-extra/lib/mkdirs/mkdirs.js": "1b207846f56cb41cd2c980629bdadd37e423e385e385fb1c6e9c8bc92ac5ae65",
+      "fs-extra/lib/json/output-json.js": "64a6daf28c5ea2ead19c3d88153f37c9137ae9084cbfeb71e00990267120b0bf",
+      "fs-extra/lib/json/index.js": "20aa1413e95c415d911650ee5f1bc38401d9e6b0c0c1838bc3e69a02224f9840",
+      "fs-extra/lib/json/output-json-sync.js": "b4da579d2773cc51b1d81633ed3a7b163f000b78def43282fd7c7579105c234e",
+      "fs-extra/lib/json/jsonfile.js": "6f07246a2e3b26171a2f86b1a75618c7895c0ad19bf82cd43a275da830fcdaf6",
+      "fs-extra/lib/copy/ncp.js": "b004656c82063161aa1d5bd7695b25d2f3f26a357ddbdf96f15100df5d4599d2",
+      "fs-extra/lib/copy/copy.js": "578b1cef74b540046dd10b1e24ff0af39c855e0cdbedfc47943b1b2ac5f70f17",
+      "fs-extra/lib/copy/index.js": "2d45292dc3d280c8ee1e32c332e69fdd81ece987ee5baa8522dd8bd9208b4c8c",
+      "brace-expansion/index.js": "7b65bfff6b542eb77a13c79f83bcdffb7e9689c0da1187c54cb6fb6cdb2a4c8f",
+      "brace-expansion/package.json": "ffd1f96a15b7c022cd0b5ed5ef40a7337ada2e78debed2c85d79d5ae43ccabd0",
+      "semver/semver.js": "9894ea74a46345b9dcff1491f644a1585db47e0fa737c9cc9e5606744686f74e",
+      "semver/package.json": "caff547bcb99c4985491ad5baa9c0dcc433ccb6f13413b789a087bf2217ffe3a",
+      "minimatch/package.json": "eefa1c89527d52bbb2e8b053fe8ecf3e3ced399bdba82cf27e0e92edfd833938",
+      "minimatch/minimatch.js": "746849f267c4868a53729225bd85c7dccd387712136fb305fcc0a3eadd4a3d9d",
+      "fs.realpath/old.js": "07245a82717f9bfa2a63b9784284a1b7fc43ff5fcb4af2a94bce5f83611d4a2f",
+      "fs.realpath/index.js": "2e334ba43cd4852f7a3ed68159029167c05d7fa6af536e6ef177eb868ccd1bb8",
+      "fs.realpath/package.json": "2985019b1b3cf5894df9b831816f7b480833931da982489e3a98c346ce7da897",
+      "concat-map/index.js": "091b65d778337599d0140b35d53c038603d1732d27c33bfe39e03871a96926b2",
+      "concat-map/package.json": "4fe5e8089b65ebfd55bb86f465ba896ba6a8e24b7b61de1e0f420f590616b118",
+      "concat-map/test/map.js": "e2a41fad6a88afcd0958cb9f93217ac2d62670d2a116ab7deb2b790e8f9bc90a",
+      "concat-map/example/map.js": "ffd5fbdaf966b799cd9d046624be96b48e206920e58ad52d2ed1f2bdd10e93d0",
+      "memorystream/Gruntfile.js": "b340ed0d9e5db5bbcfc019edb4cb7f1f758ade1c2941bec68b53b852fecdca8b",
+      "memorystream/index.js": "cbcfd7ab33d1009f5ae828ca45a918e93e3752b054befecf09964869d88ea612",
+      "memorystream/package.json": "dfff650f4c6c600aaaeeab58f50429325a94ebcbe28a0689c3c4b545b270b76a",
+      "memorystream/test/example.js": "b645119c26a68d1a8f2623883491518fa752d21f56f72f7a9a2252b52d02d59d",
+      "memorystream/test/memorystream.test.js": "e30ff98263ba0d7824380181c66b40a2c95fac7f2c845747a4a87180f2425049",
+      "glob/sync.js": "0f61227f4b55297f1ad16798c53e6a6dd55d633856f153133716413b7c5f61ad",
+      "glob/package.json": "b00b6d35eda6d4aa6893baf19e53b7d005019ed840e4fa116c926a532ec577cf",
+      "glob/common.js": "b867e089ab5d4ab19a83e5b34da3dd7f4018fdf255fcacc681aab87d41dc77e8",
+      "glob/glob.js": "b8f35657ca927593d0f9e1aae3a8cfe9c33c697bf3c5733c2f6727f25ae25be1",
+      "wrappy/package.json": "712ac9c4c3cef8bc79f42cf6075ff18551f4cb768f35158214fd643853ad7abc",
+      "wrappy/wrappy.js": "153453c4d84a3c2f13589c37055a7daff61d48475dcce554f7eedad15fc7b3e5",
+      "tmp/package.json": "0d16aba4ccec87190ee9759b70afcb3e57f068f311d440b5093bde3a4c7a8175",
+      "tmp/lib/tmp.js": "8c70c0cd3516bfefe02918b553d9ca986d40003317872a2c05f51afb3e60d651",
+      "js-sha3/package.json": "ba89a2a2189db98b8b9a4134ec744737f2ed3e26ee59357279a170faf93709dd",
+      "js-sha3/build/sha3.min.js": "f0ca4875766b5a96f525754971c8ec5c32b3bd7f76ed636d95eb59d3f372de84",
+      "js-sha3/src/sha3.js": "13590a201b2199f00b74ee711edc1bdf744705dca12f43cc6ef64c32b5767fa9",
+      "graceful-fs/polyfills.js": "66ea1687ed5edf39d67296d26edccc8da695d9a869303a78d0e580cd770aca27",
+      "graceful-fs/graceful-fs.js": "7da35669b6b6b0e4aafee31674c033f2cebb0c8f9ae010f709dcc185d3f17786",
+      "graceful-fs/package.json": "7cc365c012febc9c44ef6d998b49d749840c852d91db3302b19eb6eca07ead3d",
+      "graceful-fs/clone.js": "7258eca52e65d69845759503f9fdd66c252f40e5eafb76db5d481172e31ac9ed",
+      "graceful-fs/legacy-streams.js": "60a6a7ecf7c3e55a3ffaae13433b6cff388b7205bba6daf393c863f77a949e36",
+      "require-from-string/index.js": "cb059342a762b955997bf780f3693add176922727f2fa9f11fcaf1b3fc323239",
+      "require-from-string/package.json": "c0002f7d4c7d7e2a885cf0f97226344902417c3a0980f2beca41962d2bc1f6d8",
+      "inflight/inflight.js": "e33ea098a91d2c41be886fbbcecacb9799fe183d8a446f138a4786cb3d809802",
+      "inflight/package.json": "5f2489e13f73e9ebad999134fae8a591f6d8b58e8341ec8e3b33397c4d1ef817"
+    },
+    "registry_tarballs": {
+      "solc@0.6.6": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.6.6.tgz",
+        "integrity": "sha512-p0IO/1fRaHWKN+qR+mUivpwnBpFYD8EoFAzT8VL4lmllNwsyEO7TJJAc2QK0XUeWOYOT92NWKhDNNNLTVbHShA=="
+      },
+      "solc@0.8.19": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.8.19.tgz",
+        "integrity": "sha512-yqurS3wzC4LdEvmMobODXqprV4MYJcVtinuxgrp61ac8K2zz40vXA0eSAskSHPgv8dQo7Nux39i3QBsHx4pqyA=="
+      },
+      "path-is-absolute@1.0.1": {
+        "url": "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz",
+        "integrity": "sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg=="
+      },
+      "command-exists@1.2.9": {
+        "url": "https://registry.npmjs.org/command-exists/-/command-exists-1.2.9.tgz",
+        "integrity": "sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w=="
+      },
+      "os-tmpdir@1.0.2": {
+        "url": "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz",
+        "integrity": "sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g=="
+      },
+      "commander@3.0.2": {
+        "url": "https://registry.npmjs.org/commander/-/commander-3.0.2.tgz",
+        "integrity": "sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow=="
+      },
+      "rimraf@2.7.1": {
+        "url": "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz",
+        "integrity": "sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w=="
+      },
+      "klaw@1.3.1": {
+        "url": "https://registry.npmjs.org/klaw/-/klaw-1.3.1.tgz",
+        "integrity": "sha512-TED5xi9gGQjGpNnvRWknrwAB1eL5GciPfVFOt3Vk1OJCVDQbzuSfrF3hkUQKlsgKrG1F+0t5W0m+Fje1jIt8rw=="
+      },
+      "balanced-match@1.0.2": {
+        "url": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+        "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
+      },
+      "once@1.4.0": {
+        "url": "https://registry.npmjs.org/once/-/once-1.4.0.tgz",
+        "integrity": "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w=="
+      },
+      "inherits@2.0.4": {
+        "url": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+        "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+      },
+      "jsonfile@2.4.0": {
+        "url": "https://registry.npmjs.org/jsonfile/-/jsonfile-2.4.0.tgz",
+        "integrity": "sha512-PKllAqbgLgxHaj8TElYymKCAgrASebJrWpTnEkOaTowt23VKXXN0sUeriJ+eh7y6ufb/CC5ap11pz71/cM0hUw=="
+      },
+      "fs-extra@0.30.0": {
+        "url": "https://registry.npmjs.org/fs-extra/-/fs-extra-0.30.0.tgz",
+        "integrity": "sha512-UvSPKyhMn6LEd/WpUaV9C9t3zATuqoqfWc3QdPhPLb58prN9tqYPlPWi8Krxi44loBoUzlobqZ3+8tGpxxSzwA=="
+      },
+      "brace-expansion@1.1.22": {
+        "url": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.22.tgz",
+        "integrity": "sha512-CKLDTuSsN0+r1ThM0WkzzBI7dnPI6xEGfa/JnVYIK9JNBA1N1NyPwXVHor//NKD/y3sDxp764sZdLhFK7pH8XQ=="
+      },
+      "semver@5.7.3": {
+        "url": "https://registry.npmjs.org/semver/-/semver-5.7.3.tgz",
+        "integrity": "sha512-kM18BPOqTi0+TB68703/GJRpAML5Me+IDQsR1J26YB3EFKKNEyHIVZuWDX7+WKQB3tHwDwgk24BfhdpWUbytvQ=="
+      },
+      "minimatch@3.1.5": {
+        "url": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+        "integrity": "sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w=="
+      },
+      "fs.realpath@1.0.0": {
+        "url": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz",
+        "integrity": "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
+      },
+      "concat-map@0.0.1": {
+        "url": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz",
+        "integrity": "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
+      },
+      "memorystream@0.3.1": {
+        "url": "https://registry.npmjs.org/memorystream/-/memorystream-0.3.1.tgz",
+        "integrity": "sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw=="
+      },
+      "glob@7.2.3": {
+        "url": "https://registry.npmjs.org/glob/-/glob-7.2.3.tgz",
+        "integrity": "sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q=="
+      },
+      "wrappy@1.0.2": {
+        "url": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz",
+        "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
+      },
+      "tmp@0.0.33": {
+        "url": "https://registry.npmjs.org/tmp/-/tmp-0.0.33.tgz",
+        "integrity": "sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw=="
+      },
+      "js-sha3@0.8.0": {
+        "url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.8.0.tgz",
+        "integrity": "sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q=="
+      },
+      "graceful-fs@4.2.12": {
+        "url": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.12.tgz",
+        "integrity": "sha512-iuyGF2E4oafQfPsRrG2wtY2ILupMhvtdrhzrxB+0VcjsPpSPttpfYdjnGFGsTi5MaJFjI1jOKHPQ6UTbTj9TAw=="
+      },
+      "require-from-string@2.0.2": {
+        "url": "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz",
+        "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="
+      },
+      "inflight@1.0.6": {
+        "url": "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz",
+        "integrity": "sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA=="
+      }
+    },
+    "full_version": "0.6.6+commit.6c089d02.Emscripten.clang",
+    "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee"
+  },
+  "0.6.12": {
+    "pin_id": "npm-solc-0.6.12-reviewed-v1",
+    "files_sha256": {
+      "solc/translate.js": "a1cb0729af3b7e1ead5dc3cf9c36cfc881e374d1911043a8f456f12c8f7ba1cb",
+      "solc/wrapper.js": "f35e0e1e78d9639612463162676c5949e672efcea07005175c436f1088c9cc9c",
+      "solc/soljson.js": "3e1956c550ca48e289044c7c0bd892403081b4b5e17e77ce707c815ce6c4228f",
+      "solc/smtchecker.js": "4daaf8e0d670f40d767107c6ae494b431b6c9d4e31efc596d00c3c497cb328b0",
+      "solc/index.js": "63485638d4865840607bdfed1a30b426ff3eaf6b7463bb9b5cb9701d1d1d06b8",
+      "solc/package.json": "66a19b44d67bd54a1ca48cce333c9a22af4f0e44749cc195ed930431000935e5",
+      "solc/smtsolver.js": "818193add255ea78d4382f9909befb7648437b873c558eb868c57742481d0e7c",
+      "solc/abi.js": "ff8efda38f268385577665abfc4bbb8e2e689cd6b068df8aaa8344e6081a421f",
+      "solc/linker.js": "01b61e3493903d5f349c827d140fae77cc49801a7de5f60b6cc4385c42ed9622",
+      "solc/common/types.js": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+      "solc/common/helpers.js": "8086fe96c9f4edbf375122311153459502f9cae6708c98b4ae3b6c0e4314334c",
+      "path-is-absolute/index.js": "4eb1119c3eeccc4d8e8841b77d062abaf4572b332801f5b16175bc3311b5d8f1",
+      "path-is-absolute/package.json": "be5b83877f6998b840b9365d7ab77e885f0d583337826c22daccaeb6e303fd4c",
+      "command-exists/index.js": "13f054e3bc257282ba5eb4cd22b1ac3201a0b7b35c664ba709777dfcd81a47f7",
+      "command-exists/package.json": "c0acc936f656bc164946c40c8283b18d53f33cf316569adaf8b6eee195d512cf",
+      "command-exists/test/non-executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/test/test.js": "b5ce8bac604d626de94766fe2b411dde5a2cc3064b60b7a7c83b9c94df5529f9",
+      "command-exists/test/executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/lib/command-exists.js": "3aee1c28a00088a6a2db894dcc5b5e71accac02ffb13a30dd1215dbe80c52658",
+      "os-tmpdir/index.js": "d4593403a467ad0d189d2823df8808a6515b7612e6c141b16b1a7a2db917d732",
+      "os-tmpdir/package.json": "708404ce657fbad57a4804f3ccfcda877e038b981fb9675aebcc57de91e95694",
+      "commander/index.js": "9ee922ce8aab03bf0e345c7eb7660ba2bbf3b04f5a8e50ced7b90fb35dd62999",
+      "commander/package.json": "4f037ffd15ae149c61f79ca38b73a8c601031fee8e4bd4745a3d02a573019a71",
+      "rimraf/bin.js": "6557bc0e1bebd5eedcf1cc7df314c016b6593bcdbf323941c9c5b9ea57e7eedf",
+      "rimraf/rimraf.js": "39b8a308a9d3fecc1b80fb0284b1c9574cc2d9a9a02b18f0961e323d1d5cb72c",
+      "rimraf/package.json": "3fb2eed4a1f87b6d9c0b28cb502967bff6c3bfd3484e505b91b157d88200d071",
+      "klaw/package.json": "16ea33ad46413aef6e0559f73926b8d9480e0234e8fa913f333ee62bef46bb0a",
+      "klaw/src/index.js": "433cae109b8d3d42ac92bc27f27c35f6107c765f9cafa774ad650459dfd338b0",
+      "klaw/src/assign.js": "811ebaa415c0130201fa77eeeb2595ee11bed38673241c7be9daab717378289f",
+      "balanced-match/index.js": "06e4d0037715251cb3be2b2db063662f555b3538d9e30a9c517a54374d941cbc",
+      "balanced-match/package.json": "b30c328501dead1870b894ad604405b2284b571c1f12664cdc61d92a2e3397c2",
+      "once/package.json": "33840d74c14c94bfb75c76374765b635531b1eacb88d7f1f2f380c94d0ea1328",
+      "once/once.js": "3db73e347ecbdbafdf8d0db85145c877e133f5372e767360ef90c09f70ac5103",
+      "inherits/inherits_browser.js": "ad322a7b1dec60f3d2ebda2091816469efb55b567d241cf3cf0fa4c5a4afe500",
+      "inherits/package.json": "be645800bc94fd8de29c8ae91690549b316cc437100108aeea7b2f347693cc80",
+      "inherits/inherits.js": "bb380f32bef5feb18678f0f45f88073fed5d7a0069a309132cb2080cd553d5c7",
+      "jsonfile/index.js": "6768dc1ff8dc737b32e9531a787ec0befa69ea1769d06893158493db0d983cd7",
+      "jsonfile/package.json": "7919bcc7f06f97d125df18304561e3707816f85b52dab1dde4efb2a1ae47d5fe",
+      "fs-extra/package.json": "5897ac8e79f0b2fba0691701ead0fde9993329575d114f88a45a00f6d135584a",
+      "fs-extra/lib/index.js": "c6bc4bf3f6914a6994318b31a30445c39d966035c5d4011b8a8937270ff092cf",
+      "fs-extra/lib/move/index.js": "81bd5b52c46943ec5e24091da85bf7f4b9a31ba418c0cec453bacad307512a15",
+      "fs-extra/lib/ensure/link.js": "90056415ed821cd5dd5b5fe6af992cfd28d531c64b55b09fdf9e0136f969e16f",
+      "fs-extra/lib/ensure/index.js": "ca308cbe4ec1e110a3feccc8c11c222347efe4bd04c5cb576aae48366c5e319d",
+      "fs-extra/lib/ensure/symlink.js": "2469d6d4a7f01388c20384b692b6b4eb34c6a74e7d75960344144660a5c89380",
+      "fs-extra/lib/ensure/file.js": "0096995e24ce1319d00a8a749df4831c5af7285c306c07d3370287d2875434ce",
+      "fs-extra/lib/ensure/symlink-paths.js": "aa191b83b8bb30bad7929904a9fbc87876fab4a876c656e0705b0753dded2625",
+      "fs-extra/lib/ensure/symlink-type.js": "00be26a6705edb85a4acd448e58477b8905899e73f30fc0d673f7c7a24ebd7aa",
+      "fs-extra/lib/remove/index.js": "2e3b2f3e1612db69cbff8efd3f7dfdae18a1eae87964ef56dba3845742aa5823",
+      "fs-extra/lib/walk/index.js": "b7054e63e9470859b029d178461785ec8a6b01fb79a242525eb6b77b66978673",
+      "fs-extra/lib/empty/index.js": "7e7a6df716fab982576a59ce58a62a63693c1ea607911f8a5de437ba98365805",
+      "fs-extra/lib/util/utimes.js": "972557200208a21fc9697b7f8e7405830dbecec16e758eb8eaa1d31c252b3ee4",
+      "fs-extra/lib/util/assign.js": "284206a0323f7cc9a59dd0e902565a8ac19c00485f51135ecb695a21d30b389b",
+      "fs-extra/lib/copy-sync/index.js": "360b7c95ad351f0e7650735a4b4dcda0d5dbed434837a8e08a6fb8d94d2e6b51",
+      "fs-extra/lib/copy-sync/copy-sync.js": "3418b251b8dfefde91ff6267ba839b9194daaf6b805185a7c45491eaa6049740",
+      "fs-extra/lib/copy-sync/copy-file-sync.js": "60d9c76b0ec4ab90ffe07f289dcb2e78ad0581501b207fc4a1acedc54d86e647",
+      "fs-extra/lib/output/index.js": "2bffc890867130c4e06524f300a65fd5234500fd991a71656fe2d411eeade09a",
+      "fs-extra/lib/mkdirs/win32.js": "e3c05ed8a8d05807561dc2d09c5088939976106c37ba81cf6eb8b9335c5913d8",
+      "fs-extra/lib/mkdirs/index.js": "714b7221ecf937c8cf3dffefaebc6986d00d2309bccfa048e32173a00165929d",
+      "fs-extra/lib/mkdirs/mkdirs-sync.js": "e43f9110a270b2b22b360a880f42a1292e4b3bb43600fe4962ab0daf3775ee6d",
+      "fs-extra/lib/mkdirs/mkdirs.js": "1b207846f56cb41cd2c980629bdadd37e423e385e385fb1c6e9c8bc92ac5ae65",
+      "fs-extra/lib/json/output-json.js": "64a6daf28c5ea2ead19c3d88153f37c9137ae9084cbfeb71e00990267120b0bf",
+      "fs-extra/lib/json/index.js": "20aa1413e95c415d911650ee5f1bc38401d9e6b0c0c1838bc3e69a02224f9840",
+      "fs-extra/lib/json/output-json-sync.js": "b4da579d2773cc51b1d81633ed3a7b163f000b78def43282fd7c7579105c234e",
+      "fs-extra/lib/json/jsonfile.js": "6f07246a2e3b26171a2f86b1a75618c7895c0ad19bf82cd43a275da830fcdaf6",
+      "fs-extra/lib/copy/ncp.js": "b004656c82063161aa1d5bd7695b25d2f3f26a357ddbdf96f15100df5d4599d2",
+      "fs-extra/lib/copy/copy.js": "578b1cef74b540046dd10b1e24ff0af39c855e0cdbedfc47943b1b2ac5f70f17",
+      "fs-extra/lib/copy/index.js": "2d45292dc3d280c8ee1e32c332e69fdd81ece987ee5baa8522dd8bd9208b4c8c",
+      "brace-expansion/index.js": "7b65bfff6b542eb77a13c79f83bcdffb7e9689c0da1187c54cb6fb6cdb2a4c8f",
+      "brace-expansion/package.json": "ffd1f96a15b7c022cd0b5ed5ef40a7337ada2e78debed2c85d79d5ae43ccabd0",
+      "semver/semver.js": "9894ea74a46345b9dcff1491f644a1585db47e0fa737c9cc9e5606744686f74e",
+      "semver/package.json": "caff547bcb99c4985491ad5baa9c0dcc433ccb6f13413b789a087bf2217ffe3a",
+      "minimatch/package.json": "eefa1c89527d52bbb2e8b053fe8ecf3e3ced399bdba82cf27e0e92edfd833938",
+      "minimatch/minimatch.js": "746849f267c4868a53729225bd85c7dccd387712136fb305fcc0a3eadd4a3d9d",
+      "fs.realpath/old.js": "07245a82717f9bfa2a63b9784284a1b7fc43ff5fcb4af2a94bce5f83611d4a2f",
+      "fs.realpath/index.js": "2e334ba43cd4852f7a3ed68159029167c05d7fa6af536e6ef177eb868ccd1bb8",
+      "fs.realpath/package.json": "2985019b1b3cf5894df9b831816f7b480833931da982489e3a98c346ce7da897",
+      "concat-map/index.js": "091b65d778337599d0140b35d53c038603d1732d27c33bfe39e03871a96926b2",
+      "concat-map/package.json": "4fe5e8089b65ebfd55bb86f465ba896ba6a8e24b7b61de1e0f420f590616b118",
+      "concat-map/test/map.js": "e2a41fad6a88afcd0958cb9f93217ac2d62670d2a116ab7deb2b790e8f9bc90a",
+      "concat-map/example/map.js": "ffd5fbdaf966b799cd9d046624be96b48e206920e58ad52d2ed1f2bdd10e93d0",
+      "memorystream/Gruntfile.js": "b340ed0d9e5db5bbcfc019edb4cb7f1f758ade1c2941bec68b53b852fecdca8b",
+      "memorystream/index.js": "cbcfd7ab33d1009f5ae828ca45a918e93e3752b054befecf09964869d88ea612",
+      "memorystream/package.json": "dfff650f4c6c600aaaeeab58f50429325a94ebcbe28a0689c3c4b545b270b76a",
+      "memorystream/test/example.js": "b645119c26a68d1a8f2623883491518fa752d21f56f72f7a9a2252b52d02d59d",
+      "memorystream/test/memorystream.test.js": "e30ff98263ba0d7824380181c66b40a2c95fac7f2c845747a4a87180f2425049",
+      "glob/sync.js": "0f61227f4b55297f1ad16798c53e6a6dd55d633856f153133716413b7c5f61ad",
+      "glob/package.json": "b00b6d35eda6d4aa6893baf19e53b7d005019ed840e4fa116c926a532ec577cf",
+      "glob/common.js": "b867e089ab5d4ab19a83e5b34da3dd7f4018fdf255fcacc681aab87d41dc77e8",
+      "glob/glob.js": "b8f35657ca927593d0f9e1aae3a8cfe9c33c697bf3c5733c2f6727f25ae25be1",
+      "wrappy/package.json": "712ac9c4c3cef8bc79f42cf6075ff18551f4cb768f35158214fd643853ad7abc",
+      "wrappy/wrappy.js": "153453c4d84a3c2f13589c37055a7daff61d48475dcce554f7eedad15fc7b3e5",
+      "tmp/package.json": "0d16aba4ccec87190ee9759b70afcb3e57f068f311d440b5093bde3a4c7a8175",
+      "tmp/lib/tmp.js": "8c70c0cd3516bfefe02918b553d9ca986d40003317872a2c05f51afb3e60d651",
+      "js-sha3/package.json": "ba89a2a2189db98b8b9a4134ec744737f2ed3e26ee59357279a170faf93709dd",
+      "js-sha3/build/sha3.min.js": "f0ca4875766b5a96f525754971c8ec5c32b3bd7f76ed636d95eb59d3f372de84",
+      "js-sha3/src/sha3.js": "13590a201b2199f00b74ee711edc1bdf744705dca12f43cc6ef64c32b5767fa9",
+      "graceful-fs/polyfills.js": "66ea1687ed5edf39d67296d26edccc8da695d9a869303a78d0e580cd770aca27",
+      "graceful-fs/graceful-fs.js": "7da35669b6b6b0e4aafee31674c033f2cebb0c8f9ae010f709dcc185d3f17786",
+      "graceful-fs/package.json": "7cc365c012febc9c44ef6d998b49d749840c852d91db3302b19eb6eca07ead3d",
+      "graceful-fs/clone.js": "7258eca52e65d69845759503f9fdd66c252f40e5eafb76db5d481172e31ac9ed",
+      "graceful-fs/legacy-streams.js": "60a6a7ecf7c3e55a3ffaae13433b6cff388b7205bba6daf393c863f77a949e36",
+      "require-from-string/index.js": "cb059342a762b955997bf780f3693add176922727f2fa9f11fcaf1b3fc323239",
+      "require-from-string/package.json": "c0002f7d4c7d7e2a885cf0f97226344902417c3a0980f2beca41962d2bc1f6d8",
+      "inflight/inflight.js": "e33ea098a91d2c41be886fbbcecacb9799fe183d8a446f138a4786cb3d809802",
+      "inflight/package.json": "5f2489e13f73e9ebad999134fae8a591f6d8b58e8341ec8e3b33397c4d1ef817"
+    },
+    "registry_tarballs": {
+      "solc@0.6.12": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.6.12.tgz",
+        "integrity": "sha512-Lm0Ql2G9Qc7yPP2Ba+WNmzw2jwsrd3u4PobHYlSOxaut3TtUbj9+5ZrT6f4DUpNPEoBaFUOEg9Op9C0mk7ge9g=="
+      },
+      "solc@0.8.19": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.8.19.tgz",
+        "integrity": "sha512-yqurS3wzC4LdEvmMobODXqprV4MYJcVtinuxgrp61ac8K2zz40vXA0eSAskSHPgv8dQo7Nux39i3QBsHx4pqyA=="
+      },
+      "path-is-absolute@1.0.1": {
+        "url": "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz",
+        "integrity": "sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg=="
+      },
+      "command-exists@1.2.9": {
+        "url": "https://registry.npmjs.org/command-exists/-/command-exists-1.2.9.tgz",
+        "integrity": "sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w=="
+      },
+      "os-tmpdir@1.0.2": {
+        "url": "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz",
+        "integrity": "sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g=="
+      },
+      "commander@3.0.2": {
+        "url": "https://registry.npmjs.org/commander/-/commander-3.0.2.tgz",
+        "integrity": "sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow=="
+      },
+      "rimraf@2.7.1": {
+        "url": "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz",
+        "integrity": "sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w=="
+      },
+      "klaw@1.3.1": {
+        "url": "https://registry.npmjs.org/klaw/-/klaw-1.3.1.tgz",
+        "integrity": "sha512-TED5xi9gGQjGpNnvRWknrwAB1eL5GciPfVFOt3Vk1OJCVDQbzuSfrF3hkUQKlsgKrG1F+0t5W0m+Fje1jIt8rw=="
+      },
+      "balanced-match@1.0.2": {
+        "url": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+        "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
+      },
+      "once@1.4.0": {
+        "url": "https://registry.npmjs.org/once/-/once-1.4.0.tgz",
+        "integrity": "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w=="
+      },
+      "inherits@2.0.4": {
+        "url": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+        "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+      },
+      "jsonfile@2.4.0": {
+        "url": "https://registry.npmjs.org/jsonfile/-/jsonfile-2.4.0.tgz",
+        "integrity": "sha512-PKllAqbgLgxHaj8TElYymKCAgrASebJrWpTnEkOaTowt23VKXXN0sUeriJ+eh7y6ufb/CC5ap11pz71/cM0hUw=="
+      },
+      "fs-extra@0.30.0": {
+        "url": "https://registry.npmjs.org/fs-extra/-/fs-extra-0.30.0.tgz",
+        "integrity": "sha512-UvSPKyhMn6LEd/WpUaV9C9t3zATuqoqfWc3QdPhPLb58prN9tqYPlPWi8Krxi44loBoUzlobqZ3+8tGpxxSzwA=="
+      },
+      "brace-expansion@1.1.22": {
+        "url": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.22.tgz",
+        "integrity": "sha512-CKLDTuSsN0+r1ThM0WkzzBI7dnPI6xEGfa/JnVYIK9JNBA1N1NyPwXVHor//NKD/y3sDxp764sZdLhFK7pH8XQ=="
+      },
+      "semver@5.7.3": {
+        "url": "https://registry.npmjs.org/semver/-/semver-5.7.3.tgz",
+        "integrity": "sha512-kM18BPOqTi0+TB68703/GJRpAML5Me+IDQsR1J26YB3EFKKNEyHIVZuWDX7+WKQB3tHwDwgk24BfhdpWUbytvQ=="
+      },
+      "minimatch@3.1.5": {
+        "url": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+        "integrity": "sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w=="
+      },
+      "fs.realpath@1.0.0": {
+        "url": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz",
+        "integrity": "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
+      },
+      "concat-map@0.0.1": {
+        "url": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz",
+        "integrity": "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
+      },
+      "memorystream@0.3.1": {
+        "url": "https://registry.npmjs.org/memorystream/-/memorystream-0.3.1.tgz",
+        "integrity": "sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw=="
+      },
+      "glob@7.2.3": {
+        "url": "https://registry.npmjs.org/glob/-/glob-7.2.3.tgz",
+        "integrity": "sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q=="
+      },
+      "wrappy@1.0.2": {
+        "url": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz",
+        "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
+      },
+      "tmp@0.0.33": {
+        "url": "https://registry.npmjs.org/tmp/-/tmp-0.0.33.tgz",
+        "integrity": "sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw=="
+      },
+      "js-sha3@0.8.0": {
+        "url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.8.0.tgz",
+        "integrity": "sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q=="
+      },
+      "graceful-fs@4.2.12": {
+        "url": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.12.tgz",
+        "integrity": "sha512-iuyGF2E4oafQfPsRrG2wtY2ILupMhvtdrhzrxB+0VcjsPpSPttpfYdjnGFGsTi5MaJFjI1jOKHPQ6UTbTj9TAw=="
+      },
+      "require-from-string@2.0.2": {
+        "url": "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz",
+        "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="
+      },
+      "inflight@1.0.6": {
+        "url": "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz",
+        "integrity": "sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA=="
+      }
+    },
+    "full_version": "0.6.12+commit.27d51765.Emscripten.clang",
+    "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee"
+  },
+  "0.7.6": {
+    "pin_id": "npm-solc-0.7.6-reviewed-v1",
+    "files_sha256": {
+      "solc/translate.js": "a1cb0729af3b7e1ead5dc3cf9c36cfc881e374d1911043a8f456f12c8f7ba1cb",
+      "solc/wrapper.js": "f40a3bb2b5c0d8008b7eee08c0a802e9da94d096135b5ea2deb30149df1230a2",
+      "solc/soljson.js": "b94e69dfb056b3e26080f805ab43b668afbc0ac70bf124bfb7391ecfc0172ad2",
+      "solc/smtchecker.js": "4daaf8e0d670f40d767107c6ae494b431b6c9d4e31efc596d00c3c497cb328b0",
+      "solc/index.js": "63485638d4865840607bdfed1a30b426ff3eaf6b7463bb9b5cb9701d1d1d06b8",
+      "solc/package.json": "c65e962ba71b2020e2b6f78cbb582d23ef636b587ea6182d997e4484d5ddc47d",
+      "solc/smtsolver.js": "ada81a9b2b6a1528b970f7591f5ac437853bc1b5849d597e2f68c19f63be9d0f",
+      "solc/abi.js": "cfd455ff8953cff430f709e49fceafd519355ed7ce14ab950fee274d271256bb",
+      "solc/linker.js": "01b61e3493903d5f349c827d140fae77cc49801a7de5f60b6cc4385c42ed9622",
+      "solc/common/types.js": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+      "solc/common/helpers.js": "8086fe96c9f4edbf375122311153459502f9cae6708c98b4ae3b6c0e4314334c",
+      "path-is-absolute/index.js": "4eb1119c3eeccc4d8e8841b77d062abaf4572b332801f5b16175bc3311b5d8f1",
+      "path-is-absolute/package.json": "be5b83877f6998b840b9365d7ab77e885f0d583337826c22daccaeb6e303fd4c",
+      "command-exists/index.js": "13f054e3bc257282ba5eb4cd22b1ac3201a0b7b35c664ba709777dfcd81a47f7",
+      "command-exists/package.json": "c0acc936f656bc164946c40c8283b18d53f33cf316569adaf8b6eee195d512cf",
+      "command-exists/test/non-executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/test/test.js": "b5ce8bac604d626de94766fe2b411dde5a2cc3064b60b7a7c83b9c94df5529f9",
+      "command-exists/test/executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/lib/command-exists.js": "3aee1c28a00088a6a2db894dcc5b5e71accac02ffb13a30dd1215dbe80c52658",
+      "os-tmpdir/index.js": "d4593403a467ad0d189d2823df8808a6515b7612e6c141b16b1a7a2db917d732",
+      "os-tmpdir/package.json": "708404ce657fbad57a4804f3ccfcda877e038b981fb9675aebcc57de91e95694",
+      "commander/index.js": "9ee922ce8aab03bf0e345c7eb7660ba2bbf3b04f5a8e50ced7b90fb35dd62999",
+      "commander/package.json": "4f037ffd15ae149c61f79ca38b73a8c601031fee8e4bd4745a3d02a573019a71",
+      "rimraf/bin.js": "6557bc0e1bebd5eedcf1cc7df314c016b6593bcdbf323941c9c5b9ea57e7eedf",
+      "rimraf/rimraf.js": "39b8a308a9d3fecc1b80fb0284b1c9574cc2d9a9a02b18f0961e323d1d5cb72c",
+      "rimraf/package.json": "3fb2eed4a1f87b6d9c0b28cb502967bff6c3bfd3484e505b91b157d88200d071",
+      "klaw/package.json": "16ea33ad46413aef6e0559f73926b8d9480e0234e8fa913f333ee62bef46bb0a",
+      "klaw/src/index.js": "433cae109b8d3d42ac92bc27f27c35f6107c765f9cafa774ad650459dfd338b0",
+      "klaw/src/assign.js": "811ebaa415c0130201fa77eeeb2595ee11bed38673241c7be9daab717378289f",
+      "balanced-match/index.js": "06e4d0037715251cb3be2b2db063662f555b3538d9e30a9c517a54374d941cbc",
+      "balanced-match/package.json": "b30c328501dead1870b894ad604405b2284b571c1f12664cdc61d92a2e3397c2",
+      "once/package.json": "33840d74c14c94bfb75c76374765b635531b1eacb88d7f1f2f380c94d0ea1328",
+      "once/once.js": "3db73e347ecbdbafdf8d0db85145c877e133f5372e767360ef90c09f70ac5103",
+      "inherits/inherits_browser.js": "ad322a7b1dec60f3d2ebda2091816469efb55b567d241cf3cf0fa4c5a4afe500",
+      "inherits/package.json": "be645800bc94fd8de29c8ae91690549b316cc437100108aeea7b2f347693cc80",
+      "inherits/inherits.js": "bb380f32bef5feb18678f0f45f88073fed5d7a0069a309132cb2080cd553d5c7",
+      "jsonfile/index.js": "6768dc1ff8dc737b32e9531a787ec0befa69ea1769d06893158493db0d983cd7",
+      "jsonfile/package.json": "7919bcc7f06f97d125df18304561e3707816f85b52dab1dde4efb2a1ae47d5fe",
+      "fs-extra/package.json": "5897ac8e79f0b2fba0691701ead0fde9993329575d114f88a45a00f6d135584a",
+      "fs-extra/lib/index.js": "c6bc4bf3f6914a6994318b31a30445c39d966035c5d4011b8a8937270ff092cf",
+      "fs-extra/lib/move/index.js": "81bd5b52c46943ec5e24091da85bf7f4b9a31ba418c0cec453bacad307512a15",
+      "fs-extra/lib/ensure/link.js": "90056415ed821cd5dd5b5fe6af992cfd28d531c64b55b09fdf9e0136f969e16f",
+      "fs-extra/lib/ensure/index.js": "ca308cbe4ec1e110a3feccc8c11c222347efe4bd04c5cb576aae48366c5e319d",
+      "fs-extra/lib/ensure/symlink.js": "2469d6d4a7f01388c20384b692b6b4eb34c6a74e7d75960344144660a5c89380",
+      "fs-extra/lib/ensure/file.js": "0096995e24ce1319d00a8a749df4831c5af7285c306c07d3370287d2875434ce",
+      "fs-extra/lib/ensure/symlink-paths.js": "aa191b83b8bb30bad7929904a9fbc87876fab4a876c656e0705b0753dded2625",
+      "fs-extra/lib/ensure/symlink-type.js": "00be26a6705edb85a4acd448e58477b8905899e73f30fc0d673f7c7a24ebd7aa",
+      "fs-extra/lib/remove/index.js": "2e3b2f3e1612db69cbff8efd3f7dfdae18a1eae87964ef56dba3845742aa5823",
+      "fs-extra/lib/walk/index.js": "b7054e63e9470859b029d178461785ec8a6b01fb79a242525eb6b77b66978673",
+      "fs-extra/lib/empty/index.js": "7e7a6df716fab982576a59ce58a62a63693c1ea607911f8a5de437ba98365805",
+      "fs-extra/lib/util/utimes.js": "972557200208a21fc9697b7f8e7405830dbecec16e758eb8eaa1d31c252b3ee4",
+      "fs-extra/lib/util/assign.js": "284206a0323f7cc9a59dd0e902565a8ac19c00485f51135ecb695a21d30b389b",
+      "fs-extra/lib/copy-sync/index.js": "360b7c95ad351f0e7650735a4b4dcda0d5dbed434837a8e08a6fb8d94d2e6b51",
+      "fs-extra/lib/copy-sync/copy-sync.js": "3418b251b8dfefde91ff6267ba839b9194daaf6b805185a7c45491eaa6049740",
+      "fs-extra/lib/copy-sync/copy-file-sync.js": "60d9c76b0ec4ab90ffe07f289dcb2e78ad0581501b207fc4a1acedc54d86e647",
+      "fs-extra/lib/output/index.js": "2bffc890867130c4e06524f300a65fd5234500fd991a71656fe2d411eeade09a",
+      "fs-extra/lib/mkdirs/win32.js": "e3c05ed8a8d05807561dc2d09c5088939976106c37ba81cf6eb8b9335c5913d8",
+      "fs-extra/lib/mkdirs/index.js": "714b7221ecf937c8cf3dffefaebc6986d00d2309bccfa048e32173a00165929d",
+      "fs-extra/lib/mkdirs/mkdirs-sync.js": "e43f9110a270b2b22b360a880f42a1292e4b3bb43600fe4962ab0daf3775ee6d",
+      "fs-extra/lib/mkdirs/mkdirs.js": "1b207846f56cb41cd2c980629bdadd37e423e385e385fb1c6e9c8bc92ac5ae65",
+      "fs-extra/lib/json/output-json.js": "64a6daf28c5ea2ead19c3d88153f37c9137ae9084cbfeb71e00990267120b0bf",
+      "fs-extra/lib/json/index.js": "20aa1413e95c415d911650ee5f1bc38401d9e6b0c0c1838bc3e69a02224f9840",
+      "fs-extra/lib/json/output-json-sync.js": "b4da579d2773cc51b1d81633ed3a7b163f000b78def43282fd7c7579105c234e",
+      "fs-extra/lib/json/jsonfile.js": "6f07246a2e3b26171a2f86b1a75618c7895c0ad19bf82cd43a275da830fcdaf6",
+      "fs-extra/lib/copy/ncp.js": "b004656c82063161aa1d5bd7695b25d2f3f26a357ddbdf96f15100df5d4599d2",
+      "fs-extra/lib/copy/copy.js": "578b1cef74b540046dd10b1e24ff0af39c855e0cdbedfc47943b1b2ac5f70f17",
+      "fs-extra/lib/copy/index.js": "2d45292dc3d280c8ee1e32c332e69fdd81ece987ee5baa8522dd8bd9208b4c8c",
+      "brace-expansion/index.js": "7b65bfff6b542eb77a13c79f83bcdffb7e9689c0da1187c54cb6fb6cdb2a4c8f",
+      "brace-expansion/package.json": "ffd1f96a15b7c022cd0b5ed5ef40a7337ada2e78debed2c85d79d5ae43ccabd0",
+      "semver/semver.js": "9894ea74a46345b9dcff1491f644a1585db47e0fa737c9cc9e5606744686f74e",
+      "semver/package.json": "caff547bcb99c4985491ad5baa9c0dcc433ccb6f13413b789a087bf2217ffe3a",
+      "minimatch/package.json": "eefa1c89527d52bbb2e8b053fe8ecf3e3ced399bdba82cf27e0e92edfd833938",
+      "minimatch/minimatch.js": "746849f267c4868a53729225bd85c7dccd387712136fb305fcc0a3eadd4a3d9d",
+      "fs.realpath/old.js": "07245a82717f9bfa2a63b9784284a1b7fc43ff5fcb4af2a94bce5f83611d4a2f",
+      "fs.realpath/index.js": "2e334ba43cd4852f7a3ed68159029167c05d7fa6af536e6ef177eb868ccd1bb8",
+      "fs.realpath/package.json": "2985019b1b3cf5894df9b831816f7b480833931da982489e3a98c346ce7da897",
+      "concat-map/index.js": "091b65d778337599d0140b35d53c038603d1732d27c33bfe39e03871a96926b2",
+      "concat-map/package.json": "4fe5e8089b65ebfd55bb86f465ba896ba6a8e24b7b61de1e0f420f590616b118",
+      "concat-map/test/map.js": "e2a41fad6a88afcd0958cb9f93217ac2d62670d2a116ab7deb2b790e8f9bc90a",
+      "concat-map/example/map.js": "ffd5fbdaf966b799cd9d046624be96b48e206920e58ad52d2ed1f2bdd10e93d0",
+      "memorystream/Gruntfile.js": "b340ed0d9e5db5bbcfc019edb4cb7f1f758ade1c2941bec68b53b852fecdca8b",
+      "memorystream/index.js": "cbcfd7ab33d1009f5ae828ca45a918e93e3752b054befecf09964869d88ea612",
+      "memorystream/package.json": "dfff650f4c6c600aaaeeab58f50429325a94ebcbe28a0689c3c4b545b270b76a",
+      "memorystream/test/example.js": "b645119c26a68d1a8f2623883491518fa752d21f56f72f7a9a2252b52d02d59d",
+      "memorystream/test/memorystream.test.js": "e30ff98263ba0d7824380181c66b40a2c95fac7f2c845747a4a87180f2425049",
+      "glob/sync.js": "0f61227f4b55297f1ad16798c53e6a6dd55d633856f153133716413b7c5f61ad",
+      "glob/package.json": "b00b6d35eda6d4aa6893baf19e53b7d005019ed840e4fa116c926a532ec577cf",
+      "glob/common.js": "b867e089ab5d4ab19a83e5b34da3dd7f4018fdf255fcacc681aab87d41dc77e8",
+      "glob/glob.js": "b8f35657ca927593d0f9e1aae3a8cfe9c33c697bf3c5733c2f6727f25ae25be1",
+      "follow-redirects/https.js": "7a28e323ffd91094e083a8954fe027839c06d948603d7f2719ed17c446885272",
+      "follow-redirects/index.js": "9f694132c5c09a94d6054b83f75460e45ebcc836a1e013c6e639b8961d352163",
+      "follow-redirects/package.json": "6d8de10cff3afbe74c7933a5424a22699ebb9528a792ae0212f8bdf83ed2866e",
+      "follow-redirects/http.js": "754c0078c57625db7b55b4c3fb30ff5c207fc49284a5022742e81d0c595403c5",
+      "follow-redirects/debug.js": "8dbf7e71a9292be180e3469a6b7a164171d3c39dec79e5dbc4aa1c9f09509faf",
+      "wrappy/package.json": "712ac9c4c3cef8bc79f42cf6075ff18551f4cb768f35158214fd643853ad7abc",
+      "wrappy/wrappy.js": "153453c4d84a3c2f13589c37055a7daff61d48475dcce554f7eedad15fc7b3e5",
+      "tmp/package.json": "0d16aba4ccec87190ee9759b70afcb3e57f068f311d440b5093bde3a4c7a8175",
+      "tmp/lib/tmp.js": "8c70c0cd3516bfefe02918b553d9ca986d40003317872a2c05f51afb3e60d651",
+      "js-sha3/package.json": "ba89a2a2189db98b8b9a4134ec744737f2ed3e26ee59357279a170faf93709dd",
+      "js-sha3/build/sha3.min.js": "f0ca4875766b5a96f525754971c8ec5c32b3bd7f76ed636d95eb59d3f372de84",
+      "js-sha3/src/sha3.js": "13590a201b2199f00b74ee711edc1bdf744705dca12f43cc6ef64c32b5767fa9",
+      "graceful-fs/polyfills.js": "66ea1687ed5edf39d67296d26edccc8da695d9a869303a78d0e580cd770aca27",
+      "graceful-fs/graceful-fs.js": "7da35669b6b6b0e4aafee31674c033f2cebb0c8f9ae010f709dcc185d3f17786",
+      "graceful-fs/package.json": "7cc365c012febc9c44ef6d998b49d749840c852d91db3302b19eb6eca07ead3d",
+      "graceful-fs/clone.js": "7258eca52e65d69845759503f9fdd66c252f40e5eafb76db5d481172e31ac9ed",
+      "graceful-fs/legacy-streams.js": "60a6a7ecf7c3e55a3ffaae13433b6cff388b7205bba6daf393c863f77a949e36",
+      "require-from-string/index.js": "cb059342a762b955997bf780f3693add176922727f2fa9f11fcaf1b3fc323239",
+      "require-from-string/package.json": "c0002f7d4c7d7e2a885cf0f97226344902417c3a0980f2beca41962d2bc1f6d8",
+      "inflight/inflight.js": "e33ea098a91d2c41be886fbbcecacb9799fe183d8a446f138a4786cb3d809802",
+      "inflight/package.json": "5f2489e13f73e9ebad999134fae8a591f6d8b58e8341ec8e3b33397c4d1ef817"
+    },
+    "registry_tarballs": {
+      "solc@0.7.6": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.7.6.tgz",
+        "integrity": "sha512-WsR/W7CXwh2VnmZapB4JrsDeLlshoKBz5Pz/zYNulB6LBsOEHI2Zj/GeKLMFcvv57OHiXHvxq5ZOQB+EdqxlxQ=="
+      },
+      "solc@0.8.19": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.8.19.tgz",
+        "integrity": "sha512-yqurS3wzC4LdEvmMobODXqprV4MYJcVtinuxgrp61ac8K2zz40vXA0eSAskSHPgv8dQo7Nux39i3QBsHx4pqyA=="
+      },
+      "path-is-absolute@1.0.1": {
+        "url": "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz",
+        "integrity": "sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg=="
+      },
+      "command-exists@1.2.9": {
+        "url": "https://registry.npmjs.org/command-exists/-/command-exists-1.2.9.tgz",
+        "integrity": "sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w=="
+      },
+      "os-tmpdir@1.0.2": {
+        "url": "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz",
+        "integrity": "sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g=="
+      },
+      "commander@3.0.2": {
+        "url": "https://registry.npmjs.org/commander/-/commander-3.0.2.tgz",
+        "integrity": "sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow=="
+      },
+      "rimraf@2.7.1": {
+        "url": "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz",
+        "integrity": "sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w=="
+      },
+      "klaw@1.3.1": {
+        "url": "https://registry.npmjs.org/klaw/-/klaw-1.3.1.tgz",
+        "integrity": "sha512-TED5xi9gGQjGpNnvRWknrwAB1eL5GciPfVFOt3Vk1OJCVDQbzuSfrF3hkUQKlsgKrG1F+0t5W0m+Fje1jIt8rw=="
+      },
+      "balanced-match@1.0.2": {
+        "url": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+        "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
+      },
+      "once@1.4.0": {
+        "url": "https://registry.npmjs.org/once/-/once-1.4.0.tgz",
+        "integrity": "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w=="
+      },
+      "inherits@2.0.4": {
+        "url": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+        "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+      },
+      "jsonfile@2.4.0": {
+        "url": "https://registry.npmjs.org/jsonfile/-/jsonfile-2.4.0.tgz",
+        "integrity": "sha512-PKllAqbgLgxHaj8TElYymKCAgrASebJrWpTnEkOaTowt23VKXXN0sUeriJ+eh7y6ufb/CC5ap11pz71/cM0hUw=="
+      },
+      "fs-extra@0.30.0": {
+        "url": "https://registry.npmjs.org/fs-extra/-/fs-extra-0.30.0.tgz",
+        "integrity": "sha512-UvSPKyhMn6LEd/WpUaV9C9t3zATuqoqfWc3QdPhPLb58prN9tqYPlPWi8Krxi44loBoUzlobqZ3+8tGpxxSzwA=="
+      },
+      "brace-expansion@1.1.22": {
+        "url": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.22.tgz",
+        "integrity": "sha512-CKLDTuSsN0+r1ThM0WkzzBI7dnPI6xEGfa/JnVYIK9JNBA1N1NyPwXVHor//NKD/y3sDxp764sZdLhFK7pH8XQ=="
+      },
+      "semver@5.7.3": {
+        "url": "https://registry.npmjs.org/semver/-/semver-5.7.3.tgz",
+        "integrity": "sha512-kM18BPOqTi0+TB68703/GJRpAML5Me+IDQsR1J26YB3EFKKNEyHIVZuWDX7+WKQB3tHwDwgk24BfhdpWUbytvQ=="
+      },
+      "minimatch@3.1.5": {
+        "url": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+        "integrity": "sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w=="
+      },
+      "fs.realpath@1.0.0": {
+        "url": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz",
+        "integrity": "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
+      },
+      "concat-map@0.0.1": {
+        "url": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz",
+        "integrity": "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
+      },
+      "memorystream@0.3.1": {
+        "url": "https://registry.npmjs.org/memorystream/-/memorystream-0.3.1.tgz",
+        "integrity": "sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw=="
+      },
+      "glob@7.2.3": {
+        "url": "https://registry.npmjs.org/glob/-/glob-7.2.3.tgz",
+        "integrity": "sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q=="
+      },
+      "follow-redirects@1.16.3": {
+        "url": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.16.3.tgz",
+        "integrity": "sha512-toOSoqN6d51Wjf1aOFJYcoVv1aND9rj/CwjLU0Vz40oDuSpWDayCeKe4JpL5NL0WdFvoOOCI3BRo69HahjbR1A=="
+      },
+      "wrappy@1.0.2": {
+        "url": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz",
+        "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
+      },
+      "tmp@0.0.33": {
+        "url": "https://registry.npmjs.org/tmp/-/tmp-0.0.33.tgz",
+        "integrity": "sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw=="
+      },
+      "js-sha3@0.8.0": {
+        "url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.8.0.tgz",
+        "integrity": "sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q=="
+      },
+      "graceful-fs@4.2.12": {
+        "url": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.12.tgz",
+        "integrity": "sha512-iuyGF2E4oafQfPsRrG2wtY2ILupMhvtdrhzrxB+0VcjsPpSPttpfYdjnGFGsTi5MaJFjI1jOKHPQ6UTbTj9TAw=="
+      },
+      "require-from-string@2.0.2": {
+        "url": "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz",
+        "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="
+      },
+      "inflight@1.0.6": {
+        "url": "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz",
+        "integrity": "sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA=="
+      }
+    },
+    "full_version": "0.7.6+commit.7338295f.Emscripten.clang",
+    "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee"
+  },
+  "0.8.10": {
+    "pin_id": "npm-solc-0.8.10-reviewed-v1",
+    "files_sha256": {
+      "solc/translate.js": "a286ac5b86fce4ea8cac69640729d24ffb478cc9b13e2fa50b09ccfa82eb004f",
+      "solc/wrapper.js": "c077e1cdb784d0d8f1c7aabba6d4bd92f46317ab9d576af65728aad12c593045",
+      "solc/soljson.js": "5eaee3240a06891abf5ac70c75caf9a0c33ebe9a2736abdaa22a337f86c22933",
+      "solc/smtchecker.js": "4daaf8e0d670f40d767107c6ae494b431b6c9d4e31efc596d00c3c497cb328b0",
+      "solc/index.js": "63485638d4865840607bdfed1a30b426ff3eaf6b7463bb9b5cb9701d1d1d06b8",
+      "solc/package.json": "9c7682e191c4ce043fa6bc119c5b402c41c2e351e27dd9f55a61ce5e4ae5337d",
+      "solc/smtsolver.js": "ada81a9b2b6a1528b970f7591f5ac437853bc1b5849d597e2f68c19f63be9d0f",
+      "solc/abi.js": "cfd455ff8953cff430f709e49fceafd519355ed7ce14ab950fee274d271256bb",
+      "solc/linker.js": "01b61e3493903d5f349c827d140fae77cc49801a7de5f60b6cc4385c42ed9622",
+      "solc/common/types.js": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+      "solc/common/helpers.js": "8086fe96c9f4edbf375122311153459502f9cae6708c98b4ae3b6c0e4314334c",
+      "path-is-absolute/index.js": "4eb1119c3eeccc4d8e8841b77d062abaf4572b332801f5b16175bc3311b5d8f1",
+      "path-is-absolute/package.json": "be5b83877f6998b840b9365d7ab77e885f0d583337826c22daccaeb6e303fd4c",
+      "command-exists/index.js": "13f054e3bc257282ba5eb4cd22b1ac3201a0b7b35c664ba709777dfcd81a47f7",
+      "command-exists/package.json": "c0acc936f656bc164946c40c8283b18d53f33cf316569adaf8b6eee195d512cf",
+      "command-exists/test/non-executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/test/test.js": "b5ce8bac604d626de94766fe2b411dde5a2cc3064b60b7a7c83b9c94df5529f9",
+      "command-exists/test/executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/lib/command-exists.js": "3aee1c28a00088a6a2db894dcc5b5e71accac02ffb13a30dd1215dbe80c52658",
+      "os-tmpdir/index.js": "d4593403a467ad0d189d2823df8808a6515b7612e6c141b16b1a7a2db917d732",
+      "os-tmpdir/package.json": "708404ce657fbad57a4804f3ccfcda877e038b981fb9675aebcc57de91e95694",
+      "commander/index.js": "d4f8af488a7a08cd71df8503fcc3e5f2fd61e9b26eb368ecd5cc8159862cde3f",
+      "commander/package.json": "5f5944b2fa479bf68003ca239940f8ad9cae893ddfc3662272a1855dfb9ce4db",
+      "commander/package-support.json": "b07a441d1dbc88588a2e7f219d43a5ea9b7c429a44f119caa49229da86bb0063",
+      "commander/lib/argument.js": "7859398cfac1869df6cbba646e7e437875185866b79ac70a5a3cd802fd4df96b",
+      "commander/lib/option.js": "9dfc7ae4b048435196cbdd888819bb84253d2693460adfa262cffcbb31d6cf98",
+      "commander/lib/error.js": "c69bbc276b3c7fec052f930b9de091db2206646761f765a2077d5731f763dc55",
+      "commander/lib/command.js": "69047076c77593471bbf1aa2ba5f01f0565bffa187d415a600d8ec5998d2056b",
+      "commander/lib/help.js": "f07a902508e463968826dd36b567640a563f0192989355c6559723415951bcf2",
+      "commander/lib/suggestSimilar.js": "2f96448988ab89b4acd941d298e51bb103544bf65b60eb0a4260a26a8b39bb57",
+      "rimraf/bin.js": "6557bc0e1bebd5eedcf1cc7df314c016b6593bcdbf323941c9c5b9ea57e7eedf",
+      "rimraf/rimraf.js": "39b8a308a9d3fecc1b80fb0284b1c9574cc2d9a9a02b18f0961e323d1d5cb72c",
+      "rimraf/package.json": "3fb2eed4a1f87b6d9c0b28cb502967bff6c3bfd3484e505b91b157d88200d071",
+      "klaw/package.json": "16ea33ad46413aef6e0559f73926b8d9480e0234e8fa913f333ee62bef46bb0a",
+      "klaw/src/index.js": "433cae109b8d3d42ac92bc27f27c35f6107c765f9cafa774ad650459dfd338b0",
+      "klaw/src/assign.js": "811ebaa415c0130201fa77eeeb2595ee11bed38673241c7be9daab717378289f",
+      "balanced-match/index.js": "06e4d0037715251cb3be2b2db063662f555b3538d9e30a9c517a54374d941cbc",
+      "balanced-match/package.json": "b30c328501dead1870b894ad604405b2284b571c1f12664cdc61d92a2e3397c2",
+      "once/package.json": "33840d74c14c94bfb75c76374765b635531b1eacb88d7f1f2f380c94d0ea1328",
+      "once/once.js": "3db73e347ecbdbafdf8d0db85145c877e133f5372e767360ef90c09f70ac5103",
+      "inherits/inherits_browser.js": "ad322a7b1dec60f3d2ebda2091816469efb55b567d241cf3cf0fa4c5a4afe500",
+      "inherits/package.json": "be645800bc94fd8de29c8ae91690549b316cc437100108aeea7b2f347693cc80",
+      "inherits/inherits.js": "bb380f32bef5feb18678f0f45f88073fed5d7a0069a309132cb2080cd553d5c7",
+      "jsonfile/index.js": "6768dc1ff8dc737b32e9531a787ec0befa69ea1769d06893158493db0d983cd7",
+      "jsonfile/package.json": "7919bcc7f06f97d125df18304561e3707816f85b52dab1dde4efb2a1ae47d5fe",
+      "fs-extra/package.json": "5897ac8e79f0b2fba0691701ead0fde9993329575d114f88a45a00f6d135584a",
+      "fs-extra/lib/index.js": "c6bc4bf3f6914a6994318b31a30445c39d966035c5d4011b8a8937270ff092cf",
+      "fs-extra/lib/move/index.js": "81bd5b52c46943ec5e24091da85bf7f4b9a31ba418c0cec453bacad307512a15",
+      "fs-extra/lib/ensure/link.js": "90056415ed821cd5dd5b5fe6af992cfd28d531c64b55b09fdf9e0136f969e16f",
+      "fs-extra/lib/ensure/index.js": "ca308cbe4ec1e110a3feccc8c11c222347efe4bd04c5cb576aae48366c5e319d",
+      "fs-extra/lib/ensure/symlink.js": "2469d6d4a7f01388c20384b692b6b4eb34c6a74e7d75960344144660a5c89380",
+      "fs-extra/lib/ensure/file.js": "0096995e24ce1319d00a8a749df4831c5af7285c306c07d3370287d2875434ce",
+      "fs-extra/lib/ensure/symlink-paths.js": "aa191b83b8bb30bad7929904a9fbc87876fab4a876c656e0705b0753dded2625",
+      "fs-extra/lib/ensure/symlink-type.js": "00be26a6705edb85a4acd448e58477b8905899e73f30fc0d673f7c7a24ebd7aa",
+      "fs-extra/lib/remove/index.js": "2e3b2f3e1612db69cbff8efd3f7dfdae18a1eae87964ef56dba3845742aa5823",
+      "fs-extra/lib/walk/index.js": "b7054e63e9470859b029d178461785ec8a6b01fb79a242525eb6b77b66978673",
+      "fs-extra/lib/empty/index.js": "7e7a6df716fab982576a59ce58a62a63693c1ea607911f8a5de437ba98365805",
+      "fs-extra/lib/util/utimes.js": "972557200208a21fc9697b7f8e7405830dbecec16e758eb8eaa1d31c252b3ee4",
+      "fs-extra/lib/util/assign.js": "284206a0323f7cc9a59dd0e902565a8ac19c00485f51135ecb695a21d30b389b",
+      "fs-extra/lib/copy-sync/index.js": "360b7c95ad351f0e7650735a4b4dcda0d5dbed434837a8e08a6fb8d94d2e6b51",
+      "fs-extra/lib/copy-sync/copy-sync.js": "3418b251b8dfefde91ff6267ba839b9194daaf6b805185a7c45491eaa6049740",
+      "fs-extra/lib/copy-sync/copy-file-sync.js": "60d9c76b0ec4ab90ffe07f289dcb2e78ad0581501b207fc4a1acedc54d86e647",
+      "fs-extra/lib/output/index.js": "2bffc890867130c4e06524f300a65fd5234500fd991a71656fe2d411eeade09a",
+      "fs-extra/lib/mkdirs/win32.js": "e3c05ed8a8d05807561dc2d09c5088939976106c37ba81cf6eb8b9335c5913d8",
+      "fs-extra/lib/mkdirs/index.js": "714b7221ecf937c8cf3dffefaebc6986d00d2309bccfa048e32173a00165929d",
+      "fs-extra/lib/mkdirs/mkdirs-sync.js": "e43f9110a270b2b22b360a880f42a1292e4b3bb43600fe4962ab0daf3775ee6d",
+      "fs-extra/lib/mkdirs/mkdirs.js": "1b207846f56cb41cd2c980629bdadd37e423e385e385fb1c6e9c8bc92ac5ae65",
+      "fs-extra/lib/json/output-json.js": "64a6daf28c5ea2ead19c3d88153f37c9137ae9084cbfeb71e00990267120b0bf",
+      "fs-extra/lib/json/index.js": "20aa1413e95c415d911650ee5f1bc38401d9e6b0c0c1838bc3e69a02224f9840",
+      "fs-extra/lib/json/output-json-sync.js": "b4da579d2773cc51b1d81633ed3a7b163f000b78def43282fd7c7579105c234e",
+      "fs-extra/lib/json/jsonfile.js": "6f07246a2e3b26171a2f86b1a75618c7895c0ad19bf82cd43a275da830fcdaf6",
+      "fs-extra/lib/copy/ncp.js": "b004656c82063161aa1d5bd7695b25d2f3f26a357ddbdf96f15100df5d4599d2",
+      "fs-extra/lib/copy/copy.js": "578b1cef74b540046dd10b1e24ff0af39c855e0cdbedfc47943b1b2ac5f70f17",
+      "fs-extra/lib/copy/index.js": "2d45292dc3d280c8ee1e32c332e69fdd81ece987ee5baa8522dd8bd9208b4c8c",
+      "brace-expansion/index.js": "7b65bfff6b542eb77a13c79f83bcdffb7e9689c0da1187c54cb6fb6cdb2a4c8f",
+      "brace-expansion/package.json": "ffd1f96a15b7c022cd0b5ed5ef40a7337ada2e78debed2c85d79d5ae43ccabd0",
+      "semver/semver.js": "9894ea74a46345b9dcff1491f644a1585db47e0fa737c9cc9e5606744686f74e",
+      "semver/package.json": "caff547bcb99c4985491ad5baa9c0dcc433ccb6f13413b789a087bf2217ffe3a",
+      "minimatch/package.json": "eefa1c89527d52bbb2e8b053fe8ecf3e3ced399bdba82cf27e0e92edfd833938",
+      "minimatch/minimatch.js": "746849f267c4868a53729225bd85c7dccd387712136fb305fcc0a3eadd4a3d9d",
+      "fs.realpath/old.js": "07245a82717f9bfa2a63b9784284a1b7fc43ff5fcb4af2a94bce5f83611d4a2f",
+      "fs.realpath/index.js": "2e334ba43cd4852f7a3ed68159029167c05d7fa6af536e6ef177eb868ccd1bb8",
+      "fs.realpath/package.json": "2985019b1b3cf5894df9b831816f7b480833931da982489e3a98c346ce7da897",
+      "concat-map/index.js": "091b65d778337599d0140b35d53c038603d1732d27c33bfe39e03871a96926b2",
+      "concat-map/package.json": "4fe5e8089b65ebfd55bb86f465ba896ba6a8e24b7b61de1e0f420f590616b118",
+      "concat-map/test/map.js": "e2a41fad6a88afcd0958cb9f93217ac2d62670d2a116ab7deb2b790e8f9bc90a",
+      "concat-map/example/map.js": "ffd5fbdaf966b799cd9d046624be96b48e206920e58ad52d2ed1f2bdd10e93d0",
+      "memorystream/Gruntfile.js": "b340ed0d9e5db5bbcfc019edb4cb7f1f758ade1c2941bec68b53b852fecdca8b",
+      "memorystream/index.js": "cbcfd7ab33d1009f5ae828ca45a918e93e3752b054befecf09964869d88ea612",
+      "memorystream/package.json": "dfff650f4c6c600aaaeeab58f50429325a94ebcbe28a0689c3c4b545b270b76a",
+      "memorystream/test/example.js": "b645119c26a68d1a8f2623883491518fa752d21f56f72f7a9a2252b52d02d59d",
+      "memorystream/test/memorystream.test.js": "e30ff98263ba0d7824380181c66b40a2c95fac7f2c845747a4a87180f2425049",
+      "glob/sync.js": "0f61227f4b55297f1ad16798c53e6a6dd55d633856f153133716413b7c5f61ad",
+      "glob/package.json": "b00b6d35eda6d4aa6893baf19e53b7d005019ed840e4fa116c926a532ec577cf",
+      "glob/common.js": "b867e089ab5d4ab19a83e5b34da3dd7f4018fdf255fcacc681aab87d41dc77e8",
+      "glob/glob.js": "b8f35657ca927593d0f9e1aae3a8cfe9c33c697bf3c5733c2f6727f25ae25be1",
+      "follow-redirects/https.js": "7a28e323ffd91094e083a8954fe027839c06d948603d7f2719ed17c446885272",
+      "follow-redirects/index.js": "9f694132c5c09a94d6054b83f75460e45ebcc836a1e013c6e639b8961d352163",
+      "follow-redirects/package.json": "6d8de10cff3afbe74c7933a5424a22699ebb9528a792ae0212f8bdf83ed2866e",
+      "follow-redirects/http.js": "754c0078c57625db7b55b4c3fb30ff5c207fc49284a5022742e81d0c595403c5",
+      "follow-redirects/debug.js": "8dbf7e71a9292be180e3469a6b7a164171d3c39dec79e5dbc4aa1c9f09509faf",
+      "wrappy/package.json": "712ac9c4c3cef8bc79f42cf6075ff18551f4cb768f35158214fd643853ad7abc",
+      "wrappy/wrappy.js": "153453c4d84a3c2f13589c37055a7daff61d48475dcce554f7eedad15fc7b3e5",
+      "tmp/package.json": "0d16aba4ccec87190ee9759b70afcb3e57f068f311d440b5093bde3a4c7a8175",
+      "tmp/lib/tmp.js": "8c70c0cd3516bfefe02918b553d9ca986d40003317872a2c05f51afb3e60d651",
+      "js-sha3/package.json": "ba89a2a2189db98b8b9a4134ec744737f2ed3e26ee59357279a170faf93709dd",
+      "js-sha3/build/sha3.min.js": "f0ca4875766b5a96f525754971c8ec5c32b3bd7f76ed636d95eb59d3f372de84",
+      "js-sha3/src/sha3.js": "13590a201b2199f00b74ee711edc1bdf744705dca12f43cc6ef64c32b5767fa9",
+      "graceful-fs/polyfills.js": "66ea1687ed5edf39d67296d26edccc8da695d9a869303a78d0e580cd770aca27",
+      "graceful-fs/graceful-fs.js": "7da35669b6b6b0e4aafee31674c033f2cebb0c8f9ae010f709dcc185d3f17786",
+      "graceful-fs/package.json": "7cc365c012febc9c44ef6d998b49d749840c852d91db3302b19eb6eca07ead3d",
+      "graceful-fs/clone.js": "7258eca52e65d69845759503f9fdd66c252f40e5eafb76db5d481172e31ac9ed",
+      "graceful-fs/legacy-streams.js": "60a6a7ecf7c3e55a3ffaae13433b6cff388b7205bba6daf393c863f77a949e36",
+      "require-from-string/index.js": "cb059342a762b955997bf780f3693add176922727f2fa9f11fcaf1b3fc323239",
+      "require-from-string/package.json": "c0002f7d4c7d7e2a885cf0f97226344902417c3a0980f2beca41962d2bc1f6d8",
+      "inflight/inflight.js": "e33ea098a91d2c41be886fbbcecacb9799fe183d8a446f138a4786cb3d809802",
+      "inflight/package.json": "5f2489e13f73e9ebad999134fae8a591f6d8b58e8341ec8e3b33397c4d1ef817"
+    },
+    "registry_tarballs": {
+      "solc@0.8.10": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.8.10.tgz",
+        "integrity": "sha512-I/Mcn6J5bEtJqveNLplQm9IRrhemm6v+qkw5S2+wM4x9HItJ1sYdrqVTN3j4DMhFDM3ZbvM0QywVzpPx666PHw=="
+      },
+      "solc@0.8.19": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.8.19.tgz",
+        "integrity": "sha512-yqurS3wzC4LdEvmMobODXqprV4MYJcVtinuxgrp61ac8K2zz40vXA0eSAskSHPgv8dQo7Nux39i3QBsHx4pqyA=="
+      },
+      "path-is-absolute@1.0.1": {
+        "url": "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz",
+        "integrity": "sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg=="
+      },
+      "command-exists@1.2.9": {
+        "url": "https://registry.npmjs.org/command-exists/-/command-exists-1.2.9.tgz",
+        "integrity": "sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w=="
+      },
+      "os-tmpdir@1.0.2": {
+        "url": "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz",
+        "integrity": "sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g=="
+      },
+      "commander@8.3.0": {
+        "url": "https://registry.npmjs.org/commander/-/commander-8.3.0.tgz",
+        "integrity": "sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww=="
+      },
+      "rimraf@2.7.1": {
+        "url": "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz",
+        "integrity": "sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w=="
+      },
+      "klaw@1.3.1": {
+        "url": "https://registry.npmjs.org/klaw/-/klaw-1.3.1.tgz",
+        "integrity": "sha512-TED5xi9gGQjGpNnvRWknrwAB1eL5GciPfVFOt3Vk1OJCVDQbzuSfrF3hkUQKlsgKrG1F+0t5W0m+Fje1jIt8rw=="
+      },
+      "balanced-match@1.0.2": {
+        "url": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+        "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
+      },
+      "once@1.4.0": {
+        "url": "https://registry.npmjs.org/once/-/once-1.4.0.tgz",
+        "integrity": "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w=="
+      },
+      "inherits@2.0.4": {
+        "url": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+        "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+      },
+      "jsonfile@2.4.0": {
+        "url": "https://registry.npmjs.org/jsonfile/-/jsonfile-2.4.0.tgz",
+        "integrity": "sha512-PKllAqbgLgxHaj8TElYymKCAgrASebJrWpTnEkOaTowt23VKXXN0sUeriJ+eh7y6ufb/CC5ap11pz71/cM0hUw=="
+      },
+      "fs-extra@0.30.0": {
+        "url": "https://registry.npmjs.org/fs-extra/-/fs-extra-0.30.0.tgz",
+        "integrity": "sha512-UvSPKyhMn6LEd/WpUaV9C9t3zATuqoqfWc3QdPhPLb58prN9tqYPlPWi8Krxi44loBoUzlobqZ3+8tGpxxSzwA=="
+      },
+      "brace-expansion@1.1.22": {
+        "url": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.22.tgz",
+        "integrity": "sha512-CKLDTuSsN0+r1ThM0WkzzBI7dnPI6xEGfa/JnVYIK9JNBA1N1NyPwXVHor//NKD/y3sDxp764sZdLhFK7pH8XQ=="
+      },
+      "semver@5.7.3": {
+        "url": "https://registry.npmjs.org/semver/-/semver-5.7.3.tgz",
+        "integrity": "sha512-kM18BPOqTi0+TB68703/GJRpAML5Me+IDQsR1J26YB3EFKKNEyHIVZuWDX7+WKQB3tHwDwgk24BfhdpWUbytvQ=="
+      },
+      "minimatch@3.1.5": {
+        "url": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz",
+        "integrity": "sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w=="
+      },
+      "fs.realpath@1.0.0": {
+        "url": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz",
+        "integrity": "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
+      },
+      "concat-map@0.0.1": {
+        "url": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz",
+        "integrity": "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
+      },
+      "memorystream@0.3.1": {
+        "url": "https://registry.npmjs.org/memorystream/-/memorystream-0.3.1.tgz",
+        "integrity": "sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw=="
+      },
+      "glob@7.2.3": {
+        "url": "https://registry.npmjs.org/glob/-/glob-7.2.3.tgz",
+        "integrity": "sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q=="
+      },
+      "follow-redirects@1.16.3": {
+        "url": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.16.3.tgz",
+        "integrity": "sha512-toOSoqN6d51Wjf1aOFJYcoVv1aND9rj/CwjLU0Vz40oDuSpWDayCeKe4JpL5NL0WdFvoOOCI3BRo69HahjbR1A=="
+      },
+      "wrappy@1.0.2": {
+        "url": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz",
+        "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
+      },
+      "tmp@0.0.33": {
+        "url": "https://registry.npmjs.org/tmp/-/tmp-0.0.33.tgz",
+        "integrity": "sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw=="
+      },
+      "js-sha3@0.8.0": {
+        "url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.8.0.tgz",
+        "integrity": "sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q=="
+      },
+      "graceful-fs@4.2.12": {
+        "url": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.12.tgz",
+        "integrity": "sha512-iuyGF2E4oafQfPsRrG2wtY2ILupMhvtdrhzrxB+0VcjsPpSPttpfYdjnGFGsTi5MaJFjI1jOKHPQ6UTbTj9TAw=="
+      },
+      "require-from-string@2.0.2": {
+        "url": "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz",
+        "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="
+      },
+      "inflight@1.0.6": {
+        "url": "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz",
+        "integrity": "sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA=="
+      }
+    },
+    "full_version": "0.8.10+commit.fc410830.Emscripten.clang",
+    "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee"
+  },
+  "0.8.19": {
+    "pin_id": "npm-solc-0.8.19-reviewed-v1",
+    "files_sha256": {
+      "solc/translate.js": "5ec4a375482a58b9ce6b75bfec3c1af2c88a542cbd835c348f519da444582b4c",
+      "solc/wrapper.js": "eec68ccb2a7bad57950dc56d3ef5b45a8a95b75d85e7ca1012cebeee3774b28a",
+      "solc/soljson.js": "fba49e26930967a28d4f301088e126002ab6fbb755f37b5d0ee22b1bf4787070",
+      "solc/smtchecker.js": "3e982cf311a5aa5e26be580d35fbd0bf79ee69e3a58a7b646cab4dc0636d01b2",
+      "solc/verifyVersion.js": "d57c5ec0ab6660f0f6ccaaa8242486362643800bf106fdeb9fd183207e01e387",
+      "solc/index.js": "5621a3a6709de448b29177adc0729bbb3d7fecc3e089b4566270fdb828afe222",
+      "solc/formatters.js": "03d0445abf318665803a29287c66ab858d0eff01183866f58757f4f2f61fbaa3",
+      "solc/package.json": "d2fe513e5961e3811b138d7dc1bc0779867bc5785843bcfdacafbb2d52a005e3",
+      "solc/smtsolver.js": "209a28c4b3d22b4bb9ea1a1f39efae24ad1fc864575ebe9a732d5874916703da",
+      "solc/solc.js": "188c3fdca72bbb8ec1c70373427ad4536e117341c48944dae9185f9cf035146f",
+      "solc/abi.js": "9430e14232d0f639971c73437ed2cb9bbb45e2757881462586f7481b3d52d163",
+      "solc/downloadCurrentVersion.js": "5d06d55f39b3a30bf8189272140dbfc15d37b0a64bc964b4d2f4a5fcf3e94534",
+      "solc/linker.js": "548965a73525cd10657639ab3563a2657d357fffe9cf0e8958c0e6e6fbd9bd1f",
+      "solc/common/types.js": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+      "solc/common/helpers.js": "8086fe96c9f4edbf375122311153459502f9cae6708c98b4ae3b6c0e4314334c",
+      "solc/bindings/core.js": "356a6b6a69d88e373a4952e18112db681176d05a2e18a30bcf171193d4bb40e9",
+      "solc/bindings/index.js": "1868e396a4b5264537fff5e41eed7d63af44130ad39bc522f67dd068a27e43fb",
+      "solc/bindings/helpers.js": "6ea2a194777cef9d450d2fc1188fcb46e3220cbfe5197dd8b79e1b60a7c8a052",
+      "solc/bindings/compile.js": "26085b776f88924d3ad3c5a9a0c1e27215aaa12c5468b6b4de184352531b849f",
+      "command-exists/index.js": "13f054e3bc257282ba5eb4cd22b1ac3201a0b7b35c664ba709777dfcd81a47f7",
+      "command-exists/package.json": "c0acc936f656bc164946c40c8283b18d53f33cf316569adaf8b6eee195d512cf",
+      "command-exists/test/non-executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/test/test.js": "b5ce8bac604d626de94766fe2b411dde5a2cc3064b60b7a7c83b9c94df5529f9",
+      "command-exists/test/executable-script.js": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command-exists/lib/command-exists.js": "3aee1c28a00088a6a2db894dcc5b5e71accac02ffb13a30dd1215dbe80c52658",
+      "os-tmpdir/index.js": "d4593403a467ad0d189d2823df8808a6515b7612e6c141b16b1a7a2db917d732",
+      "os-tmpdir/package.json": "708404ce657fbad57a4804f3ccfcda877e038b981fb9675aebcc57de91e95694",
+      "commander/index.js": "d4f8af488a7a08cd71df8503fcc3e5f2fd61e9b26eb368ecd5cc8159862cde3f",
+      "commander/package.json": "5f5944b2fa479bf68003ca239940f8ad9cae893ddfc3662272a1855dfb9ce4db",
+      "commander/package-support.json": "b07a441d1dbc88588a2e7f219d43a5ea9b7c429a44f119caa49229da86bb0063",
+      "commander/lib/argument.js": "7859398cfac1869df6cbba646e7e437875185866b79ac70a5a3cd802fd4df96b",
+      "commander/lib/option.js": "9dfc7ae4b048435196cbdd888819bb84253d2693460adfa262cffcbb31d6cf98",
+      "commander/lib/error.js": "c69bbc276b3c7fec052f930b9de091db2206646761f765a2077d5731f763dc55",
+      "commander/lib/command.js": "69047076c77593471bbf1aa2ba5f01f0565bffa187d415a600d8ec5998d2056b",
+      "commander/lib/help.js": "f07a902508e463968826dd36b567640a563f0192989355c6559723415951bcf2",
+      "commander/lib/suggestSimilar.js": "2f96448988ab89b4acd941d298e51bb103544bf65b60eb0a4260a26a8b39bb57",
+      "semver/semver.js": "9894ea74a46345b9dcff1491f644a1585db47e0fa737c9cc9e5606744686f74e",
+      "semver/package.json": "caff547bcb99c4985491ad5baa9c0dcc433ccb6f13413b789a087bf2217ffe3a",
+      "memorystream/Gruntfile.js": "b340ed0d9e5db5bbcfc019edb4cb7f1f758ade1c2941bec68b53b852fecdca8b",
+      "memorystream/index.js": "cbcfd7ab33d1009f5ae828ca45a918e93e3752b054befecf09964869d88ea612",
+      "memorystream/package.json": "dfff650f4c6c600aaaeeab58f50429325a94ebcbe28a0689c3c4b545b270b76a",
+      "memorystream/test/example.js": "b645119c26a68d1a8f2623883491518fa752d21f56f72f7a9a2252b52d02d59d",
+      "memorystream/test/memorystream.test.js": "e30ff98263ba0d7824380181c66b40a2c95fac7f2c845747a4a87180f2425049",
+      "follow-redirects/https.js": "7a28e323ffd91094e083a8954fe027839c06d948603d7f2719ed17c446885272",
+      "follow-redirects/index.js": "9f694132c5c09a94d6054b83f75460e45ebcc836a1e013c6e639b8961d352163",
+      "follow-redirects/package.json": "6d8de10cff3afbe74c7933a5424a22699ebb9528a792ae0212f8bdf83ed2866e",
+      "follow-redirects/http.js": "754c0078c57625db7b55b4c3fb30ff5c207fc49284a5022742e81d0c595403c5",
+      "follow-redirects/debug.js": "8dbf7e71a9292be180e3469a6b7a164171d3c39dec79e5dbc4aa1c9f09509faf",
+      "tmp/package.json": "0d16aba4ccec87190ee9759b70afcb3e57f068f311d440b5093bde3a4c7a8175",
+      "tmp/lib/tmp.js": "8c70c0cd3516bfefe02918b553d9ca986d40003317872a2c05f51afb3e60d651",
+      "js-sha3/package.json": "ba89a2a2189db98b8b9a4134ec744737f2ed3e26ee59357279a170faf93709dd",
+      "js-sha3/build/sha3.min.js": "f0ca4875766b5a96f525754971c8ec5c32b3bd7f76ed636d95eb59d3f372de84",
+      "js-sha3/src/sha3.js": "13590a201b2199f00b74ee711edc1bdf744705dca12f43cc6ef64c32b5767fa9"
+    },
+    "registry_tarballs": {
+      "solc@0.8.19": {
+        "url": "https://registry.npmjs.org/solc/-/solc-0.8.19.tgz",
+        "integrity": "sha512-yqurS3wzC4LdEvmMobODXqprV4MYJcVtinuxgrp61ac8K2zz40vXA0eSAskSHPgv8dQo7Nux39i3QBsHx4pqyA=="
+      },
+      "command-exists@1.2.9": {
+        "url": "https://registry.npmjs.org/command-exists/-/command-exists-1.2.9.tgz",
+        "integrity": "sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w=="
+      },
+      "os-tmpdir@1.0.2": {
+        "url": "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz",
+        "integrity": "sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g=="
+      },
+      "commander@8.3.0": {
+        "url": "https://registry.npmjs.org/commander/-/commander-8.3.0.tgz",
+        "integrity": "sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww=="
+      },
+      "semver@5.7.3": {
+        "url": "https://registry.npmjs.org/semver/-/semver-5.7.3.tgz",
+        "integrity": "sha512-kM18BPOqTi0+TB68703/GJRpAML5Me+IDQsR1J26YB3EFKKNEyHIVZuWDX7+WKQB3tHwDwgk24BfhdpWUbytvQ=="
+      },
+      "memorystream@0.3.1": {
+        "url": "https://registry.npmjs.org/memorystream/-/memorystream-0.3.1.tgz",
+        "integrity": "sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw=="
+      },
+      "follow-redirects@1.16.3": {
+        "url": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.16.3.tgz",
+        "integrity": "sha512-toOSoqN6d51Wjf1aOFJYcoVv1aND9rj/CwjLU0Vz40oDuSpWDayCeKe4JpL5NL0WdFvoOOCI3BRo69HahjbR1A=="
+      },
+      "tmp@0.0.33": {
+        "url": "https://registry.npmjs.org/tmp/-/tmp-0.0.33.tgz",
+        "integrity": "sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw=="
+      },
+      "js-sha3@0.8.0": {
+        "url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.8.0.tgz",
+        "integrity": "sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q=="
+      }
+    },
+    "full_version": "0.8.19+commit.7dd6d404.Emscripten.clang",
+    "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee"
+  }
+}
