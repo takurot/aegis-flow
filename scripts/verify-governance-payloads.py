@@ -93,12 +93,15 @@ def cast_call(cast, rpc_url, signature, argument=None, target=GOVERNANCE):
     if argument is not None:
         command.append(str(argument))
     command.extend(['--block', str(deps.BLOCK), '--rpc-url', rpc_url])
-    process = subprocess.run(
-        command,
-        capture_output=True,
-        text=True,
-        timeout=60,
-    )
+    try:
+        process = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+    except (subprocess.TimeoutExpired, OSError):
+        raise deps.Failure('cast execution failed') from None
     if process.returncode != 0:
         raise deps.Failure('cast call failed')
     return process.stdout

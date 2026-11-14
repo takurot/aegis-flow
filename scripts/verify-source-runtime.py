@@ -346,8 +346,8 @@ def main():
         rpc_url = deps.validate_rpc(deps.parse_env_file(args.rpc_config, 'SENTINEL_RPC_URL'))
         etherscan_key = deps.parse_env_file(args.etherscan_config, 'ETHERSCAN_API_KEY')
         deps.preflight(rpc_url)
-    except deps.Failure as error:
-        print(f'Runtime verification preflight failed: {error}', file=sys.stderr)
+    except (deps.Failure, ValueError, OSError):
+        print('Runtime verification preflight failed', file=sys.stderr)
         return 1
     results = {}
     cache = {}
@@ -358,10 +358,10 @@ def main():
             result = verify_target(name, target, rpc_url, etherscan_key, cache)
             state = normalize_result(result, target['address'])
             results[name] = {**result, 'verification_status': state}
-        except Exception as error:
+        except Exception:
             results[name] = {
                 'address': target.get('address'),
-                'error': str(error) if isinstance(error, deps.Failure) else type(error).__name__,
+                'error': 'runtime target failure',
                 'verification_status': 'error',
             }
         print(f'{name}: {"exact" if results[name].get("exact_match") else "code" if results[name].get("code_match") else results[name].get("error", "mismatch")}')
