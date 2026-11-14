@@ -1,0 +1,193 @@
+[
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v2/FiatTokenV2_2.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v2/FiatTokenV2_2.sol",
+    "status": 200,
+    "sha256": "bc19b34f30539a71fdcab25fd2909444abc8f525da6c2c263f52be0ab6365318",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "bc19b34f30539a71fdcab25fd2909444abc8f525da6c2c263f52be0ab6365318",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v2/FiatTokenV2_2.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/interface/IERC1271.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/interface/IERC1271.sol",
+    "status": 200,
+    "sha256": "4bea173f51efb59469b5c27bd01f41e47bf590234326f4ac129077758c6e8700",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "4bea173f51efb59469b5c27bd01f41e47bf590234326f4ac129077758c6e8700",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/interface/IERC1271.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/util/ECRecover.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/util/ECRecover.sol",
+    "status": 200,
+    "sha256": "e1ef89a8ee61d8e34246b7c9ef407b3934e427fd6e9379b1b1aebaef146b3139",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "e1ef89a8ee61d8e34246b7c9ef407b3934e427fd6e9379b1b1aebaef146b3139",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/util/ECRecover.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/util/EIP712.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/util/EIP712.sol",
+    "status": 200,
+    "sha256": "2d4f1680a369de666100e24d0fb32536e523bc20adbf59ccaaf925b5b5069f3d",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "2d4f1680a369de666100e24d0fb32536e523bc20adbf59ccaaf925b5b5069f3d",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/util/EIP712.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/util/MessageHashUtils.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/util/MessageHashUtils.sol",
+    "status": 200,
+    "sha256": "9f8bb1b606b7fdbdd4fc3677d2c26476077ae75a1b37c922673e2fff9b861e0c",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "9f8bb1b606b7fdbdd4fc3677d2c26476077ae75a1b37c922673e2fff9b861e0c",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/util/MessageHashUtils.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v2/AbstractFiatTokenV2.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v2/AbstractFiatTokenV2.sol",
+    "status": 200,
+    "sha256": "0df59e928752105b4a69a4011c1928de24c7c842067185de7ee30afa65bbb08c",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "0df59e928752105b4a69a4011c1928de24c7c842067185de7ee30afa65bbb08c",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v2/AbstractFiatTokenV2.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/util/SignatureChecker.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/util/SignatureChecker.sol",
+    "status": 200,
+    "sha256": "7ac65af189f475acdcd17ffe9c639bfe20ff505984ca142ec60ed6c0e91924d2",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "7ac65af189f475acdcd17ffe9c639bfe20ff505984ca142ec60ed6c0e91924d2",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/util/SignatureChecker.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v1.1/FiatTokenV1_1.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v1.1/FiatTokenV1_1.sol",
+    "status": 200,
+    "sha256": "e35fd245d8bf21a2539a29d1e18f6d3f05a728819db03324e52d122a367d7a63",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "e35fd245d8bf21a2539a29d1e18f6d3f05a728819db03324e52d122a367d7a63",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v1.1/FiatTokenV1_1.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v1.1/Rescuable.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v1.1/Rescuable.sol",
+    "status": 200,
+    "sha256": "b6598160acf080c793b7c69a92d906f7ef72033c9bac4a24b746362ab2f377ce",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "b6598160acf080c793b7c69a92d906f7ef72033c9bac4a24b746362ab2f377ce",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v1.1/Rescuable.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v1/AbstractFiatTokenV1.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v1/AbstractFiatTokenV1.sol",
+    "status": 200,
+    "sha256": "17ead8fb9180b90aefc0e998e1e264080ec8f740755a01688a785a3459438e10",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "17ead8fb9180b90aefc0e998e1e264080ec8f740755a01688a785a3459438e10",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v1/AbstractFiatTokenV1.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v1/Blacklistable.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v1/Blacklistable.sol",
+    "status": 200,
+    "sha256": "378945896f094e44f8c38d6d51221fcf0e0a5c0e411bdbe5c2a1e74b30d62d18",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "378945896f094e44f8c38d6d51221fcf0e0a5c0e411bdbe5c2a1e74b30d62d18",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v1/Blacklistable.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v1/FiatTokenV1.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v1/FiatTokenV1.sol",
+    "status": 200,
+    "sha256": "60cf9152586da7464f9f2a9aec2e67151edce2ec0eafad9061111c7ddecbd253",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "60cf9152586da7464f9f2a9aec2e67151edce2ec0eafad9061111c7ddecbd253",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v1/FiatTokenV1.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v1/Ownable.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v1/Ownable.sol",
+    "status": 200,
+    "sha256": "75f378c6a232f5cc85f2a46b5b2296c14bcbdf864114c3fee3996102e93aa946",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "75f378c6a232f5cc85f2a46b5b2296c14bcbdf864114c3fee3996102e93aa946",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v1/Ownable.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v1/Pausable.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v1/Pausable.sol",
+    "status": 200,
+    "sha256": "3aac2a3b16249fdfe82357649fb5ad2bd5887cb521b59f0833851457a8e845b8",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "3aac2a3b16249fdfe82357649fb5ad2bd5887cb521b59f0833851457a8e845b8",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v1/Pausable.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v2/EIP2612.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v2/EIP2612.sol",
+    "status": 200,
+    "sha256": "a238b788183f3a3283743a6fecd05ecc2017b74d73b1f8e9aa51420766f67141",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "a238b788183f3a3283743a6fecd05ecc2017b74d73b1f8e9aa51420766f67141",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v2/EIP2612.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v2/EIP3009.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v2/EIP3009.sol",
+    "status": 200,
+    "sha256": "aef8f9243a424b1238dd804cf028bb84cb9a67aac0cab8403424966013ca0f36",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "aef8f9243a424b1238dd804cf028bb84cb9a67aac0cab8403424966013ca0f36",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v2/EIP3009.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v2/EIP712Domain.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v2/EIP712Domain.sol",
+    "status": 200,
+    "sha256": "0177b3f22c53b24a0fb7fdd01b5639cfb3333c8f00b88a17e214c82ad651cd09",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "0177b3f22c53b24a0fb7fdd01b5639cfb3333c8f00b88a17e214c82ad651cd09",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v2/EIP712Domain.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v2/FiatTokenV2.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v2/FiatTokenV2.sol",
+    "status": 200,
+    "sha256": "a965693a4fb4825190478ba8e75680c17dd0101f09ee582a535e27b283a51cd7",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "a965693a4fb4825190478ba8e75680c17dd0101f09ee582a535e27b283a51cd7",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v2/FiatTokenV2.sol"
+  },
+  {
+    "path": "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-eurc-mainnet-eth/contracts/v2/FiatTokenV2_1.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/v2/FiatTokenV2_1.sol",
+    "status": 200,
+    "sha256": "3c28cd848d97aa66b5f20f2b235ef85e1096909f6fb15b50fcb25aa14b4c29b3",
+    "equal_verified_candidate": true,
+    "candidate_sha256": "3c28cd848d97aa66b5f20f2b235ef85e1096909f6fb15b50fcb25aa14b4c29b3",
+    "file": "temp/issue51-59/acquire-modern/circle-a1b5455f/contracts/v2/FiatTokenV2_1.sol"
+  },
+  {
+    "path": "@openzeppelin/contracts/math/SafeMath.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/math/SafeMath.sol",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/token/ERC20/IERC20.sol",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "@openzeppelin/contracts/token/ERC20/SafeERC20.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/token/ERC20/SafeERC20.sol",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "@openzeppelin/contracts/utils/Address.sol",
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/contracts/utils/Address.sol",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

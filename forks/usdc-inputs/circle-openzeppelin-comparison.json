@@ -1,0 +1,29 @@
+{
+  "url": "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-3.4.2.tgz",
+  "sha256": "72f4176e8d4db8825a6161a7663061f3c3d3f2f6e14c7d5357bec6bd1dd9c7bd",
+  "sha512_integrity_matches_official_lock": true,
+  "comparisons": [
+    {
+      "path": "@openzeppelin/contracts/math/SafeMath.sol",
+      "sha256": "4a04d0a20a19e3ef1dcabae9cad9ba006430a4e7eec4d9b519db87999722c98a",
+      "equal_verified_candidate": true
+    },
+    {
+      "path": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "sha256": "0573c2961569aa4906845d0cd428b5b7394956170054ceeaa8f8af96cd44875c",
+      "equal_verified_candidate": true
+    },
+    {
+      "path": "@openzeppelin/contracts/token/ERC20/SafeERC20.sol",
+      "sha256": "eea796f96939e7dd6119de00941717ce5772d8a942b184f5e48d2b962d0ab655",
+      "equal_verified_candidate": true
+    },
+    {
+      "path": "@openzeppelin/contracts/utils/Address.sol",
+      "sha256": "11ad5e3e21434e00c4ceba1f5a977b7a68bdd7d16b849276ce4ff4495129eec7",
+      "equal_verified_candidate": true
+    }
+  ],
+  "official_yarn_lock_integrity": "sha512-z0zMCjyhhp4y7XKAcDAi3Vgms4T2PstwBdahiO0+9NaGICQKjynK3wduSRplTgk4LXmoO1yfDGO5RbjKYxtuxA==",
+  "official_yarn_lock_sha256": "77c369af7f634a8b0e23342b86cb00174bae4b6f2b5eccc99ace6f17b2c88e97"
+}
