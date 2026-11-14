@@ -2,7 +2,25 @@
 
 [Issue #46](https://github.com/takurot/aegis-flow/issues/46) の対象は、PR #43 の merge 後に default branch の手動 workflow を実行し、通常 CI と実 fork の結果を別々に記録することである。
 
-## 確認結果
+## secret 設定後の再実行結果
+
+2026-11-14 UTC に、default branch `main` の commit `a529c9ec152f6499252c0e6ed4456df7d8bb079d` で再実行した。
+
+| 項目 | 証拠と結果 |
+| --- | --- |
+| repository secret | `SENTINEL_RPC_URL` の登録名と更新日時 `2026-11-14T10:07:25Z` を確認。値は取得・記録していない |
+| 通常 CI | [run 43583370272](https://github.com/takurot/aegis-flow/actions/runs/43583370272) が同じ commit で `completed / success`。`rust` と `solidity` の両 job、および全検証 step が成功 |
+| 手動 live-fork | [run 43583807326](https://github.com/takurot/aegis-flow/actions/runs/43583807326) が `completed / success`。2026-11-14T10:08:02Z に作成、job は 10:09:57Z に終了 |
+| 実行 step | `Verify pinned Ethereum block and run baseline plus protected suites` が 10:08:13Z から 10:09:54Z に実行され、成功 |
+| 実 fork の検証 | 出力 JSON の baseline 10 件、protected 32 件がすべて `Success`。失敗・skip・不足はなく、runner も必須 42 件の成功を確認 |
+
+[runner](../scripts/fork-market.py) はテスト起動前に Ethereum mainnet の chain ID `1`、block `19000000`、hash `0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac`、timestamp `1705173443` を RPC と照合する。今回の成功 run はこの preflight と両 suite の検証を通過した。checkout と Foundry 導入を含む全 job step も成功した。
+
+ログの終端は `Baseline and protected fork passed (42 tests); Aegis production readiness remains UNPROVEN.`。GitHub 上での実 fork 実行は成功したが、Issue #8 の市場保護・本番導入の合格を意味しない。公開チェーンへの書き込み、upgrade、governance 操作は行っていない。
+
+PR #43 の reviews API は引き続き空配列で、人間のレビュー実施は確認できない。Issue #46 の secret 設定・手動実 fork 実行・対象 commit の通常 CI 記録は揃ったが、人間のレビュー証拠は未確認のままとする。Issue #46 と Issue #8 は close しない。
+
+## 初回の失敗記録
 
 2026-11-14 UTC に GitHub CLI 2.100.0 で確認した。対象 commit は `c8eacdc10d1b2b6607d2b7df8872af6a50bd4443`。
 
@@ -19,19 +37,19 @@ workflow の checkout と Foundry 導入は成功した。Foundry の post step 
 
 通常 CI の `Compile opt-in market fork suite` はコンパイルの成功であり、実 fork の成功証拠にはならない。ローカルの過去の実行結果も、この手動 workflow の成功には代用しない。
 
-## 対象 block と未確認範囲
+## 初回 run の対象 block と未確認範囲
 
 [runner](../scripts/fork-market.py) の設定上の対象は Ethereum mainnet、chain ID `1`、block `19000000` である。期待する hash は `0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac`、timestamp は `1705173443`。
 
-今回の run ではこれらの値を RPC と照合していない。block identity を確認済みとして扱わず、baseline 10 件と protected 32 件の合格も記録しない。
+初回 run ではこれらの値を RPC と照合していない。block identity を確認済みとして扱わず、baseline 10 件と protected 32 件の合格も記録しない。
 
-[Issue #8](https://github.com/takurot/aegis-flow/issues/8) は確認時点で OPEN。Issue #46 の secret 設定・実 fork 成功・人間のレビュー証拠は未完了であり、市場保護や本番導入のゲートを解放しない。公開チェーンへの書き込み、upgrade、governance 操作は行っていない。
+[Issue #8](https://github.com/takurot/aegis-flow/issues/8) は確認時点で OPEN。初回 run の時点では Issue #46 の secret 設定・実 fork 成功・人間のレビュー証拠が未完了であり、市場保護や本番導入のゲートを解放しない。公開チェーンへの書き込み、upgrade、governance 操作は行っていない。
 
-## 再開条件
+## 初回失敗後の対応と今後の再実行
 
-再開には、固定 block の履歴を参照できる HTTPS RPC を repository secret `SENTINEL_RPC_URL` に設定することが必要である。ローカル設定ファイルから GitHub への自動転送は行わず、URL や認証情報は成果物に含めない。人間の PR #43 レビューについても、実施を確認できる記録が必要である。
+初回失敗後に、固定 block の履歴を参照できる HTTPS RPC が repository secret `SENTINEL_RPC_URL` に設定され、上記の再実行が成功した。ローカル設定ファイルから GitHub への自動転送は行わず、URL や認証情報は成果物に含めない。人間の PR #43 レビューについても、実施を確認できる記録が必要である。
 
-設定後の再実行コマンドは次のとおり。
+今後の再実行コマンドは次のとおり。
 
 ```sh
 gh workflow run market-fork.yml --repo takurot/aegis-flow --ref main
@@ -46,6 +64,9 @@ gh run view <RUN_ID> --repo takurot/aegis-flow --json headSha,status,conclusion,
 次の読み取りコマンドで実行記録と設定名を確認した。secret の値は取得していない。
 
 ```sh
+gh run view 43583807326 --repo takurot/aegis-flow --json headSha,event,createdAt,updatedAt,status,conclusion,jobs,url
+gh run view 43583807326 --repo takurot/aegis-flow --log
+gh run view 43583370272 --repo takurot/aegis-flow --json headSha,status,conclusion,jobs,url
 gh run view 43582035704 --repo takurot/aegis-flow --json headSha,event,createdAt,updatedAt,status,conclusion,jobs,url
 gh run view 43582035704 --repo takurot/aegis-flow --log-failed
 gh run view 42038170077 --repo takurot/aegis-flow --json headSha,status,conclusion,jobs,url
