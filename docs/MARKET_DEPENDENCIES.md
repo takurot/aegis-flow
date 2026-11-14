@@ -80,6 +80,8 @@ python3 scripts/verify-governance-payloads.py
 - **ガバナンス承認・実行履歴**: Level 1 executor の delay 1 day、level 2 の delay 7 days、ProxyAdmin owner、ACL role holder、payload 43 の実行済み Pool upgrade、`ISOLATED_COLLATERAL_SUPPLIER` の grant 元を確認した。残るのは緊急権限の運用。
 - **公開チェーンへの書き込みなし**。deploy/upgrade/governance 操作は行っていない。
 
+Issue #56 の Configurator 単独対象は、別の [作成証拠による全 byte 再現](CONFIGURATOR_RUNTIME.md) で元 metadata CID と postcompile library link を検証する。既存25件の集計は、その別証拠を合算せず保持する。
+
 ## source → runtime 再ビルド
 
 ```sh

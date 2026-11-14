@@ -87,6 +87,10 @@ jobs:
         run: python3 -m unittest discover -s tests -p test_creation_runtime.py -v
       - name: Replay thirteen creation-derived targets and seven Pool libraries offline
         run: python3 scripts/verify-creation-runtime.py --output "$RUNNER_TEMP/creation-runtime.json"
+      - name: Verify Configurator original metadata and postcompile links offline
+        run: |
+          python3 -m unittest discover -s tests -p test_configurator_runtime.py -v
+          python3 scripts/verify-configurator-runtime.py --output "$RUNNER_TEMP/configurator-runtime.json"
       - run: forge fmt --check
       - run: forge build
       - run: forge test
