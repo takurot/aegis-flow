@@ -1,0 +1,118 @@
+{
+  "all_25_targets_closed": false,
+  "block": 19000000,
+  "block_hash": "0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac",
+  "chain_id": 1,
+  "comparison": "offline saved fixed-block code; no HTTP or RPC",
+  "comparison_runtime_sha256": "d57ee4282976219ef6d13573388262912e651f094d7bd43c1784a339eab8d44b",
+  "compiled_metadata_sha256": "7b7034db8f1c6ebf8d49af834c601ca1848f240fee9ec0739a19d0208aae86c1",
+  "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+  "compiled_output_sha256": "16d9ae3e747bc08a72e218131565fe7345f9486655182e7f172f789209b344f0",
+  "compiler": {
+    "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee",
+    "full_version": "0.8.10+commit.fc410830.Emscripten.clang",
+    "pin_id": "npm-solc-0.8.10-reviewed-v1",
+    "toolchain_manifest_sha256": "4da44bb2b9a4ef3616bf8222baffc28fe7d2c30b97b95104a2c07d93272e501c",
+    "version": "0.8.10"
+  },
+  "constructor_arguments": [],
+  "create2": {
+    "address": "0xfda7ffa872bdc906d43079ea134ebc9a511db0c2",
+    "factory": "0x2401ae9bbef67458362710f90302eb52b5ce835a",
+    "salt": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "creation": {
+    "address": "0xfda7ffa872bdc906d43079ea134ebc9a511db0c2",
+    "canonicality": "RPC canonical header consistency; full parent-header ancestry not traversed",
+    "chain_id": 1,
+    "deployment_block": 16291096,
+    "deployment_block_hash": "0xdfde90231cdd6929905edd53af17f8683e01c3906497b71cd2c38491b7c04b08",
+    "frame_path": [
+      0
+    ],
+    "target": "configurator_impl",
+    "transaction_hash": "0x630a9328e513462fc16de79712cd560ed4d17cf170bdd364ff37a849e8a63279"
+  },
+  "evidence_sha256": {
+    "630a9328e513462fc16de79712cd560ed4d17cf170bdd364ff37a849e8a63279-header.json": "5c5a4cc3d9938feb8e1ae2f99ec579b5c95a1998cefc66fbc37347ca1a941418",
+    "630a9328e513462fc16de79712cd560ed4d17cf170bdd364ff37a849e8a63279-receipt.json": "d77bf17befebaf5373b6d6d69551e581a083cb04809a3070d93e6d0840ca62c2",
+    "630a9328e513462fc16de79712cd560ed4d17cf170bdd364ff37a849e8a63279-trace.json": "dd1df2fc5d4cccf2e807354b9cb77bb25b01a393fd3dd7373931e950660321a9",
+    "630a9328e513462fc16de79712cd560ed4d17cf170bdd364ff37a849e8a63279-transaction.json": "3470c45419f01c4773d6d82e88a61c99a01bc14b33ef9143b94689ecfa600cb0",
+    "ConfiguratorLogic56-code-19000000.json": "030f5c2bef134f62ac1afaec0bfb9088b7a227654c5f936f94080c593d2a13c3",
+    "ConfiguratorLogic56-sourcify.json": "0598fbdb4ff857b08d9b71916f089acb37ec9ec7ac17647b0a2b18709a5668c0",
+    "anchor-header.json": "3aa7e107fc85d35c1e20d9a4bfc3498872aea7452e19e9c1d80185a1c6462801",
+    "build.json": "ed65b5c0f324b9d2b50c3c99964dc3671cab20f35b0366bf30f6450db460d937",
+    "configurator-source.json": "3b81d16ab346ccb872c5f5bd759884f0dce140eb72c75b405332fba506d1474d",
+    "runtime.json": "f400dff800894071a93364615844f6f14efe372f7f57529f0e603e9d937accf5"
+  },
+  "expected_runtime_sha256": "d57ee4282976219ef6d13573388262912e651f094d7bd43c1784a339eab8d44b",
+  "hash_encoding": "raw bytes",
+  "immutable_bindings": [],
+  "libraries": {
+    "@aave/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic.sol:ConfiguratorLogic": "0x66ac02c3120b848d65231ce977af3db1f60b97f9"
+  },
+  "library_provenance": {
+    "address": "0x66ac02c3120b848d65231ce977af3db1f60b97f9",
+    "codehash_keccak256": "0x291978c5f1ae6783d8466ef385247d2e32d1f3a7a9bca05e4e316c5a274f90f1",
+    "source_content_matches_build": true,
+    "source_url": "https://sourcify.dev/server/v2/contract/1/0x66ac02c3120b848d65231ce977af3db1f60b97f9?fields=metadata,sources,compilation",
+    "transitive_dependency_audit": false
+  },
+  "metadata_cid": "QmURYQGZqK8VtBFmoRGmyQevKndmZSU27HWmBk7tcg312r",
+  "postcompile_linking": {
+    "address_source": "authenticated creation initcode at compiler-declared creation references",
+    "creation_references": {
+      "@aave/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic.sol": {
+        "ConfiguratorLogic": [
+          {
+            "length": 20,
+            "start": 1111
+          },
+          {
+            "length": 20,
+            "start": 6183
+          },
+          {
+            "length": 20,
+            "start": 9570
+          },
+          {
+            "length": 20,
+            "start": 10638
+          }
+        ]
+      }
+    },
+    "runtime_references": {
+      "@aave/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic.sol": {
+        "ConfiguratorLogic": [
+          {
+            "length": 20,
+            "start": 1074
+          },
+          {
+            "length": 20,
+            "start": 6146
+          },
+          {
+            "length": 20,
+            "start": 9533
+          },
+          {
+            "length": 20,
+            "start": 10601
+          }
+        ]
+      }
+    }
+  },
+  "production_readiness": false,
+  "runtime_bytes": 24267,
+  "source_identity_sha256": "a88e10cd5e2653cfaaa514950ce0f824d609cfe5aad223f8429c0b7f20169ae7",
+  "status": "creation_derived_full_runtime_match",
+  "target": {
+    "address": "0xFDA7ffA872bDc906D43079EA134ebC9a511db0c2",
+    "target": "configurator_impl",
+    "transaction_hash": "0x630a9328e513462fc16de79712cd560ed4d17cf170bdd364ff37a849e8a63279"
+  }
+}
