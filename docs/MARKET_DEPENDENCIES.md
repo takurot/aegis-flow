@@ -109,10 +109,48 @@ python3 scripts/verify-sourcify.py
 - Pool + 7 ライブラリは既存の local full exact、USDC price source は local full exact。
 - Sourcify の `match` は code/bytecode 一致の独立証拠だが、full metadata の完全一致を意味しない。local recompile は 25/25 code match、full exact は USDC price source のみ。IPFS metadata はこの環境から取得できなかった。
 
+## Sourcify からの full runtime 再現（Issue #44）
+
+```sh
+for version in 0.4.19 0.4.24 0.6.6 0.6.12 0.7.6 0.8.10 0.8.19; do
+  npm install --prefix "/tmp/aegis-solcjs-$version" "solc@$version"
+done
+python3 scripts/verify-sourcify-runtime.py
+```
+
+Node.js、npm、Python 3、読み取り用の archive RPC が必要。出力は [`forks/aave-v3-sourcify-runtime-19000000.json`](../forks/aave-v3-sourcify-runtime-19000000.json)。終了コードは全件 `exact_full` が 0、値の補完や mismatch が残る場合は 2、取得・コンパイル・RPC エラーは 1。部分結果も保存する。空の対象集合は成功にならない。
+
+2026-11-14 の固定ブロック再実行は **2 exact_full、13 matched_with_deployed_values、10 mismatch、0 error**。終了コードは 2。Sourcify の metadata と source content から標準 JSON 入力を作り、指定版の solc で再ビルドする。target ごとに compiler、source path、入力・metadata・runtime の SHA-256、metadata CID、immutable/link の位置と補完値を保存する。runtime の SHA-256 は `0x` なしの小文字 hex テキストに対する値である。metadata の source keccak256 と取得内容の対応は独立検証していない。
+
+`exact_full` は補完なしの全 byte 一致であり、対象は `provider` と `governance_proxy_admin`。metadata を削除しない。
+
+`matched_with_deployed_values` は compiler が宣言した immutable/link の位置だけを、固定ブロックの deployed bytes で補完した全 byte 一致である。対象は `pool`、`pool_impl`、`configurator`、`acl`、`oracle`、`aWETH`、`aWETH_impl`、`aUSDC`、`variableDebtUSDC`、`variableDebtUSDC_impl`、`stableDebtUSDC`、`stableDebtUSDC_impl`、`WETH_price_source_aggregator`。この13件では metadata を変更していない。ただし補完値の独立導出は未実施であり、独立した full exact 再現の成功には数えない。再開には constructor 引数、deployment transaction、リンク設定から値を導出し、補完値と照合する証拠が必要。
+
+次の10件は metadata を除去して immutable/link を mask すると code が一致するが、full runtime は一致しない。CID の完全値と差分位置は成果物を参照する。
+
+| target | full runtime が一致しない理由 | 残る影響と再開条件 |
+| --- | --- | --- |
+| `configurator_impl` | Sourcify の metadata CID と deployed CID が異なる | deployed metadata の取得後に source path と settings を再現する。full metadata は未検証 |
+| `WETH` | 0.4.19 の metadata suffix が異なる。IPFS CID は記録されない | deployment 時の source path と settings を取得する。code 一致だけでは suffix を保証しない |
+| `USDC` | 0.4.24 の metadata suffix が異なる。IPFS CID は記録されない | deployment 時の source path と settings を取得する。proxy の full metadata は未検証 |
+| `WETH_price_source` | Sourcify の metadata CID と deployed CID が異なる | deployed metadata を取得して価格 proxy の full runtime を再ビルドする |
+| `USDC_price_source` | Sourcify は相対パス `EACAggregatorProxy.sol` を使い、deployed CID と異なる | Routescan の絶対 source path では補完なし exact。以下の別経路の証拠を維持する |
+| `USDC_impl` | Sourcify の metadata CID と deployed CID が異なる | flat な `SignatureChecker` library 名を standard JSON の空 source path に正規化し、コンパイルエラーは解消。残る metadata の再現には deployed metadata が必要 |
+| `governance_proxy` | Sourcify の metadata CID と deployed CID が異なる | deployed metadata と元の source path、settings を取得する。proxy の full metadata は未検証 |
+| `governance_impl` | Sourcify の metadata CID と deployed CID が異なる | deployed metadata を取得する。governance 実装の full metadata は未検証 |
+| `executor` | Sourcify の metadata CID と deployed CID が異なる | deployed metadata を取得する。実行権限の code 一致と full metadata の保証を区別する |
+| `USDC_price_source_aggregator` | Sourcify の metadata CID と deployed CID が異なる | deployed metadata と deployment 時の immutable 値を独立導出する。価格 aggregator の full runtime は未検証 |
+
+`configurator_impl` の deployed CID `QmURYQGZqK8VtBFmoRGmyQevKndmZSU27HWmBk7tcg312r` は、同日の ipfs.io、dweb.link、gateway.pinata.cloud への再取得でも HTTP エラーとなった。全 target の正確な deployment metadata が取得できたとは主張しない。
+
+別経路の証拠を上書きしない。`USDC_price_source` は既存の [source API 再ビルド成果物](../forks/aave-v3-runtime-19000000.json) で full exact であり、同日 Routescan の source と solc 0.6.6 でも補完なしの全9571 bytes一致を再確認した。入力 source path は `/Users/yos/chainlink2/evm-contracts/src/v0.6/EACAggregatorProxy.sol`、optimizer は enabled、runs は 1000000、EVM は istanbul。metadata CID は compiled/deployed とも `QmbfsbgQwvkxffBBy2cMzfuxUZBauJkT7CGMa39y2dGv6k`。Sourcify の相対 source path の再ビルドとの差を、code の不一致として扱わない。Pool とリンク先7ライブラリにも既存の [別の full exact 証拠](../forks/aave-v3-pool-source-19000000.json) がある。今回の補完付き比較はその独立証拠を置き換えない。
+
+#44 の full exact 目標は未達。再現できない対象・理由・影響を記録し、後続の本番導入ゲートを解放しない。
+
 ## テスト
 
-`tests/test_market_dependencies.py` は、設定ファイルの厳格な読み取り（シェル実行なし）、source SHA-256、Routescan→Etherscan フォールバック、secret 非出力、executor settings の decode、role log の fail-closed 処理を検証する。`tests/test_market_runtime.py` は runtime artifact の 25 targets / 25 code match / Provider の二重 metadata を固定する。`tests/test_market_sourcify.py` は Sourcify の 14 exact / 11 partial を固定する。ネットワークは使わない。
+`tests/test_market_dependencies.py` は、設定ファイルの厳格な読み取り（シェル実行なし）、source SHA-256、Routescan→Etherscan フォールバック、secret 非出力、executor settings の decode、role log の fail-closed 処理を検証する。`tests/test_market_runtime.py` は runtime artifact の 25 targets / 25 code match / Provider の二重 metadata を固定する。`tests/test_market_sourcify.py` は Sourcify の 14 exact / 11 partial を固定する。`tests/test_market_sourcify_runtime.py` は library 名の正規化、補完と独立 exact の区別、不正 bytecode、範囲外補完、空集合、部分結果の終了コード、秘密情報を出さない失敗処理、成果物の整合性を検証する。ネットワークは使わない。
 
 ## 判定
 
-依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量、payload 43 の実行済み Pool upgrade、`ISOLATED_COLLATERAL_SUPPLIER` の grant 元、25/25 code match は確認できた。一方、**11 targets の full exact metadata/immutable/link** は未検証である。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。
+依存先の **source の存在**、proxy/implementation 関係、authority chain、Level 1 の実効 delay 1 day、ACL role holder 全量、payload 43 の実行済み Pool upgrade、`ISOLATED_COLLATERAL_SUPPLIER` の grant 元、25/25 code match は確認できた。一方、Sourcify 経路の補完付き13件と mismatch 10件は独立した full exact の成功に含めない。別経路の Pool とリンク先7ライブラリ、USDC price source の証拠は維持する。したがって、この成果だけを根拠に #8 を「成功した市場保護」として close したり、#11 以降のゲートを解放したりしない。
