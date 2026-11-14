@@ -1,0 +1,32 @@
+[
+  {
+    "path": "src/contracts/transparent-proxy/TransparentUpgradeableProxy.sol",
+    "package_exists": true,
+    "exact_source_match": false
+  },
+  {
+    "path": "src/contracts/oz-common/StorageSlot.sol",
+    "package_exists": true,
+    "exact_source_match": true
+  },
+  {
+    "path": "src/contracts/oz-common/Address.sol",
+    "package_exists": true,
+    "exact_source_match": false
+  },
+  {
+    "path": "src/contracts/transparent-proxy/ERC1967Proxy.sol",
+    "package_exists": true,
+    "exact_source_match": true
+  },
+  {
+    "path": "src/contracts/transparent-proxy/ERC1967Upgrade.sol",
+    "package_exists": true,
+    "exact_source_match": true
+  },
+  {
+    "path": "src/contracts/transparent-proxy/Proxy.sol",
+    "package_exists": true,
+    "exact_source_match": true
+  }
+]

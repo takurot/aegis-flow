@@ -1,0 +1,14 @@
+{
+  "retrieved_at_utc": "2026-11-14T11:12:53.034686+00:00",
+  "official_governance_commit": "7afbf3134ba778da0418b3ce2e80668e17dd5a75",
+  "submodule_status_all_exact": true,
+  "npm_registry": "https://registry.npmjs.org/@bgd-labs/solidity-utils",
+  "npm_tarball": "https://registry.npmjs.org/@bgd-labs/solidity-utils/-/solidity-utils-1.1.0.tgz",
+  "release_inventory_urls": [
+    "https://api.github.com/repos/bgd-labs/solidity-utils/releases",
+    "https://api.github.com/repos/aave-dao/aave-governance-v3/releases"
+  ],
+  "foundry_version": "1.8.6",
+  "historical_foundry_binary_recovered": false,
+  "publication_graph_is_deployment_graph_claim": false
+}

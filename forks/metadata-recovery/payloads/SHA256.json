@@ -1,0 +1,22 @@
+{
+  "acquisition-context.json": "aee7e219bda9c892871eaddd52428106a71602fe41965cddc1bd251dd87dd53d",
+  "bundles/2829333c548c0c1265ed487a3a7fe4521dadca6bc353365a7d2f573e269bc0df.json": "2829333c548c0c1265ed487a3a7fe4521dadca6bc353365a7d2f573e269bc0df",
+  "bundles/49716987e29aae172df2fe9d08057583bbb1bb842c5f95fb6ab53272d4b40eb8.json": "49716987e29aae172df2fe9d08057583bbb1bb842c5f95fb6ab53272d4b40eb8",
+  "bundles/83343e8204dee65c48f6470fc73d59e19bd68c43652f4c612eaf4cc47bf20691.json": "83343e8204dee65c48f6470fc73d59e19bd68c43652f4c612eaf4cc47bf20691",
+  "bundles/8a43f2145ecd199bfd044003455fc666ce31143b68d89483987bc49d74cf530d.json": "8a43f2145ecd199bfd044003455fc666ce31143b68d89483987bc49d74cf530d",
+  "bundles/bde4b018785cccbf79e67ba587a3272efaadfed5f235b6ae75da0242123c2531.json": "bde4b018785cccbf79e67ba587a3272efaadfed5f235b6ae75da0242123c2531",
+  "bundles/c514bd3427b7c9b11902a445fee92e5b0be89656c0b592bca36ef3970db9767e.json": "c514bd3427b7c9b11902a445fee92e5b0be89656c0b592bca36ef3970db9767e",
+  "bundles/e7c3299eddf0d0e3dc824c0ba86b1a52b463f3b264c22cdebf10afb8a5eadbc5.json": "e7c3299eddf0d0e3dc824c0ba86b1a52b463f3b264c22cdebf10afb8a5eadbc5",
+  "candidates.json": "60bf925df436e6ea8eab853080fdc5dbcf0956528d012e9e00fe4e2df3434f71",
+  "executor-deployed.hex": "bbb7628ad43b57c33fee8b0dccada2418229de9376991f35dea31cc0ff200d03",
+  "fully-pinned-submodule-status.txt": "254b0d68bbd292ccd84eb38109fe258b61fe7c931eeac4a24801959abe5ca2cd",
+  "governance-releases.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "governance_impl-deployed.hex": "d2ba39f8a64bc2e078b0d78834d14009d62a0e5cb93dd59198a23c3ea1b93696",
+  "governance_proxy-deployed.hex": "03f79a695d49920ceeb72d4c8da5ecd2a81c28072d529890f1b4e12308b9c6d8",
+  "historical-ethereum-deployment.json": "4ccbd41c19992ab5deba6893788fd1f5a3ee4a0d4ad3d745412446120497e42b",
+  "npm-solidity-utils.json": "dbeb74f5f2e330639ed33296b30f041cbc67363dbdb2313e5f7d46510bc911f1",
+  "official-source-comparison.json": "898bf9916695831e8b08cc9c7594d2cac70c98ba30c8ce33753b330552ad6b8c",
+  "proxy-npm-source-comparison.json": "c422a196c3082f05fc2ae70385f79bfd173e71d7571e574237d329aae05ed591",
+  "proxy-official-source-history.json": "7b3401c0b6fff8ca137e0b25edfa38b511ea6c32130de3605b1e50287c576a18",
+  "solidity-utils-releases.json": "281c9f2bbde32515301ef11f20a0de98a47224620b90a65b2e4da0955f6874c7"
+}
