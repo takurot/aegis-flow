@@ -16,6 +16,12 @@ interface PoCVm {
     function mockCall(address, bytes calldata, bytes calldata) external;
     function sign(uint256, bytes32) external returns (uint8, bytes32, bytes32);
     function addr(uint256) external returns (address);
+    function cool(address) external;
+    function readFile(string calldata) external view returns (string memory);
+    function parseJsonKeys(string calldata, string calldata) external pure returns (string[] memory);
+    function parseJsonAddress(string calldata, string calldata) external pure returns (address);
+    function toString(uint256) external pure returns (string memory);
+    function getBlockTimestamp() external view returns (uint256);
 }
 
 interface UpgradeProvider {
@@ -108,7 +114,6 @@ contract AegisPoolPoCTest {
     AegisPoolPoC guard;
     Token aWeth;
 
-    event log_named_uint(string key, uint256 value);
     Token aUsdc;
     Token debt;
     address oracle;
@@ -121,11 +126,12 @@ contract AegisPoolPoCTest {
         oracle = provider.getPriceOracle();
     }
 
-    function _upgrade() internal {
+    function _upgrade() internal returns (address) {
         AegisPoolPoC impl = new AegisPoolPoC();
         vm.prank(provider.owner());
         UpgradeProvider(address(provider)).setPoolImpl(address(impl));
         guard = AegisPoolPoC(address(pool));
+        return address(impl);
     }
 
     function _supply(address user, uint256 amount) internal {
@@ -911,25 +917,93 @@ contract AegisPoolPoCTest {
         require(debt.balanceOf(signer) < before, "permit repay failed");
     }
 
+    struct BorrowGasSample {
+        uint256 coldFirst;
+        uint256 warmSecond;
+        uint256 collateralShares;
+    }
+
+    event BorrowGasMeasured(uint256 sample, bool mature, bool protected, uint256 coldFirst, uint256 warmSecond);
+    event BorrowGasOverhead(uint256 sample, bool mature, int256 coldFirst, int256 warmSecond);
+
     function testProtectedBorrowGasOverheadIsRecorded() public {
+        string memory dependenciesJson = vm.readFile("forks/aave-v3-dependencies-19000000.json");
+        string[] memory keys = vm.parseJsonKeys(dependenciesJson, ".targets");
+        require(keys.length == 25, "cold reset manifest incomplete");
+        address[] memory targets = new address[](keys.length + 7);
+        for (uint256 i; i < keys.length; ++i) {
+            targets[i] = vm.parseJsonAddress(dependenciesJson, string.concat(".targets.", keys[i], ".address"));
+        }
+        string memory librariesJson = vm.readFile("forks/aave-v3-pool-source-19000000.json");
+        for (uint256 i; i < 7; ++i) {
+            targets[keys.length + i] =
+                vm.parseJsonAddress(librariesJson, string.concat(".linked_libraries[", vm.toString(i), "].address"));
+        }
+        for (uint256 i; i < 10; ++i) {
+            bool mature = i >= 5;
+            BorrowGasSample memory baseline;
+            BorrowGasSample memory protected;
+            if (i % 2 == 0) {
+                baseline = _borrowGasSample(false, mature, targets);
+                protected = _borrowGasSample(true, mature, targets);
+            } else {
+                protected = _borrowGasSample(true, mature, targets);
+                baseline = _borrowGasSample(false, mature, targets);
+            }
+            require(baseline.collateralShares == protected.collateralShares, "benchmark collateral differs");
+            emit BorrowGasMeasured(i % 5, mature, false, baseline.coldFirst, baseline.warmSecond);
+            emit BorrowGasMeasured(i % 5, mature, true, protected.coldFirst, protected.warmSecond);
+            emit BorrowGasOverhead(
+                i % 5,
+                mature,
+                int256(protected.coldFirst) - int256(baseline.coldFirst),
+                int256(protected.warmSecond) - int256(baseline.warmSecond)
+            );
+        }
+    }
+
+    function _borrowGasSample(bool protected, bool mature, address[] memory targets)
+        internal
+        returns (BorrowGasSample memory sample)
+    {
+        setUp();
+        require(vm.getBlockTimestamp() == FORK_TIME, "benchmark timestamp");
+        address implementation;
+        if (protected) implementation = _upgrade();
         _supply(alice, 1 ether);
+        if (mature) vm.warp(FORK_TIME + MATURITY);
+        sample.collateralShares = ScaledToken(address(aWeth)).scaledBalanceOf(alice);
+        require(usdc.balanceOf(alice) == 0 && debt.balanceOf(alice) == 0, "benchmark initial balance");
+        for (uint256 i; i < targets.length; ++i) {
+            vm.cool(targets[i]);
+        }
+        if (protected) vm.cool(implementation);
+
         vm.startPrank(alice);
         uint256 before = gasleft();
         pool.borrow(address(usdc), 100e6, 2, 0, alice);
-        uint256 baselineGas = before - gasleft();
+        sample.coldFirst = before - gasleft();
         vm.stopPrank();
+        require(usdc.balanceOf(alice) == 100e6, "cold loan not delivered");
+        uint256 firstShares = ScaledToken(address(debt)).scaledBalanceOf(alice);
+        require(firstShares > 0, "cold debt not minted");
+        uint256 firstUsed = protected ? guard.pocUsed() : 0;
+        if (protected) {
+            if (mature) require(firstUsed == 0, "mature cold loan charged");
+            else require(firstUsed > 0, "cold loan not charged");
+        }
 
-        _upgrade();
-        _supply(bob, 1 ether);
-        vm.startPrank(bob);
+        vm.startPrank(alice);
         before = gasleft();
-        pool.borrow(address(usdc), 100e6, 2, 0, bob);
-        uint256 protectedGas = before - gasleft();
+        pool.borrow(address(usdc), 100e6, 2, 0, alice);
+        sample.warmSecond = before - gasleft();
         vm.stopPrank();
-        emit log_named_uint("baseline_borrow_gas", baselineGas);
-        emit log_named_uint("protected_borrow_gas", protectedGas);
-        emit log_named_uint("overhead", protectedGas > baselineGas ? protectedGas - baselineGas : 0);
-        require(protectedGas > 0, "gas not measured");
+        require(usdc.balanceOf(alice) == 200e6, "warm loan not delivered");
+        require(ScaledToken(address(debt)).scaledBalanceOf(alice) == 2 * firstShares, "warm debt not minted");
+        if (protected) {
+            if (mature) require(guard.pocUsed() == 0, "mature warm loan charged");
+            else require(guard.pocUsed() > firstUsed, "warm loan not charged");
+        }
     }
 
     function testLegacyAccountCanRepayAndExitButCannotBorrowOrWithdrawWithDebt() public {
