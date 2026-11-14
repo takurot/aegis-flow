@@ -1,0 +1,170 @@
+{
+  "chain_id": 1,
+  "fork_block": 19000000,
+  "fork_block_hash": "0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac",
+  "fork_timestamp": 1705173443,
+  "measured_at": "2026-11-14T09:53:53.389390+00:00",
+  "foundry": "1.8.6 (6bad0a66de7c83f7b33695044138f0f5fa4c5990)",
+  "solc": "0.8.26",
+  "evm_version": "cancun",
+  "optimizer": false,
+  "measurement": "gasleft interval around Pool.borrow; excludes transaction intrinsic gas, setup, assertions and refund settlement",
+  "cold_reset": "vm.cool on 25 pinned dependencies, 7 Pool libraries and protected implementation; same-transaction setup dirty storage is retained",
+  "warm_second": "second 100 USDC borrow on same fork, after first borrow and its assertions; different debt and storage workload from first",
+  "maturity_seconds": {
+    "immature": 0,
+    "mature": 7200
+  },
+  "borrower": "0x00000000000000000000000000000000000A11cE",
+  "collateral_wei": "1000000000000000000",
+  "borrow_amount_usdc_units": "100000000",
+  "sample_count_per_side_and_maturity": 5,
+  "order": "alternate baseline/protected order across consecutive pairs",
+  "test_source_sha256": "b8a0973bc5658cc5f7dd14f628e0d1947fb1279d7e6db6a44d678fac5c68beb4",
+  "test": "AegisPoolPoCTest.testProtectedBorrowGasOverheadIsRecorded()",
+  "samples": [
+    {
+      "sample": 0,
+      "maturity": "immature",
+      "side": "baseline",
+      "cold_first_call_gas": 311812,
+      "warm_second_call_gas": 279393
+    },
+    {
+      "sample": 0,
+      "maturity": "immature",
+      "side": "protected",
+      "cold_first_call_gas": 567710,
+      "warm_second_call_gas": 520010
+    },
+    {
+      "sample": 1,
+      "maturity": "immature",
+      "side": "baseline",
+      "cold_first_call_gas": 311812,
+      "warm_second_call_gas": 279393
+    },
+    {
+      "sample": 1,
+      "maturity": "immature",
+      "side": "protected",
+      "cold_first_call_gas": 567710,
+      "warm_second_call_gas": 520010
+    },
+    {
+      "sample": 2,
+      "maturity": "immature",
+      "side": "baseline",
+      "cold_first_call_gas": 311812,
+      "warm_second_call_gas": 279393
+    },
+    {
+      "sample": 2,
+      "maturity": "immature",
+      "side": "protected",
+      "cold_first_call_gas": 567710,
+      "warm_second_call_gas": 520010
+    },
+    {
+      "sample": 3,
+      "maturity": "immature",
+      "side": "baseline",
+      "cold_first_call_gas": 311812,
+      "warm_second_call_gas": 279393
+    },
+    {
+      "sample": 3,
+      "maturity": "immature",
+      "side": "protected",
+      "cold_first_call_gas": 567710,
+      "warm_second_call_gas": 520010
+    },
+    {
+      "sample": 4,
+      "maturity": "immature",
+      "side": "baseline",
+      "cold_first_call_gas": 311812,
+      "warm_second_call_gas": 279393
+    },
+    {
+      "sample": 4,
+      "maturity": "immature",
+      "side": "protected",
+      "cold_first_call_gas": 567710,
+      "warm_second_call_gas": 520010
+    },
+    {
+      "sample": 0,
+      "maturity": "mature",
+      "side": "baseline",
+      "cold_first_call_gas": 312274,
+      "warm_second_call_gas": 279855
+    },
+    {
+      "sample": 0,
+      "maturity": "mature",
+      "side": "protected",
+      "cold_first_call_gas": 554993,
+      "warm_second_call_gas": 517992
+    },
+    {
+      "sample": 1,
+      "maturity": "mature",
+      "side": "baseline",
+      "cold_first_call_gas": 312274,
+      "warm_second_call_gas": 279855
+    },
+    {
+      "sample": 1,
+      "maturity": "mature",
+      "side": "protected",
+      "cold_first_call_gas": 554993,
+      "warm_second_call_gas": 517992
+    },
+    {
+      "sample": 2,
+      "maturity": "mature",
+      "side": "baseline",
+      "cold_first_call_gas": 312274,
+      "warm_second_call_gas": 279855
+    },
+    {
+      "sample": 2,
+      "maturity": "mature",
+      "side": "protected",
+      "cold_first_call_gas": 554993,
+      "warm_second_call_gas": 517992
+    },
+    {
+      "sample": 3,
+      "maturity": "mature",
+      "side": "baseline",
+      "cold_first_call_gas": 312274,
+      "warm_second_call_gas": 279855
+    },
+    {
+      "sample": 3,
+      "maturity": "mature",
+      "side": "protected",
+      "cold_first_call_gas": 554993,
+      "warm_second_call_gas": 517992
+    },
+    {
+      "sample": 4,
+      "maturity": "mature",
+      "side": "baseline",
+      "cold_first_call_gas": 312274,
+      "warm_second_call_gas": 279855
+    },
+    {
+      "sample": 4,
+      "maturity": "mature",
+      "side": "protected",
+      "cold_first_call_gas": 554993,
+      "warm_second_call_gas": 517992
+    }
+  ],
+  "target_extra_gas": 8500,
+  "target_status": "UNMET",
+  "production_readiness": "UNPROVEN"
+}
