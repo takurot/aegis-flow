@@ -1,0 +1,161 @@
+[
+  {
+    "version": "0.0.8",
+    "metadata_cids": [
+      "QmZ326bnQWtX3Urk4Gf4wCJobp8xpEyoGvmfYnWmnTZ5LH"
+    ],
+    "full_runtime_exact": false,
+    "code_only_exact": false,
+    "sources": [
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/Owned.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/dev/AggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AccessControllerInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV3Interface.sol"
+    ],
+    "settings": {
+      "compilationTarget": {
+        "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol": "EACAggregatorProxy"
+      },
+      "evmVersion": "istanbul",
+      "libraries": {},
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "optimizer": {
+        "enabled": true,
+        "runs": 1000000
+      },
+      "remappings": []
+    }
+  },
+  {
+    "version": "0.0.9",
+    "metadata_cids": [
+      "QmTfVcpJkTdLDRwjdQrxpAmnRVuZf8nnbLJhcQKxp6Q54c"
+    ],
+    "full_runtime_exact": false,
+    "code_only_exact": true,
+    "sources": [
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/AggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/Owned.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AccessControllerInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV2V3Interface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV3Interface.sol"
+    ],
+    "settings": {
+      "compilationTarget": {
+        "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol": "EACAggregatorProxy"
+      },
+      "evmVersion": "istanbul",
+      "libraries": {},
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "optimizer": {
+        "enabled": true,
+        "runs": 1000000
+      },
+      "remappings": []
+    }
+  },
+  {
+    "version": "0.0.10",
+    "metadata_cids": [
+      "QmQk1E9eivz3JMpNxzu9y1AGCkrfN9vH3fn2JRXAWL4ZGK"
+    ],
+    "full_runtime_exact": false,
+    "code_only_exact": true,
+    "sources": [
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/AggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/Owned.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AccessControllerInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV2V3Interface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV3Interface.sol"
+    ],
+    "settings": {
+      "compilationTarget": {
+        "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol": "EACAggregatorProxy"
+      },
+      "evmVersion": "istanbul",
+      "libraries": {},
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "optimizer": {
+        "enabled": true,
+        "runs": 1000000
+      },
+      "remappings": []
+    }
+  },
+  {
+    "version": "0.0.14",
+    "metadata_cids": [
+      "QmY2ZptMnGuPFjeho8HedRfiVNDNJ119ioakAdrnR4FfEA"
+    ],
+    "full_runtime_exact": false,
+    "code_only_exact": false,
+    "sources": [
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/AggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/Owned.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AccessControllerInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV2V3Interface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV3Interface.sol"
+    ],
+    "settings": {
+      "compilationTarget": {
+        "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol": "EACAggregatorProxy"
+      },
+      "evmVersion": "istanbul",
+      "libraries": {},
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "optimizer": {
+        "enabled": true,
+        "runs": 1000000
+      },
+      "remappings": []
+    }
+  },
+  {
+    "version": "0.1.6",
+    "metadata_cids": [
+      "QmY2ZptMnGuPFjeho8HedRfiVNDNJ119ioakAdrnR4FfEA"
+    ],
+    "full_runtime_exact": false,
+    "code_only_exact": false,
+    "sources": [
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/AggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/Owned.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AccessControllerInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorInterface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV2V3Interface.sol",
+      "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV3Interface.sol"
+    ],
+    "settings": {
+      "compilationTarget": {
+        "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol": "EACAggregatorProxy"
+      },
+      "evmVersion": "istanbul",
+      "libraries": {},
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "optimizer": {
+        "enabled": true,
+        "runs": 1000000
+      },
+      "remappings": []
+    }
+  }
+]
