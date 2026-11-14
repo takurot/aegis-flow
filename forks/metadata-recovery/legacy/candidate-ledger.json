@@ -1,0 +1,1441 @@
+{
+  "observed_at": "2026-11-14",
+  "reason": "code equality never proves metadata identity",
+  "candidates": [
+    {
+      "group": "candidate-results.json",
+      "index": 1,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "sourcify",
+      "sourcePath": "",
+      "bytes": 3124,
+      "suffix": "a165627a7a72305820a5424f46b53b89278a8b3136ba6459c008adacb314861fffe304e501d672a13c0029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 2,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "sourcify",
+      "sourcePath": "WETH9.sol",
+      "bytes": 3124,
+      "suffix": "a165627a7a72305820c7e08aec381ef94df726a83cd8a9b4fe8898fead862f1fff9fdd0e2b5ebb503e0029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "WETH9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 3,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "sourcify",
+      "sourcePath": "weth9.sol",
+      "bytes": 3124,
+      "suffix": "a165627a7a723058208020e053d01d5c1db669710010b304f362683a56645af3a2ebab2171695a209c0029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "weth9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 4,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "sourcify",
+      "sourcePath": "src/weth9.sol",
+      "bytes": 3124,
+      "suffix": "a165627a7a723058209920b5ec217af8f59aa4e36faba63960a206b91fa5ed4dd212cc961cf8ec10420029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "src/weth9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 5,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "sourcify",
+      "sourcePath": "contracts/WETH9.sol",
+      "bytes": 3124,
+      "suffix": "a165627a7a7230582062f01933aee06eb9536a7cd82a14809a41808e633f1ab57f449f0352a241e2d70029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "contracts/WETH9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 6,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "lf",
+      "sourcePath": "",
+      "bytes": 3124,
+      "suffix": "a165627a7a72305820512a0810417f3c7eaebe213baa8a552d8d08a0f456952d6bb8f6883898c888f80029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 7,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "lf",
+      "sourcePath": "WETH9.sol",
+      "bytes": 3124,
+      "suffix": "a165627a7a72305820c6e25da51dbdabd6b24eedc509c48d8d000370b15bcc4c3a66501bb21f7f63c40029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "WETH9.sol": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 8,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "lf",
+      "sourcePath": "weth9.sol",
+      "bytes": 3124,
+      "suffix": "a165627a7a7230582071120f11d3362556729ce32149ecdf5ab92748a7c71491bd1d12c7290bb8df570029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "weth9.sol": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 9,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "lf",
+      "sourcePath": "src/weth9.sol",
+      "bytes": 3124,
+      "suffix": "a165627a7a72305820a831bacefdc746084538c960105202cc809d28df01e9831e7e754f3c27592d8a0029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "src/weth9.sol": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 10,
+      "target": "WETH",
+      "version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "variant": "lf",
+      "sourcePath": "contracts/WETH9.sol",
+      "bytes": 3124,
+      "suffix": "a165627a7a723058203a93111ce8a8d7b58a6286d18c119f605b9ca3e4441569f712582048c70a32bd0029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "contracts/WETH9.sol": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 11,
+      "target": "WETH",
+      "variant": "ds-weth-2017",
+      "sourcePath": "",
+      "status": "target_contract_missing",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "": "763dd16d90b9b591eca5b24b733301f500fbe18eeabc7bead848f60f2771857a"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "requested WETH9 absent; historical source declares WETH9_"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 12,
+      "target": "WETH",
+      "variant": "ds-weth-2017",
+      "sourcePath": "WETH9.sol",
+      "status": "target_contract_missing",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "WETH9.sol": "763dd16d90b9b591eca5b24b733301f500fbe18eeabc7bead848f60f2771857a"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "requested WETH9 absent; historical source declares WETH9_"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 13,
+      "target": "WETH",
+      "variant": "ds-weth-2017",
+      "sourcePath": "weth9.sol",
+      "status": "target_contract_missing",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "weth9.sol": "763dd16d90b9b591eca5b24b733301f500fbe18eeabc7bead848f60f2771857a"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "requested WETH9 absent; historical source declares WETH9_"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 14,
+      "target": "WETH",
+      "variant": "ds-weth-2017",
+      "sourcePath": "src/weth9.sol",
+      "status": "target_contract_missing",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "src/weth9.sol": "763dd16d90b9b591eca5b24b733301f500fbe18eeabc7bead848f60f2771857a"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "requested WETH9 absent; historical source declares WETH9_"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 15,
+      "target": "WETH",
+      "variant": "ds-weth-2017",
+      "sourcePath": "contracts/WETH9.sol",
+      "status": "target_contract_missing",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "contracts/WETH9.sol": "763dd16d90b9b591eca5b24b733301f500fbe18eeabc7bead848f60f2771857a"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "requested WETH9 absent; historical source declares WETH9_"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 16,
+      "target": "USDC",
+      "version": "0.4.24+commit.e67f0147.Emscripten.clang",
+      "variant": "sourcify",
+      "sourcePath": "",
+      "bytes": 2186,
+      "suffix": "a165627a7a7230582078ead31fcea46cd1ba08e9a0b30ea02cb4906b8d55e195514e7ce683d5b87e0e0029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "": "ab5c8ad2bc311d8b6902b23300d35c74ee6f47bb74ecd722fe64ce6adba3cebe"
+      },
+      "settings": {
+        "evmVersion": "byzantium",
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 17,
+      "target": "USDC",
+      "version": "0.4.24+commit.e67f0147.Emscripten.clang",
+      "variant": "sourcify",
+      "sourcePath": "FiatTokenProxy.sol",
+      "bytes": 2186,
+      "suffix": "a165627a7a72305820b341f2a3d1159b6b2f639d3f9f6a0a685f736de2d1cb170b0ed43b46ddb7c8250029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "FiatTokenProxy.sol": "ab5c8ad2bc311d8b6902b23300d35c74ee6f47bb74ecd722fe64ce6adba3cebe"
+      },
+      "settings": {
+        "evmVersion": "byzantium",
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 18,
+      "target": "USDC",
+      "version": "0.4.24+commit.e67f0147.Emscripten.clang",
+      "variant": "sourcify",
+      "sourcePath": "contracts/FiatTokenProxy.sol",
+      "bytes": 2186,
+      "suffix": "a165627a7a72305820a934e9aa77acd88abb5bb6f96e45dacd0ee35141b4a025fd550f78b4792ffdac0029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "contracts/FiatTokenProxy.sol": "ab5c8ad2bc311d8b6902b23300d35c74ee6f47bb74ecd722fe64ce6adba3cebe"
+      },
+      "settings": {
+        "evmVersion": "byzantium",
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 19,
+      "target": "USDC",
+      "version": "0.4.24+commit.e67f0147.Emscripten.clang",
+      "variant": "sourcify",
+      "sourcePath": "contracts/v1/FiatTokenProxy.sol",
+      "bytes": 2186,
+      "suffix": "a165627a7a723058209812bc5f8e2f0b85757722a01cb8be3b738b4547c549634f367278ef04974a0e0029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "contracts/v1/FiatTokenProxy.sol": "ab5c8ad2bc311d8b6902b23300d35c74ee6f47bb74ecd722fe64ce6adba3cebe"
+      },
+      "settings": {
+        "evmVersion": "byzantium",
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 20,
+      "target": "USDC",
+      "version": "0.4.24+commit.e67f0147.Emscripten.clang",
+      "variant": "lf",
+      "sourcePath": "",
+      "bytes": 2186,
+      "suffix": "a165627a7a72305820a721d3a06e31e47d69c17c277c1bd0e2900f4b1cc04b2646958d7fccaaaf0c8a0029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "": "46f3a7ab195de5f9039ff8b00f0c6d8832404c8b4d0067c6183f1626275ab0e9"
+      },
+      "settings": {
+        "evmVersion": "byzantium",
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 21,
+      "target": "USDC",
+      "version": "0.4.24+commit.e67f0147.Emscripten.clang",
+      "variant": "lf",
+      "sourcePath": "FiatTokenProxy.sol",
+      "bytes": 2186,
+      "suffix": "a165627a7a72305820f7865157a93c23e0361f399c2425166680d9cfe6524b121011fe22bc2b0de0d90029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "FiatTokenProxy.sol": "46f3a7ab195de5f9039ff8b00f0c6d8832404c8b4d0067c6183f1626275ab0e9"
+      },
+      "settings": {
+        "evmVersion": "byzantium",
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 22,
+      "target": "USDC",
+      "version": "0.4.24+commit.e67f0147.Emscripten.clang",
+      "variant": "lf",
+      "sourcePath": "contracts/FiatTokenProxy.sol",
+      "bytes": 2186,
+      "suffix": "a165627a7a723058200c85a98077e83b44bcb076b73a9a7a981c619ec55f2131130bc0f25be5ebdc880029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "contracts/FiatTokenProxy.sol": "46f3a7ab195de5f9039ff8b00f0c6d8832404c8b4d0067c6183f1626275ab0e9"
+      },
+      "settings": {
+        "evmVersion": "byzantium",
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "candidate-results.json",
+      "index": 23,
+      "target": "USDC",
+      "version": "0.4.24+commit.e67f0147.Emscripten.clang",
+      "variant": "lf",
+      "sourcePath": "contracts/v1/FiatTokenProxy.sol",
+      "bytes": 2186,
+      "suffix": "a165627a7a7230582065cd5c3e9545adfc8059d326b7df51f89e6e09fde6427b92670771a526a280440029",
+      "codeEqual": true,
+      "fullExact": false,
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "contracts/v1/FiatTokenProxy.sol": "46f3a7ab195de5f9039ff8b00f0c6d8832404c8b4d0067c6183f1626275ab0e9"
+      },
+      "settings": {
+        "evmVersion": "byzantium",
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 1,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "",
+      "crlf": false,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a723058200cc710332becd0489a31b2d4c9954e822b6af85f063f72e6abbf756c4e8894c90029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 2,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "",
+      "crlf": true,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a72305820bf11f62c7db3fcc4d1cda9d29a598d31227792d024ee964b71643e108a4b55370029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 3,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "WETH9.sol",
+      "crlf": false,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a72305820f13bfbba56180773a2e83f0f71454b5fa555f32453d7f15dca924231e4e1c0990029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "WETH9.sol": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 4,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "WETH9.sol",
+      "crlf": true,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a723058209e70f26fb252dde5366cf525ccc94622322b7752a509a54a19a690ced2fdb3b40029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "WETH9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 5,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "weth9.sol",
+      "crlf": false,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a72305820467aa9151de143648e0777d9ca1578629640a575d090456552aebb32c2a203600029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "weth9.sol": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 6,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "weth9.sol",
+      "crlf": true,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a72305820220812b4b7ec13aab50d10971a150832fe2ea22788a62b607f7b22aca2eecda40029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "weth9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 7,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "src/weth9.sol",
+      "crlf": false,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a7230582043062d83aedb3c8a093c2e7f9142682011b9e02be75576974b24a27f5134d90f0029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "src/weth9.sol": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 8,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "src/weth9.sol",
+      "crlf": true,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a723058203d467f40b2559ff203728f3b9226e0a50c4b56f3faf57b569570500f56f321400029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "src/weth9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 9,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "contracts/WETH9.sol",
+      "crlf": false,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a7230582044cab14d80ec8c4076854e12e32d0d419f2980d9c77d5eb5c3e72666511454c10029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "contracts/WETH9.sol": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "weth-compiler-results.json",
+      "index": 10,
+      "version": "0.4.18+commit.9cf6e910.Emscripten.clang",
+      "sourcePath": "contracts/WETH9.sol",
+      "crlf": true,
+      "bytes": 3124,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a723058205fd466521d1286e68ad6da6feb06ff2732a8d48e6968631f481ee0f6f101319f0029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "not currently approved; experimental only",
+      "source_sha256": {
+        "contracts/WETH9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+      },
+      "settings": {
+        "libraries": {},
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "remappings": [],
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-results.json",
+      "index": 1,
+      "prefix": "",
+      "crlf": false,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a723058206f70cb28282a1037ee37c709c00c97a1cd9834d1bd236756b6911927f2f5c2ed0029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "contracts/FiatTokenProxy.sol": "0543a7ac4c377ffc2afc90fdd6091287403cb74f987af826aa4d4ca52b23ab9a",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "60dfb7aed3762b91432e634c2ce9a84ced659f6b5fa1c5f7e746159c38c8d018",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "b6334b1bf70e7b22ce21fb4110416fef7bc191c39788cf2d2ef1e25ed8f93c24",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "e9db2b5b251da5c4a5925b646126f94d37f96c70cd08c608083ebb910850409d",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "c5ae3ec071a34413e70a725c7ee69e0730a1df5a7c07783e84abb9fa35a50d7f"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-results.json",
+      "index": 2,
+      "prefix": "",
+      "crlf": true,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a72305820779a35f0f2235b418dbf5287aea611c783593a3687bb886b7b665e73a43301470029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "contracts/FiatTokenProxy.sol": "f587b70e49b51dc7d87ebf063bda542be29c43430a53207cec6fc62988f52e4f",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "245d617d560e2129fcdef33d527349bf712e049a736d2df2c299e535ff38ae1c",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "656ca6dcf8b1504ec0e581f933658a53cc9c99c90bab20a00904f3bb2d69d298",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "d56c45b874a5259c0d1577056719ebbab683b1a01d1e2f254107dd585f1fb21a",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "095d10e364bda86de83aa19479f427f3642446fb23078caf343f84616e26d241"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-results.json",
+      "index": 3,
+      "prefix": "./",
+      "crlf": false,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a72305820c4956b19571ad8cb349a8079bb72933dfdc520645e69049ed16e0d4546b8baf60029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "./contracts/FiatTokenProxy.sol": "0543a7ac4c377ffc2afc90fdd6091287403cb74f987af826aa4d4ca52b23ab9a",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "60dfb7aed3762b91432e634c2ce9a84ced659f6b5fa1c5f7e746159c38c8d018",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "b6334b1bf70e7b22ce21fb4110416fef7bc191c39788cf2d2ef1e25ed8f93c24",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "e9db2b5b251da5c4a5925b646126f94d37f96c70cd08c608083ebb910850409d",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "c5ae3ec071a34413e70a725c7ee69e0730a1df5a7c07783e84abb9fa35a50d7f"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-results.json",
+      "index": 4,
+      "prefix": "./",
+      "crlf": true,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a7230582002ce7e004ea9836588f4ee75093ba7ab2047bcdc9bb221bb49b9cb31374f7d970029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "./contracts/FiatTokenProxy.sol": "f587b70e49b51dc7d87ebf063bda542be29c43430a53207cec6fc62988f52e4f",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "245d617d560e2129fcdef33d527349bf712e049a736d2df2c299e535ff38ae1c",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "656ca6dcf8b1504ec0e581f933658a53cc9c99c90bab20a00904f3bb2d69d298",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "d56c45b874a5259c0d1577056719ebbab683b1a01d1e2f254107dd585f1fb21a",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "095d10e364bda86de83aa19479f427f3642446fb23078caf343f84616e26d241"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-results.json",
+      "index": 5,
+      "prefix": "/project/",
+      "crlf": false,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a723058201256da645095a86842832a5cc912c3e4d53f0df80ba7ae6853300e5f4af4f77a0029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "/project/contracts/FiatTokenProxy.sol": "0543a7ac4c377ffc2afc90fdd6091287403cb74f987af826aa4d4ca52b23ab9a",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "60dfb7aed3762b91432e634c2ce9a84ced659f6b5fa1c5f7e746159c38c8d018",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "b6334b1bf70e7b22ce21fb4110416fef7bc191c39788cf2d2ef1e25ed8f93c24",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "e9db2b5b251da5c4a5925b646126f94d37f96c70cd08c608083ebb910850409d",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "c5ae3ec071a34413e70a725c7ee69e0730a1df5a7c07783e84abb9fa35a50d7f"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-results.json",
+      "index": 6,
+      "prefix": "/project/",
+      "crlf": true,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a723058204d1af7f36b2ab741f47bd57a276e931de9c531cadb396a62f96fab76794e25190029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "/project/contracts/FiatTokenProxy.sol": "f587b70e49b51dc7d87ebf063bda542be29c43430a53207cec6fc62988f52e4f",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "245d617d560e2129fcdef33d527349bf712e049a736d2df2c299e535ff38ae1c",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "656ca6dcf8b1504ec0e581f933658a53cc9c99c90bab20a00904f3bb2d69d298",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "d56c45b874a5259c0d1577056719ebbab683b1a01d1e2f254107dd585f1fb21a",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "095d10e364bda86de83aa19479f427f3642446fb23078caf343f84616e26d241"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-results.json",
+      "index": 7,
+      "prefix": "/app/",
+      "crlf": false,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a72305820f2210b5dabdb5f6fb1aa30525c4122984d63529511c8292d29d61b184a86a7000029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "/app/contracts/FiatTokenProxy.sol": "0543a7ac4c377ffc2afc90fdd6091287403cb74f987af826aa4d4ca52b23ab9a",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "60dfb7aed3762b91432e634c2ce9a84ced659f6b5fa1c5f7e746159c38c8d018",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "b6334b1bf70e7b22ce21fb4110416fef7bc191c39788cf2d2ef1e25ed8f93c24",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "e9db2b5b251da5c4a5925b646126f94d37f96c70cd08c608083ebb910850409d",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "c5ae3ec071a34413e70a725c7ee69e0730a1df5a7c07783e84abb9fa35a50d7f"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-results.json",
+      "index": 8,
+      "prefix": "/app/",
+      "crlf": true,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a72305820891f240feee9249fe61946868a29875a4c28e17f6f56314c99ea6ffc0019d2950029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "/app/contracts/FiatTokenProxy.sol": "f587b70e49b51dc7d87ebf063bda542be29c43430a53207cec6fc62988f52e4f",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "245d617d560e2129fcdef33d527349bf712e049a736d2df2c299e535ff38ae1c",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "656ca6dcf8b1504ec0e581f933658a53cc9c99c90bab20a00904f3bb2d69d298",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "d56c45b874a5259c0d1577056719ebbab683b1a01d1e2f254107dd585f1fb21a",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "095d10e364bda86de83aa19479f427f3642446fb23078caf343f84616e26d241"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-docker-results.json",
+      "index": 1,
+      "prefix": "/usr/local/solidity/",
+      "crlf": false,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a72305820ca7219e1d1b944b2ed3385f729ec7eae122df657862e6ec68158e43eb751039a0029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "/usr/local/solidity/contracts/FiatTokenProxy.sol": "0543a7ac4c377ffc2afc90fdd6091287403cb74f987af826aa4d4ca52b23ab9a",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "60dfb7aed3762b91432e634c2ce9a84ced659f6b5fa1c5f7e746159c38c8d018",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "b6334b1bf70e7b22ce21fb4110416fef7bc191c39788cf2d2ef1e25ed8f93c24",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "e9db2b5b251da5c4a5925b646126f94d37f96c70cd08c608083ebb910850409d",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "c5ae3ec071a34413e70a725c7ee69e0730a1df5a7c07783e84abb9fa35a50d7f"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    },
+    {
+      "group": "multifile-docker-results.json",
+      "index": 2,
+      "prefix": "/usr/local/solidity/",
+      "crlf": true,
+      "bytes": 2186,
+      "codeEqual": true,
+      "fullExact": false,
+      "suffix": "a165627a7a7230582053c89749316f3673052e7e85eaaf36cbeab82e295ac8b58f05d468e6095c9ea50029",
+      "status": "metadata_mismatch",
+      "compiler_policy": "current approved pin",
+      "source_sha256": {
+        "/usr/local/solidity/contracts/FiatTokenProxy.sol": "f587b70e49b51dc7d87ebf063bda542be29c43430a53207cec6fc62988f52e4f",
+        "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "245d617d560e2129fcdef33d527349bf712e049a736d2df2c299e535ff38ae1c",
+        "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "656ca6dcf8b1504ec0e581f933658a53cc9c99c90bab20a00904f3bb2d69d298",
+        "zos-lib/contracts/upgradeability/Proxy.sol": "d56c45b874a5259c0d1577056719ebbab683b1a01d1e2f254107dd585f1fb21a",
+        "openzeppelin-solidity/contracts/AddressUtils.sol": "095d10e364bda86de83aa19479f427f3642446fb23078caf343f84616e26d241"
+      },
+      "settings": {
+        "optimizer": {
+          "enabled": false,
+          "runs": 200
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "evm.deployedBytecode.object",
+              "metadata"
+            ]
+          }
+        }
+      },
+      "reason": "all 43 metadata bytes compared; digest differs"
+    }
+  ]
+}
