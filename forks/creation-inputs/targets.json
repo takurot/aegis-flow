@@ -1,0 +1,122 @@
+[
+  {
+    "address": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+    "scope": "borrowed13",
+    "target": "pool",
+    "transaction_hash": "0xf2089a3c2a24f512214691c5a51dd57d1a5545758486360f3a1e24547723525d"
+  },
+  {
+    "address": "0x5faab9e1adbddad0a08734be8a52185fd6558e14",
+    "scope": "borrowed13",
+    "target": "pool_impl",
+    "transaction_hash": "0x7028803c2d91be4b10ac53357a212da0ddc58f3691b2c584bafa087b32dd4ce6"
+  },
+  {
+    "address": "0x64b761d848206f447fe2dd461b0c635ec39ebb27",
+    "scope": "borrowed13",
+    "target": "configurator",
+    "transaction_hash": "0xc590e86def129b46f0c85eaefaf3b7057da7becd975a67d2088eb83bf95f9c89"
+  },
+  {
+    "address": "0xc2aacf6553d20d1e9d78e365aaba8032af9c85b0",
+    "scope": "borrowed13",
+    "target": "acl",
+    "transaction_hash": "0x1039621cd43af29c690b1b689c395a63c0eeb9de88dbd1c482d57c9c0b0bd014"
+  },
+  {
+    "address": "0x54586be62e3c3580375ae3723c145253060ca0c2",
+    "scope": "borrowed13",
+    "target": "oracle",
+    "transaction_hash": "0x0178e8e8915ab4d028da6c79dac291e6c6541514f3eb46078e4c03739e3f1546"
+  },
+  {
+    "address": "0x4d5f47fa6a74757f35c14fd3a6ef8e3c9bc514e8",
+    "scope": "borrowed13",
+    "target": "aWETH",
+    "transaction_hash": "0xbe53b103b9ba1b0552e2d3a0b13346c6b080376b57c4ce3fb968bcc27fbd035d"
+  },
+  {
+    "address": "0x7effd7b47bfd17e52fb7559d3f924201b9dbff3d",
+    "scope": "borrowed13",
+    "target": "aWETH_impl",
+    "transaction_hash": "0x6a577d16ef17c43a50942bd8fbf37795000e856ae177fd76f58f75b937285c39"
+  },
+  {
+    "address": "0x98c23e9d8f34fefb1b7bd6a91b7ff122f4e16f5c",
+    "scope": "borrowed13",
+    "target": "aUSDC",
+    "transaction_hash": "0x858cabab08adbee95ca3dd265f54b556007015aac9d60d50d707afd3f6903d1d"
+  },
+  {
+    "address": "0x72e95b8931767c79ba4eee721354d6e99a61d004",
+    "scope": "borrowed13",
+    "target": "variableDebtUSDC",
+    "transaction_hash": "0x858cabab08adbee95ca3dd265f54b556007015aac9d60d50d707afd3f6903d1d"
+  },
+  {
+    "address": "0xac725cb59d16c81061bdea61041a8a5e73da9ec6",
+    "scope": "borrowed13",
+    "target": "variableDebtUSDC_impl",
+    "transaction_hash": "0xed7bab62b20000064e692a796a18820371f701e4d461494361e96f1be4f57dd0"
+  },
+  {
+    "address": "0xb0fe3d292f4bd50de902ba5bdf120ad66e9d7a39",
+    "scope": "borrowed13",
+    "target": "stableDebtUSDC",
+    "transaction_hash": "0x858cabab08adbee95ca3dd265f54b556007015aac9d60d50d707afd3f6903d1d"
+  },
+  {
+    "address": "0x15c5620dffac7c7366eed66c20ad222ddbb1ed57",
+    "scope": "borrowed13",
+    "target": "stableDebtUSDC_impl",
+    "transaction_hash": "0x4c49d2aab26d99446e19676920403f717cbaa298f3e22b68888a7f61703c73f0"
+  },
+  {
+    "address": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+    "scope": "borrowed13",
+    "target": "WETH_price_source_aggregator",
+    "transaction_hash": "0x7b55bcd15462463a6c754438d931fdbe3479279b96eb8e98a516e37e4e7b1186"
+  },
+  {
+    "address": "0x5547d7d54d10c359108e36d098016c4020443fd4",
+    "scope": "pool_library",
+    "target": "BorrowLogic",
+    "transaction_hash": "0x8c723d80e5f993fc57e8afe63f38453cda390a3413969c51fb27242b70fc2b7d"
+  },
+  {
+    "address": "0xd948cfb92ebf175e4bd772305fdee8f39e934520",
+    "scope": "pool_library",
+    "target": "BridgeLogic",
+    "transaction_hash": "0x8c723d80e5f993fc57e8afe63f38453cda390a3413969c51fb27242b70fc2b7d"
+  },
+  {
+    "address": "0xb341e4f99c73caa2136302f468ac3b75827c1736",
+    "scope": "pool_library",
+    "target": "EModeLogic",
+    "transaction_hash": "0x8c723d80e5f993fc57e8afe63f38453cda390a3413969c51fb27242b70fc2b7d"
+  },
+  {
+    "address": "0x0063bcd116694c21f6a94aa78e10ef4d7819a609",
+    "scope": "pool_library",
+    "target": "FlashLoanLogic",
+    "transaction_hash": "0x23366130a03c5f9438811c3d3de25fffce183641e344c10ac0e2e634617bdbd9"
+  },
+  {
+    "address": "0x5125bcf6380c5d5ccad4d4a88c3664df646bc6c3",
+    "scope": "pool_library",
+    "target": "LiquidationLogic",
+    "transaction_hash": "0x19d2b56fd1b3d1b6ccafb8d904475535c899b460540f6394fb7a5fea0b6aa2c9"
+  },
+  {
+    "address": "0x7b8186933ead860f49114fb10e3a7f17a11bed8a",
+    "scope": "pool_library",
+    "target": "PoolLogic",
+    "transaction_hash": "0x19d2b56fd1b3d1b6ccafb8d904475535c899b460540f6394fb7a5fea0b6aa2c9"
+  },
+  {
+    "address": "0x589f82ff8162fa96545b435435713e9d6ca79fbb",
+    "scope": "pool_library",
+    "target": "SupplyLogic",
+    "transaction_hash": "0x19d2b56fd1b3d1b6ccafb8d904475535c899b460540f6394fb7a5fea0b6aa2c9"
+  }
+]
