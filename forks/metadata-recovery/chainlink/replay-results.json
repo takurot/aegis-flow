@@ -1,0 +1,30 @@
+[
+  {
+    "target": "WETH_price_source",
+    "bundle": "WETH_price_source-candidate-bundle.json",
+    "compiler": "0.6.6",
+    "replayed_metadata_bytes_exact": true,
+    "compiled_cids": [
+      "QmTfVcpJkTdLDRwjdQrxpAmnRVuZf8nnbLJhcQKxp6Q54c"
+    ],
+    "deployed_cid": "QmR48zpR684GHSuELCcbjBLC6yh1Pic5kduNusFNwGPb7j",
+    "deployed_cid_exact": false,
+    "full_runtime_verified": false,
+    "immutable_derivation_verified": false,
+    "metadata_origin_scope": "npm 0.0.9 artifact, not Ethereum deployment"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "bundle": "USDC_price_source_aggregator-candidate-bundle.json",
+    "compiler": "0.7.6",
+    "replayed_metadata_bytes_exact": true,
+    "compiled_cids": [
+      "QmPbCDtPh4fzibKAHociHnUugDoYAtdSPGK2neJAYPC4Wg"
+    ],
+    "deployed_cid": "QmYxxXdsaPAxbZ2EW98dk33eJTjRu8bzgSeniad39vdWdf",
+    "deployed_cid_exact": false,
+    "full_runtime_verified": false,
+    "immutable_derivation_verified": false,
+    "metadata_origin_scope": "compiler output from candidate input, not original deployment"
+  }
+]

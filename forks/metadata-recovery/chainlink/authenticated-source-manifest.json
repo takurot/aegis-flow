@@ -1,0 +1,135 @@
+[
+  {
+    "target": "WETH_price_source",
+    "package_version": "0.0.9",
+    "path": "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/EACAggregatorProxy.sol",
+    "sha256": "e3b24adfaed698c60882cf4d12fb7f36debde80129ada2d1a9690eeb13d0d479",
+    "keccak256": "0x718ee6d9bd4a1223f21b6b3296e52273ead16cefdf12730ea855d287f3e66e11"
+  },
+  {
+    "target": "WETH_price_source",
+    "package_version": "0.0.9",
+    "path": "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/AggregatorProxy.sol",
+    "sha256": "ff4ead426e0e037289a83bfbc4485be63e65d428f599a683eece8bd3c01c2968",
+    "keccak256": "0x10a05dd8f9cd73235871e714e35ff70a70f79d786081641e2535339d57b0fda0"
+  },
+  {
+    "target": "WETH_price_source",
+    "package_version": "0.0.9",
+    "path": "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/Owned.sol",
+    "sha256": "6b39095bbfcce3f399a9d8de40a5b3588897e9363f9c985767e70c9d12487fb6",
+    "keccak256": "0x8cfbaaf9162c25fbdf40a1b38de6ec965e2c17d5f5e9b0f7ea814998a14a16cb"
+  },
+  {
+    "target": "WETH_price_source",
+    "package_version": "0.0.9",
+    "path": "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AccessControllerInterface.sol",
+    "sha256": "db1e0bbc248d0d78239e71ad7590e27b52e50abd9b4e3667efb14a5867c4af1b",
+    "keccak256": "0x6b4b9fb4b950233793c557bf42c5381ce09efe9066d80af7391a38114b33b6ae"
+  },
+  {
+    "target": "WETH_price_source",
+    "package_version": "0.0.9",
+    "path": "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorInterface.sol",
+    "sha256": "3814bd452889e47822b119730ad65bd3fca54191c5941f19371726f11488d0e3",
+    "keccak256": "0x0e9b789c2f1b93d4d6ee417aa08531597a62b8e141b745d69ac3d10cda8d590e"
+  },
+  {
+    "target": "WETH_price_source",
+    "package_version": "0.0.9",
+    "path": "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV2V3Interface.sol",
+    "sha256": "a438072c8ada1bef0eb9a815a10631e036f3fd0817b34fdf9f28be83da4d072a",
+    "keccak256": "0xfbc8193b0308883d76694a37ab791b58d9e229ae147a2e1297b7d4682a4b382d"
+  },
+  {
+    "target": "WETH_price_source",
+    "package_version": "0.0.9",
+    "path": "/Users/steve/workspace/chainlink/evm-contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
+    "sha256": "b1ff171249a248aecb31ec8e055a1478340d9960c51768f16602c46a484fdbba",
+    "keccak256": "0x12f0e35e0320088f2110173226860e44309766c0f7022a2433efdebd5bf1a002"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/AccessControlledOffchainAggregator.sol",
+    "sha256": "24915a00dc7eb9f2ba15ba3eda48c1ac6daa2bbf29f9c20ffdc58b7ee28757fa",
+    "keccak256": "0x3512414c8a8010e4e6702ca73737ab836013b858fe94dbfc9802189b1079064d"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/AccessControllerInterface.sol",
+    "sha256": "dd86b87db8781f87bfadd60baa307f0df77ad51c2e9a76fc9199fe7f5ea1b0b4",
+    "keccak256": "0xd4ceebdd967741e37faa51ae1a2991e5cda04814a7969942bb8b9f2ae9ee7ead"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/AggregatorInterface.sol",
+    "sha256": "a82bb347d5b66e59a7d11cd6e3a95b6ccef2f0d8b49b31b98f3dc8352ab9746a",
+    "keccak256": "0xba09dc6311d25eeff790a255c664b841aa6fd1b96b27325b6822770614420b9a"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/AggregatorV2V3Interface.sol",
+    "sha256": "0ab394d2a3ffa56fe51b628e98c920e44e9cb12a4d93093473f6a418732911db",
+    "keccak256": "0x77eb17583f7c63473bc8f5c2aa0985856c81f389a0940d6bef975a68743cefd2"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/AggregatorV3Interface.sol",
+    "sha256": "0b0e71fc9367ad8913dae8212949b2f772f6e8db2aa787616825aad022b2da8a",
+    "keccak256": "0xbf591ea627b0a65983211294c476c3c199fff6e31a9894d35b0dc56bac915fc8"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/AggregatorValidatorInterface.sol",
+    "sha256": "9eb0fe40881dbc2f164d714563fa4aef458089bca5f8d4e697a9b6bf205b5208",
+    "keccak256": "0xf14fcf8c739f615cbb76b697a529b2ad9f4aee5eb49d9b8daaf4c0a9faf92e23"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/LinkTokenInterface.sol",
+    "sha256": "3ed4e4694a5094efe159ef72798234e8239a0c828f6518d1512f40d4ae922eb0",
+    "keccak256": "0x16bd00aad42cc91c0a8032d569a12469b4d80ae8e2597242371fcff474cd09a2"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/OffchainAggregator.sol",
+    "sha256": "0e347d99bb40703f20fbe2c940479542fdd9198ef3588aae2c069a068b45d76c",
+    "keccak256": "0x3a77d0220eaaad901c2239ae9a9c4372667b95e04fa9b6a7cbcd1eac78f26c9d"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/OffchainAggregatorBilling.sol",
+    "sha256": "71d7ad7fe0190053ebc04bf7f00d673d2bd6d4cc95d39968bbbf3717b634b244",
+    "keccak256": "0x8971b615cefb48bf4529d00375610490ade959b51e017f864a8c9b733934f204"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/Owned.sol",
+    "sha256": "384b9a5652d9eec2d09574ba7397b8bc7bf2d065c5d11c6f1eddce98dfafb032",
+    "keccak256": "0x27ab2db466e4b50ea3992daf2048716227a7eff9c3af1445b06777ef05a5f7b8"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/SimpleReadAccessController.sol",
+    "sha256": "1012803269ecbc8c00ac9e7b66a28217f1d13f3e545ce9c35242cdec2038c2d1",
+    "keccak256": "0x0a904b0647a7caf72ca41ede1f152a0dc25ea47da132e074309920c64e579b2a"
+  },
+  {
+    "target": "USDC_price_source_aggregator",
+    "commit": "c910dd9a5eae69ec190a110cfe9b31e213dcbba6",
+    "path": "contract/SimpleWriteAccessController.sol",
+    "sha256": "a6b2674a9b2f7d513085a4532a96b15677b93206e0df846e62ae6d2226ebcf38",
+    "keccak256": "0xb2ee333f97e3a44004eb55266107604e69a2ed054c12ea72a2f898904df01d43"
+  }
+]
