@@ -74,7 +74,7 @@ class SourcifyRuntimeTests(unittest.TestCase):
             out = Path(directory) / 'result.json'
             with patch.object(verifier.deps, 'parse_env_file', return_value='https://example.test'), \
                  patch.object(verifier.deps, 'preflight'), \
-                 patch.object(verifier, 'attempt', return_value={'status': 'mismatch'}), \
+                 patch.object(verifier, 'attempt', side_effect=lambda address, rpc: {'address': address, 'status': 'mismatch'}), \
                  patch.object(verifier.time, 'sleep'), \
                  patch('sys.argv', ['verify', '--out', str(out)]):
                 self.assertEqual(verifier.main(), 2)

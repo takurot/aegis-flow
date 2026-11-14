@@ -16,9 +16,37 @@ from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
+CHAIN_ID = 1
 BLOCK = 19_000_000
 BLOCK_HASH = '0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac'
 TIMESTAMP = 1_705_173_443
+RUNTIME_TARGETS = {
+    'pool': '0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2',
+    'pool_impl': '0x5FAab9E1adbddaD0a08734BE8a52185Fd6558E14',
+    'provider': '0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e',
+    'configurator': '0x64b761D848206f447Fe2dd461b0c635Ec39EbB27',
+    'configurator_impl': '0xFDA7ffA872bDc906D43079EA134ebC9a511db0c2',
+    'acl': '0xc2aaCf6553D20d1e9d78E365AAba8032af9c85b0',
+    'oracle': '0x54586bE62E3c3580375aE3723C145253060Ca0C2',
+    'aWETH': '0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8',
+    'aWETH_impl': '0x7EfFD7b47Bfd17e52fB7559d3f924201b9DbfF3d',
+    'aUSDC': '0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c',
+    'variableDebtUSDC': '0x72E95b8931767C79bA4EeE721354d6E99a61D004',
+    'variableDebtUSDC_impl': '0xaC725CB59D16C81061BDeA61041a8A5e73DA9EC6',
+    'stableDebtUSDC': '0xB0fe3D292f4bd50De902Ba5bDF120Ad66E9d7a39',
+    'stableDebtUSDC_impl': '0x15C5620dfFaC7c7366EED66C20Ad222DDbB1eD57',
+    'WETH': '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    'USDC': '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+    'WETH_price_source': '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419',
+    'USDC_price_source': '0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6',
+    'USDC_impl': '0x43506849d7c04f9138d1a2050bbf3a0c054402dd',
+    'governance_proxy': '0xdabad81af85554e9ae636395611c58f7ec1aaec5',
+    'governance_impl': '0x7222182cb9c5320587b5148bf03eee107ad64578',
+    'governance_proxy_admin': '0xd3cf979e676265e4f6379749dece4708b9a22476',
+    'executor': '0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A',
+    'WETH_price_source_aggregator': '0xe62b71cf983019bff55bc83b48601ce8419650cc',
+    'USDC_price_source_aggregator': '0x789190466e21a8b78b8027866cbbdc151542a26c',
+}
 EIP1967_IMPLEMENTATION = '0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc'
 USDC_IMPLEMENTATION = '0x7050c9e0f4ca769c69bd3a8ef740bc37934f8e2c036e5a723fd8ee048ed3f8c3'
 ADMIN_SLOT = '0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103'
@@ -42,6 +70,24 @@ except ImportError:
 
 class Failure(Exception):
     pass
+
+
+def validate_runtime_manifest(manifest):
+    if not isinstance(manifest, dict):
+        raise Failure('runtime manifest must be an object')
+    for key, expected in (('chain_id', CHAIN_ID), ('block', BLOCK)):
+        if type(manifest.get(key)) is not int or manifest[key] != expected:
+            raise Failure('runtime manifest identity differs')
+    if manifest.get('block_hash') != BLOCK_HASH:
+        raise Failure('runtime manifest block hash differs')
+    targets = manifest.get('targets')
+    if not isinstance(targets, dict) or set(targets) != set(RUNTIME_TARGETS):
+        raise Failure('runtime manifest must contain the expected 25 targets')
+    for name, address in RUNTIME_TARGETS.items():
+        row = targets[name]
+        if not isinstance(row, dict) or not isinstance(row.get('address'), str) or row['address'].lower() != address.lower():
+            raise Failure('runtime manifest target address differs')
+    return {name: targets[name] for name in RUNTIME_TARGETS}
 
 
 def keccak_hex(data):
