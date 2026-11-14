@@ -19,33 +19,6 @@ deps = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(deps)
 
 DEPENDENCY_ARTIFACT = ROOT / 'forks' / 'aave-v3-dependencies-19000000.json'
-TARGETS = (
-    'pool_impl',
-    'pool',
-    'provider',
-    'configurator',
-    'configurator_impl',
-    'acl',
-    'oracle',
-    'aWETH',
-    'aWETH_impl',
-    'aUSDC',
-    'variableDebtUSDC',
-    'variableDebtUSDC_impl',
-    'stableDebtUSDC',
-    'stableDebtUSDC_impl',
-    'WETH',
-    'USDC',
-    'USDC_impl',
-    'WETH_price_source',
-    'USDC_price_source',
-    'WETH_price_source_aggregator',
-    'USDC_price_source_aggregator',
-    'governance_proxy',
-    'governance_impl',
-    'executor',
-    'governance_proxy_admin',
-)
 SOLC_ROOT = Path('/tmp')
 
 
@@ -319,12 +292,56 @@ def verify_target(name, target, rpc_url, etherscan_key, cache):
     return result
 
 
+def normalize_result(result, address, sourcify=False):
+    if not isinstance(result, dict) or not isinstance(result.get('address'), str) or result['address'].lower() != address.lower():
+        raise deps.Failure('invalid runtime result address')
+    if sourcify:
+        status = result.get('status')
+        if status not in ('exact_full', 'matched_with_deployed_values', 'mismatch', 'error'):
+            raise deps.Failure('invalid runtime result status')
+        if 'error' in result and status != 'error':
+            raise deps.Failure('contradictory runtime result status')
+        return 'exact_full' if status == 'exact_full' else 'error' if status == 'error' else 'partial'
+    if result.get('error'):
+        if any(key in result for key in ('exact_match', 'code_match', 'masked_match')):
+            raise deps.Failure('contradictory runtime error result')
+        return 'error'
+    if any(type(result.get(key)) is not bool for key in ('exact_match', 'code_match', 'masked_match')):
+        raise deps.Failure('invalid runtime result booleans')
+    exact, code, masked = (result[key] for key in ('exact_match', 'code_match', 'masked_match'))
+    if (exact and not code) or code != masked or ('status' in result and result['status'] != ('exact_full' if exact else 'partial')):
+        raise deps.Failure('contradictory runtime result')
+    return 'exact_full' if exact else 'partial'
+
+
+def runtime_scope_output(results, attempted):
+    states = [row['verification_status'] for row in results.values()]
+    if 'error' in states:
+        status = 'error'
+    elif len(states) == len(deps.RUNTIME_TARGETS) and all(state == 'exact_full' for state in states):
+        status = 'exact_full'
+    else:
+        status = 'partial'
+    return {
+        'verification_status': status,
+        'execution_commit': subprocess.check_output(['git', '-C', str(ROOT), 'rev-parse', 'HEAD'], text=True).strip(),
+        'expected_targets': dict(deps.RUNTIME_TARGETS),
+        'attempted_targets': attempted,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--rpc-config', type=Path, default=Path.home() / '.config/aegis-flow/rpc.env')
     parser.add_argument('--etherscan-config', type=Path, default=Path.home() / '.config/aegis-flow/etherscan.env')
+    parser.add_argument('--manifest', type=Path, default=DEPENDENCY_ARTIFACT)
     parser.add_argument('--out', type=Path, default=ROOT / 'forks/aave-v3-runtime-19000000.json')
     args = parser.parse_args()
+    try:
+        selected = deps.validate_runtime_manifest(json.loads(args.manifest.read_text()))
+    except (deps.Failure, ValueError, OSError):
+        print('Runtime manifest validation failed', file=sys.stderr)
+        return 1
     try:
         rpc_url = deps.validate_rpc(deps.parse_env_file(args.rpc_config, 'SENTINEL_RPC_URL'))
         etherscan_key = deps.parse_env_file(args.etherscan_config, 'ETHERSCAN_API_KEY')
@@ -332,17 +349,20 @@ def main():
     except deps.Failure as error:
         print(f'Runtime verification preflight failed: {error}', file=sys.stderr)
         return 1
-    dependencies = json.loads(DEPENDENCY_ARTIFACT.read_text())
-    selected = {name: dependencies['targets'][name] for name in TARGETS if name in dependencies['targets']}
     results = {}
     cache = {}
+    attempted = {}
     for name, target in selected.items():
+        attempted[name] = target['address']
         try:
-            results[name] = verify_target(name, target, rpc_url, etherscan_key, cache)
-        except deps.Failure as error:
+            result = verify_target(name, target, rpc_url, etherscan_key, cache)
+            state = normalize_result(result, target['address'])
+            results[name] = {**result, 'verification_status': state}
+        except Exception as error:
             results[name] = {
                 'address': target.get('address'),
-                'error': str(error),
+                'error': str(error) if isinstance(error, deps.Failure) else type(error).__name__,
+                'verification_status': 'error',
             }
         print(f'{name}: {"exact" if results[name].get("exact_match") else "code" if results[name].get("code_match") else results[name].get("error", "mismatch")}')
         time.sleep(0.1)
@@ -354,7 +374,8 @@ def main():
         'mismatched': sum(1 for result in results.values() if not result.get('masked_match') and not result.get('error')),
     }
     output = {
-        'chain_id': 1,
+        **runtime_scope_output(results, attempted),
+        'chain_id': deps.CHAIN_ID,
         'block': deps.BLOCK,
         'block_hash': deps.BLOCK_HASH,
         'timestamp': deps.TIMESTAMP,
@@ -365,7 +386,7 @@ def main():
     args.out.write_text(json.dumps(output, indent=2) + '\n')
     print(f'Wrote {args.out}')
     print(json.dumps(summary))
-    return 0
+    return {'exact_full': 0, 'error': 1, 'partial': 2}[output['verification_status']]
 
 
 if __name__ == '__main__':
