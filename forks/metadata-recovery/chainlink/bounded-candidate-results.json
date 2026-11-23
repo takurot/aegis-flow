@@ -1,0 +1,16 @@
+[
+  {
+    "candidate": "etherscan-flat",
+    "cid": [
+      "QmfVQMbgzyURDg5emBhYWvdV5ugEMo6X1sWnzZJ7vijtV6"
+    ],
+    "exact_deployed_cid": false
+  },
+  {
+    "candidate": "official-npm-root",
+    "cid": [
+      "QmTfVcpJkTdLDRwjdQrxpAmnRVuZf8nnbLJhcQKxp6Q54c"
+    ],
+    "exact_deployed_cid": false
+  }
+]

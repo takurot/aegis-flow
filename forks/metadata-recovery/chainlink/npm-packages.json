@@ -1,0 +1,102 @@
+[
+  {
+    "version": "0.0.8",
+    "registry_url": "https://registry.npmjs.org/@chainlink%2fcontracts/0.0.8",
+    "published": "2020-07-16T22:18:32.902Z",
+    "dist": {
+      "shasum": "8630ff5a68a1aa932936a5c3d58ac34dd6f43cb9",
+      "tarball": "https://registry.npmjs.org/@chainlink/contracts/-/contracts-0.0.8.tgz",
+      "fileCount": 961,
+      "integrity": "sha512-lQs1FykC2SppK0+3IihI9Y4539tmi4ISHffBptmxvsPetTTf7FqY/9zs5C9RMRUqJXmhZtWY0HFk9Fz8YTFMKQ==",
+      "signatures": [
+        {
+          "sig": "MEQCIHLRzEfx4nsBCid6ojLkIfTXXA6zmuOE0zwJyR4pwGZtAiBmLzEsYYNyud0ks6AF46yrN+qDAIjKHgG5g/ICXydvew==",
+          "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+        }
+      ],
+      "unpackedSize": 15802559,
+      "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfENI5CRA9TVsSAnZWagAAEP8P/RIm/t/URts/hVlJb3iO\ndwNL35mR4g98y/5XKgNIMK+03QUC9vq+cYyF25cZTAFCuOy5xBou1eLse9pN\nsibQQdTdjaYdLGEAcB4yZYlRsyU8b4FKhU7IW9P42/gUz5C81mTpa8rnu4FR\n4QApTtciuuC+WDTn4awDwuQ7e4U4W58RGCJZxGfBExex/UEpmBnFe+cpYh4N\nz+ggnY27FBctVAVqb7V4ZuCKKB/Stfd6rrhPHx5KVy8+8N5zyIOUEI5VHCij\nnVKVI5D3H2yCBqXoQzNdpsYekePg4Uw5U6QRU5Xm/RPNRafV/qaYlVEPgp/c\nCnMypAOwT4CFSKQUw9L5IovUIaXAZsJ7x6eCLctyjfeWhamQseoPHvwQv47J\nnV3Y8vBsLO12Tc09bZicO5tvGKMVNRcO1i0WI29+E4D11ECReZ+jIhTZiTo1\n6PvaVTLh8adI3BIdYS1kgTyKsZAkK2mUgjHBg7bngUaOE1ClLmkef+BBlvOP\n7U9HbEb5LiYzQt80aOaOrjiwd3GHf+84JUIRPDqkBJirbw05vQ5q5UemFrSu\n+zCO5oQjjsX0Zq8VmPKpgMlTS1Eo8hC9PvvTghggCSEVw8YTIt9VaQnsQT2H\ndSajUhHor9xhqYWniysX/mAB5Gf2gr1Fe0UdX/scdXGm2FYfYpindR51nPvN\n8gP2\r\n=J+XG\r\n-----END PGP SIGNATURE-----\r\n"
+    },
+    "raw_tarball_sha256": "f15d584d06716256475eb03546f56f3a98d1e5cb081c774df8263397c03d2eaa"
+  },
+  {
+    "version": "0.0.9",
+    "registry_url": "https://registry.npmjs.org/@chainlink%2fcontracts/0.0.9",
+    "published": "2020-08-11T20:14:57.716Z",
+    "dist": {
+      "shasum": "d2ddc033c67686e2952c965e4084ca29d3461e90",
+      "tarball": "https://registry.npmjs.org/@chainlink/contracts/-/contracts-0.0.9.tgz",
+      "fileCount": 1057,
+      "integrity": "sha512-bI97GItkgoViPNhJT9EDf/i33gMwpQj4MywV6IqMStKCoPrUkrTpx6Tt0Knhf73U8zh4qcY2+hoQ9Yqr8gLUqg==",
+      "signatures": [
+        {
+          "sig": "MEQCIHIo6Jumyzpqb1/J9r6vbfyDzL5yRfgj3MNgtjAMeq1+AiAfLzfsjDFCLecV5ZzX4LvXmRl6s+iiT25wEHbLT60ucA==",
+          "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+        }
+      ],
+      "unpackedSize": 16666173,
+      "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfMvxCCRA9TVsSAnZWagAAJhEP/A+tcc4QsbUtVg9YDh30\nv/pNknuMwimSQc1pX7nDdR/TP4ki+fnweQZ1m2Z+/Z82wSZN7qbm0QT1CnU8\nZFAkaRWN3NWWLjEyIqq21TWDyni5Uvz9ND0p0xl2Pn9fMLu09ZsVUuZo11DO\nKcx32n18Sm2zTUB7jAuEaTXBG+lRuKS/1yy1g0zJf2ppXFic9uWZ+OjLlnCy\nvvXLHjhew/YlOlP2/kvJPh4ho5g6bQB7DtTuLVvRVT0YtBm8poD3MTsVsTEB\npBtpw4yaqwYpcDtMTxLmXl/vjktRL2cdnfWR5ljnxWaDcK0g+NaFdb0HjUz0\nWaxLY60hoEAF1pvQR5b+duViBkGh8DdChkd3VnOnLe3/ssZ9Bft33fAMDdQe\nqmcpRM0TtN972ySRhQGF5ib8HhWtI9301eBzz7dxQWyieHI6IwzCsHF9C0kY\npTA6CXfzToSFBPJU9v84GuXk2jgu8pepYs/JRCtPTdfW0DddShuou0AMJMzh\nev+GxIN5TTStM+jsNOf8oiFv5HPdZ1m/UBzYQ54sUqLMIsu+Ze7JH5gnY1+0\n3vt9vSQD1F13szxFRufdW/XbVj7yyxYUX8LNOXTWx2XEd76FeyA1ES7SHayq\nMgrS+CiU8gFxoKFiW0O8Oh6bWJWYjEgUZbbNe6HYdUCqIgRH7xPa6F+N8AZz\nHjRw\r\n=tgtz\r\n-----END PGP SIGNATURE-----\r\n"
+    },
+    "raw_tarball_sha256": "429124f3f5b33bae0c49b3f9befa452b6cfe98e9617a934df1d376121ad3e76a"
+  },
+  {
+    "version": "0.0.10",
+    "registry_url": "https://registry.npmjs.org/@chainlink%2fcontracts/0.0.10",
+    "published": "2020-09-14T15:10:06.814Z",
+    "dist": {
+      "shasum": "9eca8ff76e82e62b8ceeda9b2f69395cdb4dae56",
+      "tarball": "https://registry.npmjs.org/@chainlink/contracts/-/contracts-0.0.10.tgz",
+      "fileCount": 1104,
+      "integrity": "sha512-ok+ucSQ+3mrR+zjbi6zIrdd5M9XymcqVcnXGVyqBVRYZp97jS2/rt/glP320JmHxmi4pacgDOg0Ux11xIr1S8Q==",
+      "signatures": [
+        {
+          "sig": "MEQCIFH4S1uH8ApVlM0b4rXkQ07fP71yNgSZ6XR9cCbd3X2VAiA+JA35f/vojsX1bkqDGM79MLVZ1iIPcOVRDq3j+OSWHQ==",
+          "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+        }
+      ],
+      "unpackedSize": 17342713,
+      "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfX4fPCRA9TVsSAnZWagAAd+AP/jV/3gRDgf1hQqVLl9yh\n8FJfJtrMDggyBMSXKRnyweUjE25BPO6lfctyJBRJYYx2QIdTDZmFbjVKvVQu\n60yNVALMURZPAsyW1qGG+xPk7GSaHa7rXs9RNisy/nScXySfGxP/dqNYsGlU\nLFWztmyRe4qIkYPbeAZk25x4pW/e47NXx+xvGTpyL1+ESgfxjqH+few1A8pf\ngfygoFJJnIwUxBnLHYc93ib7wZaEKAoxU2sPGtv+PF7FWwGtQv1LV7QtYMYh\nnLjzlLJ4ZYcH4QI+39thGOEMYWgZOZCN0BU7xy+r041w13G4lcDFHG0U3pH2\ngh1ldqLtkQOoW9M5T7y1nX8Kzfh6lYpe0MVRI9thVTkKYQBUybaANtSzbms6\nscGiVvgEcqB+MFFYBu2lkr8X2eGU3EgauSGcdEEktv1ZmWNj5qlGFuuxu4YM\nUVkfpGTS8wEdIzxLx9ktQTJPd1qEAeFfIr7eeWgI7aLcR+cYidn/scyRSjX0\nv2K/kJ2vmAORHEnCzyKrYdWeU97KkMA4iCZTpRZH6gttKPXOi+1dCmNhgjFq\nZevI7brR+Si0sH1IxZ6DGY8yqEVs3LzH9plDn/FVsSVmMXDQId+lkPqEIcx1\nDGI6YHde/7SflrHSV5XE9EPUbvTO1Qu+9F0CdcD2SpwbP8msrAlvuNJT2SGj\nMGHz\r\n=FfEx\r\n-----END PGP SIGNATURE-----\r\n"
+    },
+    "raw_tarball_sha256": "469488e592094d29a8bf96ec591dc4f3b9edd3e8f800add46027951dc81aa925"
+  },
+  {
+    "version": "0.0.14",
+    "registry_url": "https://registry.npmjs.org/@chainlink%2fcontracts/0.0.14",
+    "published": "2021-02-01T15:27:00.979Z",
+    "dist": {
+      "shasum": "916e7c2d47f55bc797c34d8a65b34f6c24e2258b",
+      "tarball": "https://registry.npmjs.org/@chainlink/contracts/-/contracts-0.0.14.tgz",
+      "fileCount": 1349,
+      "integrity": "sha512-QWebruFNljJ1Vpi5YFfSyVjhtYLGejjvtfNVAMJvTXNIiT8e5fERnsVmxELwfDmu2nS0FGwDWHi2nzFkYE+2FA==",
+      "signatures": [
+        {
+          "sig": "MEYCIQCRlGcHAjAuSfIFahCTDX6+nVFwJB5CF7oZozWgcvTpaAIhANgGvKMH+xXOjIYsQPybKNUSvEWz5BDhYSMO485XJeht",
+          "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+        }
+      ],
+      "unpackedSize": 21839042,
+      "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgGB3FCRA9TVsSAnZWagAA2xMP/2TGR0U5bV/B6dzjuCz2\ntPjjZYsXzDH1T00ukssC/6YpQ+Eh6yWhPbWpsq3lv3wAnxMx4Be9MG1ZXx93\nx4ydjlMdVoZMo97plBLf/ig1gPvC09W0NE+bvN1HHAZ6q+K7lfhZ34SpVhqK\nPoYTyfDGcZa8RWScOLVHWt+4wf2FH6lXf3YJQQjLYKEGORcGYO7CUTR6Jy68\nEX3trNrByQ3iGlETgJpy4/zhX7BGWs/yoRc+RErdQF65OfQfZ5lxKcvnc7Cn\nAebqshyMZx7wdoMTHNh7RPXDRt5f7kc6mKJPVnr9bKkFU4HCNAwI740Z27Up\nXDfySEuVXq+IrL4TurDQBqshHbWY4pqoZ9zWqL8G+UCy/7UD2OSseaHhaL44\n0JG6VAmExXtnXmOcytq/ByZWeLlpGk7pWKE3Cqe2XLRBz9OMvuJ2M9AM1tEV\n8mTERbxq4munSmPKn1lVYx727yw378ueXFy1KVJ9ZHdI2IuBK8xWpo1MYXhO\nZwqSEVW3umZ5uGMrFDNuaLV26Wq9rAfVs/uPHGnoE9o/uu9gjHD4Mw9EHXMF\n7ws8C736jhqEipZMVf1tWKjnzv6IYneyE9p2AgHavXZiATXvTHJfRub83H0E\nA7GebnMhMc+djOXjDp6bEmiErnL/L62qEiswnOjSGC0ctoo7cVXm4UpTI2uT\nNbs/\r\n=ykNE\r\n-----END PGP SIGNATURE-----\r\n"
+    },
+    "raw_tarball_sha256": "3d65dfb81c30dcc911b823b63cf48061ca895dbf8f4ac31eca632472e65b05ab"
+  },
+  {
+    "version": "0.1.6",
+    "registry_url": "https://registry.npmjs.org/@chainlink%2fcontracts/0.1.6",
+    "published": "2021-02-01T16:17:07.387Z",
+    "dist": {
+      "shasum": "e4795565c723f99adaf6e97382cfb41dff0bcf91",
+      "tarball": "https://registry.npmjs.org/@chainlink/contracts/-/contracts-0.1.6.tgz",
+      "fileCount": 1349,
+      "integrity": "sha512-RXKMm+3ADEi1c4/XsXy2Z1m0KQh7H6Nn0FWXmCgXRIorOBt7dvh52c0c41ONJfIhHB/tGeoXnp4lPnZEDqkocA==",
+      "signatures": [
+        {
+          "sig": "MEUCIQCpHkyOGW8edITEpibz1bnY9LcdYdO2F9Ut/CHwdkAeiQIgL4uBAKOlv340kKFNXVPmozHNw7JfOjXrKjWPbCBWEN0=",
+          "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+        }
+      ],
+      "unpackedSize": 21841322,
+      "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgGCmDCRA9TVsSAnZWagAAhGIQAImFHIS7s4RdtbzC8QqA\nNIU942Y3EyDzOFR0kp4D+/AgxyLUlaZWjmcqBiXNXoWX52X8jUfEsSV+0laG\n9gb5DXsbNzRBe1agNkwxxAswKHxXIW5w4ZlrXRg8t3mDd+IH+b0o2TsO9RCJ\n4QxXFF6q84OxDRnJgXh/PRaP5old0BclRPOoSMRVbuQdQfUkj7xuq136bbGL\n5mMiAfbAS16EKaYokeauTBvuHjmZkpydL+OJO3NBaK9oS+ynlMlYDCocMNqg\nCsUCXTM0aFbUHSDJSP/w3KR0zBtjS7btYAoo918A59pt3RW/uSSn1V1vSCba\nEv7pcQFC4U/7x4WaVP1DOz0PwDKVHAF4WnRXovOGHM4Tqf9VqXRDCLnoa1SI\ncytn2F++BJBpko1Fsqfm8dFB6VxntrFMLDsissG5dijZ1uY2D00+wxtFI1iX\nWOupyeGumCg/Xb6ksxfGb2ySJhI/Lfb8FrqzeoGS5N+3Bg4A2Q7lJlXphndx\nfseCYuyT3fGGNlHaRDBTjgiU6PJo9EAV4r0FGX01Vvie32dTz9zR/gZRvL2C\n3xEEILoWaHzlIExZGLzR7yMjBI+OULHdJMtN6nJJOFyEyvlXmagGK6a1uNnR\nCTfDXV/HbljJAL4QJDYy8knwbsFpJmkfVM6Yc/ngEFur6TERfmSOJPOQ8ETw\nbRj3\r\n=IV2W\r\n-----END PGP SIGNATURE-----\r\n"
+    },
+    "raw_tarball_sha256": "01cae0bdc2a0f11094a868d9835bd974f63f702523dda83aa7af22b835c0dfc3"
+  }
+]

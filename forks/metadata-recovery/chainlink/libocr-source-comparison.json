@@ -1,0 +1,50 @@
+[
+  {
+    "path": "AccessControlledOffchainAggregator.sol",
+    "exact_content": true
+  },
+  {
+    "path": "AccessControllerInterface.sol",
+    "exact_content": true
+  },
+  {
+    "path": "AggregatorInterface.sol",
+    "exact_content": true
+  },
+  {
+    "path": "AggregatorV2V3Interface.sol",
+    "exact_content": true
+  },
+  {
+    "path": "AggregatorV3Interface.sol",
+    "exact_content": true
+  },
+  {
+    "path": "AggregatorValidatorInterface.sol",
+    "exact_content": true
+  },
+  {
+    "path": "LinkTokenInterface.sol",
+    "exact_content": true
+  },
+  {
+    "path": "OffchainAggregator.sol",
+    "exact_content": true
+  },
+  {
+    "path": "OffchainAggregatorBilling.sol",
+    "exact_content": true
+  },
+  {
+    "path": "Owned.sol",
+    "exact_content": true
+  },
+  {
+    "path": "SimpleReadAccessController.sol",
+    "exact_content": true
+  },
+  {
+    "path": "SimpleWriteAccessController.sol",
+    "exact_content": true
+  }
+]
