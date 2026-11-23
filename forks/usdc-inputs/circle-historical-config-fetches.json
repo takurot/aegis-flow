@@ -1,0 +1,24 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/package.json",
+    "file": "circle-a1b5455f-package.json",
+    "status": 200,
+    "sha256": "9afd0fcaece80cbeca89326211ba7e81e6fa0c5615767fe579252d2849afdb23"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/package-lock.json",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/yarn.lock",
+    "file": "circle-a1b5455f-yarn.lock",
+    "status": 200,
+    "sha256": "77c369af7f634a8b0e23342b86cb00174bae4b6f2b5eccc99ace6f17b2c88e97"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/a1b5455f1779d8840b6b53cc562f5cc3d0a4875d/truffle-config.js",
+    "file": "circle-a1b5455f-truffle-config.js",
+    "status": 200,
+    "sha256": "7d47a538ad5f4ab9131fbf75cc3c4932f6f9fac38ab9ed3b8a5f6b34edd29308"
+  }
+]
