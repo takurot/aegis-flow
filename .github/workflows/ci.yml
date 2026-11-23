@@ -62,7 +62,7 @@ jobs:
           version: v1.8.6
       - name: Install pinned offline compiler inputs
         run: |
-          for version in 0.8.19 0.8.10 0.7.6 0.6.12; do
+          for version in 0.8.19 0.8.10 0.7.6 0.6.12 0.6.6; do
             read -r -a packages <<< "$(python3 -c 'import json, sys; version = sys.argv[1]; print(" ".join(key for key in json.load(open("scripts/runtime-compiler-pins.json"))[version]["registry_tarballs"] if not key.startswith("solc@") or key == "solc@" + version))' "$version")"
             npm install --prefix "/tmp/aegis-solcjs-$version" --ignore-scripts --no-audit --no-fund "${packages[@]}"
             if [ "$version" != 0.8.19 ]; then
@@ -77,7 +77,7 @@ jobs:
           spec = importlib.util.spec_from_file_location('build_inputs', 'scripts/runtime-build-inputs.py')
           build_inputs = importlib.util.module_from_spec(spec)
           spec.loader.exec_module(build_inputs)
-          for version in ('0.8.19', '0.8.10', '0.7.6', '0.6.12'):
+          for version in ('0.8.19', '0.8.10', '0.7.6', '0.6.12', '0.6.6'):
               build_inputs.verify_compiler(version, Path(f'/tmp/aegis-solcjs-{version}/node_modules'))
               print(f'Authenticated compiler tree {version}')
           PYTHON
@@ -95,7 +95,7 @@ jobs:
         run: |
           python3 -m unittest discover -s tests -p test_usdc_runtime.py -v
           python3 scripts/verify-usdc-runtime.py --output "$RUNNER_TEMP/usdc-runtime.json"
-      - name: Verify Provider and ProxyAdmin historical runtime replay offline
+      - name: Verify three historical runtime targets offline
         shell: bash
         run: |
           command -v cast
@@ -107,7 +107,7 @@ jobs:
           if not result.wasSuccessful() or not result.testsRun or result.skipped:
               raise SystemExit('historical runtime tests must run without skips')
           PYTHON
-          for target in provider governance_proxy_admin; do
+          for target in provider governance_proxy_admin USDC_price_source; do
             output="$RUNNER_TEMP/$target-historical-runtime.json"
             python3 scripts/runtime-build-inputs.py replay \
               "forks/historical-runtime-inputs/$target-bundle.json" --output "$output"

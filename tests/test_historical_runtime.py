@@ -33,6 +33,36 @@ class HistoricalRuntimeTests(unittest.TestCase):
                     with self.assertRaises(v.Failure):
                         v.compare_output(expected, bundle, row, out)
 
+    def test_usdc_price_proxy_metadata_and_compiler_are_bound(self):
+        v = self.verifier
+        if not (v.rt.deps._keccak or shutil.which('cast')):
+            self.skipTest('Ethereum Keccak requires pycryptodome or cast')
+        name = 'USDC_price_source'
+        expected, bundle, row = v.load_inputs(v.INPUTS, name)
+        self.assertEqual(len(expected), 9571)
+        self.assertEqual(len(bundle['source_association']['validated']), 7)
+        target = bundle['compilation_target']
+        compiled = {'metadata': v.rt.build.decoded(bundle['metadata']).decode(), 'evm': {'deployedBytecode': {
+            'object': expected.hex(), 'immutableReferences': {}, 'linkReferences': {}}}}
+        output = {'contracts': {target['source_path']: {target['contract_name']: compiled}}}
+        v.compare_output(expected, bundle, row, output)
+        compiled['metadata'] += ' '
+        with self.assertRaisesRegex(v.Failure, 'compiler metadata mismatch'):
+            v.compare_output(expected, bundle, row, output)
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory) / 'fixtures'
+            shutil.copytree(v.INPUTS, folder)
+            path = folder / f'{name}-bundle.json'
+            bundle['compiler']['version'] = '0.8.10'
+            raw = json.dumps(bundle).encode()
+            path.write_bytes(raw)
+            index_path = folder / 'index.json'
+            index = json.loads(index_path.read_bytes())
+            index['targets'][name]['bundle_sha256_raw_file'] = v.sha(raw)
+            index_path.write_text(json.dumps(index))
+            with self.assertRaisesRegex(v.Failure, 'bundle target or compiler mismatch'):
+                v.load_inputs(folder, name)
+
     def test_missing_and_changed_inputs_fail(self):
         v = self.verifier
         with tempfile.TemporaryDirectory() as directory:
