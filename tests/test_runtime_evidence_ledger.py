@@ -49,6 +49,43 @@ class LedgerTests(unittest.TestCase):
             self.assertEqual(proof['build']['hash_encoding'], 'raw file bytes')
             self.assertEqual(set(proof['creation']['files']), {'header', 'receipt', 'trace', 'transaction'})
 
+    def test_historical_rows_link_separate_offline_replay_evidence(self):
+        ledger = load_ledger().build_ledger(ROOT)
+        expected = {'provider': 9846, 'governance_proxy_admin': 1690, 'USDC_price_source': 9571}
+        for row in ledger['targets']:
+            name = row['name']
+            if name not in expected:
+                self.assertNotIn('supplemental_offline_replay', row)
+                continue
+            with self.subTest(name=name):
+                self.assertEqual(row['status'], 'historical_exact')
+                self.assertEqual(row['provenance']['status'], 'not_retained')
+                replay = row['supplemental_offline_replay']
+                self.assertEqual(replay['status'], 'retained_offline_replay_evidence')
+                self.assertFalse(replay['live_verified'])
+                self.assertFalse(replay['complete_creation_verified'])
+                self.assertEqual(row['runtime_bytes'], expected[name])
+                self.assertEqual(replay['bundle']['path'], f'forks/historical-runtime-inputs/{name}-bundle.json')
+                self.assertEqual(replay['comparison']['path'], f'forks/historical-runtime-inputs/{name}-comparison.json')
+                self.assertEqual(len(replay['runtime_sha256_raw_bytes']), 64)
+                self.assertTrue(replay['embedded_metadata_cids'])
+
+    def test_supplemental_reference_missing_or_inconsistent_fails(self):
+        ledger = load_ledger()
+        read = Path.read_bytes
+        for name in ('index.json', 'provider-bundle.json', 'USDC_price_source-comparison.json'):
+            for missing in (False, True):
+                def changed(path):
+                    if path.parent.name == 'historical-runtime-inputs' and path.name == name:
+                        if missing:
+                            raise FileNotFoundError(path)
+                        return read(path) + b' '
+                    return read(path)
+
+                with self.subTest(name=name, missing=missing), patch.object(Path, 'read_bytes', changed):
+                    with self.assertRaises(ledger.Failure):
+                        ledger.build_ledger(ROOT)
+
     def test_scope_and_evidence_conflicts_fail_closed(self):
         ledger = load_ledger()
         cases = (
