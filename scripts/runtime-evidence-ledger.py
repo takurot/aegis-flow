@@ -30,6 +30,8 @@ REPORT_SHA256 = {
 }
 HEX_TEXT = 'lowercase hex text without 0x'
 HISTORICAL_SOURCIFY = {'provider', 'governance_proxy_admin'}
+SUPPLEMENTAL_FOLDER = 'forks/historical-runtime-inputs'
+SUPPLEMENTAL_INDEX_SHA256 = '6d7726c3e74893f4bfffe0086fc430d3edaa8931fd8de1a0625f13f8c54b6cbe'
 HOLD = {
     'WETH': ('ISSUE_55', 'Original solc 0.4.19 metadata/build inputs unavailable; only executable code matches.'),
     'USDC': ('ISSUE_55', 'Original solc 0.4.24 proxy metadata/build inputs unavailable; candidate metadata differs.'),
@@ -256,11 +258,11 @@ def project(root):
         require(type(row['deployed_bytes']) is int and row['deployed_bytes'] > 0
                 and row['compiled_bytes'] == row['deployed_bytes'], 'historical runtime length mismatch')
         add(targets, name, canonical[name]['address'], status='historical_exact', evidence_report=historic_file,
-            comparison='historically reported full byte equality without substitutions; not replayed',
+            comparison='historically reported full byte equality without substitutions; separate offline replay evidence below',
             provenance={'status': 'not_retained'},
             runtime_hash_encoding=HEX_TEXT, runtime_sha256=digest(p['deployed_runtime_sha256']),
             runtime_bytes=row['deployed_bytes'], input_refs=[],
-            limitation='Authenticated metadata/source/compiler replay bundle and raw-byte runtime are not retained.')
+            limitation='The original report does not retain replay inputs; see supplemental_offline_replay.')
 
     name = 'USDC_price_source'
     row = old_legacy[name]
@@ -268,9 +270,28 @@ def project(root):
             and not row.get('link_ranges') and not row.get('masked_ranges') and type(row['deployed_bytes']) is int
             and row['deployed_bytes'] > 0 and row['compiled_bytes'] == row['deployed_bytes'], 'legacy historical exact mismatch')
     add(targets, name, canonical[name]['address'], status='historical_exact', evidence_report=legacy_file,
-        comparison='historically reported full byte equality without substitutions; not replayed',
+        comparison='historically reported full byte equality without substitutions; separate offline replay evidence below',
         runtime_hash_encoding='not recorded', runtime_bytes=row['deployed_bytes'], input_refs=[], provenance={'status': 'not_retained'},
-        limitation='Authenticated metadata/source/compiler replay bundle and runtime digest/encoding are not retained.')
+        limitation='The original report does not retain replay inputs or runtime digest/encoding; see supplemental_offline_replay.')
+
+    # Bind the integrated index and its named fixtures without rerunning the replay gate.
+    index_path = f'{SUPPLEMENTAL_FOLDER}/index.json'
+    supplemental = read_json(root / index_path, report_sha256=SUPPLEMENTAL_INDEX_SHA256)
+    check_anchor(supplemental)
+    historical_names = {name for name, row in targets.items() if row['status'] == 'historical_exact'}
+    require(supplemental['targets'].keys() == historical_names, 'supplemental replay scope mismatch')
+    for name, row in supplemental['targets'].items():
+        targets[name]['supplemental_offline_replay'] = {
+            'status': 'retained_offline_replay_evidence',
+            'index': {'path': index_path, 'sha256': SUPPLEMENTAL_INDEX_SHA256, 'hash_encoding': 'raw file bytes'},
+            'bundle': checked_ref(root, SUPPLEMENTAL_FOLDER, f'{name}-bundle.json', row['bundle_sha256_raw_file']),
+            'comparison': checked_ref(root, SUPPLEMENTAL_FOLDER, f'{name}-comparison.json', row['comparison_sha256_raw_file']),
+            'runtime_sha256_raw_bytes': row['fixed_runtime_sha256_raw_bytes'],
+            'embedded_metadata_cids': row['fixed_embedded_cids'],
+            'creation_limit': row['creation_limit'],
+            'live_verified': False,
+            'complete_creation_verified': False,
+        }
 
     for name, (record, reason) in HOLD.items():
         require(old_sourcify[name]['status'] == 'mismatch', 'hold report cannot promote a candidate')
