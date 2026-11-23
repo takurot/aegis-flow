@@ -1,0 +1,118 @@
+[
+  {
+    "commit": "9f5d5d9",
+    "matches": [
+      {
+        "path": "src/contracts/transparent-proxy/TransparentUpgradeableProxy.sol",
+        "match": false
+      },
+      {
+        "path": "src/contracts/oz-common/StorageSlot.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/oz-common/Address.sol",
+        "match": false
+      },
+      {
+        "path": "src/contracts/transparent-proxy/ERC1967Proxy.sol",
+        "match": false
+      },
+      {
+        "path": "src/contracts/transparent-proxy/ERC1967Upgrade.sol",
+        "match": false
+      },
+      {
+        "path": "src/contracts/transparent-proxy/Proxy.sol",
+        "match": false
+      }
+    ]
+  },
+  {
+    "commit": "f298c17",
+    "matches": [
+      {
+        "path": "src/contracts/transparent-proxy/TransparentUpgradeableProxy.sol",
+        "match": false
+      },
+      {
+        "path": "src/contracts/oz-common/StorageSlot.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/oz-common/Address.sol",
+        "match": false
+      },
+      {
+        "path": "src/contracts/transparent-proxy/ERC1967Proxy.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/transparent-proxy/ERC1967Upgrade.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/transparent-proxy/Proxy.sol",
+        "match": true
+      }
+    ]
+  },
+  {
+    "commit": "21fec63",
+    "matches": [
+      {
+        "path": "src/contracts/transparent-proxy/TransparentUpgradeableProxy.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/oz-common/StorageSlot.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/oz-common/Address.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/transparent-proxy/ERC1967Proxy.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/transparent-proxy/ERC1967Upgrade.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/transparent-proxy/Proxy.sol",
+        "match": true
+      }
+    ]
+  },
+  {
+    "commit": "56720adb8b751c3742a5f9b8c5bcb8a9446ba941",
+    "matches": [
+      {
+        "path": "src/contracts/transparent-proxy/TransparentUpgradeableProxy.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/oz-common/StorageSlot.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/oz-common/Address.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/transparent-proxy/ERC1967Proxy.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/transparent-proxy/ERC1967Upgrade.sol",
+        "match": true
+      },
+      {
+        "path": "src/contracts/transparent-proxy/Proxy.sol",
+        "match": true
+      }
+    ]
+  }
+]

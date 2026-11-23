@@ -1,0 +1,142 @@
+[
+  {
+    "candidate": "executor-crosschain-era",
+    "target": "executor",
+    "compiler": "0.8.19",
+    "bundle": "bundles/c514bd3427b7c9b11902a445fee92e5b0be89656c0b592bca36ef3970db9767e.json",
+    "bundle_sha256": "c514bd3427b7c9b11902a445fee92e5b0be89656c0b592bca36ef3970db9767e",
+    "input_sha256": "f52fc02bf05d0309bfbc9d8e240ecaa98259aac72dd6f7bd42cd49095c081f10",
+    "metadata_sha256": "84b00a0e1af5f3db495d3da9d2e8b32d762fbc00d252fc5c1913a06350f402fd",
+    "compiler_metadata_replay_equal": true,
+    "compiled_cids": [
+      "QmVWzZ1E9mXx9xnLdzp1jtdnyi5iXxhJTtDXhxTocH7Tzg"
+    ],
+    "deployed_cids": [
+      "QmPyBHeMtRkSEHgdV7oSGbzwd7hLpkLkAmG5VjQkGfd6X2"
+    ],
+    "full_runtime_equal": false,
+    "metadata_stripped_code_equal": true,
+    "code_only_is_acceptance": false,
+    "runtime_sha256_raw_bytes": "8c604a38d041e5836c3eb1960ee826eca38582abae736bd27684984cea506216"
+  },
+  {
+    "candidate": "publication-generated",
+    "target": "executor",
+    "compiler": "0.8.19",
+    "bundle": "bundles/e7c3299eddf0d0e3dc824c0ba86b1a52b463f3b264c22cdebf10afb8a5eadbc5.json",
+    "bundle_sha256": "e7c3299eddf0d0e3dc824c0ba86b1a52b463f3b264c22cdebf10afb8a5eadbc5",
+    "input_sha256": "77dcb367ddc43f380ba5f22298f2bd843b95d695c28a0fa7b6a73bfe133863a3",
+    "metadata_sha256": "af02e89cea54cb035349f20d8d02bb87bedb822000295f779869506c418ff47b",
+    "compiler_metadata_replay_equal": true,
+    "compiled_cids": [
+      "QmVcHXgDWXuAV6F3E7eVXjctmpp4B962ojwTusF5w4qXQr"
+    ],
+    "deployed_cids": [
+      "QmPyBHeMtRkSEHgdV7oSGbzwd7hLpkLkAmG5VjQkGfd6X2"
+    ],
+    "full_runtime_equal": false,
+    "metadata_stripped_code_equal": true,
+    "code_only_is_acceptance": false,
+    "runtime_sha256_raw_bytes": "8c604a38d041e5836c3eb1960ee826eca38582abae736bd27684984cea506216"
+  },
+  {
+    "candidate": "publication-global-2023-style",
+    "target": "executor",
+    "compiler": "0.8.19",
+    "bundle": "bundles/49716987e29aae172df2fe9d08057583bbb1bb842c5f95fb6ab53272d4b40eb8.json",
+    "bundle_sha256": "49716987e29aae172df2fe9d08057583bbb1bb842c5f95fb6ab53272d4b40eb8",
+    "input_sha256": "b97533be07b511586d075be867ce3261187e8b807e298eac06d37a1f7587ed8c",
+    "metadata_sha256": "1b61599929f11a91f1e99d85e16b988cbf0429a4c9870d2a4d205dbc005cf596",
+    "compiler_metadata_replay_equal": true,
+    "compiled_cids": [
+      "QmUa64RwS5r7JrXNikY1w3ycWfXveAwUvVnHEQjdQXCgcf"
+    ],
+    "deployed_cids": [
+      "QmPyBHeMtRkSEHgdV7oSGbzwd7hLpkLkAmG5VjQkGfd6X2"
+    ],
+    "full_runtime_equal": false,
+    "metadata_stripped_code_equal": true,
+    "code_only_is_acceptance": false,
+    "runtime_sha256_raw_bytes": "8c604a38d041e5836c3eb1960ee826eca38582abae736bd27684984cea506216"
+  },
+  {
+    "candidate": "pre-rename-inferred",
+    "target": "executor",
+    "compiler": "0.8.19",
+    "bundle": "bundles/2829333c548c0c1265ed487a3a7fe4521dadca6bc353365a7d2f573e269bc0df.json",
+    "bundle_sha256": "2829333c548c0c1265ed487a3a7fe4521dadca6bc353365a7d2f573e269bc0df",
+    "input_sha256": "41cce78900bf500f13bbbe64572f50ae240a890e3a17f6c7df35ffff56906583",
+    "metadata_sha256": "57925900b376912a3c058a901dc236bbfe6c5d9914352c98f695aaea40f0b215",
+    "compiler_metadata_replay_equal": true,
+    "compiled_cids": [
+      "QmQiinWGVbBBaRH5eT1MdoKyq4Yc5QL9M4EqSVcV7y2M3V"
+    ],
+    "deployed_cids": [
+      "QmPyBHeMtRkSEHgdV7oSGbzwd7hLpkLkAmG5VjQkGfd6X2"
+    ],
+    "full_runtime_equal": false,
+    "metadata_stripped_code_equal": true,
+    "code_only_is_acceptance": false,
+    "runtime_sha256_raw_bytes": "8c604a38d041e5836c3eb1960ee826eca38582abae736bd27684984cea506216"
+  },
+  {
+    "candidate": "proxy-npm-no-remappings",
+    "target": "governance_proxy",
+    "compiler": "0.8.10",
+    "bundle": "bundles/bde4b018785cccbf79e67ba587a3272efaadfed5f235b6ae75da0242123c2531.json",
+    "bundle_sha256": "bde4b018785cccbf79e67ba587a3272efaadfed5f235b6ae75da0242123c2531",
+    "input_sha256": "10e994de781bb57ec99a7c0d9963ced87604a00a51f44355f30b51dbae7d3407",
+    "metadata_sha256": "275e7a91be110038fa74c644b20d0417c0633a70597912ff526cbc258eb611c9",
+    "compiler_metadata_replay_equal": true,
+    "compiled_cids": [
+      "QmcDTVbMCVZT9qjcCJAbqtiKWpgDEd3iGt3pXfLge3KmRk"
+    ],
+    "deployed_cids": [
+      "QmNRkeSjuybfntB3kU2HGJ187i2FWZfS5rn1bdC6HLL61B"
+    ],
+    "full_runtime_equal": false,
+    "metadata_stripped_code_equal": true,
+    "code_only_is_acceptance": false,
+    "runtime_sha256_raw_bytes": "db9092b1f02e6dc8a0abd68eb829869bcfc6f483ec47f71167ec1476c01274f1"
+  },
+  {
+    "candidate": "proxy-official-generated",
+    "target": "governance_proxy",
+    "compiler": "0.8.10",
+    "bundle": "bundles/83343e8204dee65c48f6470fc73d59e19bd68c43652f4c612eaf4cc47bf20691.json",
+    "bundle_sha256": "83343e8204dee65c48f6470fc73d59e19bd68c43652f4c612eaf4cc47bf20691",
+    "input_sha256": "52d2d454dd9e0c29578b22bd8da0a7eb4f5fb4d81d0b4994d993b253858468c7",
+    "metadata_sha256": "fb88c8f2f8e3076446cd782ea2ae81c661bc7382fdca62505cb60e11aa85afcc",
+    "compiler_metadata_replay_equal": true,
+    "compiled_cids": [
+      "QmPqrwLtF1aSCSsdoJk2f7USLcBGU2xFf9MuGA4qMx3Gtp"
+    ],
+    "deployed_cids": [
+      "QmNRkeSjuybfntB3kU2HGJ187i2FWZfS5rn1bdC6HLL61B"
+    ],
+    "full_runtime_equal": false,
+    "metadata_stripped_code_equal": true,
+    "code_only_is_acceptance": false,
+    "runtime_sha256_raw_bytes": "db9092b1f02e6dc8a0abd68eb829869bcfc6f483ec47f71167ec1476c01274f1"
+  },
+  {
+    "candidate": "controller-explorer",
+    "target": "governance_impl",
+    "compiler": "0.8.19",
+    "bundle": "bundles/8a43f2145ecd199bfd044003455fc666ce31143b68d89483987bc49d74cf530d.json",
+    "bundle_sha256": "8a43f2145ecd199bfd044003455fc666ce31143b68d89483987bc49d74cf530d",
+    "input_sha256": "9d9b3ddd2719acefe38142befb41d89152fe264194bc608ef56d8989585207cc",
+    "metadata_sha256": "333ae154f7e5cef31f191f0e48c16a6de58b4b61e6f4ac19b51eec514df5c73f",
+    "compiler_metadata_replay_equal": true,
+    "compiled_cids": [
+      "QmT7VE7R8oy9n7wbfHDgq8wdTahimKc2VzcprgyNrXFyGo"
+    ],
+    "deployed_cids": [
+      "QmWpzXgE8u4TQHmN3ob2FUdUict4ozTCBAYqnkrmvx1y9F"
+    ],
+    "full_runtime_equal": false,
+    "metadata_stripped_code_equal": false,
+    "code_only_is_acceptance": false,
+    "runtime_sha256_raw_bytes": "4b62e0e128543be3274ae3e6dff2d6f75f2f9f6acd20591231a149ca922e5166"
+  }
+]
