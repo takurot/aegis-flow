@@ -1,0 +1,7 @@
+{
+  "ContractName": "AccessControlledOffchainAggregator",
+  "CompilerVersion": "v0.7.6+commit.7338295f",
+  "OptimizationUsed": "1",
+  "Runs": "20000",
+  "SimilarMatch": "0xd39A20810c2297BDA9277AAfa5d70A802703d3EA"
+}

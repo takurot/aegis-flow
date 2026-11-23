@@ -1,0 +1,88 @@
+{
+  "WETH": {
+    "bundle_file": "WETH-bundle.json",
+    "compiler": {
+      "pin_id": "npm-solc-0.4.19-reviewed-v1",
+      "version": "0.4.19",
+      "full_version": "0.4.19+commit.c4cbbb05.Emscripten.clang",
+      "toolchain_manifest_sha256": "c925374b867573e8c5d640754d43896bd928babdcaff9aa66363eb14591c719a",
+      "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee"
+    },
+    "source_sha256": {
+      "WETH9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+    },
+    "settings": {
+      "libraries": {},
+      "optimizer": {
+        "enabled": false,
+        "runs": 200
+      },
+      "remappings": [],
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object",
+            "metadata"
+          ]
+        }
+      }
+    },
+    "input_sha256": "5036a2a1eccc6a21da69b0997367591430c88d9e44b440b95501eff15e9076c7",
+    "metadata_sha256": "51d5b0c7a12d09040ad33c561071ca55ea62a2dab212f7255a2addb3dbc4e213",
+    "runtime_sha256": "e7c22d36d7f88f3109901ada1a3967cbf8981a33c3c6fa8eb335a64152e3811c",
+    "runtime_bytes": 3124,
+    "code_equal": true,
+    "full_exact": false,
+    "metadata_bytes_equal_to_saved_candidate": true,
+    "compiled_suffix": "a165627a7a72305820c7e08aec381ef94df726a83cd8a9b4fe8898fead862f1fff9fdd0e2b5ebb503e0029",
+    "deployed_suffix": "a165627a7a72305820deb4c2ccab3c2fdca32ab3f46728389c2fe2c165d5fafa07661e4e004f6c344a0029",
+    "reference_type": "bzzr0",
+    "deployed_digest": "deb4c2ccab3c2fdca32ab3f46728389c2fe2c165d5fafa07661e4e004f6c344a",
+    "reference_contains_compiler_version": false,
+    "blocker": "original metadata preimage and exact deployment build inputs unavailable"
+  },
+  "USDC": {
+    "bundle_file": "USDC-bundle.json",
+    "compiler": {
+      "pin_id": "npm-solc-0.4.24-reviewed-v1",
+      "version": "0.4.24",
+      "full_version": "0.4.24+commit.e67f0147.Emscripten.clang",
+      "toolchain_manifest_sha256": "e223a9ac1d5931dc234b304ea5ef30255934870267381abd1e94e9ea9ec78425",
+      "driver_sha256": "7129b7ab9193e50a111d9b4bf840cc9cc62d237af77e7ad465c87be89cdf5cee"
+    },
+    "source_sha256": {
+      "contracts/FiatTokenProxy.sol": "0543a7ac4c377ffc2afc90fdd6091287403cb74f987af826aa4d4ca52b23ab9a",
+      "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol": "60dfb7aed3762b91432e634c2ce9a84ced659f6b5fa1c5f7e746159c38c8d018",
+      "zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol": "b6334b1bf70e7b22ce21fb4110416fef7bc191c39788cf2d2ef1e25ed8f93c24",
+      "zos-lib/contracts/upgradeability/Proxy.sol": "e9db2b5b251da5c4a5925b646126f94d37f96c70cd08c608083ebb910850409d",
+      "openzeppelin-solidity/contracts/AddressUtils.sol": "c5ae3ec071a34413e70a725c7ee69e0730a1df5a7c07783e84abb9fa35a50d7f"
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": false,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object",
+            "metadata"
+          ]
+        }
+      }
+    },
+    "input_sha256": "db2e74ab00b6d75b07f7169ac42af19073ba152a2a16c500d4821671427be670",
+    "metadata_sha256": "e30271a141e808a2bf60fcea9a92de5e60dec2f97bde3c12e5dbaa12202fa53c",
+    "runtime_sha256": "e2270e21facd28ceb8b65ca9adf8dc3bd2bb995a49de0f1011e0e6e50340058b",
+    "runtime_bytes": 2186,
+    "code_equal": true,
+    "full_exact": false,
+    "metadata_bytes_equal_to_saved_candidate": true,
+    "compiled_suffix": "a165627a7a723058206f70cb28282a1037ee37c709c00c97a1cd9834d1bd236756b6911927f2f5c2ed0029",
+    "deployed_suffix": "a165627a7a72305820a4a547cfc7202c5acaaae74d428e988bc62ad5024eb0165532d3a8f91db4ed240029",
+    "reference_type": "bzzr0",
+    "deployed_digest": "a4a547cfc7202c5acaaae74d428e988bc62ad5024eb0165532d3a8f91db4ed24",
+    "reference_contains_compiler_version": false,
+    "blocker": "original metadata preimage and exact deployment build inputs unavailable"
+  }
+}

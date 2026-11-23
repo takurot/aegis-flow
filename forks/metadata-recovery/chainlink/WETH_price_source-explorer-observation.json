@@ -1,0 +1,7 @@
+{
+  "ContractName": "EACAggregatorProxy",
+  "CompilerVersion": "v0.6.6+commit.6c089d02",
+  "OptimizationUsed": "1",
+  "Runs": "1000000",
+  "SimilarMatch": "0xdeb288F737066589598e9214E782fa5A8eD689e8"
+}
