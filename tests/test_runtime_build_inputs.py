@@ -78,8 +78,50 @@ class BuildInputTests(unittest.TestCase):
     def test_extra_source_is_unreferenced(self):
         raw = json.loads(self.raw)
         raw['sources']['extra.sol'] = {'content': 'contract Extra {}'}
-        bundle = build.capture_bundle(json.dumps(raw).encode(), self.metadata, 'compiler-generated metadata', 'pool_impl', '0.8.19')
+        raw_bytes = json.dumps(raw).encode()
+        bundle = build.capture_bundle(raw_bytes, self.metadata, 'compiler-generated metadata', 'pool_impl', '0.8.19')
         self.assertEqual(bundle['source_association']['unreferenced'], ['extra.sol'])
+        self.assertEqual(build.validate_bundle(bundle), (raw_bytes, self.metadata))
+
+    def undeclared_target_inputs(self):
+        raw = json.loads(self.raw)
+        raw['sources']['Extra.sol'] = {'content': 'contract Extra {}'}
+        metadata = json.loads(self.metadata)
+        metadata['settings']['compilationTarget'] = {'Extra.sol': 'Extra'}
+        return json.dumps(raw).encode(), json.dumps(metadata).encode()
+
+    def test_undeclared_compilation_target_is_rejected(self):
+        raw, metadata = self.undeclared_target_inputs()
+        bundle = build.capture_bundle(raw, self.metadata, 'compiler-generated metadata', 'pool_impl', '0.8.19')
+        bundle['metadata'].update(build.encoded(metadata))
+        bundle['compilation_target'] = {'source_path': 'Extra.sol', 'contract_name': 'Extra'}
+        output = {'contracts': {'Extra.sol': {'Extra': {}}}}
+        with patch.object(build, 'compile_input', return_value=(output, {})) as compile_input:
+            for name, call, args in (
+                ('capture', build.capture_bundle, (raw, metadata, 'compiler-generated metadata', 'pool_impl', '0.8.19')),
+                ('validate', build.validate_bundle, (bundle,)),
+                ('replay', build.replay_bundle, (bundle,)),
+            ):
+                with self.subTest(operation=name), self.assertRaises(build.Failure):
+                    call(*args)
+            compile_input.assert_not_called()
+
+    def test_sourcify_rejects_undeclared_target_before_compiling(self):
+        sourcify_spec = importlib.util.spec_from_file_location('sourcify_caller', ROOT / 'scripts/verify-sourcify-runtime.py')
+        sourcify = importlib.util.module_from_spec(sourcify_spec)
+        sourcify_spec.loader.exec_module(sourcify)
+        raw, metadata = self.undeclared_target_inputs()
+        data = {'metadata': json.loads(metadata), 'sources': json.loads(raw)['sources']}
+        failure = sourcify.rt.build.Failure
+        with tempfile.TemporaryDirectory() as directory, \
+             patch.object(sourcify.rt, 'BUNDLE_DIR', Path(directory)), \
+             patch.object(sourcify, 'sourcify', return_value=data), \
+             patch.object(sourcify.rt.build, 'verify_compiler', return_value={}), \
+             patch.object(sourcify.rt, 'compile_source', side_effect=failure('compiler reached')) as compile_source:
+            with self.assertRaisesRegex(failure, 'compilation target'):
+                sourcify.attempt(build.deps.RUNTIME_TARGETS['pool_impl'], 'https://unused.example')
+            compile_source.assert_not_called()
+            self.assertEqual(list(Path(directory).iterdir()), [])
 
     def test_actual_runtime_callers_write_replayable_bundles(self):
         if not Path('/tmp/aegis-solcjs-0.8.19/node_modules').is_dir() or not shutil.which('node'):

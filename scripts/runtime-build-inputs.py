@@ -86,6 +86,10 @@ def capture_bundle(raw_input, raw_metadata, origin, target_name, version):
     full_version = PINS[version]['full_version']
     if metadata_version not in (full_version, full_version.removesuffix('.Emscripten.clang')):
         raise Failure('metadata compiler version does not match approved pin')
+    target = compilation_target(raw_input, raw_metadata)
+    association = source_association(raw_input, raw_metadata)
+    if target['source_path'] not in association['validated']:
+        raise Failure('metadata compilation target source is not Keccak-validated')
     bundle = {
         'schema_version': 1,
         'target': {'name': target_name, 'address': deps.RUNTIME_TARGETS[target_name], 'chain_id': deps.CHAIN_ID,
@@ -93,10 +97,10 @@ def capture_bundle(raw_input, raw_metadata, origin, target_name, version):
         'compiler': {'pin_id': PINS[version]['pin_id'], 'version': version, 'full_version': full_version,
                      'toolchain_manifest_sha256': hashlib.sha256(json.dumps(PINS[version]['files_sha256'], sort_keys=True).encode()).hexdigest(),
                      'driver_sha256': driver_digest},
-        'compilation_target': compilation_target(raw_input, raw_metadata),
+        'compilation_target': target,
         'metadata': {**encoded(raw_metadata), 'origin': origin},
         'standard_input': encoded(raw_input),
-        'source_association': source_association(raw_input, raw_metadata),
+        'source_association': association,
     }
     return bundle
 
