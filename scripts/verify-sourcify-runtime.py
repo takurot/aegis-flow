@@ -151,26 +151,33 @@ def attempt(address, rpc_url):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--rpc-config', type=Path, default=Path.home() / '.config/aegis-flow/rpc.env')
+    parser.add_argument('--manifest', type=Path, default=DEPENDENCIES)
     parser.add_argument('--out', type=Path, default=ROOT / 'forks/aave-v3-sourcify-runtime-19000000.json')
     args = parser.parse_args()
+    try:
+        targets = deps.validate_runtime_manifest(json.loads(args.manifest.read_text()))
+    except (deps.Failure, ValueError, OSError):
+        print('Sourcify runtime manifest validation failed', file=sys.stderr)
+        return 1
     try:
         rpc_url = deps.validate_rpc(deps.parse_env_file(args.rpc_config, 'SENTINEL_RPC_URL'))
         deps.preflight(rpc_url)
     except (deps.Failure, ValueError, OSError):
         print('Sourcify runtime preflight failed; check local config and fixed-block RPC access', file=sys.stderr)
         return 1
-    targets = json.loads(DEPENDENCIES.read_text())['targets']
-    if not targets:
-        print('Sourcify runtime verification failed: no targets', file=sys.stderr)
-        return 1
     results = {}
+    attempted = {}
     for name, target in targets.items():
+        attempted[name] = target['address']
         try:
-            results[name] = attempt(target['address'], rpc_url)
+            result = attempt(target['address'], rpc_url)
+            state = rt.normalize_result(result, target['address'], sourcify=True)
+            results[name] = {**result, 'verification_status': state}
         except Exception as error:
             results[name] = {
                 'address': target.get('address'),
                 'status': 'error',
+                'verification_status': 'error',
                 'error': type(error).__name__,
                 'reason': 'source fetch, compile or RPC verification failed; no exact evidence',
             }
@@ -185,7 +192,9 @@ def main():
         'mismatch': sum(1 for result in results.values() if result.get('status') == 'mismatch'),
         'error': sum(1 for result in results.values() if result.get('status') == 'error'),
     }
+    scope = rt.runtime_scope_output(results, attempted)
     args.out.write_text(json.dumps({
+        **scope,
         'chain_id': 1,
         'block': deps.BLOCK,
         'block_hash': deps.BLOCK_HASH,
@@ -197,9 +206,7 @@ def main():
     }, indent=2) + '\n')
     print(f'Wrote {args.out}')
     print(json.dumps(summary))
-    if summary['error']:
-        return 1
-    return 0 if summary['exact_full'] == summary['total'] else 2
+    return {'exact_full': 0, 'error': 1, 'partial': 2}[scope['verification_status']]
 
 
 if __name__ == '__main__':

@@ -88,6 +88,8 @@ python3 scripts/verify-source-runtime.py
 
 出力: [`forks/aave-v3-runtime-19000000.json`](../forks/aave-v3-runtime-19000000.json)
 
+両 runtime verifier は独立した25件の name/address と chain/block/hash の契約を、通信前に検証する。終了コードは全25件の full exact が0、code-only・補完・mismatch は2、不正入力・不正結果・実行エラーは1。`--manifest`、出力の検証状態と期待・実行対象、実行 commit の詳細は [runtime 検証契約](ISSUE_51.md) を参照。
+
 - 25 targets を Solidity compiler（0.4.19 / 0.4.24 / 0.6.6 / 0.6.12 / 0.7.6 / 0.8.10 / 0.8.12 / 0.8.14 / 0.8.19）で再ビルド。
 - **25/25 が code match**（末尾の metadata suffix をすべて除去し、immutable/link ranges を mask した比較）。**exact full match は USDC price source の 1 件のみ**。
 - Pool + リンク先 7 ライブラリは既存の [`aave-v3-pool-source-19000000.json`](../forks/aave-v3-pool-source-19000000.json) で full exact を確認済み。
@@ -118,7 +120,7 @@ done
 python3 scripts/verify-sourcify-runtime.py
 ```
 
-Node.js、npm、Python 3、読み取り用の archive RPC が必要。出力は [`forks/aave-v3-sourcify-runtime-19000000.json`](../forks/aave-v3-sourcify-runtime-19000000.json)。終了コードは全件 `exact_full` が 0、値の補完や mismatch が残る場合は 2、取得・コンパイル・RPC エラーは 1。部分結果も保存する。空の対象集合は成功にならない。
+Node.js、npm、Python 3、読み取り用の archive RPC が必要。出力は [`forks/aave-v3-sourcify-runtime-19000000.json`](../forks/aave-v3-sourcify-runtime-19000000.json)。終了コードは全件 `exact_full` が 0、値の補完や mismatch が残る場合は 2、取得・コンパイル・RPC エラーは 1。部分結果も保存する。空・部分集合・余分な対象・誤address・誤identity の manifest は通信前に拒否し、既存の出力を保持する。
 
 2026-11-14 の固定ブロック再実行は **2 exact_full、13 matched_with_deployed_values、10 mismatch、0 error**。終了コードは 2。Sourcify の metadata と source content から標準 JSON 入力を作り、指定版の solc で再ビルドする。target ごとに compiler、source path、入力・metadata・runtime の SHA-256、metadata CID、immutable/link の位置と補完値を保存する。runtime の SHA-256 は `0x` なしの小文字 hex テキストに対する値である。metadata の source keccak256 と取得内容の対応は独立検証していない。
 

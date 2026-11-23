@@ -21,6 +21,28 @@ jobs:
       - run: cargo fmt --all -- --check
       - run: cargo clippy --workspace --all-targets --locked -- -D warnings
       - run: cargo test --workspace --locked
+      - name: Record offline runtime scope contract
+        run: |
+          python3 - <<'PYTHON'
+          import importlib.util
+          import json
+          from pathlib import Path
+          import subprocess
+
+          spec = importlib.util.spec_from_file_location('dependencies', 'scripts/verify-market-dependencies.py')
+          deps = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(deps)
+          targets = deps.validate_runtime_manifest(json.loads(Path('forks/aave-v3-dependencies-19000000.json').read_text()))
+          print(json.dumps({
+              'check': 'offline scope contract; no live runtime verification',
+              'execution_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+              'chain_id': deps.CHAIN_ID,
+              'block': deps.BLOCK,
+              'block_hash': deps.BLOCK_HASH,
+              'expected_targets': deps.RUNTIME_TARGETS,
+              'manifest_targets': {name: row['address'] for name, row in targets.items()},
+          }, indent=2))
+          PYTHON
       - run: python3 -m unittest discover -s tests -v
       - name: Reproduce candidate backtest evidence
         run: |
