@@ -1,0 +1,448 @@
+{
+  "BorrowLogic": {
+    "address": "0x5547d7d54d10c359108e36d098016c4020443fd4",
+    "bundle_target": "pool_impl",
+    "contract": "BorrowLogic",
+    "family": "library",
+    "immutables": [],
+    "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/BorrowLogic.sol",
+    "sources_sha256": "b145a9d2f3ee2dab9b1dfcc502c1c96652d07a0ceae9208b0b1801ee31019103"
+  },
+  "BridgeLogic": {
+    "address": "0xd948cfb92ebf175e4bd772305fdee8f39e934520",
+    "bundle_target": "pool_impl",
+    "contract": "BridgeLogic",
+    "family": "library",
+    "immutables": [],
+    "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/BridgeLogic.sol",
+    "sources_sha256": "b145a9d2f3ee2dab9b1dfcc502c1c96652d07a0ceae9208b0b1801ee31019103"
+  },
+  "EModeLogic": {
+    "address": "0xb341e4f99c73caa2136302f468ac3b75827c1736",
+    "bundle_target": "pool_impl",
+    "contract": "EModeLogic",
+    "family": "library",
+    "immutables": [],
+    "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/EModeLogic.sol",
+    "sources_sha256": "b145a9d2f3ee2dab9b1dfcc502c1c96652d07a0ceae9208b0b1801ee31019103"
+  },
+  "FlashLoanLogic": {
+    "address": "0x0063bcd116694c21f6a94aa78e10ef4d7819a609",
+    "bundle_target": "pool_impl",
+    "contract": "FlashLoanLogic",
+    "family": "library",
+    "immutables": [],
+    "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/FlashLoanLogic.sol",
+    "sources_sha256": "b145a9d2f3ee2dab9b1dfcc502c1c96652d07a0ceae9208b0b1801ee31019103"
+  },
+  "LiquidationLogic": {
+    "address": "0x5125bcf6380c5d5ccad4d4a88c3664df646bc6c3",
+    "bundle_target": "pool_impl",
+    "contract": "LiquidationLogic",
+    "family": "library",
+    "immutables": [],
+    "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+    "sources_sha256": "b145a9d2f3ee2dab9b1dfcc502c1c96652d07a0ceae9208b0b1801ee31019103"
+  },
+  "PoolLogic": {
+    "address": "0x7b8186933ead860f49114fb10e3a7f17a11bed8a",
+    "bundle_target": "pool_impl",
+    "contract": "PoolLogic",
+    "family": "library",
+    "immutables": [],
+    "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/PoolLogic.sol",
+    "sources_sha256": "b145a9d2f3ee2dab9b1dfcc502c1c96652d07a0ceae9208b0b1801ee31019103"
+  },
+  "SupplyLogic": {
+    "address": "0x589f82ff8162fa96545b435435713e9d6ca79fbb",
+    "bundle_target": "pool_impl",
+    "contract": "SupplyLogic",
+    "family": "library",
+    "immutables": [],
+    "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/libraries/logic/SupplyLogic.sol",
+    "sources_sha256": "b145a9d2f3ee2dab9b1dfcc502c1c96652d07a0ceae9208b0b1801ee31019103"
+  },
+  "WETH_price_source_aggregator": {
+    "address": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+    "bundle_target": "WETH_price_source_aggregator",
+    "contract": "AccessControlledOffchainAggregator",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "OffchainAggregator",
+          "name": "decimals",
+          "source_path": "contract/OffchainAggregator.sol",
+          "type": "uint8"
+        },
+        "value": {
+          "arg": 10
+        }
+      },
+      {
+        "declaration": {
+          "contract": "OffchainAggregator",
+          "name": "minAnswer",
+          "source_path": "contract/OffchainAggregator.sol",
+          "type": "int192"
+        },
+        "value": {
+          "arg": 6
+        }
+      },
+      {
+        "declaration": {
+          "contract": "OffchainAggregator",
+          "name": "maxAnswer",
+          "source_path": "contract/OffchainAggregator.sol",
+          "type": "int192"
+        },
+        "value": {
+          "arg": 7
+        }
+      }
+    ],
+    "source_path": "contract/AccessControlledOffchainAggregator.sol",
+    "sources_sha256": "628e26ec81633dec5173d2ed4b1f00ba37f5d416394bdd891d1448823213aa1b"
+  },
+  "aUSDC": {
+    "address": "0x98c23e9d8f34fefb1b7bd6a91b7ff122f4e16f5c",
+    "bundle_target": "aUSDC",
+    "contract": "InitializableImmutableAdminUpgradeabilityProxy",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "BaseImmutableAdminUpgradeabilityProxy",
+          "name": "_admin",
+          "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/BaseImmutableAdminUpgradeabilityProxy.sol",
+          "type": "address"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy.sol",
+    "sources_sha256": "3d7e05571e4480952260914be552a091fa5f4b584dfdc1edbc46760da623af3b"
+  },
+  "aWETH": {
+    "address": "0x4d5f47fa6a74757f35c14fd3a6ef8e3c9bc514e8",
+    "bundle_target": "aWETH",
+    "contract": "InitializableImmutableAdminUpgradeabilityProxy",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "BaseImmutableAdminUpgradeabilityProxy",
+          "name": "_admin",
+          "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/BaseImmutableAdminUpgradeabilityProxy.sol",
+          "type": "address"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy.sol",
+    "sources_sha256": "3d7e05571e4480952260914be552a091fa5f4b584dfdc1edbc46760da623af3b"
+  },
+  "aWETH_impl": {
+    "address": "0x7effd7b47bfd17e52fb7559d3f924201b9dbff3d",
+    "bundle_target": "aWETH_impl",
+    "contract": "AToken",
+    "family": "token",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "EIP712Base",
+          "name": "_chainId",
+          "source_path": "@aave/core-v3/contracts/protocol/tokenization/base/EIP712Base.sol",
+          "type": "uint256"
+        },
+        "value": {
+          "context": "chain_id"
+        }
+      },
+      {
+        "declaration": {
+          "contract": "IncentivizedERC20",
+          "name": "_addressesProvider",
+          "source_path": "@aave/core-v3/contracts/protocol/tokenization/base/IncentivizedERC20.sol",
+          "type": "contract IPoolAddressesProvider"
+        },
+        "value": {
+          "context": "provider_staticcall"
+        }
+      },
+      {
+        "declaration": {
+          "contract": "IncentivizedERC20",
+          "name": "POOL",
+          "source_path": "@aave/core-v3/contracts/protocol/tokenization/base/IncentivizedERC20.sol",
+          "type": "contract IPool"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/tokenization/AToken.sol",
+    "sources_sha256": "6939bfd7c99b6fd57f488c838cb5d3054ab576ea7b4d753208e496beee0d4600"
+  },
+  "acl": {
+    "address": "0xc2aacf6553d20d1e9d78e365aaba8032af9c85b0",
+    "bundle_target": "acl",
+    "contract": "ACLManager",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "ACLManager",
+          "name": "ADDRESSES_PROVIDER",
+          "source_path": "@aave/core-v3/contracts/protocol/configuration/ACLManager.sol",
+          "type": "contract IPoolAddressesProvider"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/configuration/ACLManager.sol",
+    "sources_sha256": "473dabdf7076e905cdbb071edb933c5421772b8e49d54077cb434a26c33cbd4f"
+  },
+  "configurator": {
+    "address": "0x64b761d848206f447fe2dd461b0c635ec39ebb27",
+    "bundle_target": "configurator",
+    "contract": "InitializableImmutableAdminUpgradeabilityProxy",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "BaseImmutableAdminUpgradeabilityProxy",
+          "name": "_admin",
+          "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/BaseImmutableAdminUpgradeabilityProxy.sol",
+          "type": "address"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy.sol",
+    "sources_sha256": "3d7e05571e4480952260914be552a091fa5f4b584dfdc1edbc46760da623af3b"
+  },
+  "oracle": {
+    "address": "0x54586be62e3c3580375ae3723c145253060ca0c2",
+    "bundle_target": "oracle",
+    "contract": "AaveOracle",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "AaveOracle",
+          "name": "ADDRESSES_PROVIDER",
+          "source_path": "@aave/core-v3/contracts/misc/AaveOracle.sol",
+          "type": "contract IPoolAddressesProvider"
+        },
+        "value": {
+          "arg": 0
+        }
+      },
+      {
+        "declaration": {
+          "contract": "AaveOracle",
+          "name": "BASE_CURRENCY",
+          "source_path": "@aave/core-v3/contracts/misc/AaveOracle.sol",
+          "type": "address"
+        },
+        "value": {
+          "arg": 4
+        }
+      },
+      {
+        "declaration": {
+          "contract": "AaveOracle",
+          "name": "BASE_CURRENCY_UNIT",
+          "source_path": "@aave/core-v3/contracts/misc/AaveOracle.sol",
+          "type": "uint256"
+        },
+        "value": {
+          "arg": 5
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/misc/AaveOracle.sol",
+    "sources_sha256": "0ac9a54fe408531ebe628ee435d7789d0105292ef94d8cbde042d815e5a661a9"
+  },
+  "pool": {
+    "address": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+    "bundle_target": "pool",
+    "contract": "InitializableImmutableAdminUpgradeabilityProxy",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "BaseImmutableAdminUpgradeabilityProxy",
+          "name": "_admin",
+          "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/BaseImmutableAdminUpgradeabilityProxy.sol",
+          "type": "address"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy.sol",
+    "sources_sha256": "3d7e05571e4480952260914be552a091fa5f4b584dfdc1edbc46760da623af3b"
+  },
+  "pool_impl": {
+    "address": "0x5faab9e1adbddad0a08734be8a52185fd6558e14",
+    "bundle_target": "pool_impl",
+    "contract": "Pool",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "Pool",
+          "name": "ADDRESSES_PROVIDER",
+          "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/pool/Pool.sol",
+          "type": "contract IPoolAddressesProvider"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "lib/aave-v3-factory/src/core/contracts/protocol/pool/Pool.sol",
+    "sources_sha256": "b145a9d2f3ee2dab9b1dfcc502c1c96652d07a0ceae9208b0b1801ee31019103"
+  },
+  "stableDebtUSDC": {
+    "address": "0xb0fe3d292f4bd50de902ba5bdf120ad66e9d7a39",
+    "bundle_target": "stableDebtUSDC",
+    "contract": "InitializableImmutableAdminUpgradeabilityProxy",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "BaseImmutableAdminUpgradeabilityProxy",
+          "name": "_admin",
+          "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/BaseImmutableAdminUpgradeabilityProxy.sol",
+          "type": "address"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy.sol",
+    "sources_sha256": "3d7e05571e4480952260914be552a091fa5f4b584dfdc1edbc46760da623af3b"
+  },
+  "stableDebtUSDC_impl": {
+    "address": "0x15c5620dffac7c7366eed66c20ad222ddbb1ed57",
+    "bundle_target": "stableDebtUSDC_impl",
+    "contract": "StableDebtToken",
+    "family": "token",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "EIP712Base",
+          "name": "_chainId",
+          "source_path": "@aave/core-v3/contracts/protocol/tokenization/base/EIP712Base.sol",
+          "type": "uint256"
+        },
+        "value": {
+          "context": "chain_id"
+        }
+      },
+      {
+        "declaration": {
+          "contract": "IncentivizedERC20",
+          "name": "_addressesProvider",
+          "source_path": "@aave/core-v3/contracts/protocol/tokenization/base/IncentivizedERC20.sol",
+          "type": "contract IPoolAddressesProvider"
+        },
+        "value": {
+          "context": "provider_staticcall"
+        }
+      },
+      {
+        "declaration": {
+          "contract": "IncentivizedERC20",
+          "name": "POOL",
+          "source_path": "@aave/core-v3/contracts/protocol/tokenization/base/IncentivizedERC20.sol",
+          "type": "contract IPool"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/tokenization/StableDebtToken.sol",
+    "sources_sha256": "97fdec699aa1b4adbfeff0e2082cca06fd6a0238866afe80f6ab95fd0d7020fa"
+  },
+  "variableDebtUSDC": {
+    "address": "0x72e95b8931767c79ba4eee721354d6e99a61d004",
+    "bundle_target": "variableDebtUSDC",
+    "contract": "InitializableImmutableAdminUpgradeabilityProxy",
+    "family": "constructor",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "BaseImmutableAdminUpgradeabilityProxy",
+          "name": "_admin",
+          "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/BaseImmutableAdminUpgradeabilityProxy.sol",
+          "type": "address"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy.sol",
+    "sources_sha256": "3d7e05571e4480952260914be552a091fa5f4b584dfdc1edbc46760da623af3b"
+  },
+  "variableDebtUSDC_impl": {
+    "address": "0xac725cb59d16c81061bdea61041a8a5e73da9ec6",
+    "bundle_target": "variableDebtUSDC_impl",
+    "contract": "VariableDebtToken",
+    "family": "token",
+    "immutables": [
+      {
+        "declaration": {
+          "contract": "EIP712Base",
+          "name": "_chainId",
+          "source_path": "@aave/core-v3/contracts/protocol/tokenization/base/EIP712Base.sol",
+          "type": "uint256"
+        },
+        "value": {
+          "context": "chain_id"
+        }
+      },
+      {
+        "declaration": {
+          "contract": "IncentivizedERC20",
+          "name": "_addressesProvider",
+          "source_path": "@aave/core-v3/contracts/protocol/tokenization/base/IncentivizedERC20.sol",
+          "type": "contract IPoolAddressesProvider"
+        },
+        "value": {
+          "context": "provider_staticcall"
+        }
+      },
+      {
+        "declaration": {
+          "contract": "IncentivizedERC20",
+          "name": "POOL",
+          "source_path": "@aave/core-v3/contracts/protocol/tokenization/base/IncentivizedERC20.sol",
+          "type": "contract IPool"
+        },
+        "value": {
+          "arg": 0
+        }
+      }
+    ],
+    "source_path": "@aave/core-v3/contracts/protocol/tokenization/VariableDebtToken.sol",
+    "sources_sha256": "04277b1b9aeebae4739a6717870477bf08a19d790979a5794b89cbdd838ce00b"
+  }
+}
