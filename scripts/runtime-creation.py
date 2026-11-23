@@ -25,12 +25,15 @@ def raw_hex(value):
     return bytes.fromhex(value[2:])
 
 
-def load_creation(directory, transaction_hash):
+def creation_files(transaction_hash):
     if not isinstance(transaction_hash, str) or not re.fullmatch('0x[0-9a-f]{64}', transaction_hash):
         raise Failure('invalid creation transaction identity')
-    prefix = transaction_hash[2:]
-    return {kind: json.loads((Path(directory) / (prefix+'-'+kind+'.json')).read_text())
-            for kind in ('transaction', 'receipt', 'header', 'trace')} | {
+    return {kind: transaction_hash[2:]+'-'+kind+'.json' for kind in ('transaction', 'receipt', 'header', 'trace')}
+
+
+def load_creation(directory, transaction_hash):
+    return {kind: json.loads((Path(directory) / filename).read_text())
+            for kind, filename in creation_files(transaction_hash).items()} | {
                 'chain_id': 1, 'anchor': json.loads((Path(directory) / 'anchor-header.json').read_text())}
 
 
@@ -87,6 +90,7 @@ def authenticate_creation(target, evidence):
             raise ValueError()
         path, frame, _ = matches[0]
         parent = trace
+        factory_call = None
         execution_address = trace['to'].lower()
         for index in path:
             child = parent['calls'][index]
@@ -94,8 +98,16 @@ def authenticate_creation(target, evidence):
                 raise ValueError()
             if child['type'] not in ('DELEGATECALL', 'CALLCODE'):
                 execution_address = child['to'].lower()
-            parent = child
-        raw_hex(frame['input'])
+            factory_call, parent = parent, child
+        initcode = raw_hex(frame['input'])
+        if frame['type'] == 'CREATE2':
+            if factory_call is None or factory_call['type'] != 'CALL' or not initcode:
+                raise ValueError()
+            deployer = factory_call['to'].lower()
+            calldata = raw_hex(factory_call['input'])
+            if (deployer != frame['from'].lower() or calldata[32:] != initcode
+                    or create2_address(deployer, calldata[:32], initcode) != target['address'].lower()):
+                raise ValueError()
         return {'target': target['target'], 'address': target['address'].lower(), 'chain_id': 1, 'transaction_hash': tx['hash'],
                 'deployment_block': int(header['number'], 16), 'deployment_block_hash': header['hash'],
                 'frame_path': list(path), 'frame': frame,

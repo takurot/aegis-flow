@@ -13,44 +13,66 @@ c = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(c)
 
 
+CREATE2_TARGETS = {'pool_impl', 'acl', 'oracle', 'BorrowLogic', 'BridgeLogic', 'EModeLogic',
+                   'FlashLoanLogic', 'LiquidationLogic', 'PoolLogic', 'SupplyLogic'}
+
+
 def verify(directory, rpc=None):
     registry = json.loads(c.REGISTRY.read_text())
     files = json.loads((directory / 'SHA256.json').read_text())
+    required = {'targets.json', 'builds.json', 'anchor-header.json'}
+    if not isinstance(files, dict) or not required <= files.keys():
+        raise c.Failure('saved creation evidence scope mismatch')
     for relative, digest in files.items():
         path = directory / relative
-        if not path.resolve().is_relative_to(directory.resolve()) or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+        if (not path.resolve().is_relative_to(directory.resolve()) or not path.is_file()
+                or hashlib.sha256(path.read_bytes()).hexdigest() != digest):
             raise c.Failure('saved creation evidence hash mismatch')
     targets = json.loads((directory / 'targets.json').read_text())
     manifests = json.loads((directory / 'builds.json').read_text())
     if len(targets) != 20 or {target['target'] for target in targets} != set(registry):
         raise c.Failure('creation scope requires thirteen targets and seven separate libraries')
-    results = []
+    prepared = []
     for target in targets:
         name = target['target']
         expected_scope = 'pool_library' if registry[name]['family'] == 'library' else 'borrowed13'
         if target['scope'] != expected_scope or (expected_scope == 'borrowed13' and target['address'].lower() != c.deps.RUNTIME_TARGETS[name].lower()):
             raise c.Failure('creation target scope mismatch')
         record = manifests[name]
-        path = directory / record['bundle']
-        if not path.resolve().is_relative_to((directory / 'builds').resolve()) or hashlib.sha256(path.read_bytes()).hexdigest() != record['bundle_sha256']:
+        relative = record['bundle']
+        path = directory / relative
+        source_file = registry[name]['bundle_target']+'-source.json'
+        comparison_file = name+'-runtime.json'
+        tx_files = c.creation_files(target['transaction_hash'])
+        if not {relative, source_file, comparison_file, *tx_files.values()} <= files.keys():
+            raise c.Failure('saved creation evidence scope mismatch')
+        if (not path.resolve().is_relative_to((directory / 'builds').resolve())
+                or files[relative] != record['bundle_sha256']):
             raise c.Failure('creation build reference mismatch')
-        bundle = json.loads(path.read_bytes())
+        prepared.append((target, record, path, comparison_file, tx_files, source_file))
+    proofs = {}
+    for target, *_ in prepared:
+        name = target['target']
         authenticated = c.authenticate_creation(target, c.load_creation(directory, target['transaction_hash']))
+        if authenticated['frame']['type'] != ('CREATE2' if name in CREATE2_TARGETS else 'CREATE'):
+            raise c.Failure('creation frame type mismatch')
+        proofs[name] = authenticated
+    results = []
+    for target, record, path, comparison_file, tx_files, source_file in prepared:
+        name = target['target']
+        bundle = json.loads(path.read_bytes())
         validated = c.ValidatedBuild(bundle)
         output_hash = hashlib.sha256(json.dumps(validated.output, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
         if record.get('compiled_output_hash_encoding') != 'UTF-8 JSON with sorted keys and compact separators' or output_hash != record['compiled_output_sha256']:
             raise c.Failure('replayed compiler output mismatch')
-        expected, provenance = c.derive_runtime(validated, target, authenticated)
-        comparison = json.loads((directory / (name+'-runtime.json')).read_text())
+        expected, provenance = c.derive_runtime(validated, target, proofs[name])
+        comparison = json.loads((directory / comparison_file).read_text())
         if (comparison['address'] != target['address'] or comparison['block'] != c.deps.BLOCK or comparison['block_hash'] != c.deps.BLOCK_HASH):
             raise c.Failure('runtime comparison context mismatch')
         deployed = c.raw_hex(c.deps.rpc(rpc, 'eth_getCode', [target['address'], hex(c.deps.BLOCK)]) if rpc else comparison['runtime'])
         if expected != deployed:
             raise c.Failure('complete creation-derived runtime mismatch')
-        prefix = target['transaction_hash'][2:]
-        evidence_files = {kind: {'file': prefix+'-'+kind+'.json', 'sha256': files[prefix+'-'+kind+'.json']}
-                          for kind in ('transaction', 'receipt', 'header', 'trace')}
-        source_file = registry[name]['bundle_target']+'-source.json'
+        evidence_files = {kind: {'file': filename, 'sha256': files[filename]} for kind, filename in tx_files.items()}
         results.append({'creation_evidence': evidence_files, 'source_response': {'file': source_file, 'sha256': files[source_file]},
                         'target': name, 'address': target['address'], 'scope': target['scope'],
                         'status': 'independently_derived_full_runtime_match', 'runtime_bytes': len(expected),

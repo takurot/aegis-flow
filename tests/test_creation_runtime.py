@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import importlib.util
 import json
 import shutil
@@ -7,6 +8,7 @@ import sys
 import tempfile
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('creation', ROOT / 'scripts/runtime-creation.py')
@@ -77,6 +79,80 @@ class CreationTests(unittest.TestCase):
             self.assertNotIn(token, result.stderr+result.stdout)
             self.assertIn('creation runtime verification failed', result.stderr)
             self.assertFalse(output.exists())
+
+    def test_create2_binds_factory_calldata_and_child_address(self):
+        if not (c.deps._keccak or shutil.which('cast')):
+            self.skipTest('Ethereum Keccak requires pycryptodome or cast')
+        tx_hash, block_hash = '0x'+'11'*32, '0x'+'22'*32
+        sender, caller, factory = ('0x'+byte*20 for byte in ('33', '44', '55'))
+        salt, initcode = bytes(32), b'\x60\x00'
+        address = c.create2_address(factory, salt, initcode)
+        target = {'target': 'synthetic', 'address': address, 'transaction_hash': tx_hash}
+        location = {'blockHash': block_hash, 'blockNumber': '0x1', 'transactionIndex': '0x0',
+                    'from': sender, 'to': caller}
+        evidence = {
+            'chain_id': 1, 'anchor': {'hash': c.deps.BLOCK_HASH, 'number': hex(c.deps.BLOCK)},
+            'header': {'hash': block_hash, 'number': '0x1', 'transactions': [tx_hash]},
+            'transaction': {**location, 'hash': tx_hash, 'chainId': '0x1', 'input': '0x'},
+            'receipt': {**location, 'transactionHash': tx_hash, 'status': '0x1'},
+            'trace': {'type': 'CALL', 'from': sender, 'to': caller, 'input': '0x', 'calls': [
+                {'type': 'CALL', 'from': caller, 'to': factory, 'input': '0x'+(salt+initcode).hex(), 'calls': [
+                    {'type': 'CREATE2', 'from': factory, 'to': address, 'input': '0x'+initcode.hex()}]}]},
+        }
+        self.assertEqual(c.authenticate_creation(target, evidence)['frame_path'], [0, 0])
+        for mutation in ('salt', 'parent_input', 'child_initcode', 'address', 'deployer', 'sender', 'parent_type'):
+            with self.subTest(mutation=mutation):
+                changed, candidate = copy.deepcopy(evidence), dict(target)
+                parent = changed['trace']['calls'][0]
+                child = parent['calls'][0]
+                if mutation == 'salt': parent['input'] = '0x'+(b'\x01'+salt[1:]+initcode).hex()
+                elif mutation == 'parent_input': parent['input'] += '00'
+                elif mutation == 'child_initcode': child['input'] += '00'
+                elif mutation == 'address': candidate['address'] = child['to'] = '0x'+'66'*20
+                elif mutation == 'deployer': parent['to'] = child['from'] = '0x'+'77'*20
+                elif mutation == 'sender': parent['from'] = '0x'+'88'*20
+                elif mutation == 'parent_type': parent['type'] = 'STATICCALL'
+                with self.assertRaises(c.Failure):
+                    c.authenticate_creation(candidate, changed)
+
+    def test_manifest_requires_all_evidence_before_compiling(self):
+        verify_spec = importlib.util.spec_from_file_location('verify_creation', ROOT / 'scripts/verify-creation-runtime.py')
+        runner = importlib.util.module_from_spec(verify_spec)
+        verify_spec.loader.exec_module(runner)
+        with tempfile.TemporaryDirectory() as folder:
+            saved = Path(folder) / 'inputs'
+            shutil.copytree(self.folder, saved)
+            manifest = saved / 'SHA256.json'
+            rows = json.loads(manifest.read_text())
+            build_file = json.loads((saved / 'builds.json').read_text())['pool']['bundle']
+            trace_file = self.target['transaction_hash'][2:]+'-trace.json'
+            required = ('anchor-header.json', 'targets.json', 'builds.json', 'SupplyLogic-runtime.json',
+                        'pool-source.json', build_file, trace_file)
+            for change in ('missing_row', 'wrong_hash'):
+                for name in required:
+                    with self.subTest(change=change, name=name):
+                        changed = dict(rows)
+                        if change == 'missing_row': del changed[name]
+                        else: changed[name] = '00'*32
+                        manifest.write_text(json.dumps(changed))
+                        with patch.object(runner.c, 'authenticate_creation', wraps=runner.c.authenticate_creation) as authenticate, \
+                             patch.object(runner.c, 'ValidatedBuild', side_effect=runner.c.Failure('compiler reached')) as compile_build:
+                            with self.assertRaisesRegex(runner.c.Failure, 'evidence (scope|hash) mismatch'):
+                                runner.verify(saved)
+                            self.assertEqual(authenticate.call_count, 0, 'manifest checks must precede creation authentication')
+                            compile_build.assert_not_called()
+            target = next(row for row in json.loads((saved / 'targets.json').read_text()) if row['target'] == 'pool_impl')
+            trace_path = saved / (target['transaction_hash'][2:]+'-trace.json')
+            trace = json.loads(trace_path.read_text())
+            trace['calls'][0]['type'] = 'CREATE'
+            trace_bytes = json.dumps(trace).encode()
+            trace_path.write_bytes(trace_bytes)
+            rows[trace_path.name] = hashlib.sha256(trace_bytes).hexdigest()
+            manifest.write_text(json.dumps(rows))
+            with patch.object(runner.c, 'ValidatedBuild', side_effect=runner.c.Failure('compiler reached')) as compile_build:
+                with self.assertRaisesRegex(runner.c.Failure, 'creation frame type mismatch'):
+                    runner.verify(saved)
+                compile_build.assert_not_called()
 
     def test_wrong_pool_constructor_remains_rejected(self):
         with self.assertRaises(c.Failure):
