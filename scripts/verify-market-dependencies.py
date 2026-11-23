@@ -113,27 +113,33 @@ def parse_env_file(path, key):
     value = os.environ.get(key, '')
     if value:
         return value
-    if path is None or not Path(path).is_file():
-        return ''
-    found = ''
-    for line in Path(path).read_text().splitlines():
-        parts = shlex.split(line, comments=True)
-        if parts and parts[0] == 'export':
-            parts = parts[1:]
-        if not parts:
-            continue
-        if len(parts) != 1 or not parts[0].startswith(key + '='):
-            raise Failure(f'{key} config must contain only the expected assignment')
-        if found:
-            raise Failure(f'duplicate {key} assignment')
-        found = parts[0].split('=', 1)[1]
-    return found
+    try:
+        if path is None or not Path(path).is_file():
+            return ''
+        found = ''
+        for line in Path(path).read_text().splitlines():
+            parts = shlex.split(line, comments=True)
+            if parts and parts[0] == 'export':
+                parts = parts[1:]
+            if not parts:
+                continue
+            if len(parts) != 1 or not parts[0].startswith(key + '='):
+                raise Failure(f'{key} config must contain only the expected assignment')
+            if found:
+                raise Failure(f'duplicate {key} assignment')
+            found = parts[0].split('=', 1)[1]
+        return found
+    except (ValueError, OSError):
+        raise Failure('invalid configuration file') from None
 
 
 def validate_rpc(value):
     if not value:
         raise Failure('SENTINEL_RPC_URL is required')
-    parsed = urlsplit(value)
+    try:
+        parsed = urlsplit(value)
+    except ValueError:
+        raise Failure('invalid HTTPS RPC endpoint') from None
     if (
         parsed.scheme != 'https'
         or not parsed.hostname
@@ -161,7 +167,7 @@ def rpc(url, method, params):
         try:
             with urlopen(request, timeout=40) as response:
                 payload = response.read(4 * 1024 * 1024 + 1)
-        except (OSError, HTTPException):
+        except (ValueError, OSError, HTTPException):
             last = Failure('RPC transport failure')
             time.sleep(1)
             continue
@@ -173,11 +179,15 @@ def rpc(url, method, params):
             last = Failure('RPC JSON failure')
             time.sleep(1)
             continue
-        if not isinstance(body, dict) or body.get('jsonrpc') != '2.0' or body.get('id') != 1:
+        if (not isinstance(body, dict) or body.get('jsonrpc') != '2.0'
+                or type(body.get('id')) is not int or body['id'] != 1):
             raise Failure('invalid RPC envelope')
         if 'error' in body:
-            code = body['error'].get('code') if isinstance(body['error'], dict) else None
-            raise Failure(f'RPC error {code}')
+            error = body['error']
+            if (not isinstance(error, dict) or type(error.get('code')) is not int
+                    or not isinstance(error.get('message'), str) or 'result' in body):
+                raise Failure('invalid RPC error envelope')
+            raise Failure(f"RPC error {error['code']}")
         if 'result' not in body:
             raise Failure('RPC response has no result')
         return body['result']
@@ -189,8 +199,9 @@ def source_json(url):
         with urlopen(Request(url, headers={'User-Agent': 'aegis-flow-verify'}), timeout=40) as response:
             payload = response.read(2 * 1024 * 1024 + 1)
     except HTTPError as error:
-        raise Failure(f'HTTP {error.code}') from None
-    except (OSError, HTTPException):
+        status = f'HTTP {error.code}' if type(error.code) is int else 'source HTTP failure'
+        raise Failure(status) from None
+    except (ValueError, OSError, HTTPException):
         raise Failure('source transport failure') from None
     if len(payload) > 2 * 1024 * 1024:
         raise Failure('source response too large')
@@ -225,7 +236,7 @@ def parse_source(data):
         return {'verified': False, 'error': 'invalid response'}
     result = data.get('result')
     if isinstance(result, str):
-        return {'verified': False, 'error': result[:120]}
+        return {'verified': False, 'error': 'source API unsuccessful'}
     row = result[0] if isinstance(result, list) and result else {}
     if not isinstance(row, dict):
         return {'verified': False, 'error': 'missing result row'}
@@ -289,11 +300,20 @@ def eth_call(url, to, signature, args='', sender=None):
     return rpc(url, 'eth_call', [request, hex(BLOCK)])
 
 
+def hex_integer(value):
+    if not isinstance(value, str):
+        raise Failure('invalid hexadecimal response')
+    raw = value[2:] if value.startswith('0x') else value
+    if not raw or any(character not in '0123456789abcdefABCDEF' for character in raw):
+        raise Failure('invalid hexadecimal response')
+    return int(raw, 16)
+
+
 def call_address(url, to, signature, args='', sender=None):
     result = eth_call(url, to, signature, args, sender)
     if not isinstance(result, str) or len(result) < 42:
         return None
-    value = int(result, 16)
+    value = hex_integer(result)
     if value >= 1 << 160:
         return None
     return '0x' + format(value, '040x')
@@ -303,7 +323,7 @@ def call_uint(url, to, signature, args=''):
     result = eth_call(url, to, signature, args)
     if not isinstance(result, str) or not result.startswith('0x'):
         return None
-    return int(result, 16)
+    return hex_integer(result)
 
 
 def storage_address(url, address, slot):
@@ -311,8 +331,9 @@ def storage_address(url, address, slot):
     if not isinstance(result, str):
         return None
     value = result[2:] if result.startswith('0x') else result
+    hex_integer(value)
     value = value.rjust(64, '0')
-    candidate = int(value[-64:], 16)
+    candidate = hex_integer(value[-64:])
     if candidate == 0:
         return None
     return '0x' + format(candidate & ((1 << 160) - 1), '040x')
@@ -322,7 +343,10 @@ def code_info(url, address):
     code = rpc(url, 'eth_getCode', [address, hex(BLOCK)])
     if not isinstance(code, str) or not code.startswith('0x'):
         raise Failure('invalid eth_getCode result')
-    raw = bytes.fromhex(code[2:])
+    try:
+        raw = bytes.fromhex(code[2:])
+    except ValueError:
+        raise Failure('invalid eth_getCode result') from None
     return {'code_bytes': len(raw), 'codehash': keccak_hex(raw)}
 
 
@@ -405,6 +429,8 @@ def decode_role_logs(logs):
         topics = entry.get('topics') or []
         if len(topics) < 3:
             continue
+        hex_integer(topics[1])
+        hex_integer(topics[2])
         role = topics[1]
         account = '0x' + topics[2][-40:]
         holders.setdefault(role, [])
@@ -493,9 +519,10 @@ def decode_executor_settings(result):
     raw = result[2:]
     if len(raw) < 128:
         return None
+    hex_integer(raw)
     return {
         'executor': '0x' + raw[24:64],
-        'delay': int(raw[64:128], 16),
+        'delay': hex_integer(raw[64:128]),
     }
 
 
@@ -505,21 +532,22 @@ def decode_payload(result):
     raw = result[2:]
     if len(raw) < 64:
         return None
-    offset = int(raw[:64], 16) * 2
+    hex_integer(raw)
+    offset = hex_integer(raw[:64]) * 2
     words = [raw[index:index + 64] for index in range(offset, len(raw), 64)]
     if len(words) < 10:
         return None
     return {
         'creator': '0x' + words[0][-40:],
-        'max_access_level': int(words[1], 16),
-        'state': int(words[2], 16),
-        'created_at': int(words[3], 16),
-        'queued_at': int(words[4], 16),
-        'executed_at': int(words[5], 16),
-        'cancelled_at': int(words[6], 16),
-        'expiration_time': int(words[7], 16),
-        'delay': int(words[8], 16),
-        'grace_period': int(words[9], 16),
+        'max_access_level': hex_integer(words[1]),
+        'state': hex_integer(words[2]),
+        'created_at': hex_integer(words[3]),
+        'queued_at': hex_integer(words[4]),
+        'executed_at': hex_integer(words[5]),
+        'cancelled_at': hex_integer(words[6]),
+        'expiration_time': hex_integer(words[7]),
+        'delay': hex_integer(words[8]),
+        'grace_period': hex_integer(words[9]),
     }
 
 
@@ -533,8 +561,8 @@ def main():
         rpc_url = validate_rpc(parse_env_file(args.rpc_config, 'SENTINEL_RPC_URL'))
         etherscan_key = parse_env_file(args.etherscan_config, 'ETHERSCAN_API_KEY')
         preflight(rpc_url)
-    except Failure as error:
-        print(f'Dependency preflight failed: {error}', file=sys.stderr)
+    except (Failure, ValueError, OSError):
+        print('Dependency preflight failed', file=sys.stderr)
         return 1
 
     snapshot = json.loads((ROOT / 'forks/aave-v3-ethereum-19000000.json').read_text())
@@ -702,11 +730,12 @@ def main():
                     topics = entry.get('topics') or []
                     if len(topics) < 3:
                         continue
+                    hex_integer(topics[2])
                     events.append({
-                        'block': int(entry['blockNumber'], 16),
-                        'level': int(topics[1], 16),
+                        'block': hex_integer(entry['blockNumber']),
+                        'level': hex_integer(topics[1]),
                         'executor': '0x' + topics[2][-40:],
-                        'delay': int(entry.get('data', '0x0'), 16),
+                        'delay': hex_integer(entry.get('data', '0x0')),
                     })
                 authority['governance']['executor_set_events'] = events
                 level1 = next((event for event in events if event['level'] == 1), None)
