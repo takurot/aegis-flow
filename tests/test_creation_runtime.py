@@ -135,9 +135,11 @@ class CreationTests(unittest.TestCase):
                         if change == 'missing_row': del changed[name]
                         else: changed[name] = '00'*32
                         manifest.write_text(json.dumps(changed))
-                        with patch.object(runner.c, 'ValidatedBuild', side_effect=runner.c.Failure('compiler reached')) as compile_build:
+                        with patch.object(runner.c, 'authenticate_creation', wraps=runner.c.authenticate_creation) as authenticate, \
+                             patch.object(runner.c, 'ValidatedBuild', side_effect=runner.c.Failure('compiler reached')) as compile_build:
                             with self.assertRaisesRegex(runner.c.Failure, 'evidence (scope|hash) mismatch'):
                                 runner.verify(saved)
+                            self.assertEqual(authenticate.call_count, 0, 'manifest checks must precede creation authentication')
                             compile_build.assert_not_called()
             target = next(row for row in json.loads((saved / 'targets.json').read_text()) if row['target'] == 'pool_impl')
             trace_path = saved / (target['transaction_hash'][2:]+'-trace.json')

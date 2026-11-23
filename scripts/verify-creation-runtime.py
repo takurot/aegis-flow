@@ -49,19 +49,23 @@ def verify(directory, rpc=None):
         if (not path.resolve().is_relative_to((directory / 'builds').resolve())
                 or files[relative] != record['bundle_sha256']):
             raise c.Failure('creation build reference mismatch')
+        prepared.append((target, record, path, comparison_file, tx_files, source_file))
+    proofs = {}
+    for target, *_ in prepared:
+        name = target['target']
         authenticated = c.authenticate_creation(target, c.load_creation(directory, target['transaction_hash']))
         if authenticated['frame']['type'] != ('CREATE2' if name in CREATE2_TARGETS else 'CREATE'):
             raise c.Failure('creation frame type mismatch')
-        prepared.append((target, record, path, authenticated, comparison_file, tx_files, source_file))
+        proofs[name] = authenticated
     results = []
-    for target, record, path, authenticated, comparison_file, tx_files, source_file in prepared:
+    for target, record, path, comparison_file, tx_files, source_file in prepared:
         name = target['target']
         bundle = json.loads(path.read_bytes())
         validated = c.ValidatedBuild(bundle)
         output_hash = hashlib.sha256(json.dumps(validated.output, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
         if record.get('compiled_output_hash_encoding') != 'UTF-8 JSON with sorted keys and compact separators' or output_hash != record['compiled_output_sha256']:
             raise c.Failure('replayed compiler output mismatch')
-        expected, provenance = c.derive_runtime(validated, target, authenticated)
+        expected, provenance = c.derive_runtime(validated, target, proofs[name])
         comparison = json.loads((directory / comparison_file).read_text())
         if (comparison['address'] != target['address'] or comparison['block'] != c.deps.BLOCK or comparison['block_hash'] != c.deps.BLOCK_HASH):
             raise c.Failure('runtime comparison context mismatch')
