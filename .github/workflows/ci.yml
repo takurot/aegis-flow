@@ -95,6 +95,24 @@ jobs:
         run: |
           python3 -m unittest discover -s tests -p test_usdc_runtime.py -v
           python3 scripts/verify-usdc-runtime.py --output "$RUNNER_TEMP/usdc-runtime.json"
+      - name: Verify Provider and ProxyAdmin historical runtime replay offline
+        shell: bash
+        run: |
+          command -v cast
+          python3 - <<'PYTHON'
+          import unittest
+
+          suite = unittest.defaultTestLoader.discover('tests', pattern='test_historical_runtime.py')
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          if not result.wasSuccessful() or not result.testsRun or result.skipped:
+              raise SystemExit('historical runtime tests must run without skips')
+          PYTHON
+          for target in provider governance_proxy_admin; do
+            output="$RUNNER_TEMP/$target-historical-runtime.json"
+            python3 scripts/runtime-build-inputs.py replay \
+              "forks/historical-runtime-inputs/$target-bundle.json" --output "$output"
+            python3 scripts/verify-historical-runtime.py "$target" "$output"
+          done
       - run: forge fmt --check
       - run: forge build
       - run: forge test

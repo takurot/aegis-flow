@@ -1,0 +1,36 @@
+{
+  "block": 19000000,
+  "block_hash": "0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac",
+  "chain_id": 1,
+  "targets": {
+    "governance_proxy_admin": {
+      "bundle_sha256_raw_file": "ddeb19f9dbef39b034fa7f2a403c3b196cc03005cc6fdc18645bf1920311cf77",
+      "comparison_sha256_raw_file": "c4e5b5745c3ae071074353747e8de80350f4c86c79b404e9452ca5436c123913",
+      "compiled_metadata_sha256_raw_bytes": "97271602f2df44623f18731ee929b15b2409bd2394d8b7afd6f44584a7cebf27",
+      "creation_limit": "t31: successful factory parent calldata lacks initcode; factory creation trace missing",
+      "fixed_embedded_cids": [
+        "Qmbn5VStTrB5nUKgkfA9ETqEyWoaPba7kHPkFcpvvSfXtn"
+      ],
+      "fixed_runtime_keccak256_raw_bytes": "0xc3117f944615d26723eb6d9e6b123850471a0043e89df910180d0d00e7e9f3c5",
+      "fixed_runtime_sha256_raw_bytes": "9b4b9485e764833f68da49c3da15d4f6510765bf43c86baa7d590d23bb86fd22",
+      "historical_runtime_sha256_lowercase_hex_without_0x": "928b88df1472f7e9755d7393830349846048a70b07083398f53ad9d0a363db15",
+      "public_response_sha256_raw_file": "4758600ab64a6b7257a216a9524e5ba8c6394953b0fcc8eb219d3fb92ac1ea52",
+      "public_source_url": "https://sourcify.dev/server/v2/contract/1/0xd3cf979e676265e4f6379749dece4708b9a22476?fields=metadata,sources,compilation,runtimeBytecode"
+    },
+    "provider": {
+      "bundle_sha256_raw_file": "9468238f8eee041d118d85122db2d2a11b725cfd810c79d8e3c9d62b223dadd5",
+      "comparison_sha256_raw_file": "c7bd0e905c4142aa951c16fcb8bbfbcade2b83ecd4762c889a79c5daf3be4b83",
+      "compiled_metadata_sha256_raw_bytes": "325cb84ef1037bb289ae18fdbbd47f9359e854154c0c98ca1fb7363e06fdbf4e",
+      "creation_limit": "t31: successful transaction calldata supplied zero salt and initcode, CREATE2 address matched; factory trace not available",
+      "fixed_embedded_cids": [
+        "QmebtAj5rZdt26RqP2sWwst6PjgPiprZdf17YoVrvYvE1y",
+        "QmRJoHrGxDf2yzNsNKvuN4hbanQB8irTgkRFjnwdHwp3Hz"
+      ],
+      "fixed_runtime_keccak256_raw_bytes": "0x0f8c7f9c735ac0f3f35b1e78882a617380549def43faeca0d959d5aadd81dee4",
+      "fixed_runtime_sha256_raw_bytes": "e5416052b67aa0475bffe5707510a1981ffcc131d9b49066d51f6e25eb6c5c9f",
+      "historical_runtime_sha256_lowercase_hex_without_0x": "fbd58836f5357c80f076b629aedc03ad0647e227ff04046a8779ae9bfa4b6e7c",
+      "public_response_sha256_raw_file": "b447839f114686ee512dab98dda7e00477c8c1844f4a8c641f5cfa44e3ae3e87",
+      "public_source_url": "https://sourcify.dev/server/v2/contract/1/0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e?fields=metadata,sources,compilation,runtimeBytecode"
+    }
+  }
+}
