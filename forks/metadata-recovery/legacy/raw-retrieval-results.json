@@ -1,0 +1,22 @@
+[
+  {
+    "target": "WETH",
+    "url": "https://swarm-gateways.net/bzz-raw:/deb4c2ccab3c2fdca32ab3f46728389c2fe2c165d5fafa07661e4e004f6c344a/",
+    "status": 404
+  },
+  {
+    "target": "USDC",
+    "url": "https://swarm-gateways.net/bzz-raw:/a4a547cfc7202c5acaaae74d428e988bc62ad5024eb0165532d3a8f91db4ed24/",
+    "status": 404
+  },
+  {
+    "target": "WETH",
+    "url": "https://deb4c2ccab3c2fdca32ab3f46728389c2fe2c165d5fafa07661e4e004f6c344a.bzz.link/",
+    "error": "UnicodeError"
+  },
+  {
+    "target": "USDC",
+    "url": "https://a4a547cfc7202c5acaaae74d428e988bc62ad5024eb0165532d3a8f91db4ed24.bzz.link/",
+    "error": "UnicodeError"
+  }
+]

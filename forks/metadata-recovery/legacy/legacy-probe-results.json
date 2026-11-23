@@ -1,0 +1,71 @@
+{
+  "WETH": {
+    "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "source_url": "https://sourcify.dev/server/v2/contract/1/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2?fields=metadata,sources,compilation",
+    "compiler": "0.4.19+commit.c4cbbb05",
+    "source_paths": [
+      "WETH9.sol"
+    ],
+    "settings": {
+      "libraries": {},
+      "optimizer": {
+        "enabled": false,
+        "runs": 200
+      },
+      "remappings": [],
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object",
+            "metadata"
+          ]
+        }
+      }
+    },
+    "metadata_sha256": "51d5b0c7a12d09040ad33c561071ca55ea62a2dab212f7255a2addb3dbc4e213",
+    "deployed_bytes": 3124,
+    "compiled_bytes": 3124,
+    "code_equal": true,
+    "full_exact": false,
+    "compiled_suffix": "a165627a7a72305820c7e08aec381ef94df726a83cd8a9b4fe8898fead862f1fff9fdd0e2b5ebb503e0029",
+    "deployed_suffix": "a165627a7a72305820deb4c2ccab3c2fdca32ab3f46728389c2fe2c165d5fafa07661e4e004f6c344a0029",
+    "source_sha256": {
+      "WETH9.sol": "4a4205fff097f9364ebba3c8a32670a63fccffb39baddc0046a6da1ba398c767"
+    }
+  },
+  "USDC": {
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "source_url": "https://sourcify.dev/server/v2/contract/1/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48?fields=metadata,sources,compilation",
+    "compiler": "0.4.24+commit.e67f0147",
+    "source_paths": [
+      "FiatTokenProxy.sol"
+    ],
+    "settings": {
+      "evmVersion": "byzantium",
+      "libraries": {},
+      "optimizer": {
+        "enabled": false,
+        "runs": 200
+      },
+      "remappings": [],
+      "outputSelection": {
+        "*": {
+          "*": [
+            "evm.deployedBytecode.object",
+            "metadata"
+          ]
+        }
+      }
+    },
+    "metadata_sha256": "c6f3c93188fe74f532267adcfdff2e73a7810b3266a4a433ba7ead9fef8ad24e",
+    "deployed_bytes": 2186,
+    "compiled_bytes": 2186,
+    "code_equal": true,
+    "full_exact": false,
+    "compiled_suffix": "a165627a7a72305820b341f2a3d1159b6b2f639d3f9f6a0a685f736de2d1cb170b0ed43b46ddb7c8250029",
+    "deployed_suffix": "a165627a7a72305820a4a547cfc7202c5acaaae74d428e988bc62ad5024eb0165532d3a8f91db4ed240029",
+    "source_sha256": {
+      "FiatTokenProxy.sol": "ab5c8ad2bc311d8b6902b23300d35c74ee6f47bb74ecd722fe64ce6adba3cebe"
+    }
+  }
+}
