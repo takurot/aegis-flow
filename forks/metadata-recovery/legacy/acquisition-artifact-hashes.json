@@ -1,0 +1,226 @@
+{
+  "actual-runtime.json": {
+    "bytes": 10644,
+    "sha256": "d0bb653feaebd6962e440606f69eacf08afc8d6c14f357bdfaf09fae6797e345"
+  },
+  "AddressUtils.sol": {
+    "bytes": 1017,
+    "sha256": "c5ae3ec071a34413e70a725c7ee69e0730a1df5a7c07783e84abb9fa35a50d7f"
+  },
+  "candidate-results.json": {
+    "bytes": 6193,
+    "sha256": "911cb0f81ed8c79824499368d1b2a6fb1964a37307542b7d3c1efe529f3f040c"
+  },
+  "candidates.js": {
+    "bytes": 2239,
+    "sha256": "0c4d7ac5c071375bb73aaa4fa3cd4342280a27e67589d04fcdae9ef14a29b389"
+  },
+  "canonical-weth-2018.sol": {
+    "bytes": 37646,
+    "sha256": "a4bf7cb2f7755b6ceeb8766afd6272c93abbd5deec9df8e055e5dc3e2fcd7b2e"
+  },
+  "circle-2018-build-dev.sh": {
+    "bytes": 328,
+    "sha256": "c9b9402f1cb73f9707d8fa6337b5957b3788b30cd99310f4ac9d67843fa020ac"
+  },
+  "circle-2018-buildspec.yaml": {
+    "bytes": 935,
+    "sha256": "546abde4ce7594a3345addc95d6127732e9187c08aa20b42c2c5c65668778a31"
+  },
+  "circle-2018-ci_codebuild.yml": {
+    "bytes": 3262,
+    "sha256": "8578eacabbfab085e8e4e4ff6676655486f94a05d7678ee140b966c4cd7df50b"
+  },
+  "circle-2018-contracts_FiatTokenProxy.sol": {
+    "bytes": 1465,
+    "sha256": "0543a7ac4c377ffc2afc90fdd6091287403cb74f987af826aa4d4ca52b23ab9a"
+  },
+  "circle-2018-docker-compose.yml": {
+    "bytes": 542,
+    "sha256": "d7295b597c165e88e7148a25c21f05af877bcf82636c031ae020cfc31fe949f0"
+  },
+  "circle-2018-Dockerfile.truffle": {
+    "bytes": 152,
+    "sha256": "70555b3d0481a944c4cffed3358c9596c340a882eaa9ff577ac914a8c19da2a8"
+  },
+  "circle-2018-package.json": {
+    "bytes": 1494,
+    "sha256": "b59da5fcf7e225cfb808e0c078e82afc8c36a89757d153b52ce718fa53fe72c0"
+  },
+  "circle-2018-truffle-config.js": {
+    "bytes": 135,
+    "sha256": "8bf01629936f6aa3012deaafbf8e21d9134981ab8dfcc15af76f5cfe101fcee7"
+  },
+  "circle-2018-truffle.js": {
+    "bytes": 1725,
+    "sha256": "482c2263d0ccec67930357b3a9ca3831da91df5c156785bfaaabc7ed7b048bf8"
+  },
+  "circle-2018-validate_FiatTokenProxy.etherscan": {
+    "bytes": 10673,
+    "sha256": "942b63b909cb9c640900c576d673639c49749b17a7e3bbee864d8c087c6185a5"
+  },
+  "circle-2018-validate_README.contractDiff.md": {
+    "bytes": 2048,
+    "sha256": "a41ea928f9665a67a67900f5d64283032973a2e7ed8fb0f0d7278e5f404017a2"
+  },
+  "circle-2018-validate_README.validate.md": {
+    "bytes": 1014,
+    "sha256": "55f264eaeb1e1b92e691ec6d00d1ab139c4a47b29ab4e7732482f15a445320b5"
+  },
+  "circle-metadata.md": {
+    "bytes": 1551,
+    "sha256": "6e893405d6c83e8bcd32d714d410a6ba6addd98d5359421b43e7a2902799b04f"
+  },
+  "circle-proxy.metadata.json": {
+    "bytes": 6791,
+    "sha256": "caf0ed31c21066b6412db6098eb04cfcb8f81947da1a9065749b7f67aa7d1d84"
+  },
+  "circle-verification.md": {
+    "bytes": 3978,
+    "sha256": "855a014716155b30cda54e110daac0f9a3b7db9527525a14d77297b18b4fed75"
+  },
+  "ds-weth-2017.sol": {
+    "bytes": 37648,
+    "sha256": "763dd16d90b9b591eca5b24b733301f500fbe18eeabc7bead848f60f2771857a"
+  },
+  "multifile-docker-results.json": {
+    "bytes": 471,
+    "sha256": "97cef3387997a135854995beea56ac7ce9096d3d7f6b94db6cceefdd9a0bd782"
+  },
+  "multifile-docker.js": {
+    "bytes": 1995,
+    "sha256": "fa9abc1005c1b152cddf35d181195c0780f3133ef03b8439b1965b88ae170300"
+  },
+  "multifile-results.json": {
+    "bytes": 1750,
+    "sha256": "52e18eab8cc9abb15f20eea3598f912f84a53e0cda5e41b18e3bc24fedd45de6"
+  },
+  "multifile.js": {
+    "bytes": 2002,
+    "sha256": "f7e57c97f2c08dd3b8953be17ef13562649afd86cb629b97e9b9353110741299"
+  },
+  "openzeppelin-solidity-1.11.0.tgz": {
+    "bytes": 59624,
+    "sha256": "7aa680db9ee1e1ccef2ff841318f41bd5a2b82a13cf6495b56f56c71e720023a"
+  },
+  "raw-retrieval-results.json": {
+    "bytes": 644,
+    "sha256": "62ed6c0abcd888e4fcb4f4e433052226d594cfe0fde073a2921b0107fa7b8cfc"
+  },
+  "REPORT.md": {
+    "bytes": 7535,
+    "sha256": "83b784b8b250bedeb7ef463761ed67f68aca0d71c1d7b05369a9c48571e992e8"
+  },
+  "USDC-original-docker-1-input.json": {
+    "bytes": 11722,
+    "sha256": "3704efc6858e8dc23e7eca83eaba9d847535165ea9a38d7393b5057eb46d1272"
+  },
+  "USDC-original-docker-1-metadata.json": {
+    "bytes": 3834,
+    "sha256": "ab56e8357cc842c6b010a304207a41f8d83d4842f3ab76f31ef232b12efac8f8"
+  },
+  "USDC-original-docker-2-input.json": {
+    "bytes": 12378,
+    "sha256": "1b311a8c7da5056d3fb90b6ffa61d6e220b4f6cd86e9576d95d1c0a08deec333"
+  },
+  "USDC-original-docker-2-metadata.json": {
+    "bytes": 3868,
+    "sha256": "10f9abc85c778d3980b2580b46612cefbff38c3560b5a02da2a27d6f04b148d3"
+  },
+  "USDC-original-multifile-1-input.json": {
+    "bytes": 11702,
+    "sha256": "db2e74ab00b6d75b07f7169ac42af19073ba152a2a16c500d4821671427be670"
+  },
+  "USDC-original-multifile-1-metadata.json": {
+    "bytes": 3794,
+    "sha256": "e30271a141e808a2bf60fcea9a92de5e60dec2f97bde3c12e5dbaa12202fa53c"
+  },
+  "USDC-original-multifile-2-input.json": {
+    "bytes": 12358,
+    "sha256": "21bd489db564890295a71c1de89510d5f87a5fb74432628a1238ed6a035ba6f2"
+  },
+  "USDC-original-multifile-2-metadata.json": {
+    "bytes": 3828,
+    "sha256": "533244cd920a9a4f4831143a6493084697d8a29a8d175144938984b8e8effa85"
+  },
+  "USDC-original-multifile-3-input.json": {
+    "bytes": 11704,
+    "sha256": "d2c4d27acb419ae6934aefb64a5568fdd6bd9bc2505a06e5dd1be8f9547e6313"
+  },
+  "USDC-original-multifile-3-metadata.json": {
+    "bytes": 3798,
+    "sha256": "4c43a2f55c887669d99272708bf97257ef9c92451ed6742a3e34ac7f02e1900c"
+  },
+  "USDC-original-multifile-4-input.json": {
+    "bytes": 12360,
+    "sha256": "4d77b708b01c7696653f57a574719d61060dd218ae4ca454498e37dabd83e350"
+  },
+  "USDC-original-multifile-4-metadata.json": {
+    "bytes": 3832,
+    "sha256": "16e71c1bce75b15d736bf5100e6ec564f0119d93a878743c31442a18c55c68c1"
+  },
+  "USDC-original-multifile-5-input.json": {
+    "bytes": 11711,
+    "sha256": "e2c7b026a55cdb48851ac73269819f70c4ea6b23dc8382dba335e77068637106"
+  },
+  "USDC-original-multifile-5-metadata.json": {
+    "bytes": 3812,
+    "sha256": "d8334220d65b38f979a1bc415a5d8c47787c72347ba2b30815e3a0de21ca6e01"
+  },
+  "USDC-original-multifile-6-input.json": {
+    "bytes": 12367,
+    "sha256": "b12c1c2618ff593462283d45959373ef3ee23cd1dcf3e5fbd0273a0f48c98b94"
+  },
+  "USDC-original-multifile-6-metadata.json": {
+    "bytes": 3846,
+    "sha256": "8fdbea083bbf0dc258b7093b1ce530ca4cdd113ba09fe1bcf58329835938486f"
+  },
+  "USDC-original-multifile-7-input.json": {
+    "bytes": 11707,
+    "sha256": "14d4c5f10007af05dea4432f57f18d722f4f0ea21a0b1de0f2e3083325dc74ee"
+  },
+  "USDC-original-multifile-7-metadata.json": {
+    "bytes": 3804,
+    "sha256": "35e72d038fcbbafb9823d93cf4babaa39586b03d69b74d899042b194333261a7"
+  },
+  "USDC-original-multifile-8-input.json": {
+    "bytes": 12363,
+    "sha256": "bce12dd3084e947980c10b1b013b8f2d21d2641e52905b048d038fe321bbbf4c"
+  },
+  "USDC-original-multifile-8-metadata.json": {
+    "bytes": 3838,
+    "sha256": "be7e89269b5df609d29afa84586b951244b409b1f58d62fe12100ece92f38efe"
+  },
+  "weth-artifact-2018.json": {
+    "bytes": 311312,
+    "sha256": "a4d40f68545e3e5e17b117485e40f66924713bc92183b328546e029d372a9555"
+  },
+  "weth-artifact.json": {
+    "bytes": 62778,
+    "sha256": "5642606d80289ee10476fca39e306785f14942f7cecaf86a66cde6236b825b06"
+  },
+  "weth-compiler-results.json": {
+    "bytes": 2867,
+    "sha256": "37a4edff9676ec64c89250f1fa66186dfa03fcebd8b82c4eeb69449d15caa503"
+  },
+  "weth-compiler.js": {
+    "bytes": 1407,
+    "sha256": "4be0bc4a3fcf2cdbcdbe094bd9ddd4ae7521fe5879c29e2399928327bce11f96"
+  },
+  "weth-config.js": {
+    "bytes": 492,
+    "sha256": "09a29cf555534bdf551a3e6b3e88f74f57ca13a344e5a7c6399a7dc5fd7047e3"
+  },
+  "weth-source-current.sol": {
+    "bytes": 37683,
+    "sha256": "097d1a4258c78e1062798419ecb9c4e60b7327de5213be4bedfa4c1fdd04aa95"
+  },
+  "zos-lib-1.3.0-sources.json": {
+    "bytes": 32897,
+    "sha256": "bf3e7f37536725be56bbdd1663dbd676ec46bc991682d3a33e81666a100e47e6"
+  },
+  "zos-lib-1.3.0.tgz": {
+    "bytes": 455069,
+    "sha256": "4dc24a4eb90c9ade95f6e02265dff439e04f38f0c2bc00bf8ebe487192255254"
+  }
+}
