@@ -62,10 +62,31 @@ jobs:
           version: v1.8.6
       - name: Install pinned offline compiler inputs
         run: |
-          read -r -a packages <<< "$(python3 -c 'import json; print(" ".join(json.load(open("scripts/runtime-compiler-pins.json"))["0.8.19"]["registry_tarballs"]))')"
-          npm install --prefix /tmp/aegis-solcjs-0.8.19 --ignore-scripts --no-audit --no-fund "${packages[@]}"
+          for version in 0.8.19 0.8.10 0.7.6; do
+            read -r -a packages <<< "$(python3 -c 'import json, sys; version = sys.argv[1]; print(" ".join(key for key in json.load(open("scripts/runtime-compiler-pins.json"))[version]["registry_tarballs"] if not key.startswith("solc@") or key == "solc@" + version))' "$version")"
+            npm install --prefix "/tmp/aegis-solcjs-$version" --ignore-scripts --no-audit --no-fund "${packages[@]}"
+            if [ "$version" != 0.8.19 ]; then
+              mkdir -p "/tmp/aegis-solcjs-$version/node_modules/solc/common"
+              cp /tmp/aegis-solcjs-0.8.19/node_modules/solc/common/helpers.js "/tmp/aegis-solcjs-$version/node_modules/solc/common/"
+              cp /tmp/aegis-solcjs-0.8.19/node_modules/solc/common/types.js "/tmp/aegis-solcjs-$version/node_modules/solc/common/"
+            fi
+          done
+          python3 - <<'PYTHON'
+          import importlib.util
+          from pathlib import Path
+          spec = importlib.util.spec_from_file_location('build_inputs', 'scripts/runtime-build-inputs.py')
+          build_inputs = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(build_inputs)
+          for version in ('0.8.19', '0.8.10', '0.7.6'):
+              build_inputs.verify_compiler(version, Path(f'/tmp/aegis-solcjs-{version}/node_modules'))
+              print(f'Authenticated compiler tree {version}')
+          PYTHON
       - name: Verify source association and authenticated offline compiler replay
         run: python3 -m unittest discover -s tests -p test_runtime_build_inputs.py -v
+      - name: Verify creation identities and canonical constructor ABI
+        run: python3 -m unittest discover -s tests -p test_creation_runtime.py -v
+      - name: Replay thirteen creation-derived targets and seven Pool libraries offline
+        run: python3 scripts/verify-creation-runtime.py --output "$RUNNER_TEMP/creation-runtime.json"
       - run: forge fmt --check
       - run: forge build
       - run: forge test

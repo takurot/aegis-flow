@@ -33,6 +33,8 @@
 
 ## ドキュメント
 
+- [Creation-derived runtime evidence](docs/CREATION_RUNTIME.md)：13 immutable 対象と追加 7 Pool library の creation 証拠、独立導出、offline replay。
+
 - [Runtime compiler input replay](docs/RUNTIME_BUILD_INPUTS.md)：compiler 入力 bundle、source Keccak 検証、独立 compiler pins、offline replay。
 
 - [機能仕様書](docs/SPEC.md)：機能要件、信頼境界、受け入れ基準、導入条件

@@ -1,0 +1,122 @@
+{
+  "BorrowLogic": {
+    "bundle": "builds/7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458.json",
+    "bundle_sha256": "7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "67ff0395a52bfb69a44a66d27986e2f589ee772134ff39841cf4ebb6aa18a838"
+  },
+  "BridgeLogic": {
+    "bundle": "builds/7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458.json",
+    "bundle_sha256": "7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "67ff0395a52bfb69a44a66d27986e2f589ee772134ff39841cf4ebb6aa18a838"
+  },
+  "EModeLogic": {
+    "bundle": "builds/7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458.json",
+    "bundle_sha256": "7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "67ff0395a52bfb69a44a66d27986e2f589ee772134ff39841cf4ebb6aa18a838"
+  },
+  "FlashLoanLogic": {
+    "bundle": "builds/7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458.json",
+    "bundle_sha256": "7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "67ff0395a52bfb69a44a66d27986e2f589ee772134ff39841cf4ebb6aa18a838"
+  },
+  "LiquidationLogic": {
+    "bundle": "builds/7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458.json",
+    "bundle_sha256": "7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "67ff0395a52bfb69a44a66d27986e2f589ee772134ff39841cf4ebb6aa18a838"
+  },
+  "PoolLogic": {
+    "bundle": "builds/7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458.json",
+    "bundle_sha256": "7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "67ff0395a52bfb69a44a66d27986e2f589ee772134ff39841cf4ebb6aa18a838"
+  },
+  "SupplyLogic": {
+    "bundle": "builds/7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458.json",
+    "bundle_sha256": "7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "67ff0395a52bfb69a44a66d27986e2f589ee772134ff39841cf4ebb6aa18a838"
+  },
+  "WETH_price_source_aggregator": {
+    "bundle": "builds/37e83f625114d2d53d4c8dbf013ba3d17b773e56a1e713b3a1e47c018655d4f9.json",
+    "bundle_sha256": "37e83f625114d2d53d4c8dbf013ba3d17b773e56a1e713b3a1e47c018655d4f9",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "ea9faa9efee83804414aa19dc85e248b31c3e3b40aa1ce8cd39d7527d1dfdf71"
+  },
+  "aUSDC": {
+    "bundle": "builds/8c289db74c3275d76325049b8c21f967f1527f9d2ababcdce274e123d9713c6a.json",
+    "bundle_sha256": "8c289db74c3275d76325049b8c21f967f1527f9d2ababcdce274e123d9713c6a",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "0214cdc5aab15ea97da19fb1e8cd7c4d3025918038741b8462fc887136a11f8f"
+  },
+  "aWETH": {
+    "bundle": "builds/9a51625a3f5a4c4ee592f80537e0b3560a6646ebb2743740d4f4d5ee19c32de5.json",
+    "bundle_sha256": "9a51625a3f5a4c4ee592f80537e0b3560a6646ebb2743740d4f4d5ee19c32de5",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "0214cdc5aab15ea97da19fb1e8cd7c4d3025918038741b8462fc887136a11f8f"
+  },
+  "aWETH_impl": {
+    "bundle": "builds/da529649a117857aa48a6ae4b562c61fba414801afbb2e440ed8954551b991cc.json",
+    "bundle_sha256": "da529649a117857aa48a6ae4b562c61fba414801afbb2e440ed8954551b991cc",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "ebf81af8808087cadf43efc3d609538fc1c62de87cc8003075904342bdf97fb5"
+  },
+  "acl": {
+    "bundle": "builds/2ed60e392009a279c24aeb0daa07e4280e3f1df38402e293600115a198d00a82.json",
+    "bundle_sha256": "2ed60e392009a279c24aeb0daa07e4280e3f1df38402e293600115a198d00a82",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "20c54730c70d744a6b62bd7d5b941a2734f3b1ce4cdc684dc8538657ed4720f0"
+  },
+  "configurator": {
+    "bundle": "builds/b7939b8453c1867aa050ee2172356c17e7c40ff1c5eab38b78cd062b86bcc9e7.json",
+    "bundle_sha256": "b7939b8453c1867aa050ee2172356c17e7c40ff1c5eab38b78cd062b86bcc9e7",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "0214cdc5aab15ea97da19fb1e8cd7c4d3025918038741b8462fc887136a11f8f"
+  },
+  "oracle": {
+    "bundle": "builds/d086b31c9b043dfc58fce20b9c8d238f25db0ba38da672a8e13d1afde6ddc031.json",
+    "bundle_sha256": "d086b31c9b043dfc58fce20b9c8d238f25db0ba38da672a8e13d1afde6ddc031",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "a158458b4f47e1023016f7c6d016b75bf5468cb671b3b9b387b5bcbb4b2a310c"
+  },
+  "pool": {
+    "bundle": "builds/ad525239ccdd99aeddaa50a45554db99fe60f257743444b224dc82a2fe107519.json",
+    "bundle_sha256": "ad525239ccdd99aeddaa50a45554db99fe60f257743444b224dc82a2fe107519",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "0214cdc5aab15ea97da19fb1e8cd7c4d3025918038741b8462fc887136a11f8f"
+  },
+  "pool_impl": {
+    "bundle": "builds/7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458.json",
+    "bundle_sha256": "7f925e9b779b6ecc51807331da19c6062d1951b15bf2791f85efd75b43713458",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "67ff0395a52bfb69a44a66d27986e2f589ee772134ff39841cf4ebb6aa18a838"
+  },
+  "stableDebtUSDC": {
+    "bundle": "builds/3609b728ba9a8b73dbf1e8bfb523dcc69024efa41bfa03d00645774aa2f8004d.json",
+    "bundle_sha256": "3609b728ba9a8b73dbf1e8bfb523dcc69024efa41bfa03d00645774aa2f8004d",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "0214cdc5aab15ea97da19fb1e8cd7c4d3025918038741b8462fc887136a11f8f"
+  },
+  "stableDebtUSDC_impl": {
+    "bundle": "builds/22b3ecf33877e1e043a8a5fd7931d8a570f2596bcf1a68727e62a476a1933b37.json",
+    "bundle_sha256": "22b3ecf33877e1e043a8a5fd7931d8a570f2596bcf1a68727e62a476a1933b37",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "c5ff258b5c9c6d870bcc2f91accf12f5d7aea338db046573fe6fc432f778b0ba"
+  },
+  "variableDebtUSDC": {
+    "bundle": "builds/cf33e23082bca9ab9422935d90e4305bacac2ea073e57d57671c332c09b8a77b.json",
+    "bundle_sha256": "cf33e23082bca9ab9422935d90e4305bacac2ea073e57d57671c332c09b8a77b",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "0214cdc5aab15ea97da19fb1e8cd7c4d3025918038741b8462fc887136a11f8f"
+  },
+  "variableDebtUSDC_impl": {
+    "bundle": "builds/1ebd30434eed18ebae66c44e987d8a20fecd99dda04d350bb899d11f9c84a331.json",
+    "bundle_sha256": "1ebd30434eed18ebae66c44e987d8a20fecd99dda04d350bb899d11f9c84a331",
+    "compiled_output_hash_encoding": "UTF-8 JSON with sorted keys and compact separators",
+    "compiled_output_sha256": "fc0f212cda4d6f02988116a4ce8074b4bc22ac8b3c3f455e365803afcb25442c"
+  }
+}
