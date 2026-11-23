@@ -1,0 +1,22 @@
+{
+  "USDC_price_source_aggregator-block.json": "f6575b8e7fee464a92e90fad04cd0a74882f16d3bb132167114b79fc29af0bfe",
+  "USDC_price_source_aggregator-candidate-bundle.json": "bb4b25dd88ae4b78f90733ca512223b5aa30e61f8f6daee6d2198c8d44222eed",
+  "USDC_price_source_aggregator-explorer-observation.json": "57d9d7cc747a19cf82ce256e140db329257c0ac465ffec75d8a848d600814a16",
+  "USDC_price_source_aggregator-receipt.json": "c464c7b6f3c1b99971e8758a7b0bea0002ba0752ec3689efd59785b500285c02",
+  "USDC_price_source_aggregator-transaction.json": "80d5460c808ab5640334caf1bccf6790e11d74e0e2f35725862c984abaca2ec9",
+  "WETH_price_source-block.json": "c9522ee9155af515538d324e8d38b3c2096e30290f586ef466d47b83f0e1f900",
+  "WETH_price_source-candidate-bundle.json": "5c49293ba99f2d64ce06cc378c710345c6a15576a1dfc53a4f7a10e5aa75add7",
+  "WETH_price_source-explorer-observation.json": "3ab83c1336c1b5e4775198982713443e4cd09faec7dfed5850fcca6fd00190f3",
+  "WETH_price_source-receipt.json": "8d4e35728e2e82bdabe0278a737d34ca307e94292377a3e5a9f3ba638c2eb595",
+  "WETH_price_source-transaction.json": "df75d827260fb880484f7fd9058319a14841b87a123c18816827902d2e6b0b4a",
+  "authenticated-source-manifest.json": "2e1989a3ce2e1820007ae646c2572d54ff567cdbfc115ed42d4a31a18a277f9d",
+  "bounded-candidate-results.json": "6dc91244443cd9d85c3c273e606e01b917dc6d89a196d4f5613a585d30efe238",
+  "libocr-go_generate.go": "fa13f02f753840a33c1892e02c53c32778bed103e1274f7822fea02f4de883ec",
+  "libocr-historical-commit.json": "8fc96e3f8ff9ef71b85cf08026b3f03f4dd94a05f722746d641a5aa4e2d802dc",
+  "libocr-historical-tree.json": "28d2027394a0a807ca6e688a93e9c089657b4bb156e05fd09c2a6619ad6d6890",
+  "libocr-source-comparison.json": "1c6fd89fd0769156dcc246479e04de19e6c6f49f9c3bdf56efa2c0403a2486f9",
+  "npm-packages.json": "4b336f2ca778657ab61c78f0838a1865bc7fe5ad3d4dce785d69dfa0465ca79a",
+  "official-proxy-0.0.9-artifact.json": "86cf3be54f8fc3c064158612752a008474e7eed24429991b4be0da0644610f9f",
+  "official-proxy-artifact-results.json": "418580978c8de7cf84f3931b8af3e8bac2fd99ed0857a12a26dd22cc35211b0c",
+  "replay-results.json": "d5bd8942d3e96a54693ede3b27200e107bda5828f9e7b0b175bff0092d9880f5"
+}
