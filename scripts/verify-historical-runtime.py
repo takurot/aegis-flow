@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare a #53 replay output with the two supplemental fixed-block proofs."""
+"""Compare a #53 replay output with the supplemental fixed-block proofs."""
 import argparse
 import hashlib
 import importlib.util
@@ -10,7 +10,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUTS = ROOT / 'forks/historical-runtime-inputs'
-TARGETS = ('provider', 'governance_proxy_admin')
+TARGETS = {'provider': '0.8.10', 'governance_proxy_admin': '0.8.10', 'USDC_price_source': '0.6.6'}
 
 spec = importlib.util.spec_from_file_location('source_runtime', ROOT / 'scripts/verify-source-runtime.py')
 rt = importlib.util.module_from_spec(spec)
@@ -47,7 +47,7 @@ def load_inputs(folder, name):
         for evidence in (snapshot, bundle['target']):
             require(all(type(evidence[k]) is type(v) and evidence[k] == v for k, v in anchor.items())
                     and evidence['address'].lower() == fixed['address'].lower(), 'target or snapshot identity mismatch')
-        require(bundle['target']['name'] == name and bundle['compiler']['version'] == '0.8.10', 'bundle target or compiler mismatch')
+        require(bundle['target']['name'] == name and bundle['compiler']['version'] == TARGETS[name], 'bundle target or compiler mismatch')
         raw_hex = snapshot['runtime']
         require(re.fullmatch(r'0x(?:[0-9a-f]{2})+', raw_hex) is not None, 'invalid snapshot bytecode')
         raw = bytes.fromhex(raw_hex[2:])

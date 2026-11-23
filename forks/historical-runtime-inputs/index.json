@@ -3,6 +3,24 @@
   "block_hash": "0xcf384012b91b081230cdf17a3f7dd370d8e67056058af6b272b3d54aa2714fac",
   "chain_id": 1,
   "targets": {
+    "USDC_price_source": {
+      "bundle_sha256_raw_file": "97ad577310bdcaeae3cf751eab0ec7885b7fc7b17569c115480e7fe01b278dc3",
+      "comparison_sha256_raw_file": "e05712d1851ca25ebcd85feb678ab13bc7b18a5991222ef7ea6a3ab6ed85e7fb",
+      "compiled_metadata_sha256_raw_bytes": "a60d614dfb6e4c30e35707bcfd3508182876a9e4e6a8ac494e596fbfecacfb37",
+      "creation_limit": "Direct successful transaction and receipt identified; complete creation verification not performed",
+      "fixed_embedded_cids": [
+        "QmbfsbgQwvkxffBBy2cMzfuxUZBauJkT7CGMa39y2dGv6k"
+      ],
+      "fixed_runtime_keccak256_raw_bytes": "0xbd6f524cdc4268b6bd1bb6f77a8821faeea9c52ee9e0afa0b6d948ce82c966c2",
+      "fixed_runtime_sha256_raw_bytes": "53ca1c4d67c7b092f36c66e575874226de7e8eaada554f445f43fe2779743ec1",
+      "historical_routescan_sha256": "0xfec54044159bae3d90a0070d0c2d329d72e95398fa2278d71a23de68512c9959",
+      "historical_runtime_sha256_lowercase_hex_without_0x": "d67c4f5b76ad60584789650ff315d76d4eaa3149035bd56af8e39f9684eed41f",
+      "public_response_sha256_raw_file": "5526138ae11b4a70d4250005552221eb71ad6452a106d8453a3cae3663938c13",
+      "public_source_url": "https://sourcify.dev/server/v2/contract/1/0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6?fields=metadata,sources,compilation,runtimeBytecode",
+      "routescan_raw_file_sha256": "0694244080af730819c7719fcb4be730c0425dd9eb0dab2ed8c6d39265ddd422",
+      "routescan_unwrapped_source_json_sha256": "6067cc1448be4b5809080418cb88041e471a7883d7aa4944bb360c791fff2fcd",
+      "routescan_url": "https://api.routescan.io/v2/network/mainnet/evm/1/etherscan/api?module=contract&action=getsourcecode&address=0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6"
+    },
     "governance_proxy_admin": {
       "bundle_sha256_raw_file": "ddeb19f9dbef39b034fa7f2a403c3b196cc03005cc6fdc18645bf1920311cf77",
       "comparison_sha256_raw_file": "c4e5b5745c3ae071074353747e8de80350f4c86c79b404e9452ca5436c123913",
