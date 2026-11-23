@@ -60,6 +60,12 @@ jobs:
       - uses: foundry-rs/foundry-toolchain@dba66c27052e63476d886f22216e119ba7e615bf # v1
         with:
           version: v1.8.6
+      - name: Install pinned offline compiler inputs
+        run: |
+          read -r -a packages <<< "$(python3 -c 'import json; print(" ".join(json.load(open("scripts/runtime-compiler-pins.json"))["0.8.19"]["registry_tarballs"]))')"
+          npm install --prefix /tmp/aegis-solcjs-0.8.19 --ignore-scripts --no-audit --no-fund "${packages[@]}"
+      - name: Verify source association and authenticated offline compiler replay
+        run: python3 -m unittest discover -s tests -p test_runtime_build_inputs.py -v
       - run: forge fmt --check
       - run: forge build
       - run: forge test

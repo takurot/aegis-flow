@@ -6,7 +6,6 @@ import importlib.util
 import json
 from pathlib import Path
 import re
-import shutil
 import subprocess
 import sys
 import time
@@ -29,19 +28,15 @@ def compiler_version(row):
     return match.group(1)
 
 
+spec = importlib.util.spec_from_file_location('runtime_build_inputs', ROOT / 'scripts/runtime-build-inputs.py')
+build = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(build)
+BUNDLE_DIR = ROOT / 'forks/runtime-inputs'
+
+
 def solc_module(version):
-    module = SOLC_ROOT / f'aegis-solcjs-{version}' / 'node_modules' / 'solc'
-    if not module.is_dir():
-        raise deps.Failure(
-            f'solc {version} missing; install with npm --prefix {SOLC_ROOT}/aegis-solcjs-{version} solc@{version}'
-        )
-    common = module / 'common'
-    if not common.is_dir():
-        fallback = SOLC_ROOT / 'aegis-solcjs-0.8.19' / 'node_modules' / 'solc' / 'common'
-        if not fallback.is_dir():
-            raise deps.Failure(f'solc {version} wrapper common directory is missing')
-        shutil.copytree(fallback, common)
-    return str(module)
+    build.verify_compiler(version)
+    return str(SOLC_ROOT / f'aegis-solcjs-{version}' / 'node_modules/solc')
 
 
 def fetch_source_row(address, etherscan_key):
@@ -85,11 +80,12 @@ def standard_input(row, version):
         raise deps.Failure('source JSON has no sources')
     settings = obj.setdefault('settings', {})
     if version.startswith('0.4.'):
-        settings['outputSelection'] = {'*': {'*': ['evm.deployedBytecode.object']}}
+        settings['outputSelection'] = {'*': {'*': ['metadata', 'evm.deployedBytecode.object']}}
     else:
         settings['outputSelection'] = {
             '*': {
                 '*': [
+                    'metadata',
                     'evm.deployedBytecode.object',
                     'evm.deployedBytecode.immutableReferences',
                     'evm.deployedBytecode.linkReferences',
@@ -100,23 +96,18 @@ def standard_input(row, version):
 
 
 def compile_source(input_obj, version):
-    process = subprocess.run(
-        ['node', str(ROOT / 'scripts' / 'solc-compile.js'), solc_module(version)],
-        input=json.dumps(input_obj),
-        text=True,
-        capture_output=True,
-        timeout=180,
-    )
-    if process.returncode != 0:
-        raise deps.Failure('solc execution failed')
-    try:
-        output = json.loads(process.stdout)
-    except ValueError:
-        raise deps.Failure('solc output is invalid JSON') from None
-    errors = [error for error in output.get('errors', []) if error.get('severity') == 'error']
-    if errors:
-        raise deps.Failure('solc compile errors')
-    return output
+    return build.compile_input(json.dumps(input_obj).encode('utf-8'), version)[0]
+
+
+def capture_provenance(input_obj, metadata_bytes, origin, address, version, expected_version=None):
+    name = next((name for name, value in deps.RUNTIME_TARGETS.items() if value.lower() == address.lower()), None)
+    if name is None:
+        raise deps.Failure('unknown runtime bundle target')
+    full = build.PINS[version]['full_version']
+    if expected_version and expected_version.lstrip('v') not in (full, full.removesuffix('.Emscripten.clang')):
+        raise deps.Failure('requested compiler full version does not match approved pin')
+    bundle = build.capture_bundle(json.dumps(input_obj).encode('utf-8'), metadata_bytes, origin, name, version)
+    return {**build.save_bundle(bundle, BUNDLE_DIR), 'compiler_execution': build.verify_compiler(version)}
 
 
 def find_contract(output, contract_name):
@@ -225,6 +216,9 @@ def verify_target(name, target, rpc_url, etherscan_key, cache):
     address = target['address']
     row, provider = fetch_source_row(address, etherscan_key)
     version = compiler_version(row)
+    full = build.PINS[version]['full_version']
+    if row.get('CompilerVersion', '').lstrip('v') not in (full, full.removesuffix('.Emscripten.clang')):
+        raise deps.Failure('requested compiler full version does not match approved pin')
     contract_name = row.get('ContractName') or ''
     input_obj, source_hash = standard_input(row, version)
     cache_key = (source_hash, contract_name, version)
@@ -232,6 +226,8 @@ def verify_target(name, target, rpc_url, etherscan_key, cache):
         cache[cache_key] = compile_source(input_obj, version)
     output = cache[cache_key]
     source_path, data = find_contract(output, contract_name)
+    provenance = capture_provenance(input_obj, data['metadata'].encode('utf-8'),
+                                    'compiler-generated metadata', address, version, row.get('CompilerVersion'))
     deployed = deps.rpc(rpc_url, 'eth_getCode', [address, hex(deps.BLOCK)]).lower()
     if not deployed.startswith('0x') or deployed == '0x':
         raise deps.Failure('no deployed code')
@@ -261,7 +257,9 @@ def verify_target(name, target, rpc_url, etherscan_key, cache):
         'contract_name': contract_name,
         'compiler': version,
         'source_provider': provider,
+        'provenance': provenance,
         'source_sha256': '0x' + source_hash,
+        'source_hash_encoding': 'raw UTF-8 bytes of API SourceCode with outer brace pair removed',
         'deployed_bytes': len(deployed) // 2,
         'compiled_bytes': len(compiled) // 2,
         'code_bytes': len(deployed_code) // 2,

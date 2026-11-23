@@ -33,6 +33,8 @@
 
 ## ドキュメント
 
+- [Runtime compiler input replay](docs/RUNTIME_BUILD_INPUTS.md)：compiler 入力 bundle、source Keccak 検証、独立 compiler pins、offline replay。
+
 - [機能仕様書](docs/SPEC.md)：機能要件、信頼境界、受け入れ基準、導入条件
 - [市場統合調査](docs/MARKET_INTEGRATION.md)：対象市場の操作経路、未達条件、fork PoC の合格条件
 - [Aave V3 の fork](docs/MARKET_FORK.md)：固定ブロックの baseline、ローカル限定の保護 PoC、任意 wrapper の反例と未達ゲート
