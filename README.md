@@ -33,6 +33,7 @@
 
 ## ドキュメント
 
+- [Configurator runtime evidence](docs/CONFIGURATOR_RUNTIME.md)：元 metadata と CREATE2 からの ConfiguratorLogic binding を使う単独対象の全 byte 再現。
 - [Creation-derived runtime evidence](docs/CREATION_RUNTIME.md)：13 immutable 対象と追加 7 Pool library の creation 証拠、独立導出、offline replay。
 
 - [Runtime compiler input replay](docs/RUNTIME_BUILD_INPUTS.md)：compiler 入力 bundle、source Keccak 検証、独立 compiler pins、offline replay。

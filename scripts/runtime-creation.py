@@ -96,7 +96,7 @@ def authenticate_creation(target, evidence):
                 execution_address = child['to'].lower()
             parent = child
         raw_hex(frame['input'])
-        return {'address': target['address'].lower(), 'chain_id': 1, 'transaction_hash': tx['hash'],
+        return {'target': target['target'], 'address': target['address'].lower(), 'chain_id': 1, 'transaction_hash': tx['hash'],
                 'deployment_block': int(header['number'], 16), 'deployment_block_hash': header['hash'],
                 'frame_path': list(path), 'frame': frame,
                 'canonicality': 'RPC canonical header consistency; full parent-header ancestry not traversed'}
@@ -211,6 +211,56 @@ def word(value):
     return (number % 2**256).to_bytes(32, 'big')
 
 
+def link_runtime(runtime, libraries):
+    code, used = runtime['object'], set()
+    if not isinstance(code, str) or len(code) % 2:
+        raise ValueError()
+    for path, names in runtime.get('linkReferences', {}).items():
+        for name, spans in names.items():
+            value = raw_hex(libraries[path+':'+name])
+            if len(value) != 20 or not spans:
+                raise ValueError()
+            for span in spans:
+                start, length = span['start'], span['length']
+                if type(start) is not int or type(length) is not int or length != 20 or start < 0 or start+length > len(code)//2:
+                    raise ValueError()
+                area = set(range(start, start+length))
+                if used & area:
+                    raise ValueError()
+                used |= area
+                code = code[:start*2]+value.hex()+code[(start+length)*2:]
+    return bytearray.fromhex(code), used
+
+
+def derive_linked_runtime(validated_build, authenticated_creation):
+    """Derive empty-constructor runtimes with no immutables from creation-only links."""
+    if not isinstance(validated_build, ValidatedBuild):
+        raise Failure('authenticated replay build required')
+    try:
+        bundle = validated_build.bundle
+        if (bundle['target']['name'] != authenticated_creation['target']
+                or bundle['target']['address'].lower() != authenticated_creation['address']
+                or authenticated_creation['chain_id'] != bundle['target']['chain_id']):
+            raise ValueError()
+        if authenticated_creation['chain_id'] != 1:
+            raise ValueError()
+        target = build.compilation_target(build.decoded(bundle['standard_input']), build.decoded(bundle['metadata']))
+        compiled = validated_build.output['contracts'][target['source_path']][target['contract_name']]
+        runtime = compiled['evm']['deployedBytecode']
+        if runtime.get('immutableReferences'):
+            raise ValueError()
+        _, suffix, libraries = bind_creation_code(compiled['evm']['bytecode'], raw_hex(authenticated_creation['frame']['input']))
+        args = canonical_constructor(compiled['abi'], suffix)
+        if args or any(item['type'] == 'constructor' and item['inputs'] for item in compiled['abi']):
+            raise ValueError()
+        expected, _ = link_runtime(runtime, libraries)
+        return bytes(expected), {'constructor_arguments': args, 'libraries': libraries, 'immutable_bindings': [],
+                                 'source_identity_sha256': source_identity(validated_build.input),
+                                 'creation': {k: v for k, v in authenticated_creation.items() if k != 'frame'}}
+    except (KeyError, TypeError, ValueError, IndexError):
+        raise Failure('postlink runtime requires matching creation, empty constructor, and no immutables') from None
+
+
 def derive_runtime(validated_build, target, authenticated_creation):
     if not isinstance(validated_build, ValidatedBuild):
         raise Failure('authenticated replay build required')
@@ -244,19 +294,7 @@ def derive_runtime(validated_build, target, authenticated_creation):
             context.append({'path_from_creation': list(path), 'type': 'STATICCALL', 'from': call['from'],
                             'to': call['to'], 'input': call['input'], 'output': call['output']})
         runtime = compiled['evm']['deployedBytecode']
-        code = runtime['object']
-        used = set()
-        for path, names in runtime.get('linkReferences', {}).items():
-            for name, spans in names.items():
-                value = raw_hex(libraries[path+':'+name])
-                for span in spans:
-                    start, length = span['start'], span['length']
-                    area = set(range(start, start+length))
-                    if length != 20 or start < 0 or start+length > len(code)//2 or used & area:
-                        raise ValueError()
-                    used |= area
-                    code = code[:start*2]+value.hex()+code[(start+length)*2:]
-        expected = bytearray.fromhex(code)
+        expected, used = link_runtime(runtime, libraries)
         refs = runtime.get('immutableReferences', {})
         decls = declarations(validated_build.output)
         if len(refs) != len(recipe['immutables']):
